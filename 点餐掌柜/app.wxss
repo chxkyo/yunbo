@@ -1,0 +1,51 @@
+page {
+  width: 100%;
+  min-height: 100%;
+  font-family: -apple-system-font, 'Helvetica Neue', Helvetica, 'Microsoft YaHei', sans-serif;
+}
+.ell{
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  overflow:hidden;
+}
+.left,.right{
+  width: 49%;
+}
+.left{
+  float: left;
+}
+.right{
+  float:right;
+}
+.fix { clear:both; zoom:1; }
+.fix:after { display:block; clear:both; height:0; overflow:hidden; visibility:hidden; content:"."; }
+form [form-type='submit']{
+  border:none;
+  text-align:left;
+  padding:0;
+  margin:0;
+  line-height:1.5;
+  color: inherit;
+  background-color: none !important;
+}
+form{position: relative}
+form [form-type='submit']::after{
+  border: 0 none;
+}
+.form-coverimg-btn{
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  filter: Alpha(opacity=0);
+}
+.icon{margin-right: 10rpx}
+.time-icon{width: 26rpx;height: 26rpx;}
+.open-app{position: fixed;right: 0;bottom: 200rpx;z-index: 1}
+.open-app image{width: 174rpx;height:78rpx;}
+.open-app button{width: 174rpx;height:78rpx;line-height: 78rpx;border-radius: 39rpx 0 0 39rpx;background-color: #367bfd;color: #fff;font-size:28rpx;text-align: center;}
+.open-app button::after{border: 0 none}
+.confirm-btn{background: -webkit-linear-gradient(left,#8379fb,#1da5fc);background: linear-gradient(to right,#8379fb,#1da5fc);box-shadow: 0 0 5px rgba(0, 0, 0, .2)}
+.del-btn{background: -webkit-linear-gradient(left,#fc2bef,#fb7992);background: linear-gradient(to right,#fc2bef,#fb7992);box-shadow: 0 0 5px rgba(0, 0, 0, .2)}

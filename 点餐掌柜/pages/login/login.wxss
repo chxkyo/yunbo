@@ -1,0 +1,8 @@
+.login-wrap{padding: 0 60rpx 60rpx; font-size: 24rpx;color: #d0d0d0;}
+.login-bg-wrap image{width: 100%;}
+.login-title{font-size: 48rpx;font-weight: 700;color: #000;}
+.welcome-back{margin-top: 20rpx;}
+.inputText{line-height: 80rpx;height: 80rpx;border-bottom:4rpx solid #f2f2f2;color: #000 }
+.inputView{margin-top: 40rpx;padding-bottom: 20rpx;}
+.loginBtnView{margin-top: 80rpx;}
+.error-tips{position: absolute;padding-top:10rpx;color: red}
