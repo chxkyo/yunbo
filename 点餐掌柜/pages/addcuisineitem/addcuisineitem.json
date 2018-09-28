@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "套餐菜品",
+    "usingComponents": {
+      "modal": "../../components/modal/modal"
+    }
+}

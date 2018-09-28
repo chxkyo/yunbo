@@ -1,0 +1,49 @@
+<view class="bgf9" style='height:20rpx;'></view>
+<view class="addcuisine-wrap">
+  <view class="input-view-item photo-item">
+    <view class="input-label-box">
+      <label>图片</label>
+    </view>
+    <view class="label-right-box" style='text-align:right' bindtap="joinPicture">
+      <image src="{{src}}" class="photo-icon" wx:if="{{src}}"></image>
+      <image src="../../images/img/photo.png" class="photo-icon" wx:else></image>
+    </view>
+  </view>
+  <view class="input-view-item">
+    <view class="input-label-box">
+      <label for="meal-name">套餐名称</label>
+    </view>
+    <view class="label-right-box">
+      <input class="weui-input" placeholder="请输入套餐名称" placeholder-style='color:#eee;font-size:32rpx;' id="meal-name" type="text" bindinput="getMealName"/>
+    </view>
+  </view>
+  <view class="input-view-item">
+    <view class="input-label-box">
+      <label for="meal-price">价格</label>
+    </view>
+    <view class="label-right-box">
+      <input class="weui-input" placeholder="请输入价格" placeholder-style='color:#eee;font-size:32rpx;' id="meal-price" type="digit" bindinput="getMealPrcie"/>
+    </view>
+  </view>
+  <view class="input-view-item">
+    <view class="input-label-box">
+      <label for="meal-price">最大允许数量</label>
+    </view>
+    <view class="label-right-box">
+      <input class="weui-input" placeholder="请输入最大允许数量" placeholder-style='color:#eee;font-size:32rpx;' id="meal-price" type="number" bindinput="getMealMaxNum"/>
+    </view>
+  </view>
+  <view class="input-view-item" style="padding:30rpx 0;">
+    <view class="input-label-box">
+      <label for="meal-price">套餐菜品</label>
+    </view>
+    <view class="label-right-box" style="width:50rpx;">
+      <navigator hover-class="none" url="../addcuisineitem/addcuisineitem">
+        <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+      </navigator>
+    </view>
+  </view>
+  <view class="save-btn-wrap">
+    <button class="save-meal-btn confirm-btn" type="primary" hover-class="none" bindtap="saveMeal">保存</button> 
+   </view>
+</view>

@@ -1,8 +1,10 @@
 {
   "pages":[
+    "pages/addcuisineitem/addcuisineitem",
     "pages/index/index",
     "pages/user/user",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/addcuisine/addcuisine"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -1,0 +1,15 @@
+<view class="custom-modal-wrap" wx:if='{{show}}' bindtap='clickMask'>
+  <view class="mask"></view>
+  <view class="modal-content-wrap">
+    <view class="modal-header">
+      <slot name="modal-title"></slot>
+      <image class="modal-close-icon" src="../../images/img/closed.png"></image>  
+    </view>
+    <view class="modal-content">
+      <slot name="middle-content"></slot>
+    </view>
+    <view class="modal-footer">
+      <slot name="footer"></slot>
+    </view>
+  </view>
+</view>

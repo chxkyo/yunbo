@@ -1,0 +1,2 @@
+/* pages/addcuisineitem/addcuisineitem.wxss */
+.add-cuisineitem-btn{padding: 16rpx;width: 80rpx;margin-left: auto}

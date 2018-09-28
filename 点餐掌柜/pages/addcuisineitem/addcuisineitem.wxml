@@ -1,0 +1,6 @@
+<!--pages/addcuisineitem/addcuisineitem.wxml-->
+<view class="bgf9" style='height:20rpx;'></view>
+<modal show="{{true}}"></modal>
+<view class="cuisineitem-wrap">
+  <view class="add-cuisineitem-btn-wrap"><view class="add-cuisineitem-btn" bindtap=''><text>新增</text></view></view>
+</view>

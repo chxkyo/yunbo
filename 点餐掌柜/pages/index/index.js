@@ -19,6 +19,56 @@ Page({
 
         return barChart;
       }
+    },
+    weekopendata:{
+      pie:{
+        onInit: function (canvas, width, height) {
+          const barChart = echarts.init(canvas, null, {
+            width: width,
+            height: height
+          });
+          canvas.setChart(barChart);
+          barChart.setOption(getDayOption());
+          return barChart;
+        }
+      },
+      bar:{
+        onInit: function (canvas, width, height) {
+          const barChart = echarts.init(canvas, null, {
+            width: width,
+            height: height
+          });
+          canvas.setChart(barChart);
+          barChart.setOption(getBarOption(["周一", "周二", "周三", "周四", "周五", "周六", "周日"], [3020, 4800, 3600, 6050, 4320, 6200, 5050]));
+          return barChart;
+        }
+      }
+    },
+    monthopendata:{
+      pie: {
+        onInit: function (canvas, width, height) {
+          const barChart = echarts.init(canvas, null, {
+            width: width,
+            height: height
+          });
+          canvas.setChart(barChart);
+          barChart.setOption(getDayOption());
+          return barChart;
+        },
+        disableTouch:true,
+      },
+      bar: {
+        onInit: function (canvas, width, height) {
+          const barChart = echarts.init(canvas, null, {
+            width: width,
+            height: height
+          });
+          canvas.setChart(barChart);
+          barChart.setOption(getBarOption(createMonthDay().date, createMonthDay().data));
+          return barChart;
+        },
+        disableTouch: true,
+      }
     }
   },
   //事件处理函数
@@ -67,15 +117,10 @@ Page({
 function getDayOption(){
   var option = {
     backgroundColor: "#ffffff",
-    color: ["#37A2DA", "#32C5E9", "#67E0E3", "#91F2DE", "#FFDB5C", "#FF9F7F"],
+    color: ["#21d3a3", "#fb8b5d", "#fb5db0", "#5f8ffe"],
     tooltip : {
       trigger: 'item',
       formatter: "{b} : {d}%"
-    },
-    legend: {
-      orient: 'vertical',
-      left: 'left',
-      data: ['北京', '武汉', '杭州', '广州']
     },
     series: [{
       label: {
@@ -88,21 +133,18 @@ function getDayOption(){
       radius: ["35%", "50%"],
       
       data: [{
-        value: 55,
-        name: '北京'
+        value: 21,
+        name: '微信支付'
       }, {
-        value: 20,
-        name: '武汉'
+        value: 29,
+        name: '支付宝支付'
       }, {
-        value: 10,
-        name: '杭州'
+        value: 25,
+        name: '银行卡支付'
       }, {
-        value: 20,
-        name: '广州'
-      }, {
-        value: 38,
-        name: '上海'
-      },
+        value: 25,
+        name: '其他支付'
+      }
       ],
       itemStyle: {
         emphasis: {
@@ -110,13 +152,71 @@ function getDayOption(){
           shadowOffsetX: 0,
           shadowColor: 'rgba(0, 2, 2, 0.3)'
         }
-      },
-      label: {
-        show: true,
-        position: "inner",
-        formatter: "{b} : {d}%"
       }
     }]
   };
   return option;
+}
+function getBarOption(date,saleArr) {
+  var option = {
+    //--------------   提示框 -----------------
+    tooltip: {
+      show: true,                  //---是否显示提示框,默认为true
+      trigger: 'item',             //---数据项图形触发
+      position:"top",
+      padding: 5,
+      textStyle: {                 //---提示框内容样式
+        color: "#fff",
+      },
+    },
+    //-------------   x轴   -------------------
+    xAxis: {
+      show: true,                  //---是否显示
+      position: 'bottom',          //---x轴位置
+      offset: 0,                   //---x轴相对于默认位置的偏移
+      type: 'category',            //---轴类型，默认'category'             //---坐标轴名称与轴线之间的距离
+      axisLine:{
+        show:false
+      },
+      axisTick: {
+        show: false
+      },
+      axisLabel: {                 //---坐标轴 标签
+        show: true,                  //---是否显示
+        inside: false,               //---是否朝内
+        rotate: 0,                   //---旋转角度   
+        margin: 5,                  //---刻度标签与轴线之间的距离
+        color:'#b3b3b3',
+      },
+      data: date,//内容
+    },
+
+    //----------------------  y轴  ------------------------
+    yAxis: {
+      show: false,                  //---是否显示
+    },
+    //------------ 内容数据  -----------------
+    series: [
+      {
+        name: '销量',             //---系列名称
+        type: 'bar',                //---类型
+        itemStyle: {                 //---图形形状
+          color: '#3e9cfe'
+        },
+        data: saleArr
+      }
+    ]
+  };
+  return option;
+}
+function createMonthDay() {
+  let daysOfMonth = [],data = [];
+  let fullYear = new Date().getFullYear();
+  let month = new Date().getMonth() + 1;
+  let lastDayOfMonth = new Date(fullYear, month, 0).getDate();
+  for (var i = 1; i <= lastDayOfMonth; i++) {
+    daysOfMonth.push(month + '-' + i);
+    data.push(3030);
+  };
+  return {date:daysOfMonth,data:data};
 }

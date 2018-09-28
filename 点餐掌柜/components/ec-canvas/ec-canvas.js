@@ -11,6 +11,24 @@ Component({
     },
     ec: {
       type: Object
+    },
+    turnover:{
+      type: String
+    },
+    wechatPay:{
+      type: String
+    },
+    aliPay:{
+      type: String
+    },
+    bankPay:{
+      type: String
+    },
+    otherPay:{
+      type: String
+    },
+    title:{
+      type: String
     }
   },
 
