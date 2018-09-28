@@ -15,6 +15,10 @@ Component({
 
    },
   methods: {
-
+    cancel(){
+      this.setData({
+        show:false
+      })
+    }
    }
 })
