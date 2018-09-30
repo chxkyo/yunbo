@@ -1,5 +1,5 @@
 <view class="bgf9" style='height:20rpx;'></view>
-<view class="addcuisine-wrap">
+<view class="editcuisine-wrap">
   <view class="input-view-item photo-item">
     <view class="input-label-box">
       <label>图片</label>
@@ -14,7 +14,7 @@
       <label for="meal-name">套餐名称</label>
     </view>
     <view class="label-right-box">
-      <input class="weui-input" placeholder="请输入套餐名称" placeholder-style='color:#eee;font-size:32rpx;' id="meal-name" type="text" bindinput="getMealName"/>
+      <input class="weui-input" placeholder="请输入套餐名称" placeholder-style='color:#eee;font-size:32rpx;' id="meal-name" type="text" bindinput="getMealName" value="{{mealName}}"/>
     </view>
   </view>
   <view class="input-view-item">
@@ -22,7 +22,7 @@
       <label for="meal-price">价格</label>
     </view>
     <view class="label-right-box">
-      <input class="weui-input" placeholder="请输入价格" placeholder-style='color:#eee;font-size:32rpx;' id="meal-price" type="digit" bindinput="getMealPrcie"/>
+      <input class="weui-input" placeholder="请输入价格" placeholder-style='color:#eee;font-size:32rpx;' id="meal-price" type="digit" bindinput="getMealPrcie" value="{{mealPrice}}"/>
     </view>
   </view>
   <view class="input-view-item">
@@ -30,7 +30,7 @@
       <label for="meal-discount">折扣</label>
     </view>
     <view class="label-right-box">
-      <input class="weui-input" placeholder="请输入折扣" placeholder-style='color:#eee;font-size:32rpx;' id="meal-discount" type="digit" bindinput="getMealDiscount"/>
+      <input class="weui-input" placeholder="请输入折扣" placeholder-style='color:#eee;font-size:32rpx;' id="meal-discount" type="digit" bindinput="getMealDiscount" value="{{mealDiscount}}"/>
     </view>
   </view>
   <view class="input-view-item">
@@ -38,21 +38,22 @@
       <label for="meal-price">最大允许数量</label>
     </view>
     <view class="label-right-box">
-      <input class="weui-input" placeholder="请输入最大允许数量" placeholder-style='color:#eee;font-size:32rpx;' id="meal-price" type="number" bindinput="getMealMaxNum"/>
+      <input class="weui-input" placeholder="请输入最大允许数量" placeholder-style='color:#eee;font-size:32rpx;' id="meal-price" type="number" bindinput="getMealMaxNum" value='{{mealMaxnum}}'/>
     </view>
   </view>
   <view class="input-view-item" style="padding:30rpx 0;">
     <view class="input-label-box">
       <label>套餐菜品</label>
     </view>
-    <view class="label-right-box">
+    <view class="label-right-box" bindtap='jumpAddCuisine'>
       <view class="all-cuisine ws ell"><text>{{allCuisine}}</text></view>
-      <view bindtap='jumpAddCuisine' class="jumpAddCuisine-a">
+      <view class="jumpAddCuisine-a">
         <image src="../../images/img/to.png" class="arrow-right-icon"></image>
       </view>
     </view>
   </view>
-  <view class="save-btn-wrap">
+  <view class="save-btn-wrap edit-cuisine-wrap">
+    <button class="save-meal-btn del-btn f1" type="primary" hover-class="none" bindtap='delThisMeal'>删除</button>
     <button class="save-meal-btn confirm-btn f1" type="primary" hover-class="none" bindtap="saveMeal">保存</button> 
    </view>
 </view>

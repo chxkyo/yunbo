@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "桌号管理",
+  "usingComponents": {
+    "modal": "../../components/modal/modal"
+  }
+}

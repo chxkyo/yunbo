@@ -1,0 +1,5 @@
+<!--pages/systemset/systemset.wxml-->
+<view class="bgf9-area"></view>
+<view class="system-set-wrap pd30">
+  <view></view>
+</view>

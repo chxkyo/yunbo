@@ -78,7 +78,6 @@ Page({
     })
   },
   login(){
-    console.log("登陆啦");
     if (this.data.userName.length == 0){
       this.setData({
         userErrorTipsShow:true,

@@ -30,7 +30,7 @@
     </view>
     <view class="navigator-box-wrap">
       <view class="navigator-item">
-        <navigator hover-class="none">
+        <navigator hover-class="none" url="../areamanage/areamanage">
           <view class="navigator-item-icon-wrap">
             <image src="../../images/img/zhgl.png"></image>
           </view>
@@ -38,7 +38,7 @@
         </navigator>
       </view>
       <view class="navigator-item">
-        <navigator hover-class="none" url="../addcuisine/addcuisine">
+        <navigator hover-class="none" url="../cuisinelist/cuisinelist">
           <view class="navigator-item-icon-wrap">
             <image src="../../images/img/cpgl.png"></image>
           </view>

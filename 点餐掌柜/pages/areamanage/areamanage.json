@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "区域管理",
+  "usingComponents": {
+    "modal": "../../components/modal/modal"
+  }
+}

@@ -1,0 +1,14 @@
+<!--pages/cuisinelist/cuisinelist.wxml-->
+<view class="bgf9" style='height:20rpx;'></view>
+<view class="cuisinelist-outer-wrap">
+  <view class="add-cuisineitem-btn-wrap"><navigator class="add-cuisineitem-btn confirm-btn" hover-class='none' url="../addcuisine/addcuisine"><text>新增套餐</text></navigator><navigator class="add-cuisineitem-btn confirm-btn" hover-class='none' url="../addgoods/addgoods"><text>新增商品</text></navigator></view>
+  <view class="cuisinelist-inner-wrap">
+    <view class="cuisinelist-wrap">
+      <view class="cuisine-item" wx:for="{{cuisineListArr}}" wx:key="*this">
+        <view class="cuisine-item-name"><text>{{item}}</text></view>
+        <view class="cuisine-item-del"><navigator hover-class='none' url="../editcuisine/editcuisine?index={{index}}" class="edit-cuisineitem-btn confirm-btn"><text>编辑</text></navigator></view>
+      </view>
+    </view>
+  </view>
+</view>
+

@@ -1,10 +1,16 @@
 {
   "pages":[
-    "pages/addcuisineitem/addcuisineitem",
-    "pages/index/index",
-    "pages/user/user",
     "pages/login/login",
-    "pages/addcuisine/addcuisine"
+    "pages/index/index",
+    "pages/cuisinelist/cuisinelist",
+    "pages/user/user",
+    "pages/areamanage/areamanage",
+    "pages/arealist/arealist",
+    "pages/editcuisine/editcuisine",
+    "pages/addcuisineitem/addcuisineitem",
+    "pages/addcuisine/addcuisine",
+    "pages/addgoods/addgoods",
+    "pages/systemset/systemset"
   ],
   "window":{
     "backgroundTextStyle":"light",

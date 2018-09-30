@@ -1,0 +1,30 @@
+<!--pages/areamanage/areamanage.wxml-->
+<modal show="{{showModal}}">
+  <view slot="modal-title"><text>新增区域</text></view>
+  <view slot="middle-content">
+    <view class="modal-picker-item modal-input-wrap">
+      <input type="text" placeholder='请输入区域名称' class="modal-input" placeholder-style="font-size:26rpx;color:#d3d3d3;" id="areaName" bindinput='getAreaName'/>
+    </view>
+  </view>
+  <button slot="footer" class="addsuisinmebtn confirm-btn" type="primary" hover-class="none" bindtap="saveArea">保存</button> 
+</modal>
+<view class="bgf9-area"></view>
+<view class="areamanage-wrap pd30">
+  <view class="add-cuisineitem-btn-wrap"><view class="add-cuisineitem-btn confirm-btn" bindtap='modalShow'><text>新增</text></view></view>
+  <view class="areamanage-list-wrap">
+    <block wx:for="{{areaListArr}}" wx:key="*this">
+      <navigator  hover-class='none' url="../arealist/arealist?type={{item.type}}">
+        <view class="input-view-item" style="padding:30rpx 0;">
+            <view class="input-label-box">
+              <label>{{item.name}}</label>
+            </view>
+            <view class="label-right-box">
+              <view class="jumpAddCuisine-a">
+                <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+              </view>
+            </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</view>

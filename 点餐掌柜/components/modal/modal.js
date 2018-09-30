@@ -6,13 +6,7 @@ Component({
     show: {
       type: Boolean,
       value: false
-    },
-    //modal的高度
-    height: {
-      type: String,
-      value: '80%'
     }
-
    },
   methods: {
     cancel(){

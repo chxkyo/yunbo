@@ -1,0 +1,9 @@
+/* pages/arealist/arealist.wxss */
+page{background-color: #f9f9f9}
+.box-list,.hall-list{display: flex;margin-top: 40rpx;flex-wrap: wrap;}
+.box-item,.hall-item{padding:15rpx 0;margin-bottom: 20rpx;margin-right:3.5%;background-color: #fff;font-size: 28rpx;text-align: center;width: 31%;border-radius:8rpx;}
+.box-item:nth-child(3n+3),.hall-item:nth-child(3n+3){margin-right: 0}
+.box-item-icon,.hall-item-icon{width: 100rpx;height: 100rpx;}
+.area-header{font-weight: bold }
+.footer-inner-wrap{display: flex;}
+.footer-inner-wrap .del-btn{margin-right: 30rpx;}

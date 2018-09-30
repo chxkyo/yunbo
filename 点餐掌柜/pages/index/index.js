@@ -119,8 +119,12 @@ function getDayOption(){
     backgroundColor: "#ffffff",
     color: ["#21d3a3", "#fb8b5d", "#fb5db0", "#5f8ffe"],
     tooltip : {
+      show: true,  
       trigger: 'item',
-      formatter: "{b} : {d}%"
+      formatter: "{b} : {d}%",
+      textStyle:{
+        color:"red"
+      }
     },
     series: [{
       label: {

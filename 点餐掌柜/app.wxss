@@ -20,6 +20,7 @@ page {
 }
 .fix { clear:both; zoom:1; }
 .fix:after { display:block; clear:both; height:0; overflow:hidden; visibility:hidden; content:"."; }
+.ws{white-space: nowrap}
 form [form-type='submit']{
   border:none;
   text-align:left;
@@ -48,25 +49,35 @@ form [form-type='submit']::after{
 .open-app image{width: 174rpx;height:78rpx;}
 .open-app button{width: 174rpx;height:78rpx;line-height: 78rpx;border-radius: 39rpx 0 0 39rpx;background-color: #367bfd;color: #fff;font-size:28rpx;text-align: center;}
 .open-app button::after{border: 0 none}
-.confirm-btn{background: -webkit-linear-gradient(left,#8379fb,#1da5fc);background: linear-gradient(to right,#8379fb,#1da5fc);box-shadow: 0 0 5px rgba(0, 0, 0, .2)}
-.del-btn{background: -webkit-linear-gradient(left,#fc2bef,#fb7992);background: linear-gradient(to right,#fc2bef,#fb7992);box-shadow: 0 0 5px rgba(0, 0, 0, .2)}
+.confirm-btn{background: -webkit-linear-gradient(left,#8379fb,#1da5fc);background: linear-gradient(to right,#8379fb,#1da5fc);box-shadow: 0 0 5px rgba(0, 0, 0, .2);}
+.del-btn{background: -webkit-linear-gradient(left,#fc2bef,#fb7992);background: linear-gradient(to right,#fc2bef,#fb7992);box-shadow: 0 0 5px rgba(0, 0, 0, .2);}
+.f1{flex: 1;}
 .wx-color{background-color:#21d3a3}.al-color{background-color: #fb8b5d}
 .bank-color{background-color: #fb5db0;}.other-color{background-color: #5f8ffe}
 .bgf9{background-color: #f9f9f9;}
-.weui-input{height:2.58823529em;min-height:2.58823529em;line-height:2.58823529em;}
+.weui-input{height:2.58823529em;min-height:2.58823529em;line-height:2.58823529em;text-align:right; }
+.bgf9-area{background-color: #f9f9f9;height:20rpx;}
+/*新增菜品*/
 .input-view-item{display:flex;align-items: center;border-bottom:2rpx solid #f1f1f1;justify-content: space-between;font-size: 32rpx;}
 .photo-item{padding: 30rpx 0rpx;}
 .input-view-item .photo-icon{width: 114rpx;height: 114rpx;border-radius: 50%;}
-.input-view-item .label-right-box{width:300rpx;}
-.input-view-item .label-right-box navigator{border: 10rpx solid transparent}
+.input-view-item .label-right-box{display:flex;width:300rpx;justify-content: flex-end;align-items: center}
+.input-view-item .label-right-box .jumpAddCuisine-a{border: 10rpx solid transparent}
 .input-view-item{padding: 20rpx 0;}
+.input-view-item picker{display: flex;flex:1;}
 .arrow-right-icon{width: 16rpx;height: 26rpx;}
-.save-btn-wrap{width: 80%;margin:80rpx auto 0;}
-.addcuisine-wrap,.cuisineitem-wrap{padding: 30rpx;}
+.save-btn-wrap{display:flex;width: 80%;margin:80rpx auto 0;}
+.all-cuisine{width:300rpx;text-align: right;}
+.addcuisine-wrap,.cuisineitem-wrap,.cuisinelist-outer-wrap,.editcuisine-wrap,.addgoods-wrap,.pd30{padding: 30rpx;}
 /*弹出层共用*/
 .modal-picker-choose-icon{width: 24rpx;height: 39rpx;}
 .modal-picker-item{display: flex;justify-content: space-between;padding: 30rpx 0;border-bottom: 2rpx solid #f1f1f1;}
+.modal-input-wrap{padding: 20rpx;background-color: #eee;border-radius: 8rpx;}
+.modal-input-wrap input{width: 100%}
 /*菜品列表*/
-.cuisinelist-wrap{margin-top:40rpx;border-top: 1px solid #f1f1f1; }
-.cuisine-item{display:flex;padding:30rpx;font-size: 32rpx;border-bottom: 1px solid #f1f1f1;justify-content: space-between}
+.cuisinelist-wrap,.areamanage-list-wrap{margin-top:40rpx;border-top: 1px solid #f1f1f1; }
+.cuisine-item{display:flex;align-items:center;padding:30rpx;font-size: 32rpx;border-bottom: 1px solid #f1f1f1;justify-content: space-between}
 .cuisine-item .cuisine-item-del image{width: 45rpx;height: 45rpx;vertical-align: -10rpx;margin-right: 20rpx;}
+.add-cuisineitem-btn-wrap{display: flex;justify-content: flex-end}
+.add-cuisineitem-btn{margin-right: 30rpx;}
+.add-cuisineitem-btn,.edit-cuisineitem-btn{padding: 16rpx;font-size: 32rpx;color: #fff;border-radius: 4rpx;text-align: center}

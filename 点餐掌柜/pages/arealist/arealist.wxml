@@ -1,0 +1,41 @@
+<!--pages/arealist/arealist.wxml-->
+<modal show="{{showModal}}">
+  <view slot="modal-title"><text>{{areaName}}</text></view>
+  <view slot="middle-content">
+    <view class="modal-picker-item modal-input-wrap">
+      <input type="text" placeholder='请输入区域名称' class="modal-input" placeholder-style="font-size:26rpx;color:#d3d3d3;" id="areaName" bindinput='getAreaName' value="{{areaItemName}}"/>
+    </view>
+  </view>
+  <view slot="footer" class="footer-inner-wrap">
+    <button  class="addsuisinmebtn del-btn f1" type="primary" hover-class="none" bindtap="delArea">删除</button>   
+    <button  class="addsuisinmebtn confirm-btn f1" type="primary" hover-class="none" bindtap="saveArea">保存</button> 
+  </view>
+</modal>
+<view class="bgf9-area"></view>
+<view class="arealist-wrap pd30">
+  <view class="add-cuisineitem-btn-wrap"><view class="add-cuisineitem-btn confirm-btn" bindtap='modalShow'><text>新增</text></view></view>
+  <view class="arealist-inner-wrap">
+    <view class="box-wrap" wx:if="{{areaType == 1}}">
+      <view class="area-header">包厢</view>
+      <view class="box-list">
+        <block wx:for="{{boxList}}" wx:key="*this">
+          <view class="box-item" bindtap='showBoxModal' data-index="{{index}}">
+            <view><image class="box-item-icon" src="../../images/img/deskicon1.png"></image></view>
+            <view><text>{{item}}</text></view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class="hall-wrap" wx:else>
+      <view class="area-header">大厅</view>
+      <view class="hall-list">
+        <block wx:for="{{hallList}}" wx:key="*this">
+          <view class="hall-item" bindtap='showHallModal' data-index="{{index}}">
+            <view><image class="hall-item-icon" src="../../images/img/deskicon2.png"></image></view>
+            <view><text>{{item}}</text></view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

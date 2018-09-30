@@ -12,14 +12,19 @@ Page({
     name_category:["鱼香肉丝","宫保鸡丁","糖醋排骨"],
     choose_name:false,
     name_index:0,
-    cai_list:["菜品名称"]
+    cai_list:[],
+    allcuisine:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    if (options.allcuisine){
+      this.setData({
+        cai_list: options.allcuisine.split("、")
+      })
+    }
   },
 
   /**
@@ -88,13 +93,50 @@ Page({
     })
   },
   chooseCuisine(){
-    this.data.cai_list.push(this.data.name_category[this.data.name_index])
-    this.setData({
-      cai_list: this.data.cai_list,
-      showModal:false
-    })
+    let pages = getCurrentPages();
+    let prevPage = pages[pages.length - 2];  //上一个页面
+    if (!this.data.choose_cai){
+      wx.showModal({
+        title: '提示',
+        content: '请选择菜品分类',
+        showCancel: false
+      })
+    } else if (!this.data.choose_name){
+      wx.showModal({
+        title: '提示',
+        content: '请选择菜品名称',
+        showCancel: false
+      })
+    }else{
+      if (this.data.cai_list.indexOf(this.data.name_category[this.data.name_index]) !== -1){
+        wx.showToast({
+          title:'已经添加该菜品了哦',
+          icon:'none'
+        })
+      }else{
+        this.data.cai_list.push(this.data.name_category[this.data.name_index])
+        this.setData({
+          cai_list: this.data.cai_list,
+          showModal: false
+        });
+        prevPage.setData({
+          allCuisine: this.data.cai_list.join("、")
+        })
+      }
+
+    }
+
   },
   delCuisine(e){
-    console.log(e)
+    let index = e.currentTarget.dataset.index;
+    this.data.cai_list.splice(index,1);
+    let pages = getCurrentPages();
+    let prevPage = pages[pages.length - 2];  //上一个页面
+    this.setData({
+      cai_list: this.data.cai_list
+    })
+    prevPage.setData({
+      allCuisine: this.data.cai_list.join("、")
+    })
   }
 })

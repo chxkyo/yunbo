@@ -9,7 +9,9 @@ Page({
     mealName:"",
     mealPrice:"",
     mealMaxnum:"",
-    cusineArr:[]
+    mealDiscount:"",
+    cusineArr:[],
+    allCuisine:''
   },
 
 
@@ -185,6 +187,12 @@ Page({
         content: '请输入最大允许数量',
         showCancel: false
       })
+    } else if (!this.data.allCuisine){
+      wx.showModal({
+        title: '提示',
+        content: '请选择套餐菜品',
+        showCancel: false
+      })
     }
   },
   getMealName(e){
@@ -200,6 +208,16 @@ Page({
   getMealMaxNum(e){
     this.setData({
       mealMaxnum: e.detail.value
+    })
+  },
+  getMealDiscount(e){
+    this.setData({
+      mealDiscount: e.detail.value
+    })
+  },
+  jumpAddCuisine(){
+    wx.navigateTo({
+      url: '../addcuisineitem/addcuisineitem?allcuisine=' + this.data.allCuisine
     })
   }
 })
