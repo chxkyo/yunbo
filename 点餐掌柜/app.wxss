@@ -88,3 +88,12 @@ form [form-type='submit']::after{
 .add-cuisineitem-btn-wrap{display: flex;justify-content: flex-end}
 .add-cuisineitem-btn{margin-right: 30rpx;}
 .add-cuisineitem-btn,.edit-cuisineitem-btn{padding: 16rpx;font-size: 32rpx;color: #fff;border-radius: 4rpx;text-align: center}
+/*统计报表*/
+.custom-tab{display: flex;align-items: center;background-color: #fff;}
+.custom-tab-item{flex: 1;display: flex;align-items: center;justify-content: center;}
+.custom-tab-subitem{display: inline-block;font-size: 32rpx;line-height: 80rpx;border-bottom: 6rpx solid transparent;color: #9f9f9f;font-weight:bold;}
+.custom-tab-item.active .custom-tab-subitem{color: #22a4fc;border-bottom: 6rpx solid;}
+.shuju-wrap{min-height: calc(100vh - 43px)}
+.shuju-inner-wrap{padding: 30rpx;background-color: #fff;}
+.shuju-inner-wrap{font-size: 32rpx;line-height: 56rpx;border-radius: 12rpx;}
+.shuju-header{margin-bottom: 30rpx;}

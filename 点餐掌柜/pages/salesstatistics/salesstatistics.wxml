@@ -1,0 +1,35 @@
+<modal show="{{showModal}}">
+  <view slot="modal-title"><text>自定义日期</text></view>
+  <view slot="middle-content">
+    <picker value="{{startDate}}" bindchange="bindStartDateChange" mode="date">
+      <view class="modal-picker-item">
+        <view class="modal-picker-item-des"><text>开始日期</text></view>
+        <view class="modal-picker-right-box ell"><view class="time-box"><text wx:if="{{chooseStartDate}}">{{startDate}}</text></view>        <view class="modal-picker-choose-icon"><image src="../../images/img/to.png" class="modal-picker-choose-icon"></image></view></view>
+      </view>
+    </picker>
+    <picker mode="date" bindchange="bindEndDateChange" value="{{endDate}}">
+      <view class="modal-picker-item">
+        <view class="modal-picker-item-des"><text>结束日期</text></view>
+        <view class="modal-picker-right-box ell"><view class="time-box"><text wx:if="{{chooseEndDate}}">{{endDate}}</text></view>        <view class="modal-picker-choose-icon"><image src="../../images/img/to.png" class="modal-picker-choose-icon"></image></view></view>
+      </view>
+    </picker>
+  </view>
+  <button slot="footer" class="addsuisinmebtn confirm-btn" type="primary" hover-class="none" bindtap="saveDate">保存</button> 
+</modal>
+<view class="salesstatistics-wrap">
+  <view class="custom-tab">
+    <view class="custom-tab-item {{index == 0?'active':'' }}" data-index="0" bindtap="tabTap"><view class="custom-tab-subitem">今日</view></view>
+    <view class="custom-tab-item {{index == 1?'active':'' }}" data-index="1" bindtap="tabTap"><view class="custom-tab-subitem">自定义</view></view>
+  </view>
+  <view class="shuju-wrap pd30">
+    <view class="shuju-inner-wrap">
+      <view class="print-time-wrap">
+        <view class="shuju-header"><text>商品名称</text><text>匠人牛品</text></view>
+        <view><text>起始时间：2018-09-05 10：00：00</text></view>
+        <view><text>结束时间：2018-09-05 10：00：00</text></view>
+        <view><text>打印餐别：全部餐别</text></view>
+        <view><text>打印时间：2018-09-05 10：00：00</text></view>
+      </view>
+    </view>
+  </view>
+</view>

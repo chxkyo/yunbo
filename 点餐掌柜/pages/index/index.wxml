@@ -54,7 +54,7 @@
         </navigator>
       </view>
       <view class="navigator-item">
-        <navigator hover-class="none">
+        <navigator hover-class="none" url="../salesstatistics/salesstatistics">
           <view class="navigator-item-icon-wrap">
             <image src="../../images/img/tjbb.png"></image>
           </view>

@@ -13,7 +13,8 @@
     "pages/systemset/systemset",
     "pages/classesset/classesset",
     "pages/printset/printset",
-    "pages/paymentset/paymentset"
+    "pages/paymentset/paymentset",
+    "pages/salesstatistics/salesstatistics"
   ],
   "window":{
     "backgroundTextStyle":"light",
