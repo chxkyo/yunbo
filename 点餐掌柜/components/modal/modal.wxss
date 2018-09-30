@@ -1,5 +1,5 @@
 .custom-modal-wrap{font-size: 32rpx;background-color: #fff;}
-.custom-modal-wrap .modal-header{position:relative;margin-bottom:70rpx;font-size:34rpx;font-weight: 700}
+.custom-modal-wrap .modal-header{position:relative;margin-bottom:50rpx;font-size:34rpx;font-weight: 700}
 .mask{position: absolute;left: 0;right: 0;top: 0;bottom: 0;display: flex;justify-content: center;align-items: center;background-color: rgba(0,0,0,0.4);
  z-index:1;
 }

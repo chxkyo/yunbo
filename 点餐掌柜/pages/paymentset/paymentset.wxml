@@ -1,11 +1,13 @@
 
 <view class="bgf9-area"></view>
 <view class="system-set-wrap pd30">
-  <view class="system-list-wrap btf1">
-      <navigator  hover-class='none' url="../classesset/classesset">
+  <view class="system-list-wrap">
         <view class="input-view-item" style="padding:30rpx 0;">
             <view class="input-label-box">
-              <label>班次设置</label>
+              <label>美团50抵100券</label>
+            </view>
+            <view class="payment-btn-wrap">
+              <button slot="footer" class="payment-btn stop-btn" type="primary" hover-class="none" bindtap="stopUse">停止使用</button> 
             </view>
             <view class="label-right-box">
               <view class="jumpAddCuisine-a">
@@ -13,11 +15,12 @@
               </view>
             </view>
         </view>
-      </navigator>
-      <navigator  hover-class='none' url="../printset/printset">
         <view class="input-view-item" style="padding:30rpx 0;">
             <view class="input-label-box">
-              <label>打印设置</label>
+              <label>美团80抵100券</label>
+            </view>
+            <view class="payment-btn-wrap">
+              <button slot="footer" class="payment-btn start-btn" type="primary" hover-class="none" bindtap="startUse">开始使用</button> 
             </view>
             <view class="label-right-box">
               <view class="jumpAddCuisine-a">
@@ -25,18 +28,5 @@
               </view>
             </view>
         </view>
-      </navigator>
-      <navigator  hover-class='none' url="../paymentset/paymentset">
-        <view class="input-view-item" style="padding:30rpx 0;">
-            <view class="input-label-box">
-              <label>收银设置</label>
-            </view>
-            <view class="label-right-box">
-              <view class="jumpAddCuisine-a">
-                <image src="../../images/img/to.png" class="arrow-right-icon"></image>
-              </view>
-            </view>
-        </view>
-      </navigator>
   </view>
 </view>

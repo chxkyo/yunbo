@@ -46,7 +46,7 @@
         </navigator>
       </view>
       <view class="navigator-item">
-        <navigator hover-class="none">
+        <navigator hover-class="none" url="../systemset/systemset">
           <view class="navigator-item-icon-wrap">
             <image src="../../images/img/xtsz.png"></image>
           </view>

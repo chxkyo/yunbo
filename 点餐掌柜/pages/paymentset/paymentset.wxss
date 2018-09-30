@@ -1,0 +1,2 @@
+/* pages/paymentset/paymentset.wxss */
+.system-list-wrap .label-right-box{width: auto}

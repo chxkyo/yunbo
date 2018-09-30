@@ -129,14 +129,25 @@ Page({
   },
   delCuisine(e){
     let index = e.currentTarget.dataset.index;
-    this.data.cai_list.splice(index,1);
-    let pages = getCurrentPages();
-    let prevPage = pages[pages.length - 2];  //上一个页面
-    this.setData({
-      cai_list: this.data.cai_list
-    })
-    prevPage.setData({
-      allCuisine: this.data.cai_list.join("、")
-    })
+    let that = this;
+    wx.showModal({
+      title: "确认删除该菜品吗?",
+      success: function (res) {
+        if (res.confirm) {
+          that.data.cai_list.splice(index, 1);
+          let pages = getCurrentPages();
+          let prevPage = pages[pages.length - 2];  //上一个页面
+          that.setData({
+            cai_list: that.data.cai_list
+          })
+          prevPage.setData({
+            allCuisine: that.data.cai_list.join("、")
+          })
+          wx.showToast({
+            title: '删除成功'
+          })
+        }
+      }
+    });
   }
 })

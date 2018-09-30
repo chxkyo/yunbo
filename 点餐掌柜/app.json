@@ -10,7 +10,10 @@
     "pages/addcuisineitem/addcuisineitem",
     "pages/addcuisine/addcuisine",
     "pages/addgoods/addgoods",
-    "pages/systemset/systemset"
+    "pages/systemset/systemset",
+    "pages/classesset/classesset",
+    "pages/printset/printset",
+    "pages/paymentset/paymentset"
   ],
   "window":{
     "backgroundTextStyle":"light",

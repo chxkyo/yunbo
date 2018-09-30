@@ -1,0 +1,38 @@
+<view class="bgf9-area"></view>
+<modal show="{{showModal}}">
+  <view slot="modal-title"><text>新增班次</text></view>
+  <view slot="middle-content">
+    <view class="modal-picker-item">
+      <view class="modal-picker-item-des"><label for="classes-name">班次名称</label></view>
+          <view class="label-right-box">
+      <input placeholder="请输入班次名称" placeholder-style='color:#eee;font-size:32rpx;' id="classes-name" type="text" bindinput="getClassesName" class="modal-item-input"/>
+    </view>
+    </view>
+    <picker mode="time" value="{{startTime}}" bindchange="bindStartTimeChange">
+      <view class="modal-picker-item">
+        <view class="modal-picker-item-des"><text>开始时间</text></view>
+        <view class="modal-picker-right-box ell"><view class="time-box"><text wx:if="{{chooseStartTime}}">{{startTime}}</text></view>        <view class="modal-picker-choose-icon"><image src="../../images/img/to.png" class="modal-picker-choose-icon"></image></view></view>
+      </view>
+    </picker>
+    <picker mode="time" bindchange="bindEndTimeChange" value="{{endTime}}">
+      <view class="modal-picker-item">
+        <view class="modal-picker-item-des"><text>结束时间</text></view>
+        <view class="modal-picker-right-box ell"><view class="time-box"><text wx:if="{{chooseEndTime}}">{{endTime}}</text></view>        <view class="modal-picker-choose-icon"><image src="../../images/img/to.png" class="modal-picker-choose-icon"></image></view></view>
+      </view>
+    </picker>
+  </view>
+  <button slot="footer" class="addsuisinmebtn confirm-btn" type="primary" hover-class="none" bindtap="saveClasses">保存</button> 
+</modal>
+<view class="classes-set-wrap pd30">
+  <view class="add-cuisineitem-btn-wrap"><view class="add-cuisineitem-btn confirm-btn" bindtap='modalShow'><text>新增</text></view></view>
+  <view class="classes-set-innerwrap btf1">
+    <block wx:for="{{classesArr}}" wx:key="{{name}}">
+      <view class="cuisine-item">
+        <view class="cuisine-item-name"><text>{{item.name}}</text></view>
+        <view class="classes-time">{{item.time}}</view>
+        <view class="cuisine-item-del"><image src="../../images/img/del.png" data-index="{{index}}" bindtap="delClasses"></image><text>删除</text></view>
+      </view>
+    </block>
+  </view>
+</view>
+

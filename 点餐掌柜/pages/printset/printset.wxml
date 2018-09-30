@@ -1,0 +1,70 @@
+<!--pages/printset/printset.wxml-->
+<view class="bgf9-area"></view>
+<view class="printset-wrap pd30">
+  <view class="input-view-item">
+    <view class="input-label-box">
+      <label for="print-name">打印机名称</label>
+    </view>
+    <view class="label-right-box">
+      <input class="weui-input" placeholder="请输入打印机名称" placeholder-style='color:#eee;font-size:32rpx;' id="print-name" type="text" bindinput="getPrintName"/>
+    </view>
+  </view>
+    <picker bindchange="bindPrintModeChange" value="{{printModeIndex}}" range="{{printModeArr}}">
+      <view class="input-view-item" style="padding:30rpx 0;">
+          <view class="input-label-box">
+            <label for="print-mode">打印模式</label>
+          </view>
+          <view class="label-right-box">
+            <view class="all-cuisine ws ell"><text>{{printModeArr[printModeIndex]}}</text></view>
+            <view class="jumpAddCuisine-a">
+              <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+            </view>
+          </view>
+      </view>
+    </picker>
+    <picker bindchange="bindPrintWidthChange" value="{{printWitdhIndex}}" range="{{printWidthArr}}">
+      <view class="input-view-item" style="padding:30rpx 0;">
+          <view class="input-label-box">
+            <label for="print-width">打印纸宽度</label>
+          </view>
+          <view class="label-right-box">
+            <view class="all-cuisine ws ell"><text>{{printWidthArr[printWidthIndex]}}</text></view>
+            <view class="jumpAddCuisine-a">
+              <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+            </view>
+          </view>
+      </view>
+    </picker>
+    <picker bindchange="bindConnectTypeChange" value="{{connectTypeIndex}}" range="{{connectTypeArr}}">
+      <view class="input-view-item" style="padding:30rpx 0;">
+          <view class="input-label-box">
+            <label for="print-width">连接类型</label>
+          </view>
+          <view class="label-right-box">
+            <view class="all-cuisine ws ell"><text>{{connectTypeArr[connectTypeIndex]}}</text></view>
+            <view class="jumpAddCuisine-a">
+              <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+            </view>
+          </view>
+      </view>
+    </picker>
+  <view class="input-view-item">
+    <view class="input-label-box">
+      <label for="ip-address">IP地址</label>
+    </view>
+    <view class="label-right-box">
+      <input class="weui-input" placeholder="请输入IP地址" placeholder-style='color:#eee;font-size:32rpx;' id="ip-address" type="digit" bindinput="getIpAddress"/>
+    </view>
+  </view>
+  <view class="input-view-item">
+    <view class="input-label-box">
+      <label for="print-port">端口</label>
+    </view>
+    <view class="label-right-box">
+      <input class="weui-input" placeholder="请输入端口" placeholder-style="color:#eee;font-size:32rpx;" id="print-port" type="number" bindinput="getPrintPort"/>
+    </view>
+  </view>
+  <view class="save-btn-wrap">
+    <button class="save-meal-btn confirm-btn f1" type="primary" hover-class="none" bindtap="savePrint">保存</button> 
+   </view>
+</view>

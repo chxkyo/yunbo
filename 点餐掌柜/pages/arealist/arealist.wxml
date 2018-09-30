@@ -7,7 +7,7 @@
     </view>
   </view>
   <view slot="footer" class="footer-inner-wrap">
-    <button  class="addsuisinmebtn del-btn f1" type="primary" hover-class="none" bindtap="delArea">删除</button>   
+    <button  class="addsuisinmebtn del-btn f1" type="primary" hover-class="none" bindtap="delArea" wx:if="{{delShow}}">删除</button>   
     <button  class="addsuisinmebtn confirm-btn f1" type="primary" hover-class="none" bindtap="saveArea">保存</button> 
   </view>
 </modal>

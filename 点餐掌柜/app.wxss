@@ -51,12 +51,16 @@ form [form-type='submit']::after{
 .open-app button::after{border: 0 none}
 .confirm-btn{background: -webkit-linear-gradient(left,#8379fb,#1da5fc);background: linear-gradient(to right,#8379fb,#1da5fc);box-shadow: 0 0 5px rgba(0, 0, 0, .2);}
 .del-btn{background: -webkit-linear-gradient(left,#fc2bef,#fb7992);background: linear-gradient(to right,#fc2bef,#fb7992);box-shadow: 0 0 5px rgba(0, 0, 0, .2);}
-.f1{flex: 1;}
+.f1{flex: 1;}.tr{text-align: right;}
 .wx-color{background-color:#21d3a3}.al-color{background-color: #fb8b5d}
 .bank-color{background-color: #fb5db0;}.other-color{background-color: #5f8ffe}
 .bgf9{background-color: #f9f9f9;}
 .weui-input{height:2.58823529em;min-height:2.58823529em;line-height:2.58823529em;text-align:right; }
 .bgf9-area{background-color: #f9f9f9;height:20rpx;}
+.btf1{border-top: 1px solid #f1f1f1;}
+.payment-btn{padding:0 50rpx;border: 2rpx solid !important;height: 72rpx;line-height: 68rpx;background-color: #fff !important;font-size: 30rpx;}
+.stop-btn{color: #fb7992 !important;}
+.start-btn{color:#1da5fc !important; }
 /*新增菜品*/
 .input-view-item{display:flex;align-items: center;border-bottom:2rpx solid #f1f1f1;justify-content: space-between;font-size: 32rpx;}
 .photo-item{padding: 30rpx 0rpx;}
@@ -71,11 +75,14 @@ form [form-type='submit']::after{
 .addcuisine-wrap,.cuisineitem-wrap,.cuisinelist-outer-wrap,.editcuisine-wrap,.addgoods-wrap,.pd30{padding: 30rpx;}
 /*弹出层共用*/
 .modal-picker-choose-icon{width: 24rpx;height: 39rpx;}
-.modal-picker-item{display: flex;justify-content: space-between;padding: 30rpx 0;border-bottom: 2rpx solid #f1f1f1;}
+.modal-picker-item{display: flex;justify-content: space-between;align-items: center;padding: 30rpx 0;border-bottom: 2rpx solid #f1f1f1;}
 .modal-input-wrap{padding: 20rpx;background-color: #eee;border-radius: 8rpx;}
 .modal-input-wrap input{width: 100%}
+.modal-item-input{text-align: right}
+.modal-picker-right-box{display: flex;align-items: center;width: 300rpx;justify-content: flex-end}
+.modal-picker-right-box .time-box{margin-right: 20rpx;}
 /*菜品列表*/
-.cuisinelist-wrap,.areamanage-list-wrap{margin-top:40rpx;border-top: 1px solid #f1f1f1; }
+.cuisinelist-wrap,.areamanage-list-wrap,.classes-set-innerwrap{margin-top:40rpx;border-top: 1px solid #f1f1f1; }
 .cuisine-item{display:flex;align-items:center;padding:30rpx;font-size: 32rpx;border-bottom: 1px solid #f1f1f1;justify-content: space-between}
 .cuisine-item .cuisine-item-del image{width: 45rpx;height: 45rpx;vertical-align: -10rpx;margin-right: 20rpx;}
 .add-cuisineitem-btn-wrap{display: flex;justify-content: flex-end}

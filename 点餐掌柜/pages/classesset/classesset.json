@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "班次设置",
+  "usingComponents": {
+    "modal": "../../components/modal/modal"
+  }
+}

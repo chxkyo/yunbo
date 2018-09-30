@@ -13,7 +13,8 @@ Page({
     boxIndex:'',
     hallIndex:'',
     areaType:'',
-    areaInputName:''
+    areaInputName:'',
+    delShow:false
   },
 
   /**
@@ -25,11 +26,17 @@ Page({
         areaType: options.type
       })
       if (options.type == 1){
+        wx.setNavigationBarTitle({
+          title: "包厢管理"
+        })
         this.setData({
           boxList: ["包厢一", "包厢二", "包厢三", "包厢四", "包厢五"],
           areaName: "包厢"
         })
       } else if (options.type == 2 ){
+        wx.setNavigationBarTitle({
+          title: "桌号管理"
+        })
         this.setData({
           hallList: ["桌号一", "桌号二", "桌号三", "桌号四", "桌号五"],
           areaName: '大厅'
@@ -101,6 +108,7 @@ Page({
     let index = e.currentTarget.dataset.index;
     this.data.boxIndex = index;
     this.setData({
+      delShow:true,
       areaItemName:this.data.boxList[index],
       showModal: true,
       areaInputName: this.data.boxList[index]
@@ -110,6 +118,7 @@ Page({
     let index = e.currentTarget.dataset.index;
     this.data.hallIndex = index;
     this.setData({
+      delShow: true,
       areaItemName: this.data.hallList[index],
       showModal: true,
       areaInputName: this.data.hallList[index]
