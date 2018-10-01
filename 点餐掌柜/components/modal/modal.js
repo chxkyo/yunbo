@@ -12,7 +12,8 @@ Component({
     cancel(){
       this.setData({
         show:false
-      })
+      });
+      this.triggerEvent('modalclose');
     }
    }
 })

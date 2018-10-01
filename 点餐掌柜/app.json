@@ -14,7 +14,8 @@
     "pages/classesset/classesset",
     "pages/printset/printset",
     "pages/paymentset/paymentset",
-    "pages/salesstatistics/salesstatistics"
+    "pages/salesstatistics/salesstatistics",
+    "pages/salesweekstatistics/salesweekstatistics"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -10,7 +10,8 @@ Page({
     chooseStartDate:false,
     endDate: '',
     chooseEndDate: false,
-    showModal:false
+    showModal:false,
+    nosroll:false
   },
 
   /**
@@ -75,7 +76,8 @@ Page({
     });
     if(index == 1){
       this.setData({
-        showModal:true
+        showModal:true,
+        noscroll:true
       })
     }
   },
@@ -106,8 +108,13 @@ Page({
       })
     }else{
       wx.navigateTo({
-        url: '../salesweekstatistics/salesweekstatistics',
+        url: '../salesweekstatistics/salesweekstatistics?date='+this.data.startDate+"~"+this.data.endDate,
       })
     }
+  },
+  modalClose(){
+    this.setData({
+      noscroll: false
+    })
   }
 })

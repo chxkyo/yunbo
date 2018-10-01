@@ -1,49 +1,6 @@
-<modal show="{{showModal}}" bindmodalclose="modalClose">
-  <view slot="modal-title">
-    <text>自定义日期</text>
-  </view>
-  <view slot="middle-content">
-    <picker value="{{startDate}}" bindchange="bindStartDateChange" mode="date">
-      <view class="modal-picker-item">
-        <view class="modal-picker-item-des">
-          <text>开始日期</text>
-        </view>
-        <view class="modal-picker-right-box ell">
-          <view class="time-box">
-            <text wx:if="{{chooseStartDate}}">{{startDate}}</text>
-          </view>
-          <view class="modal-picker-choose-icon">
-            <image src="../../images/img/to.png" class="modal-picker-choose-icon"></image>
-          </view>
-        </view>
-      </view>
-    </picker>
-    <picker mode="date" bindchange="bindEndDateChange" value="{{endDate}}">
-      <view class="modal-picker-item">
-        <view class="modal-picker-item-des">
-          <text>结束日期</text>
-        </view>
-        <view class="modal-picker-right-box ell">
-          <view class="time-box">
-            <text wx:if="{{chooseEndDate}}">{{endDate}}</text>
-          </view>
-          <view class="modal-picker-choose-icon">
-            <image src="../../images/img/to.png" class="modal-picker-choose-icon"></image>
-          </view>
-        </view>
-      </view>
-    </picker>
-  </view>
-  <button slot="footer" class="addsuisinmebtn confirm-btn" type="primary" hover-class="none" bindtap="saveDate">保存</button>
-</modal>
-<view class="salesstatistics-wrap {{noscroll?'noscroll':''}}">
+<view class="salesstatistics-time">{{date}}</view>
+<view class="salesstatistics-wrap">
   <view class="custom-tab">
-    <view class="custom-tab-item {{index == 0?'active':'' }}" data-index="0" bindtap="tabTap">
-      <view class="custom-tab-subitem">今日</view>
-    </view>
-    <view class="custom-tab-item {{index == 1?'active':'' }}" data-index="1" bindtap="tabTap">
-      <view class="custom-tab-subitem">自定义</view>
-    </view>
   </view>
   <view class="shuju-wrap pd30">
     <view class="shuju-inner-wrap">
