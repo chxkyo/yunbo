@@ -8,13 +8,13 @@
     <!--账号-->
     <view class="inputView">
       <view><label class="loginLab" for="username">用户名</label></view>
-      <view><input class="inputText" placeholder="请输入用户名" bindinput="userInput" id="username" /> </view>
+      <view><input class="inputText {{nameFocus?'active':''}}" placeholder="请输入用户名" bindinput="userInput" id="username" bindfocus="namefocus" bindblur="nameblur"/> </view>
       <view class="error-tips user-error-tips" wx:if="{{userErrorTipsShow}}"><text>{{userErrorTips}}</text></view>
     </view> 
     <!--密码-->
     <view class="inputView"> 
       <view><label class="loginLab" for="password">密码</label> </view>
-      <view><input class="inputText" password="true" placeholder="请输入密码" bindinput="passwordInput" id="password"/> </view>
+      <view><input class="inputText {{passFocus?'active':''}}" password="true" placeholder="请输入密码" bindinput="passwordInput" id="password" bindfocus="passfocus" bindblur="passblur"/> </view>
       <view class="error-tips pass-error-tips" wx:if="{{passErrorTipsShow}}"><text>{{passErrorTips}}</text></view>
     </view> 
     <!--按钮-->

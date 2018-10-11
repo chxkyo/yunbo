@@ -1,7 +1,10 @@
 <!--pages/cuisinelist/cuisinelist.wxml-->
 <view class="bgf9" style='height:20rpx;'></view>
-<view class="cuisinelist-outer-wrap">
-  <view class="add-cuisineitem-btn-wrap"><navigator class="add-cuisineitem-btn confirm-btn" hover-class='none' url="../addcuisine/addcuisine"><text>新增套餐</text></navigator><navigator class="add-cuisineitem-btn confirm-btn" hover-class='none' url="../addgoods/addgoods"><text>新增商品</text></navigator></view>
+<view class="cuisinelist-outer-wrap pdt200">
+  <view class="add-cuisineitem-btn-wrap">
+    <view><navigator class="" hover-class='none' url="../addcuisine/addcuisine"><text>新增套餐</text></navigator></view>
+    <view style=';box-shadow:0 0 5px rgba(0, 0, 0, .2);'><navigator class="" hover-class='none' url="../addgoods/addgoods"><text>新增商品</text></navigator></view>
+  </view>
   <view class="cuisinelist-inner-wrap">
     <view class="cuisinelist-wrap">
       <view class="cuisine-item" wx:for="{{cuisineListArr}}" wx:key="*this">

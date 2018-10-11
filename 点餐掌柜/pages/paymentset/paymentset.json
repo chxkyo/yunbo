@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "其他支付方式"
+  "navigationBarTitleText": "其他支付方式",
+    "usingComponents": {
+      "modal": "../../components/modal/modal"
+    }
 }

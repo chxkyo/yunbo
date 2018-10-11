@@ -9,7 +9,9 @@ Page({
     userErrorTipsShow:false,
     passErrorTipsShow:false,
     userName:'',
-    passWord:''
+    passWord:'',
+    nameFocus:false,
+    passFocus:false
   },
 
   /**
@@ -106,5 +108,25 @@ Page({
         }
       })
     }
+  },
+  namefocus(){
+    this.setData({
+      nameFocus:true
+    })
+  },
+  nameblur(){
+    this.setData({
+      nameFocus: false
+    })
+  },
+  passfocus(){
+    this.setData({
+      passFocus: true
+    })
+  },
+  passblur() {
+    this.setData({
+      passFocus: false
+    })
   }
 })

@@ -12,8 +12,8 @@
   </view>
 </modal>
 <view class="bgf9-area"></view>
-<view class="arealist-wrap pd30">
-  <view class="add-cuisineitem-btn-wrap"><view class="add-cuisineitem-btn confirm-btn" bindtap='modalShow'><text>新增</text></view></view>
+<view class="arealist-wrap pd30 pdt100">
+  <view class="add-cuisineitem-btn-wrap"><view bindtap='modalShow'><text>新增</text></view></view>
   <view class="arealist-inner-wrap">
     <view class="box-wrap" wx:if="{{areaType == 1}}">
       <view class="area-header">包厢</view>

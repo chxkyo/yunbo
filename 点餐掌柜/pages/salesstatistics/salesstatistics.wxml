@@ -42,7 +42,8 @@
       <view class="custom-tab-subitem">今日</view>
     </view>
     <view class="custom-tab-item {{index == 1?'active':'' }}" data-index="1" bindtap="tabTap">
-      <view class="custom-tab-subitem">自定义</view>
+      <view class="custom-tab-subitem" wx:if="{{customFlag}}">{{startDate}}-{{endDate}}</view>
+      <view class="custom-tab-subitem" wx:else>自定义</view>
     </view>
   </view>
   <view class="shuju-wrap pd30">

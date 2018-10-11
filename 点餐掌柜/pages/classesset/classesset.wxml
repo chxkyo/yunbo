@@ -23,9 +23,9 @@
   </view>
   <button slot="footer" class="addsuisinmebtn confirm-btn" type="primary" hover-class="none" bindtap="saveClasses">保存</button> 
 </modal>
-<view class="classes-set-wrap pd30">
-  <view class="add-cuisineitem-btn-wrap"><view class="add-cuisineitem-btn confirm-btn" bindtap='modalShow'><text>新增</text></view></view>
-  <view class="classes-set-innerwrap btf1">
+<view class="classes-set-wrap pd30 pdt100">
+  <view class="add-cuisineitem-btn-wrap"><view  bindtap='modalShow'><text>新增</text></view></view>
+  <view class="classes-set-innerwrap">
     <block wx:for="{{classesArr}}" wx:key="{{name}}">
       <view class="cuisine-item">
         <view class="cuisine-item-name"><text>{{item.name}}</text></view>

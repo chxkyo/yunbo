@@ -6,7 +6,7 @@ Page({
    */
   data: {
     showModal:false,
-    areaListArr: [{ type: 1, name: "包厢" }, { type: 2, name: "大厅"}],
+    areaListArr: [{ type: 1, name: "包厢" }, { type: 2, name: "大厅" }, { type: 1, name: "包厢" }, { type: 2, name: "大厅" }, { type: 1, name: "包厢" }, { type: 2, name: "大厅" },{ type: 1, name: "包厢" }, { type: 2, name: "大厅" }, { type: 1, name: "包厢" }, { type: 2, name: "大厅" }, { type: 1, name: "包厢" }, { type: 2, name: "大厅" }],
     areaName:''
   },
 

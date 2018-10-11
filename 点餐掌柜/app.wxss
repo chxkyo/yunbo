@@ -61,6 +61,8 @@ form [form-type='submit']::after{
 .payment-btn{padding:0 50rpx;border: 2rpx solid !important;height: 72rpx;line-height: 68rpx;background-color: #fff !important;font-size: 30rpx;}
 .stop-btn{color: #fb7992 !important;}
 .start-btn{color:#1da5fc !important; }
+.pdt100{padding-bottom: 100rpx !important;}
+.pdt200{padding-bottom: 200rpx !important;}
 /*新增菜品*/
 .input-view-item{display:flex;align-items: center;border-bottom:2rpx solid #f1f1f1;justify-content: space-between;font-size: 32rpx;}
 .photo-item{padding: 30rpx 0rpx;}
@@ -82,23 +84,27 @@ form [form-type='submit']::after{
 .modal-picker-right-box{display: flex;align-items: center;width: 300rpx;justify-content: flex-end}
 .modal-picker-right-box .time-box{margin-right: 20rpx;}
 /*菜品列表*/
-.cuisinelist-wrap,.areamanage-list-wrap,.classes-set-innerwrap{margin-top:40rpx;border-top: 1px solid #f1f1f1; }
+/* .cuisinelist-wrap,.areamanage-list-wrap,.classes-set-innerwrap{margin-top:40rpx;border-top: 1px solid #f1f1f1; } */
 .cuisine-item{display:flex;align-items:center;padding:30rpx;font-size: 32rpx;border-bottom: 1px solid #f1f1f1;justify-content: space-between}
 .cuisine-item .cuisine-item-del image{width: 45rpx;height: 45rpx;vertical-align: -10rpx;margin-right: 20rpx;}
-.add-cuisineitem-btn-wrap{display: flex;justify-content: flex-end}
+.add-cuisineitem-btn-wrap{position: fixed;line-height: 100rpx;box-shadow: 0 0 5px rgba(0, 0, 0, .2);background-color: #fff;bottom: 0;left: 0;right: 0;text-align: center;font-weight: 700}
+.add-cuisineitem-btn-wrap-flex{display: flex;justify-content: flex-end;}
 .add-cuisineitem-btn{margin-right: 30rpx;}
 .add-cuisineitem-btn,.edit-cuisineitem-btn{padding: 16rpx;font-size: 32rpx;color: #fff;border-radius: 4rpx;text-align: center}
 /*统计报表*/
 .custom-tab{display: flex;align-items: center;background-color: #fff;}
 .custom-tab-item{flex: 1;display: flex;align-items: center;justify-content: center;}
 .custom-tab-subitem{display: inline-block;font-size: 32rpx;line-height: 80rpx;border-bottom: 6rpx solid transparent;color: #9f9f9f;font-weight:bold;}
-.custom-tab-item.active .custom-tab-subitem{color: #22a4fc;border-bottom: 6rpx solid;}
+.custom-tab-item.active .custom-tab-subitem{position:relative;color: #22a4fc;}
+.custom-tab-item.active .custom-tab-subitem::after{position: absolute;content: '';width: 64rpx;border-bottom:6rpx solid #22a4fc;bottom: -6rpx;left: 0;right: 0;margin: auto;}
 .shuju-wrap{min-height: calc(100vh - 43px)}
 .shuju-inner-wrap{padding: 30rpx;background-color: #fff;}
 .shuju-inner-wrap{font-size: 32rpx;line-height: 56rpx;border-radius: 12rpx;}
 .shuju-header{margin-bottom: 10rpx;display: flex;}
 .shuju-header .goods-name{margin-left: 160rpx;}
-.print-time-wrap{padding: 20rpx 0;}
+.print-time-wrap{position: relative;padding: 20rpx 0;}
+.print-time-wrap::after,.print-time-wrap::before{content: '';position: absolute;right: -56rpx;bottom:-28rpx;width: 50rpx;height: 50rpx;border-radius: 50%;background-color: #20a3fb;}
+.print-time-wrap::before{left: -56rpx;background-color: #837afb;}
 .print-bottom-wrap{margin:20rpx 0;}
 .print-detail-wrap{border-top:2rpx dashed;}
 .print-detail-item-wrap{padding: 20rpx 0;border-bottom:2rpx dashed;}

@@ -5,7 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    showModal: false,
+    otherPayMethod:'',
+    methodArr: [{ name: "美团50抵100券", status:1 },{ name: "美团50抵100券", status: 0 }],
+    method:'',
+    methodFlag:false,
+    method_index:0,
+    method_arr: ["美团50抵100券", "美团10抵20券", "美团10抵50券"]
   },
 
   /**
@@ -62,5 +68,39 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  modalShow(){
+    this.setData({
+      showModal:true
+    })
+  },
+  getPayMethod(e){
+    this.setData({
+      otherPayMethod: e.detail.value
+    })
+  },
+  bindMethodChange(e){
+    this.setData({
+      methodFlag: true,
+      method_index: e.detail.value
+    })
+  },
+  saveMethod(){
+    if (!this.data.methodFlag) {
+      wx.showModal({
+        title: '提示',
+        content: '请填写支付方式！',
+        showCancel: false
+      })
+    }else{
+      this.data.methodArr.push({ name: "美团50抵100券", status: 0 });
+      this.setData({
+        methodArr: this.data.methodArr,
+        showModal: false
+      });
+      wx.showToast({
+        title: '添加成功'
+      })
+    }
   }
 })

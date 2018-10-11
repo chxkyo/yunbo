@@ -24,8 +24,8 @@
   </view>
   <button slot="footer" class="addsuisinmebtn confirm-btn" type="primary" hover-class="none" bindtap="chooseCuisine">保存</button> 
 </modal>
-<view class="cuisineitem-wrap">
-  <view class="add-cuisineitem-btn-wrap"><view class="add-cuisineitem-btn confirm-btn" bindtap='modalShow'><text>新增</text></view></view>
+<view class="cuisineitem-wrap pdt100">
+  <view class="add-cuisineitem-btn-wrap"><view bindtap='modalShow'><text>新增</text></view></view>
   <view class="cuisinelist-wrap">
     <view class="cuisine-item" wx:for="{{cai_list}}" wx:key="*this">
       <view class="cuisine-item-name"><text>{{item}}</text></view>

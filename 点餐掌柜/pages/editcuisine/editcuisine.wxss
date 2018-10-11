@@ -1,2 +1,4 @@
 /* pages/editcuisine/editcuisine.wxss */
-.edit-cuisine-wrap .del-btn{margin-right: 50rpx;}
+.edit-cuisine-wrap{flex-direction: column;}
+.edit-cuisine-wrap .save-meal-btn{width: 100%}
+.edit-cuisine-wrap .del-btn{margin-top: 40rpx;}

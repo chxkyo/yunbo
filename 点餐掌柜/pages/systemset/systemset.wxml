@@ -1,7 +1,7 @@
 
 <view class="bgf9-area"></view>
 <view class="system-set-wrap pd30">
-  <view class="system-list-wrap btf1">
+  <view class="system-list-wrap">
       <navigator  hover-class='none' url="../classesset/classesset">
         <view class="input-view-item" style="padding:30rpx 0;">
             <view class="input-label-box">
