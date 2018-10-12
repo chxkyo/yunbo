@@ -1,0 +1,58 @@
+<!--pages/wy-goodsmng-classifymng/wy-goodsmng-classifymng.wxml-->
+<modal show="{{showModal}}">
+  <view slot="modal-title">
+    <text>新增商品分类</text>
+  </view>
+  <view slot="middle-content">
+    <view class="modal-picker-item">
+      <view class="modal-picker-item-des">
+        <label for="classsify-name">商品类名称</label>
+      </view>
+      <view class="label-right-box">
+        <input placeholder="商品类名称" placeholder-style='color:#eee;font-size:32rpx;' id="classsify-name" type="text" bindinput="getGoodsClassifyName" class="modal-item-input" />
+      </view>
+    </view>
+    <view class="modal-picker-item">
+      <view class="modal-picker-item-des">
+        <label for="classes-name">商品类折扣</label>
+      </view>
+      <view class="label-right-box">
+        <input placeholder="商品类折扣" placeholder-style='color:#eee;font-size:32rpx;' id="classes-name" type="digit" bindinput="getGoodsClassifyDiscount" class="modal-item-input" />
+      </view>
+    </view>
+    <view class="modal-picker-item">
+      <view class="modal-picker-item-des">
+        <label for="classes-name">商品价格是否可编辑</label>
+      </view>
+      <view class="label-right-box">
+        <switch checked="{{switchChecked}}" bindchange="switchChange" />
+      </view>
+    </view>
+    <button slot="footer" class="addsuisinmebtn confirm-btn" type="primary" hover-class="none" bindtap="saveGoodsClassify">保存</button>
+  </view>
+</modal>
+<view class="areamanage-wrap pd30 pdt100">
+  <view class="add-cuisineitem-btn-wrap">
+    <view bindtap='modalShow'>
+      <text>新增</text>
+    </view>
+  </view>
+  <view class="areamanage-list-wrap">
+    <block wx:for="{{areaListArr}}" wx:key="*this">
+
+    </block>
+  </view>
+  <view class="input-view-item" style="padding:30rpx 0;" wx:for="{{goodsClassifyList}}" wx:key="id">
+    <view class="input-label-box">
+      <label for="goods-category">{{item.name}}</label>
+    </view>
+    <view class="label-right-box">
+      <view class="all-cuisine ws ell">
+        <text></text>
+      </view>
+      <view class="jumpAddCuisine-a">
+        <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+      </view>
+    </view>
+  </view>
+</view>

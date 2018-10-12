@@ -1,10 +1,22 @@
+const fetch = require('./utils/fetch.js');
+const util = require('./utils/util.js');
 //app.js
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+    if (wx.getStorageSync('sessionid') && wx.getStorageSync('sessionid_gettime')){
+      //超过24小时自动清除
+      if ((new Date().getTime() - wx.getStorageSync('sessionid_gettime')) > 24*60*60*1000 ){
+        wx.removeStorageSync('sessionid')
+        wx.removeStorageSync('sessionid_gettime')
+      }else{
+        // wx.switchTab({
+        //   url: 'pages/index/index'
+        // })
+        wx.navigateTo({
+          url: 'pages/goodsmng/goodsmng',
+        })
+      }
+    }
     // 登录
     wx.login({
       success: res => {
@@ -33,6 +45,9 @@ App({
     })
   },
   globalData: {
+    staticUrl: 'http://122.144.167.216:8080/cashier-admin/miniApp',
     userInfo: null
-  }
+  },
+  fetch: fetch,
+  util:util
 })

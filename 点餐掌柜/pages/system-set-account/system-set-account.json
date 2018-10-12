@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "账户设置",
+  "usingComponents": {
+    "modal": "../../components/modal/modal"
+  }
+}

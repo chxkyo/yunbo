@@ -1,0 +1,18 @@
+<view class="bgf9" style='height:20rpx;'></view>
+<view class="editcuisine-wrap">
+
+    <picker bindchange="bindCategoryPickerChange" value="{{goodsCategoryIndex}}" range="{{goodsCategoryArr}}">
+      <view class="input-view-item" style="padding:30rpx 0;">
+          <view class="input-label-box">
+            <label for="goods-category">零头处理方式</label>
+          </view>
+          <view class="label-right-box">
+            <view class="all-cuisine ws ell"><text>不处理</text></view>
+            <view class="jumpAddCuisine-a">
+              <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+            </view>
+          </view>
+      </view>
+    </picker>
+
+</view>

@@ -1,0 +1,73 @@
+/* pages/foodmng/foodmng.wxss */
+.scroll_box{
+width: 100%;
+height: 80rpx;
+overflow: hidden;
+background: #fff;
+white-space: nowrap;
+border-bottom: 1rpx solid #f2f2f2;
+}
+.item_list{
+height: auto;
+display: inline-block;
+}
+.item_book_text{
+  height:75rpx;
+  margin:0 30rpx;
+  font-size: 32rpx;
+  text-align-last: center;
+  line-height: 75rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-bottom: 5rpx solid #fff;
+  color:#949494;
+}
+.item_book_text_active{
+  border-bottom: 5rpx solid #22a4fc;
+  color:#22a4fc;
+  max-width: 120rpx;
+  height:75rpx;
+  margin:0 30rpx;
+  font-size: 32rpx;
+  text-align-last: center;
+  line-height: 75rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.commodity_list{
+  width:94%;
+  min-height: 450rpx;
+  padding:20rpx 3% 0 3%;
+}
+.list{
+  float: left;
+  width:47%;
+  height:450rpx;
+  border:1rpx solid #f2f2f2;
+  margin:0 4% 20rpx 0;
+}
+.list:nth-child(even){
+  margin-right: 0; 
+}
+.list_img{
+  width:100%;
+  height:350rpx;
+}
+.list_img image{
+  width:100%;
+  height:100%;
+}
+.list_text{
+  width: 90%;
+  margin:10rpx 5% 0;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  color:#2a2a2a;
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  display:-webkit-box; 
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+}

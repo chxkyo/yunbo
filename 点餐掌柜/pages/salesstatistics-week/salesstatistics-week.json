@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "销售周报",
+  "usingComponents": {
+    "modal": "../../components/modal/modal"
+  }
+}

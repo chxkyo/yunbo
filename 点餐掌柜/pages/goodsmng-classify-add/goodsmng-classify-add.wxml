@@ -1,0 +1,24 @@
+<view class="bgf9" style='height:20rpx;'></view>
+<view class="editcuisine-wrap">
+
+  <view class="input-view-item">
+    <view class="input-label-box">
+      <label for="meal-name">分类名称</label>
+    </view>
+    <view class="label-right-box">
+      <input class="weui-input" placeholder="请输入分类名称" placeholder-style='color:#eee;font-size:32rpx;' id="meal-name" type="text" bindinput="getMealName" value=""/>
+    </view>
+  </view>
+  <view class="input-view-item">
+    <view class="input-label-box">
+      <label for="meal-name">分类折扣（%）</label>
+    </view>
+    <view class="label-right-box">
+      <input class="weui-input" placeholder="请输入分类折扣" placeholder-style='color:#eee;font-size:32rpx;' id="meal-name" type="text" bindinput="getMealName" value=""/>
+    </view>
+  </view>
+
+  <view class="save-btn-wrap">
+    <button class="save-meal-btn confirm-btn f1" type="primary" hover-class="none" bindtap="saveGood">保存</button> 
+   </view>
+</view>

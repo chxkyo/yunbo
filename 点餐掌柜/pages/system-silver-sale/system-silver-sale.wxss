@@ -1,0 +1,2 @@
+/* pages/system-silver-sale/system-silver-sale.wxss */
+.edit-cuisine-wrap .del-btn{margin-right: 50rpx;}

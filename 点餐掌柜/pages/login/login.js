@@ -1,5 +1,5 @@
+const app = getApp();
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -18,6 +18,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (wx.getStorageSync('sessionid') && wx.getStorageSync('sessionid_gettime')) {
+      //超过24小时自动清除
+      if ((new Date().getTime() - wx.getStorageSync('sessionid_gettime')) > 24 * 60 * 60 * 1000) {
+        wx.removeStorageSync('sessionid');
+        wx.removeStorageSync('sessionid_gettime');
+      } else {
+        // wx.switchTab({
+        //   url: '../index/index'
+        // })
+        wx.navigateTo({
+          url: '../goodsmng/goodsmng',
+        })
+      }
+    }
     
   },
 
@@ -93,20 +107,42 @@ Page({
         passErrorTips: "密码不能为空!"
       })
     }else{
-      this.setData({
-        userErrorTipsShow: false,
-        passErrorTipsShow: false
-      })
-      wx.showToast({
-        title: '登录成功',
-        icon: 'success',
-        duration: 2000,
-        success(){
-          wx.switchTab({
-            url: '../index/index'
-          })
+      let that = this;
+      wx.request({
+        url: app.globalData.staticUrl + "/login",
+        data: { username: this.data.userName, password: this.data.passWord},
+        method:"POST",
+        success:function(res){
+          if(res.data.code === 0){
+            that.setData({
+              userErrorTipsShow: false,
+              passErrorTipsShow: false
+            })
+            wx.setStorageSync('sessionid', res.data.JSESSIONID);
+            wx.setStorageSync('sessionid_gettime', new Date().getTime());
+            wx.showToast({
+              title: '登录成功',
+              icon: 'success',
+              duration: 2000,
+              success() {
+                wx.switchTab({
+                  url: '../index/index'
+                })
+              }
+            })
+          }else{
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'none',
+              duration: 2000,
+            })
+          }
+        },
+        fail:function(){
+
         }
       })
+
     }
   },
   namefocus(){

@@ -4,106 +4,111 @@ const app = getApp()
 
 Page({
   data: {
+    today:'',
+    dailySale:0,
+    monthSale:0,
+    weekSale:0,
+    dailySaleArr:[],
+    monthSaleArr: [],
+    weekSaleArr: [],
     hasLogined:false,
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     dayopendata:{
-      onInit: function (canvas, width, height) {
-        const barChart = echarts.init(canvas, null, {
-          width: width,
-          height: height
-        });
-        canvas.setChart(barChart);
-        barChart.setOption(getDayOption());
-
-        return barChart;
-      }
+      lazyLoad: true 
     },
     weekopendata:{
       pie:{
-        onInit: function (canvas, width, height) {
-          const barChart = echarts.init(canvas, null, {
-            width: width,
-            height: height
-          });
-          canvas.setChart(barChart);
-          barChart.setOption(getDayOption());
-          return barChart;
-        }
+        lazyLoad: true 
       },
       bar:{
-        onInit: function (canvas, width, height) {
-          const barChart = echarts.init(canvas, null, {
-            width: width,
-            height: height
-          });
-          canvas.setChart(barChart);
-          barChart.setOption(getBarOption(["周一", "周二", "周三", "周四", "周五", "周六", "周日"], [3020, 4800, 3600, 6050, 4320, 6200, 5050]));
-          return barChart;
-        }
+        lazyLoad: true 
       }
     },
     monthopendata:{
       pie: {
-        onInit: function (canvas, width, height) {
-          const barChart = echarts.init(canvas, null, {
-            width: width,
-            height: height
-          });
-          canvas.setChart(barChart);
-          barChart.setOption(getDayOption());
-          return barChart;
-        },
-        disableTouch:true,
+        lazyLoad: true,
+        disableTouch:true
       },
       bar: {
-        onInit: function (canvas, width, height) {
-          const barChart = echarts.init(canvas, null, {
+        lazyLoad: true,
+        disableTouch: true
+      }
+    }
+  },
+  onLoad: function () {
+    this.setData({
+      today: app.util.formatTime(new Date)
+    })
+    this.ecComponent1 = this.selectComponent('#mychart-dom-multi-pie1');
+    this.ecComponent2 = this.selectComponent('#mychart-dom-multi-bar1');
+    this.ecComponent3 = this.selectComponent('#mychart-dom-multi-pie2');
+    this.ecComponent4 = this.selectComponent('#mychart-dom-multi-bar2');
+    this.ecComponent5 = this.selectComponent('#mychart-dom-multi-pie3');
+    app.fetch('data',{},'POST').then(res=>{
+      if(res.data.code === 0){
+        this.setData({
+          dailySale: res.data.dailyData.dailySale,
+          monthSale: res.data.monthData.monthSale,
+          weekSale: res.data.weekData.weekSale,
+          dailySaleArr: res.data.dailyData.payTypeList,
+          weekSaleArr: res.data.weekData.payTypeList,
+          monthSaleArr: res.data.monthData.payTypeList
+        })
+        this.ecComponent1.init((canvas, width, height) => {
+          const chart = echarts.init(canvas, null, {
             width: width,
             height: height
           });
-          canvas.setChart(barChart);
-          barChart.setOption(getBarOption(createMonthDay().date, createMonthDay().data));
-          return barChart;
-        },
-        disableTouch: true,
-      }
-    }
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
+          chart.setOption(getDayOption(getColorArr(res.data.dailyData.payTypeList), getData(res.data.dailyData.payTypeList)));
+          this.daily_pie_chart = chart;
+          return chart;
+        });
+        this.ecComponent2.init((canvas, width, height) => {
+          const chart = echarts.init(canvas, null, {
+            width: width,
+            height: height
+          });
+          chart.setOption(getBarOption(getBarDate(res.data.weekData.weekDetail), getBarSale(res.data.weekData.weekDetail)));
+          this.week_bar_chart = chart;
+          return chart;
+        });
+        this.ecComponent3.init((canvas, width, height) => {
+          const chart = echarts.init(canvas, null, {
+            width: width,
+            height: height
+          });
+          chart.setOption(getDayOption(getColorArr(res.data.weekData.payTypeList), getData(res.data.weekData.payTypeList)));
+          this.week_pie_chart = chart;
+          return chart;
+        });
+        this.ecComponent4.init((canvas, width, height) => {
+          const chart = echarts.init(canvas, null, {
+            width: width,
+            height: height
+          });
+          chart.setOption(getBarOption(getBarDate(res.data.monthData.monthDetail), getBarSale(res.data.monthData.monthDetail)));
+          this.month_bar_chart = chart;
+          return chart;
+        });
+        this.ecComponent5.init((canvas, width, height) => {
+          const chart = echarts.init(canvas, null, {
+            width: width,
+            height: height
+          });
+          chart.setOption(getDayOption(getColorArr(res.data.monthData.payTypeList), getData(res.data.monthData.payTypeList)));
+          this.week_pie_chart = chart;
+          return chart;
+        });
+      } else if (res.data.code === 2){
+        wx.removeStorageSync('sessionid');
+        wx.removeStorageSync('sessionid_gettime');
+        wx.navigateTo({
+          url: '../index/index',
         })
       }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
+    })
   },
   getUserInfo: function(e) {
     console.log(e)
@@ -114,10 +119,10 @@ Page({
     })
   }
 })
-function getDayOption(){
+function getDayOption(colorArr,data){
   var option = {
     backgroundColor: "#ffffff",
-    color: ["#21d3a3", "#fb8b5d", "#fb5db0", "#5f8ffe"],
+    color: colorArr,
     tooltip : {
       show: true,  
       trigger: 'item',
@@ -136,20 +141,7 @@ function getDayOption(){
       center: ['50%', '50%'],
       radius: ["35%", "50%"],
       
-      data: [{
-        value: 21,
-        name: '微信支付'
-      }, {
-        value: 29,
-        name: '支付宝支付'
-      }, {
-        value: 25,
-        name: '银行卡支付'
-      }, {
-        value: 25,
-        name: '其他支付'
-      }
-      ],
+      data: data,
       itemStyle: {
         emphasis: {
           shadowBlur: 10,
@@ -223,4 +215,40 @@ function createMonthDay() {
     data.push(3030);
   };
   return {date:daysOfMonth,data:data};
+}
+function getColorArr(arr){
+  let dailyColorArr = []; 
+  arr.forEach(function (value, index) {
+    if (value.payType === 0) {
+      dailyColorArr.push("#5f8ffe");
+    } else if (value.payType === 1) {
+      dailyColorArr.push("#fb5db0");
+    } else if (value.payType === 2){
+      dailyColorArr.push("#21d3a3");
+    } else if (value.payType === 3){
+      dailyColorArr.push("#fb8b5d");
+    }
+  })
+  return dailyColorArr;
+}
+function getData(arr){
+  let dataArr = [];
+  arr.forEach(function(value,index){
+    dataArr.push({ name: value.payName, value:value.typeProportion});
+  })
+  return dataArr;
+}
+function getBarDate(arr){
+  let date = [];
+  arr.forEach((value,index)=>{
+    date.push(value.date);
+  })
+  return date
+}
+function getBarSale(arr) {
+  let sale = [];
+  arr.forEach((value, index) => {
+    sale.push(value.daysale);
+  })
+  return sale;
 }

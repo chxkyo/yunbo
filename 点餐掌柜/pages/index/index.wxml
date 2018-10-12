@@ -4,7 +4,7 @@
     <view class="mine-info">
       <view class="mine-info-left">
         <view><text class="mine-name">匠人牛品</text></view>
-        <view style="margin-top:20rpx"><image class="time-icon" src="../../images/img/time.png"></image><text class="mine-now-time">2018-09-27 22:28:12</text></view>
+        <view style="margin-top:20rpx"><image class="time-icon" src="../../images/img/time.png"></image><text class="mine-now-time">{{today}}</text></view>
       </view>
       <view class="mine-info-right">
         <image class="weather-icon" src="../../images/img/sun.png"></image>
@@ -12,7 +12,7 @@
     </view>
     <view class="today-info-wrap">
       <view class="today-item confirm-btn">
-        <view class="today-item-num"><text>11111</text></view>
+        <view class="today-item-num"><text>{{dailySale}}</text></view>
         <view><text>今日销售额</text></view>
       </view>
       <view class="today-item confirm-btn">
@@ -65,38 +65,25 @@
     <view class="echarts-wrap-module">
       <view class="echarts-inner-wrap">
         <view class="echarts-title"><image src="../../images/img/indextitleicon.png" class="echarts-title-icon"></image><text>日营业数据</text></view>
-        <view class="echarts-turnover"><text>11981</text></view>
+        <view class="echarts-turnover"><text>{{dailySale}}</text></view>
         <view class="echarts-wrap">
           <ec-canvas id="mychart-dom-multi-pie1" canvas-id="mychart-dayopendata-pie1" ec="{{ dayopendata }}"></ec-canvas>
         </view>
         <view class="echarts-pay-wrap">
-          <view class="echarts-pay-item">
-            <view class="icon-circle wx-color"></view>
-            <view class="echarts-pay-per"><text>21%</text></view>
-            <view class="echarts-pay-method"><text>微信支付</text></view>
-          </view>
-          <view class="echarts-pay-item">
-            <view class="icon-circle al-color"></view>
-            <view class="echarts-pay-per"><text>29%</text></view>
-            <view class="echarts-pay-method"><text>支付保支付</text></view>
-          </view>
-          <view class="echarts-pay-item">
-            <view class="icon-circle bank-color"></view>
-            <view class="echarts-pay-per"><text>25%</text></view>
-            <view class="echarts-pay-method"><text>银行卡支付</text></view>
-          </view>
-          <view class="echarts-pay-item">
-            <view class="icon-circle other-color"></view>
-            <view class="echarts-pay-per"><text>25%</text></view>
-            <view class="echarts-pay-method"><text>其它支付</text></view>
-          </view>
+          <block wx:for="{{dailySaleArr}}" wx:key="{{payName}}">
+            <view class="echarts-pay-item">
+              <view class="icon-circle {{item.payType == 0 ? 'other-color' : item.payType == 1 ? 'bank-color':item.payType == 2?'wx-color':'al-color' }}"></view>
+              <view class="echarts-pay-per"><text>{{item.typeProportion}}%</text></view>
+              <view class="echarts-pay-method"><text>{{item.payName}}支付</text></view>
+            </view>
+          </block>
         </view>
       </view> 
     </view>
     <view class="echarts-wrap-module">
       <view class="echarts-inner-wrap">
         <view class="echarts-title"><image src="../../images/img/indextitleicon.png" class="echarts-title-icon"></image><text>周营业数据</text></view>
-        <view class="echarts-turnover"><text>11981</text></view>
+        <view class="echarts-turnover"><text>{{weekSale}}</text></view>
         <view class="echarts-wrap">
           <ec-canvas id="mychart-dom-multi-bar1" canvas-id="mychart-weekopendata-bar1" ec="{{ weekopendata.bar }}"></ec-canvas>
         </view>
@@ -104,33 +91,20 @@
           <ec-canvas id="mychart-dom-multi-pie2" canvas-id="mychart-weekopendata-pie2" ec="{{ weekopendata.pie }}"></ec-canvas>
         </view>
         <view class="echarts-pay-wrap">
-          <view class="echarts-pay-item">
-            <view class="icon-circle wx-color"></view>
-            <view class="echarts-pay-per"><text>21%</text></view>
-            <view class="echarts-pay-method"><text>微信支付</text></view>
-          </view>
-          <view class="echarts-pay-item">
-            <view class="icon-circle al-color"></view>
-            <view class="echarts-pay-per"><text>29%</text></view>
-            <view class="echarts-pay-method"><text>支付保支付</text></view>
-          </view>
-          <view class="echarts-pay-item">
-            <view class="icon-circle bank-color"></view>
-            <view class="echarts-pay-per"><text>25%</text></view>
-            <view class="echarts-pay-method"><text>银行卡支付</text></view>
-          </view>
-          <view class="echarts-pay-item">
-            <view class="icon-circle other-color"></view>
-            <view class="echarts-pay-per"><text>25%</text></view>
-            <view class="echarts-pay-method"><text>其它支付</text></view>
-          </view>
+          <block wx:for="{{weekSaleArr}}" wx:key="{{payName}}">
+            <view class="echarts-pay-item">
+              <view class="icon-circle {{item.payType == 0 ? 'other-color' : item.payType == 1 ? 'bank-color':item.payType == 2?'wx-color':'al-color' }}"></view>
+              <view class="echarts-pay-per"><text>{{item.typeProportion}}%</text></view>
+              <view class="echarts-pay-method"><text>{{item.payName}}支付</text></view>
+            </view>
+          </block>
         </view>
       </view> 
     </view>
     <view class="echarts-wrap-module">
       <view class="echarts-inner-wrap">
         <view class="echarts-title"><image src="../../images/img/indextitleicon.png" class="echarts-title-icon"></image><text>月营业数据</text></view>
-        <view class="echarts-turnover"><text>11981</text></view>
+        <view class="echarts-turnover"><text>{{monthSale}}</text></view>
         <view class="echarts-wrap">
           <ec-canvas id="mychart-dom-multi-bar2" canvas-id="mychart-monthopendata-bar2" ec="{{ monthopendata.bar }}"></ec-canvas>
         </view>
@@ -138,26 +112,13 @@
           <ec-canvas id="mychart-dom-multi-pie3" canvas-id="mychart-monthopendata-pie3" ec="{{ monthopendata.pie }}"></ec-canvas>
         </view>
         <view class="echarts-pay-wrap">
-          <view class="echarts-pay-item">
-            <view class="icon-circle wx-color"></view>
-            <view class="echarts-pay-per"><text>21%</text></view>
-            <view class="echarts-pay-method"><text>微信支付</text></view>
-          </view>
-          <view class="echarts-pay-item">
-            <view class="icon-circle al-color"></view>
-            <view class="echarts-pay-per"><text>29%</text></view>
-            <view class="echarts-pay-method"><text>支付保支付</text></view>
-          </view>
-          <view class="echarts-pay-item">
-            <view class="icon-circle bank-color"></view>
-            <view class="echarts-pay-per"><text>25%</text></view>
-            <view class="echarts-pay-method"><text>银行卡支付</text></view>
-          </view>
-          <view class="echarts-pay-item">
-            <view class="icon-circle other-color"></view>
-            <view class="echarts-pay-per"><text>25%</text></view>
-            <view class="echarts-pay-method"><text>其它支付</text></view>
-          </view>
+          <block wx:for="{{monthSaleArr}}" wx:key="{{payName}}">
+            <view class="echarts-pay-item">
+              <view class="icon-circle {{item.payType == 0 ? 'other-color' : item.payType == 1 ? 'bank-color':item.payType == 2?'wx-color':'al-color' }}"></view>
+              <view class="echarts-pay-per"><text>{{item.typeProportion}}%</text></view>
+              <view class="echarts-pay-method"><text>{{item.payName}}支付</text></view>
+            </view>
+          </block>
         </view>
       </view> 
     </view>

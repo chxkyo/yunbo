@@ -1,0 +1,38 @@
+<!--pages/wy-system-set-print/wy-system-set-print.wxml-->
+<view class="bgf9" style='height:20rpx;'></view>
+<view class="areamanage-wrap pd30 pdt100">
+  <view class="add-cuisineitem-btn-wrap">
+    <view bindtap='modalShow'>
+      <text>新增</text>
+    </view>
+  </view>
+  <view class="areamanage-list-wrap">
+    <block wx:for="{{areaListArr}}" wx:key="*this">
+
+    </block>
+  </view>
+    <view class="input-view-item" style="padding:30rpx 0;">
+        <view class="input-label-box">
+          <label for="goods-category">果汁和凉菜打印机</label>
+        </view>
+        <view class="label-right-box">
+          <view class="all-cuisine ws ell"><text></text></view>
+          <view class="jumpAddCuisine-a">
+            <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+          </view>
+        </view>
+    </view>
+
+    <view class="input-view-item" style="padding:30rpx 0;">
+        <view class="input-label-box">
+          <label for="goods-category">海鲜打印机</label>
+        </view>
+        <view class="label-right-box">
+          <view class="all-cuisine ws ell"><text></text></view>
+          <view class="jumpAddCuisine-a">
+            <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+          </view>
+        </view>
+    </view>
+
+</view>

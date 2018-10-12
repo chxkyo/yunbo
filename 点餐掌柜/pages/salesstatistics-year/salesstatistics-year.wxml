@@ -1,0 +1,200 @@
+<modal show="{{showModal}}" bindmodalclose="modalClose">
+  <view slot="modal-title">
+    <text>选择年份</text>
+  </view>
+  <view slot="middle-content">
+    <picker value="{{startDate}}" bindchange="bindStartDateChange" mode="date">
+      <view class="modal-picker-item brdtm_none">
+        <view class="modal-picker-item-des">
+          <text>年份</text>
+        </view>
+        <view class="modal-picker-right-box ell">
+          <view class="time-box">
+            <text wx:if="{{chooseStartDate}}">{{startDate}}</text>  
+          </view>
+          <view class="modal-picker-choose-icon">
+            <image src="../../images/img/to.png" class="modal-picker-choose-icon"></image>
+          </view>
+        </view>
+      </view>
+    </picker>
+  </view>
+  <button slot="footer" class="addsuisinmebtn confirm-btn" type="primary" hover-class="none" bindtap="saveDate">查询</button>
+</modal>
+
+<view class="salesstatistics-wrap {{noscroll?'noscroll':''}}">
+  
+  <view class="salesstatistics-year-time custom-tab-item {{index == 1?'active':'' }}" data-index="1" bindtap="tabTap">2018</view>
+
+
+
+  <view class="shuju-wrap pd30">
+    <view class="shuju-inner-wrap">
+        <view class="shuju-header">
+          <view><text>商品名称</text></view>
+          <view class="goods-name"><text>匠人牛品</text></view>
+        </view>
+      <view class="print-time-wrap">
+        <view class="print-detail-item">
+          <view><text>起始时间：2018-09-05 10:00:00</text></view>
+        </view>
+        <view class="print-detail-item">
+          <view><text>起始时间：2018-09-05 10:00:00</text></view>
+        </view>
+        <view class="print-detail-item">
+          <view><text>起始时间：2018-09-05 10:00:00</text></view>
+        </view>
+        <view class="print-detail-item">
+          <view><text>起始时间：2018-09-05 10:00:00</text></view>
+        </view>
+      </view>
+      <view class="print-detail-wrap">
+        <view class="print-detail-item-wrap">
+          <view class="print-detail-item">
+            <view>
+              <text>订单总数：30</text>
+            </view>
+          </view>
+          <view class="print-detail-item">
+            <view>
+              <text>桌数：30</text>
+            </view>
+            <view>
+              <text>桌均消费：300.00</text>
+            </view>
+          </view>
+          <view class="print-detail-item">
+            <view>
+              <text>人数：70</text>
+            </view>
+            <view>
+              <text>人均消费：19.8</text>
+            </view>
+          </view>
+        </view>
+        <view class="print-detail-item-wrap">
+          <view class="print-detail-item">
+            <view>
+              <text>订单总数：30</text>
+            </view>
+          </view>
+          <view class="print-detail-item">
+            <view>
+              <text>桌数：30</text>
+            </view>
+            <view>
+              <text>桌均消费：300.00</text>
+            </view>
+          </view>
+          <view class="print-detail-item">
+            <view>
+              <text>人数：70</text>
+            </view>
+            <view>
+              <text>人均消费：19.8</text>
+            </view>
+          </view>
+        </view>
+        <view class="print-detail-item-wrap">
+          <view class="print-detail-item">
+            <view>
+              <text>订单总数：30</text>
+            </view>
+          </view>
+          <view class="print-detail-item">
+            <view>
+              <text>桌数：30</text>
+            </view>
+            <view>
+              <text>桌均消费：300.00</text>
+            </view>
+          </view>
+          <view class="print-detail-item">
+            <view>
+              <text>人数：70</text>
+            </view>
+            <view>
+              <text>人均消费：19.8</text>
+            </view>
+          </view>
+        </view>
+        <view class="print-detail-item-wrap">
+          <view class="print-detail-item">
+            <view>
+              <text>订单总数：30</text>
+            </view>
+          </view>
+          <view class="print-detail-item">
+            <view>
+              <text>桌数：30</text>
+            </view>
+            <view>
+              <text>桌均消费：300.00</text>
+            </view>
+          </view>
+          <view class="print-detail-item">
+            <view>
+              <text>人数：70</text>
+            </view>
+            <view>
+              <text>人均消费：19.8</text>
+            </view>
+          </view>
+        </view>
+        <view class="print-detail-item-wrap">
+          <view class="print-detail-item">
+            <view>
+              <text>订单总数：30</text>
+            </view>
+          </view>
+          <view class="print-detail-item">
+            <view>
+              <text>桌数：30</text>
+            </view>
+            <view>
+              <text>桌均消费：300.00</text>
+            </view>
+          </view>
+          <view class="print-detail-item">
+            <view>
+              <text>人数：70</text>
+            </view>
+            <view>
+              <text>人均消费：19.8</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="print-bottom-wrap">
+        <view class="print-detail-item">
+          <view><text>营业明细</text></view>
+        </view>
+        <view class="print-detail-item">
+          <view><text>实收总计:11231</text></view>
+        </view>
+        <view class="print-detail-item">
+          <view><text>实收返款总计:11231</text></view>
+        </view>
+        <view class="print-detail-item">
+          <view><text>实收不返款总计:11231</text></view>
+        </view>
+      </view>
+      <view class="print-bottom-wrap">
+        <view class="print-detail-item">
+          <view><text>实收</text></view>
+          <view><text>111元</text></view>
+          <view><text>4.53%</text></view>
+        </view>
+        <view class="print-detail-item">
+          <view><text>实收总计:11231</text></view>
+        </view>
+        <view class="print-detail-item">
+          <view><text>实收返款总计:11231</text></view>
+        </view>
+        <view class="print-detail-item">
+          <view><text>实收不返款总计:11231</text></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

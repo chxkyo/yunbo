@@ -1,0 +1,2 @@
+/* pages/foodmng-danpin-add/foodmng-danpin-add.wxss */
+.edit-cuisine-wrap .del-btn{margin-right: 50rpx;}

@@ -1,0 +1,74 @@
+<view class="bgf9" style='height:20rpx;'></view>
+<view class="editcuisine-wrap">
+
+  <view class="input-view-item">
+    <view class="input-label-box">
+      <label for="meal-name">打印机名称</label>
+    </view>
+    <view class="label-right-box">
+      <input class="weui-input" placeholder="请输入打印机名称" placeholder-style='color:#eee;font-size:32rpx;' id="meal-name" type="text" bindinput="getMealName" value=""/>
+    </view>
+  </view>
+
+    <picker bindchange="bindCategoryPickerChange" value="{{goodsCategoryIndex}}" range="{{goodsCategoryArr}}">
+      <view class="input-view-item" style="padding:30rpx 0;">
+          <view class="input-label-box">
+            <label for="goods-category">打印模式</label>
+          </view>
+          <view class="label-right-box">
+            <view class="all-cuisine ws ell"><text>一菜一单</text></view>
+            <view class="jumpAddCuisine-a">
+              <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+            </view>
+          </view>
+      </view>
+    </picker>
+    <picker bindchange="bindCategoryPickerChange" value="{{goodsCategoryIndex}}" range="{{goodsCategoryArr}}">
+      <view class="input-view-item" style="padding:30rpx 0;">
+          <view class="input-label-box">
+            <label for="goods-category">打印纸宽度</label>
+          </view>
+          <view class="label-right-box">
+            <view class="all-cuisine ws ell"><text>80</text></view>
+            <view class="jumpAddCuisine-a">
+              <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+            </view>
+          </view>
+      </view>
+    </picker>
+    <picker bindchange="bindCategoryPickerChange" value="{{goodsCategoryIndex}}" range="{{goodsCategoryArr}}">
+      <view class="input-view-item" style="padding:30rpx 0;">
+          <view class="input-label-box">
+            <label for="goods-category">连接类型</label>
+          </view>
+          <view class="label-right-box">
+            <view class="all-cuisine ws ell"><text>以太网</text></view>
+            <view class="jumpAddCuisine-a">
+              <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+            </view>
+          </view>
+      </view>
+    </picker>
+
+  <view class="input-view-item">
+    <view class="input-label-box">
+      <label for="meal-name">IP地址</label>
+    </view>
+    <view class="label-right-box">
+      <input class="weui-input" placeholder="请输入IP地址" placeholder-style='color:#eee;font-size:32rpx;' id="meal-name" type="text" bindinput="getMealName" value=""/>
+    </view>
+  </view>
+
+  <view class="input-view-item">
+    <view class="input-label-box">
+      <label for="meal-name">端口</label>
+    </view>
+    <view class="label-right-box">
+      <input class="weui-input" placeholder="请输入端口" placeholder-style='color:#eee;font-size:32rpx;' id="meal-name" type="text" bindinput="getMealName" value=""/>
+    </view>
+  </view>
+
+  <view class="save-btn-wrap">
+    <button class="save-meal-btn confirm-btn f1" type="primary" hover-class="none" bindtap="saveGood">保存</button> 
+  </view>
+</view>

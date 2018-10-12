@@ -26,11 +26,11 @@
 <view class="classes-set-wrap pd30 pdt100">
   <view class="add-cuisineitem-btn-wrap"><view  bindtap='modalShow'><text>新增</text></view></view>
   <view class="classes-set-innerwrap">
-    <block wx:for="{{classesArr}}" wx:key="{{name}}">
+    <block wx:for="{{classesArr}}" wx:key="{{id}}">
       <view class="cuisine-item">
         <view class="cuisine-item-name"><text>{{item.name}}</text></view>
-        <view class="classes-time">{{item.time}}</view>
-        <view class="cuisine-item-del"><image src="../../images/img/del.png" data-index="{{index}}" bindtap="delClasses"></image><text>删除</text></view>
+        <view class="classes-time">{{item.startTime}}~{{item.endTime}}</view>
+        <view class="cuisine-item-del"><image src="../../images/img/del.png"  bindtap="delClasses" data-id="{{item.id}}"></image><text>删除</text></view>
       </view>
     </block>
   </view>

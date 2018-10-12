@@ -1,0 +1,53 @@
+<!--pages/wy-system-set/wy-system-set.wxml-->
+<view class="bgf9-area"></view>
+<view class="addgoods-wrap">
+      <view class="input-view-item" style="padding:30rpx 0;">
+          <view class="input-label-box">
+            <label for="goods-category">班次设置</label>
+          </view>
+          <view class="label-right-box">
+            <view class="all-cuisine ws ell"><text>{{goodsCategoryArr[goodsCategoryIndex]}}</text></view>
+            <view class="jumpAddCuisine-a">
+              <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+            </view>
+          </view>
+      </view>
+
+    <view class="input-view-item" style="padding:30rpx 0;">
+        <view class="input-label-box">
+          <label for="goods-category">收银设置</label>
+        </view>
+        <view class="label-right-box">
+          <view class="all-cuisine ws ell"><text>{{goodsUnitArr[goodsUnitIndex]}}</text></view>
+          <view class="jumpAddCuisine-a">
+            <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+          </view>
+        </view>
+    </view>
+
+    <view class="input-view-item" style="padding:30rpx 0;">
+        <view class="input-label-box">
+          <label for="goods-category">打印设置</label>
+        </view>
+        <view class="label-right-box">
+          <view class="all-cuisine ws ell"><text>{{goodsUnitArr[goodsUnitIndex]}}</text></view>
+          <view class="jumpAddCuisine-a">
+            <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+          </view>
+        </view>
+    </view>
+
+    <view class="input-view-item" style="padding:30rpx 0;">
+        <view class="input-label-box">
+          <label for="goods-category">账号设置</label>
+        </view>
+        <view class="label-right-box">
+          <view class="all-cuisine ws ell"><text>{{goodsUnitArr[goodsUnitIndex]}}</text></view>
+          <view class="jumpAddCuisine-a">
+            <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+          </view>
+        </view>
+    </view>
+
+
+</view>

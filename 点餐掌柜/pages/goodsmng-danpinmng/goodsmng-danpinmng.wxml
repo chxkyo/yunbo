@@ -1,0 +1,69 @@
+<!--pages/foodmng/foodmng.wxml-->
+<view class="scroll_box">
+  <scroll-view class="scroll-view_x" scroll-x style="width: auto;overflow:hidden;">
+    <view class="item_list">
+      <view class="item_book_text_active">女装</view>
+    </view>
+    <view class="item_list">
+      <view class="item_book_text" data-num="0">女鞋</view>
+    </view>
+    <view class="item_list">
+      <view class="item_book_text" data-num="0">男装</view>
+    </view>
+    <view class="item_list">
+      <view class="item_book_text" data-num="0">男鞋</view>
+    </view>
+    <view class="item_list">
+      <view class="item_book_text" data-num="0">配饰</view>
+    </view>
+    <view class="item_list">
+      <view class="item_book_text" data-num="0">女装</view>
+    </view>
+    <view class="item_list">
+      <view class="item_book_text" data-num="0">女装</view>
+    </view>
+    <view class="item_list">
+      <view class="item_book_text" data-num="0">女装</view>
+    </view>
+    <view class="item_list">
+      <view class="item_book_text" data-num="0">女装</view>
+    </view>
+
+  </scroll-view>
+</view>
+
+<view class="bgf9-area"></view>
+<view class="pdt100">
+  <view class="addgoods-wrap">
+      <view class="input-view-item" style="padding:30rpx 0;">
+          <view class="input-label-box">
+            <label for="goods-category">ONLY2018款碎花连衣裙</label>
+          </view>
+          <view class="label-right-box">
+            <view class="all-cuisine ws ell"><text>{{goodsCategoryArr[goodsCategoryIndex]}}</text></view>
+            <view class="jumpAddCuisine-a">
+              <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+            </view>
+          </view>
+      </view>
+
+      <view class="input-view-item" style="padding:30rpx 0;">
+          <view class="input-label-box">
+            <label for="goods-category">2018款碎花连衣裙</label>
+          </view>
+          <view class="label-right-box">
+            <view class="all-cuisine ws ell"><text>{{goodsUnitArr[goodsUnitIndex]}}</text></view>
+            <view class="jumpAddCuisine-a">
+              <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+            </view>
+          </view>
+      </view>
+  </view>
+
+  <view class="add-cuisineitem-btn-wrap">
+      <view bindtap='modalShow'>
+        <text>新增</text>
+      </view>
+    </view>
+
+</view>

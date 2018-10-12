@@ -1,0 +1,4 @@
+/* pages/system-silver-payedit/system-silver-payedit.wxss */
+.edit-cuisine-wrap{flex-direction: column;}
+.edit-cuisine-wrap .save-meal-btn{width: 100%}
+.edit-cuisine-wrap .del-btn{margin-top: 40rpx;}

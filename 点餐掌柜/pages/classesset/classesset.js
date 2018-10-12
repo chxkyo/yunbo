@@ -1,4 +1,5 @@
 // pages/classesset/classesset.js
+const app = getApp();
 Page({
 
   /**
@@ -11,14 +12,14 @@ Page({
     endTime:'',
     showModal:false,
     classesName:'',
-    classesArr:[{name:"早班",time:"08:00~12:00"}]
+    classesArr:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    getShopDutyList(this);
   },
 
   /**
@@ -87,6 +88,7 @@ Page({
     })
   },
   saveClasses(){
+    let that = this;
     if (!this.data.classesName) {
       wx.showModal({
         title: '提示',
@@ -106,13 +108,16 @@ Page({
         showCancel: false
       })
     }else{
-      this.data.classesArr.push({ name: this.data.classesName, time: this.data.startTime + "~" + this.data.endTime});
-      this.setData({
-        classesArr: this.data.classesArr,
-        showModal:false
-      });
-      wx.showToast({
-        title: '添加成功'
+      app.fetch('shopDutyConfig/save', { name: this.data.classesName, startTime: this.data.startTime, endTime: this.data.endTime}, "POST").then(res => {
+        if(res.data.code === 0){
+          getShopDutyList(that);
+          this.setData({
+            showModal:false
+          })
+          wx.showToast({
+            title: '添加成功'
+          })
+        }
       })
     }
   },
@@ -122,21 +127,43 @@ Page({
     });
   },
   delClasses(e){
-    let index = e.currentTarget.dataset.index;
+    let id = e.currentTarget.dataset.id;
     let that = this;
     wx.showModal({
       title: "确认删除班次吗?",
       success: function (res) {
         if (res.confirm) {
-          that.data.classesArr.splice(index, 1);
-          that.setData({
-            classesArr: that.data.classesArr
-          })
-          wx.showToast({
-            title: '删除成功'
+          app.fetch('shopDutyConfig/delete/' + id, { methodName:'delete',id:id}, "POST").then(res => {
+            if (res.data.code === 0) {
+              let index = that.data.classesArr.findIndex((value,index)=>{
+                return value.id == id;
+              });
+              that.data.classesArr.splice(index,1);
+              that.setData({
+                classesArr: that.data.classesArr
+              })
+              wx.showToast({
+                title: '删除成功'
+              })
+            }
           })
         }
       }
     });
   }
 })
+function getShopDutyList(that){
+  app.fetch('shopDutyConfig/list', {}, "POST").then(res => {
+    if (res.data.code === 0) {
+      that.setData({
+        classesArr: res.data.shiftList
+      })
+    } else if (res.data.code === 2) {
+      wx.removeStorageSync('sessionid');
+      wx.removeStorageSync('sessionid_gettime');
+      wx.switchTab({
+        url: 'pages/index/index'
+      })
+    }
+  })
+}

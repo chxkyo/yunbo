@@ -1,0 +1,70 @@
+<!--pages/foodmng/foodmng.wxml-->
+<view class="scroll_box">
+  <scroll-view class="scroll-view_x" scroll-x style="width: auto;overflow:hidden;">
+    <view class="item_list">
+      <view class="item_book_text_active">热炒</view>
+    </view>
+    <view class="item_list">
+      <view class="item_book_text" data-num="0">凉菜</view>
+    </view>
+    <view class="item_list">
+      <view class="item_book_text" data-num="0">饮料</view>
+    </view>
+    <view class="item_list">
+      <view class="item_book_text" data-num="0">自制酒水</view>
+    </view>
+    <view class="item_list">
+      <view class="item_book_text" data-num="0">主食</view>
+    </view>
+    <view class="item_list">
+      <view class="item_book_text" data-num="0">热炒</view>
+    </view>
+    <view class="item_list">
+      <view class="item_book_text" data-num="0">热炒</view>
+    </view>
+    <view class="item_list">
+      <view class="item_book_text" data-num="0">热炒</view>
+    </view>
+    <view class="item_list">
+      <view class="item_book_text" data-num="0">热炒</view>
+    </view>
+
+  </scroll-view>
+</view>
+
+<view class="bgf9-area"></view>
+
+<view class="pdt100">
+  <view class="addgoods-wrap">
+        <view class="input-view-item" style="padding:30rpx 0;">
+            <view class="input-label-box">
+              <label for="goods-category">爆炒牛肉</label>
+            </view>
+            <view class="label-right-box">
+              <view class="all-cuisine ws ell"><text>{{goodsCategoryArr[goodsCategoryIndex]}}</text></view>
+              <view class="jumpAddCuisine-a">
+                <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+              </view>
+            </view>
+        </view>
+
+      <view class="input-view-item" style="padding:30rpx 0;">
+          <view class="input-label-box">
+            <label for="goods-category">红烧肉</label>
+          </view>
+          <view class="label-right-box">
+            <view class="all-cuisine ws ell"><text>{{goodsUnitArr[goodsUnitIndex]}}</text></view>
+            <view class="jumpAddCuisine-a">
+              <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+            </view>
+          </view>
+      </view>
+  </view>
+
+    <view class="add-cuisineitem-btn-wrap">
+      <view bindtap='modalShow'>
+        <text>新增</text>
+      </view>
+    </view>
+
+</view>

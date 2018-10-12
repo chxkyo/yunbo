@@ -1,0 +1,17 @@
+<view class="bgf9" style='height:20rpx;'></view>
+<view class="editcuisine-wrap">
+
+  <view class="input-view-item">
+    <view class="input-label-box">
+      <label for="meal-name">区域名称</label>
+    </view>
+    <view class="label-right-box">
+      <input class="weui-input" placeholder="请输入区域名称" placeholder-style='color:#eee;font-size:32rpx;' id="meal-name" type="text" bindinput="getMealName" value="包厢"/>
+    </view>
+  </view>
+
+  <view class="save-btn-wrap edit-cuisine-wrap">
+    <button class="save-meal-btn del-btn f1" type="primary" hover-class="none" bindtap='delThisMeal'>删除</button>
+    <button class="save-meal-btn confirm-btn f1" type="primary" hover-class="none" bindtap="saveMeal">保存</button> 
+   </view>
+</view>

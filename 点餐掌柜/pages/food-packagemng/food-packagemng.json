@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "套餐管理",
+  "usingComponents": {
+    "modal": "../../components/modal/modal"
+  }
+}
