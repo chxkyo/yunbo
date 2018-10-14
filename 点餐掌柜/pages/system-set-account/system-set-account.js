@@ -1,4 +1,5 @@
 // pages/wy-goodsmng-classifymng/wy-goodsmng-classifymng.js
+const app = getApp();
 Page({
 
   /**
@@ -6,7 +7,7 @@ Page({
    */
   data: {
     showModal:false,
-    areaListArr: [{ type: 1, name: "包厢" }, { type: 2, name: "大厅"}],
+    shopCashierList: [],
     areaName:''
   },
 
@@ -14,7 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    getShopCashierList(this);
   },
 
   /**
@@ -91,3 +92,12 @@ Page({
     })
   }
 })
+function getShopCashierList(that) {
+  return app.fetch('shopCashier/list', {}, "POST").then(res => {
+    if (res.data.code === 0) {
+      that.setData({
+        shopCashierList: res.data.shopCashierList
+      })
+    }
+  })
+}

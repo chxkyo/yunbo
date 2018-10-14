@@ -1,38 +1,28 @@
 <!--pages/system-set-account/system-set-account.wxml-->
 
 <view class="areamanage-wrap pd30 pdt100">
-  <view class="add-cuisineitem-btn-wrap">
-    <view bindtap='modalShow'>
-      <text>新增</text>
+  <navigator hover-class='none' url="../system-account-add/system-account-add">
+    <view class="add-cuisineitem-btn-wrap">
+      <view bindtap='modalShow'>
+        <text>新增</text>
+      </view>
     </view>
-  </view>
+  </navigator>
   <view class="areamanage-list-wrap">
-    <block wx:for="{{areaListArr}}" wx:key="*this">
-
+    <block wx:for="{{shopCashierList}}" wx:key="{{id}}">
+      <navigator hover-class='none' url="../system-account-edit/system-account-edit?id={{item.id}}&loginNo={{item.loginNo}}">
+        <view class="input-view-item" style="padding:30rpx 0;">
+            <view class="input-label-box">
+              <label for="goods-category">{{item.loginNo}}</label>
+            </view>
+            <view class="label-right-box">
+              <view class="all-cuisine ws ell"><text></text></view>
+              <view class="jumpAddCuisine-a">
+                <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+              </view>
+            </view>
+        </view>
+      </navigator>
     </block>
   </view>
-    <view class="input-view-item" style="padding:30rpx 0;">
-        <view class="input-label-box">
-          <label for="goods-category">收银员1</label>
-        </view>
-        <view class="label-right-box">
-          <view class="all-cuisine ws ell"><text></text></view>
-          <view class="jumpAddCuisine-a">
-            <image src="../../images/img/to.png" class="arrow-right-icon"></image>
-          </view>
-        </view>
-    </view>
-
-    <view class="input-view-item" style="padding:30rpx 0;">
-        <view class="input-label-box">
-          <label for="goods-category">收银员2</label>
-        </view>
-        <view class="label-right-box">
-          <view class="all-cuisine ws ell"><text></text></view>
-          <view class="jumpAddCuisine-a">
-            <image src="../../images/img/to.png" class="arrow-right-icon"></image>
-          </view>
-        </view>
-    </view>
-
 </view>

@@ -46,7 +46,7 @@ Page({
     this.ecComponent3 = this.selectComponent('#mychart-dom-multi-pie2');
     this.ecComponent4 = this.selectComponent('#mychart-dom-multi-bar2');
     this.ecComponent5 = this.selectComponent('#mychart-dom-multi-pie3');
-    app.fetch('data',{},'POST').then(res=>{
+    app.fetch('data',{deptId:'',shopId:''},'POST').then(res=>{
       if(res.data.code === 0){
         this.setData({
           dailySale: res.data.dailyData.dailySale,
@@ -104,8 +104,8 @@ Page({
       } else if (res.data.code === 2){
         wx.removeStorageSync('sessionid');
         wx.removeStorageSync('sessionid_gettime');
-        wx.navigateTo({
-          url: '../index/index',
+        wx.switchTab({
+          url: '../index/index'
         })
       }
     })
@@ -204,17 +204,6 @@ function getBarOption(date,saleArr) {
     ]
   };
   return option;
-}
-function createMonthDay() {
-  let daysOfMonth = [],data = [];
-  let fullYear = new Date().getFullYear();
-  let month = new Date().getMonth() + 1;
-  let lastDayOfMonth = new Date(fullYear, month, 0).getDate();
-  for (var i = 1; i <= lastDayOfMonth; i++) {
-    daysOfMonth.push(month + '-' + i);
-    data.push(3030);
-  };
-  return {date:daysOfMonth,data:data};
 }
 function getColorArr(arr){
   let dailyColorArr = []; 

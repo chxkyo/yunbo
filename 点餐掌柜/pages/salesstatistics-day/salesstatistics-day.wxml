@@ -1,12 +1,4 @@
 <view class="salesstatistics-wrap {{noscroll?'noscroll':''}}">
-  <view class="custom-tab">
-    <view class="custom-tab-item {{index == 0?'active':'' }}" data-index="0" bindtap="tabTap">
-      <view class="custom-tab-subitem">今日</view>
-    </view>
-    <view class="custom-tab-item {{index == 1?'active':'' }}" data-index="1" bindtap="tabTap">
-      <view class="custom-tab-subitem">2018-09-01~2018-09-05</view>
-    </view>
-  </view>
   <view class="shuju-wrap pd30">
     <view class="shuju-inner-wrap">
         <view class="shuju-header">
@@ -15,131 +7,50 @@
         </view>
       <view class="print-time-wrap">
         <view class="print-detail-item">
-          <view><text>起始时间：2018-09-05 10:00:00</text></view>
+          <view><text>开始日期：{{startDate}}</text></view>
         </view>
         <view class="print-detail-item">
-          <view><text>起始时间：2018-09-05 10:00:00</text></view>
-        </view>
-        <view class="print-detail-item">
-          <view><text>起始时间：2018-09-05 10:00:00</text></view>
-        </view>
-        <view class="print-detail-item">
-          <view><text>起始时间：2018-09-05 10:00:00</text></view>
+          <view><text>结束日期：{{endDate}}</text></view>
         </view>
       </view>
       <view class="print-detail-wrap">
         <view class="print-detail-item-wrap">
           <view class="print-detail-item">
             <view>
-              <text>订单总数：30</text>
-            </view>
-          </view>
-          <view class="print-detail-item">
-            <view>
-              <text>桌数：30</text>
-            </view>
-            <view>
-              <text>桌均消费：300.00</text>
-            </view>
-          </view>
-          <view class="print-detail-item">
-            <view>
-              <text>人数：70</text>
-            </view>
-            <view>
-              <text>人均消费：19.8</text>
+              <text>订单总数：{{orderCount}}</text>
             </view>
           </view>
         </view>
         <view class="print-detail-item-wrap">
           <view class="print-detail-item">
             <view>
-              <text>订单总数：30</text>
+              <text>统计类型</text>
             </view>
           </view>
-          <view class="print-detail-item">
+          <view class="print-detail-item" wx:for="{{categoryList}}" wx:key="{{prodctCategoryId}}">
             <view>
-              <text>桌数：30</text>
+              <text>{{item.productCategoryName}}类</text>
             </view>
             <view>
-              <text>桌均消费：300.00</text>
-            </view>
-          </view>
-          <view class="print-detail-item">
-            <view>
-              <text>人数：70</text>
+              <text>{{item.amount}}元</text>
             </view>
             <view>
-              <text>人均消费：19.8</text>
+              <text>{{item.rate}}%</text>
             </view>
           </view>
         </view>
         <view class="print-detail-item-wrap">
           <view class="print-detail-item">
             <view>
-              <text>订单总数：30</text>
+              <text>各班次营业账单</text>
             </view>
           </view>
-          <view class="print-detail-item">
+          <view class="print-detail-item" wx:for="{{income.incomeList}}" wx:key="{{id}}">
             <view>
-              <text>桌数：30</text>
+              <text>{{item.name}}</text>
             </view>
             <view>
-              <text>桌均消费：300.00</text>
-            </view>
-          </view>
-          <view class="print-detail-item">
-            <view>
-              <text>人数：70</text>
-            </view>
-            <view>
-              <text>人均消费：19.8</text>
-            </view>
-          </view>
-        </view>
-        <view class="print-detail-item-wrap">
-          <view class="print-detail-item">
-            <view>
-              <text>订单总数：30</text>
-            </view>
-          </view>
-          <view class="print-detail-item">
-            <view>
-              <text>桌数：30</text>
-            </view>
-            <view>
-              <text>桌均消费：300.00</text>
-            </view>
-          </view>
-          <view class="print-detail-item">
-            <view>
-              <text>人数：70</text>
-            </view>
-            <view>
-              <text>人均消费：19.8</text>
-            </view>
-          </view>
-        </view>
-        <view class="print-detail-item-wrap">
-          <view class="print-detail-item">
-            <view>
-              <text>订单总数：30</text>
-            </view>
-          </view>
-          <view class="print-detail-item">
-            <view>
-              <text>桌数：30</text>
-            </view>
-            <view>
-              <text>桌均消费：300.00</text>
-            </view>
-          </view>
-          <view class="print-detail-item">
-            <view>
-              <text>人数：70</text>
-            </view>
-            <view>
-              <text>人均消费：19.8</text>
+              <text>{{item.amount}}元</text>
             </view>
           </view>
         </view>
@@ -149,29 +60,30 @@
           <view><text>营业明细</text></view>
         </view>
         <view class="print-detail-item">
-          <view><text>实收总计:11231</text></view>
+          <view><text>毛收入:{{income.totalAmount}}</text></view>
         </view>
         <view class="print-detail-item">
-          <view><text>实收返款总计:11231</text></view>
-        </view>
-        <view class="print-detail-item">
-          <view><text>实收不返款总计:11231</text></view>
+          <view><text>实收:{{income.factAmount}}</text></view>
         </view>
       </view>
       <view class="print-bottom-wrap">
         <view class="print-detail-item">
           <view><text>实收</text></view>
-          <view><text>111元</text></view>
-          <view><text>4.53%</text></view>
         </view>
-        <view class="print-detail-item">
-          <view><text>实收总计:11231</text></view>
+        <view class="print-detail-item" wx:for="{{receipts}}" wx:key="{{payType}}">
+          <view><text>{{item.payName}}({{item.payCount}}笔)</text></view>
+          <view><text>{{item.amount}}元</text></view>
+          <view><text>{{item.rate}}%</text></view>
         </view>
+      </view>
+      <view class="print-bottom-wrap">
         <view class="print-detail-item">
-          <view><text>实收返款总计:11231</text></view>
+          <view><text>非实收</text></view>
         </view>
-        <view class="print-detail-item">
-          <view><text>实收不返款总计:11231</text></view>
+        <view class="print-detail-item" wx:for="{{nonReceipts}}" wx:key="{{payType}}">
+          <view><text>{{item.payName}}({{item.payCount}}笔)</text></view>
+          <view><text>{{item.amount}}元</text></view>
+          <view><text></text></view>
         </view>
       </view>
     </view>

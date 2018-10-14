@@ -24,11 +24,20 @@ Page({
         wx.removeStorageSync('sessionid');
         wx.removeStorageSync('sessionid_gettime');
       } else {
-        // wx.switchTab({
-        //   url: '../index/index'
+        wx.switchTab({
+          url: '../index/index'
+        })
+        // wx.navigateTo({
+        //   url: '../system-set-account/system-set-account',
+        // })
+        // wx.navigateTo({
+        //   url: '../goodsmng/goodsmng',
+        // })
+        // wx.navigateTo({
+        //   url: '../system-set-collectmoney/system-set-collectmoney',
         // })
         wx.navigateTo({
-          url: '../goodsmng/goodsmng',
+          url: '../paymentset/paymentset',
         })
       }
     }

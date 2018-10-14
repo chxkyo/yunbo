@@ -3,32 +3,32 @@
 
   <view class="input-view-item">
     <view class="input-label-box">
-      <label for="meal-name">原密码</label>
+      <label for="originalPwd">原密码</label>
     </view>
     <view class="label-right-box">
-      <input class="weui-input" name="password" type="password"  placeholder="请输入原密码" value=""  placeholder-style='color:#eee;font-size:32rpx;' id="meal-name" bindinput="getMealName" />
+      <input class="weui-input" name="password" type="password"  placeholder="请输入原密码" value=""  placeholder-style='color:#eee;font-size:32rpx;' id="originalPwd" bindinput="getOriginalPwd" />
     </view>
   </view>
 
   <view class="input-view-item">
     <view class="input-label-box">
-      <label for="meal-price">新密码</label>
+      <label for="newPwd">新密码</label>
     </view>
     <view class="label-right-box">
-      <input class="weui-input" name="password" type="password"  placeholder="请输入新密码" value=""  placeholder-style='color:#eee;font-size:32rpx;' id="meal-name" bindinput="getMealName" />
+      <input class="weui-input" name="password" type="password"  placeholder="请输入新密码" value=""  placeholder-style='color:#eee;font-size:32rpx;' id="newPwd" bindinput="getNewPwd" />
     </view>
   </view>
 
   <view class="input-view-item">
     <view class="input-label-box">
-      <label for="meal-discount">确认新密码</label>
+      <label for="confirmNewPwd">确认新密码</label>
     </view>
     <view class="label-right-box">
-      <input class="weui-input" name="password" type="password"  placeholder="请确认新密码" value=""  placeholder-style='color:#eee;font-size:32rpx;' id="meal-name" bindinput="getMealName"  />
+      <input class="weui-input" name="password" type="password"  placeholder="请确认新密码" value=""  placeholder-style='color:#eee;font-size:32rpx;' id="confirmNewPwd" bindinput="getConfirmNewPwd"  />
     </view>
   </view>
 
   <view class="save-btn-wrap">
-    <button class="save-meal-btn confirm-btn f1" type="primary" hover-class="none" bindtap="saveGood">保存</button> 
+    <button class="save-meal-btn confirm-btn f1" type="primary" hover-class="none" bindtap="savePwd">保存</button> 
    </view>
 </view>

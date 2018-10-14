@@ -9,12 +9,21 @@ App({
         wx.removeStorageSync('sessionid')
         wx.removeStorageSync('sessionid_gettime')
       }else{
-        // wx.switchTab({
-        //   url: 'pages/index/index'
-        // })
-        wx.navigateTo({
-          url: 'pages/goodsmng/goodsmng',
+        wx.switchTab({
+          url: 'pages/index/index'
         })
+        // wx.navigateTo({
+        //   url: 'pages/system-set-account/system-set-account',
+        // })
+        // wx.navigateTo({
+        //   url: 'pages/goodsmng/goodsmng',
+        // })
+        // wx.navigateTo({
+        //   url: 'pages/system-set-collectmoney/system-set-collectmoney',
+        // })
+        // wx.navigateTo({
+        //   url: 'pages/paymentset/paymentset',
+        // })
       }
     }
     // 登录

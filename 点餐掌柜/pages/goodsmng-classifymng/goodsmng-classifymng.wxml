@@ -28,31 +28,34 @@
         <switch checked="{{switchChecked}}" bindchange="switchChange" />
       </view>
     </view>
-    <button slot="footer" class="addsuisinmebtn confirm-btn" type="primary" hover-class="none" bindtap="saveGoodsClassify">保存</button>
+    <button slot="footer" class="addsuisinmebtn confirm-btn" type="primary" hover-class="none">保存</button>
   </view>
 </modal>
 <view class="areamanage-wrap pd30 pdt100">
-  <view class="add-cuisineitem-btn-wrap">
-    <view bindtap='modalShow'>
-      <text>新增</text>
+  <navigator hover-class='none' url="../goodsmng-classify-add/goodsmng-classify-add">
+    <view class="add-cuisineitem-btn-wrap">
+      <view>
+        <text>新增</text>
+      </view>
     </view>
-  </view>
+  </navigator>
   <view class="areamanage-list-wrap">
-    <block wx:for="{{areaListArr}}" wx:key="*this">
-
-    </block>
-  </view>
-  <view class="input-view-item" style="padding:30rpx 0;" wx:for="{{goodsClassifyList}}" wx:key="id">
-    <view class="input-label-box">
-      <label for="goods-category">{{item.name}}</label>
-    </view>
-    <view class="label-right-box">
-      <view class="all-cuisine ws ell">
-        <text></text>
-      </view>
-      <view class="jumpAddCuisine-a">
-        <image src="../../images/img/to.png" class="arrow-right-icon"></image>
-      </view>
-    </view>
+    <block wx:for="{{goodsClassifyList}}" wx:key="id">
+      <navigator hover-class='none' url="../goodsmng-classify-edit/goodsmng-classify-edit?id={{item.id}}">
+        <view class="input-view-item" style="padding:30rpx 0;" >
+          <view class="input-label-box">
+            <label for="goods-category">{{item.name}}</label>
+          </view>
+          <view class="label-right-box">
+            <view class="all-cuisine ws ell">
+              <text></text>
+            </view>
+            <view class="jumpAddCuisine-a">
+              <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </block> 
   </view>
 </view>

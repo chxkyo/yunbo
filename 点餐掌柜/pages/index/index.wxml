@@ -46,7 +46,7 @@
         </navigator>
       </view>
       <view class="navigator-item">
-        <navigator hover-class="none" url="../systemset/systemset">
+        <navigator hover-class="none" url="../system-set/system-set">
           <view class="navigator-item-icon-wrap">
             <image src="../../images/img/xtsz.png"></image>
           </view>
@@ -54,7 +54,7 @@
         </navigator>
       </view>
       <view class="navigator-item">
-        <navigator hover-class="none" url="../salesstatistics/salesstatistics">
+        <navigator hover-class="none" url="../salesstatistics-month/salesstatistics-month">
           <view class="navigator-item-icon-wrap">
             <image src="../../images/img/tjbb.png"></image>
           </view>

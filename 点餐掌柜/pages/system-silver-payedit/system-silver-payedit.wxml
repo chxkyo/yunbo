@@ -3,19 +3,19 @@
 
   <view class="input-view-item">
     <view class="input-label-box">
-      <label for="meal-name">支付名称</label>
+      <label for="name">优惠名称</label>
     </view>
     <view class="label-right-box">
-      <input class="weui-input" placeholder="请输入打印机名称" placeholder-style='color:#eee;font-size:32rpx;' id="meal-name" type="text" bindinput="getMealName" value="招行90抵100"/>
+      <input class="weui-input" placeholder="请输入优惠名称" placeholder-style='color:#eee;font-size:32rpx;' id="name" type="text" bindinput="getName" value="{{name}}"/>
     </view>
   </view>
-    <picker bindchange="bindCategoryPickerChange" value="{{goodsCategoryIndex}}" range="{{goodsCategoryArr}}">
+    <picker bindchange="bindFreeTypeChange" value="{{freeTypeIndex}}" range="{{freeTypeArr}}">
       <view class="input-view-item" style="padding:30rpx 0;">
           <view class="input-label-box">
-            <label for="goods-category">支付类型</label>
+            <label for="freeType">优惠类型</label>
           </view>
           <view class="label-right-box">
-            <view class="all-cuisine ws ell"><text>代金券</text></view>
+            <view class="all-cuisine ws ell"><text>{{freeTypeArr[freeTypeIndex]}}</text></view>
             <view class="jumpAddCuisine-a">
               <image src="../../images/img/to.png" class="arrow-right-icon"></image>
             </view>
@@ -25,32 +25,44 @@
 
   <view class="input-view-item">
     <view class="input-label-box">
-      <label for="meal-price">折扣金额（元）</label>
+      <label for="freePrice">折扣金额（元）</label>
     </view>
     <view class="label-right-box">
-      <input class="weui-input" placeholder="请输入折扣金额" placeholder-style='color:#eee;font-size:32rpx;' id="meal-price" type="digit" bindinput="getMealPrcie" value="100"/>
-    </view>
-  </view>
-
-  <view class="input-view-item">
-    <view class="input-label-box">
-      <label for="meal-discount">实收金额（元）</label>
-    </view>
-    <view class="label-right-box">
-      <input class="weui-input" placeholder="请输入实收金额" placeholder-style='color:#eee;font-size:32rpx;' id="meal-discount" type="digit" bindinput="getMealDiscount" value="90"/>
+      <input class="weui-input" placeholder="请输入折扣金额" placeholder-style='color:#eee;font-size:32rpx;' id="freePrice" type="digit" bindinput="getFreePrice" value="{{freePrice}}"/>
     </view>
   </view>
   <view class="input-view-item">
     <view class="input-label-box">
-      <label for="meal-discount">说明</label>
+      <label for="limitPrice">限制金额（元）</label>
     </view>
     <view class="label-right-box">
-      <input class="weui-input" placeholder="" placeholder-style='color:#eee;font-size:32rpx;' id="meal-discount" type="digit" bindinput="getMealDiscount" value=""/>
+      <input class="weui-input" placeholder="请输入限制金额" placeholder-style='color:#eee;font-size:32rpx;' id="limnitPrice" type="digit" bindinput="getLimitPrice" value="{{limitPrice}}"/>
     </view>
   </view>
+  <view class="input-view-item">
+    <view class="input-label-box">
+      <label for="actPrice">实收金额（元）</label>
+    </view>
+    <view class="label-right-box">
+      <input class="weui-input" placeholder="请输入实收金额" placeholder-style='color:#eee;font-size:32rpx;' id="actPrice" type="digit" bindinput="getActPrice" value="{{actPrice}}"/>
+    </view>
+  </view>
+    <picker bindchange="bindBackFeeChange" value="{{backFeeIndex}}" range="{{backFeeArr}}">
+      <view class="input-view-item" style="padding:30rpx 0;">
+          <view class="input-label-box">
+            <label for="freeType">返款标志</label>
+          </view>
+          <view class="label-right-box">
+            <view class="all-cuisine ws ell"><text>{{backFeeArr[backFeeIndex]}}</text></view>
+            <view class="jumpAddCuisine-a">
+              <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+            </view>
+          </view>
+      </view>
+    </picker>
 
-    <view class="save-btn-wrap edit-cuisine-wrap">
-    <button class="save-meal-btn confirm-btn" type="primary" hover-class="none" bindtap="saveMeal">保存</button> 
-    <button class="save-meal-btn del-btn" type="primary" hover-class="none" bindtap='delThisMeal'>删除</button>
+  <view class="save-btn-wrap edit-cuisine-wrap">
+    <button class="save-meal-btn confirm-btn f1" type="primary" hover-class="none" bindtap="savePay">保存</button>
+    <button class="save-meal-btn del-btn" type="primary" hover-class="none" bindtap='delPay'>删除</button> 
    </view>
 </view>

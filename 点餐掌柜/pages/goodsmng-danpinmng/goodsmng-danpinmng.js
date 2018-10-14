@@ -1,4 +1,5 @@
 // pages/foodmng/foodmng.js
+const app = getApp();
 Page({
 
   /**
@@ -14,14 +15,25 @@ Page({
     goodsUnitFlag: false,
     goodsName:'',
     goodsPrice:'',
-    goodsDiscount:''
+    goodsDiscount:'',
+    goodsClassifyList:[],
+    activeIndex:0,
+    goodsList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    getgoodsClassifyList(this).then(res=>{
+      app.fetch('product/list', { productCategoryId:res[0].id }, "POST").then(res => {
+        if (res.data.code === 0) {
+          this.setData({
+            goodsList: res.data.productList
+          })
+        }
+      })
+    });
   },
 
   /**
@@ -131,5 +143,33 @@ Page({
         showCancel: false
       })
     }
+  },
+  getProductList(e){
+    let id = e.currentTarget.dataset.id;
+    let index = e.currentTarget.dataset.index;
+    app.fetch('product/list', { productCategoryId: id}, "POST").then(res => {
+      if (res.data.code === 0) {
+        this.setData({
+          activeIndex:index,
+          goodsList: res.data.productList
+        })
+      }
+    })
   }
 })
+function getgoodsClassifyList(that) {
+  return app.fetch('productCategory/list', {}, "POST").then(res => {
+    if (res.data.code === 0) {
+      that.setData({
+        goodsClassifyList: res.data.productCategoryList
+      })
+      return res.data.productCategoryList;
+    } else if (res.data.code === 2) {
+      wx.removeStorageSync('sessionid');
+      wx.removeStorageSync('sessionid_gettime');
+      wx.switchTab({
+        url: 'pages/index/index'
+      })
+    }
+  })
+}

@@ -1,59 +1,49 @@
 <view class="bgf9" style='height:20rpx;'></view>
 <view class="editcuisine-wrap">
 
-  <view class="input-view-item">
+   <view class="input-view-item">
     <view class="input-label-box">
-      <label for="meal-name">名称</label>
+      <label for="danping-name">名称</label>
     </view>
     <view class="label-right-box">
-      <input class="weui-input" placeholder="请输入单品名称" placeholder-style='color:#eee;font-size:32rpx;' id="meal-name" type="text" bindinput="getMealName" value="2018宽修身牛仔裤"/>
+      <input class="weui-input" placeholder="请输入单品名称" placeholder-style='color:#eee;font-size:32rpx;' id="danping-name" type="text" bindinput="getName" value="{{name}}"/>
     </view>
   </view>
-    <picker bindchange="bindCategoryPickerChange" value="{{goodsCategoryIndex}}" range="{{goodsCategoryArr}}">
       <view class="input-view-item" style="padding:30rpx 0;">
           <view class="input-label-box">
             <label for="goods-category">所属分类</label>
           </view>
           <view class="label-right-box">
-            <view class="all-cuisine ws ell"><text>女装</text></view>
-            <view class="jumpAddCuisine-a">
-              <image src="../../images/img/to.png" class="arrow-right-icon"></image>
-            </view>
+            <input class="weui-input" placeholder-style='color:#eee;font-size:32rpx;' id="meal-price" type="text"  value="{{productCategoryName}}" disabled='true'/>
           </view>
       </view>
-    </picker>
   <view class="input-view-item">
     <view class="input-label-box">
-      <label for="meal-price">单价</label>
+      <label for="danping-price">单价</label>
     </view>
     <view class="label-right-box">
-      <input class="weui-input" placeholder="请输入单价" placeholder-style='color:#eee;font-size:32rpx;' id="meal-price" type="digit" bindinput="getMealPrcie" value="388.00"/>
+      <input class="weui-input" placeholder="请输入单价" placeholder-style='color:#eee;font-size:32rpx;' id="danping-price" type="digit" bindinput="getPrcie" value="{{price}}"/>
     </view>
   </view>
-    <picker bindchange="bindCategoryPickerChange" value="{{goodsCategoryIndex}}" range="{{goodsCategoryArr}}">
       <view class="input-view-item" style="padding:30rpx 0;">
           <view class="input-label-box">
-            <label for="goods-category">单位</label>
+            <label for="danping-unit">单位</label>
           </view>
           <view class="label-right-box">
-            <view class="all-cuisine ws ell"><text>ONLY</text></view>
-            <view class="jumpAddCuisine-a">
-              <image src="../../images/img/to.png" class="arrow-right-icon"></image>
-            </view>
+      <input class="weui-input" placeholder="请输入单位" placeholder-style='color:#eee;font-size:32rpx;' id="danping-unit" type="number" bindinput="getUnit" value="{{unit}}"/>
           </view>
       </view>
-    </picker>
   <view class="input-view-item">
     <view class="input-label-box">
-      <label for="meal-discount">折扣</label>
+      <label for="danping-discount">折扣</label>
     </view>
     <view class="label-right-box">
-      <input class="weui-input" placeholder="请输入折扣" placeholder-style='color:#eee;font-size:32rpx;' id="meal-discount" type="digit" bindinput="getMealDiscount" value="10%"/>
+      <input class="weui-input" placeholder="请输入折扣" placeholder-style='color:#eee;font-size:32rpx;' id="danping-discount" type="digit" bindinput="getDiscount" value="{{discount}}"/>
     </view>
   </view>
 
     <view class="save-btn-wrap edit-cuisine-wrap">
-    <button class="save-meal-btn confirm-btn" type="primary" hover-class="none" bindtap="saveMeal">保存</button> 
+    <button class="save-meal-btn confirm-btn" type="primary" hover-class="none" bindtap="saveDanPin">保存</button> 
     <button class="save-meal-btn del-btn" type="primary" hover-class="none" bindtap='delThisMeal'>删除</button>
    </view>
 </view>

@@ -3,48 +3,37 @@
 
   <view class="input-view-item">
     <view class="input-label-box">
-      <label for="meal-name">账号名称</label>
+      <label for="accountName">账号名称</label>
     </view>
     <view class="label-right-box">
-      <input class="weui-input" placeholder="请输入账号名称" placeholder-style='color:#eee;font-size:32rpx;' id="meal-name" type="text" bindinput="getMealName" value=""/>
+      <input class="weui-input" placeholder="请输入账号名称" placeholder-style='color:#eee;font-size:32rpx;' id="accountName" type="text" bindinput="getAccountName" value=""/>
     </view>
   </view>
   <view class="input-view-item">
     <view class="input-label-box">
-      <label for="meal-name">账号密码</label>
+      <label for="accoundPassword">账号密码</label>
     </view>
     <view class="label-right-box">
-      <input class="weui-input" placeholder="请输入账号密码" placeholder-style='color:#eee;font-size:32rpx;' id="meal-name" type="text" bindinput="getMealName" value=""/>
+      <input class="weui-input" placeholder="请输入账号密码" placeholder-style='color:#eee;font-size:32rpx;' id="accoundPassword" type="text" bindinput="getPassWord" value=""/>
     </view>
   </view>
-    <picker bindchange="bindCategoryPickerChange" value="{{goodsCategoryIndex}}" range="{{goodsCategoryArr}}">
       <view class="input-view-item" style="padding:30rpx 0;">
           <view class="input-label-box">
             <label for="goods-category">打折权限</label>
           </view>
           <view class="label-right-box">
-            <view class="all-cuisine ws ell"><text>有</text></view>
-            <view class="jumpAddCuisine-a">
-              <image src="../../images/img/to.png" class="arrow-right-icon"></image>
-            </view>
+              <switch checked="{{discountFlag}}" bindchange="switchDiscount"/>
           </view>
       </view>
-    </picker>
-    <picker bindchange="bindCategoryPickerChange" value="{{goodsCategoryIndex}}" range="{{goodsCategoryArr}}">
       <view class="input-view-item" style="padding:30rpx 0;">
           <view class="input-label-box">
             <label for="goods-category">退款权限</label>
           </view>
           <view class="label-right-box">
-            <view class="all-cuisine ws ell"><text>无</text></view>
-            <view class="jumpAddCuisine-a">
-              <image src="../../images/img/to.png" class="arrow-right-icon"></image>
-            </view>
+              <switch checked="{{refundFlag}}" bindchange="switchRefund"/>
           </view>
       </view>
-    </picker>
-
   <view class="save-btn-wrap">
-    <button class="save-meal-btn confirm-btn f1" type="primary" hover-class="none" bindtap="saveGood">保存</button> 
+    <button class="save-meal-btn confirm-btn f1" type="primary" hover-class="none" bindtap="saveAccount">保存</button> 
   </view>
 </view>

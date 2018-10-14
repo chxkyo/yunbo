@@ -1,26 +1,20 @@
 // pages/editcuisine/editcuisine.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    src: "../../images/img/cpgl.png",
-    mealName: "妈妈红烧肉套餐",
-    mealPrice: "288.00",
-    mealMaxnum: "20",
-    allCuisine: '妈妈红烧肉、妈妈红烧鱼',
-    mealDiscount: '6',
-    thisIndex: ''
+    originalPwd:'',
+    newPwd:'',
+    confirmNewPwd:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options.index) {
-      this.thisIndex = options.index;
-    }
   },
 
   /**
@@ -71,159 +65,58 @@ Page({
   onShareAppMessage: function () {
 
   },
-  jumpAddCuisine() {
-    wx.navigateTo({
-      url: '../addcuisineitem/addcuisineitem?allcuisine=' + this.data.allCuisine
+  getOriginalPwd(e){
+    this.setData({
+      originalPwd:e.detail.value
     })
   },
-  saveMeal() {
-    if (!this.data.src) {
+  getNewPwd(e){
+    this.setData({
+      newPwd: e.detail.value
+    })
+  },
+  getConfirmNewPwd(e) {
+    this.setData({
+      confirmNewPwd: e.detail.value
+    })
+  },
+  savePwd() {
+    if (!this.data.originalPwd) {
       wx.showModal({
         title: '提示',
-        content: '请上传图片',
+        content: '请输入原密码',
         showCancel: false
       })
-    } else if (!this.data.mealName) {
+    } else if (!this.data.newPwd) {
       wx.showModal({
         title: '提示',
-        content: '请输入套餐名称',
+        content: '请输入新密码',
         showCancel: false
       })
-    } else if (!this.data.mealPrice) {
+    } else if (!this.data.confirmNewPwd) {
       wx.showModal({
         title: '提示',
-        content: '请输入价格名称',
-        showCancel: false
-      })
-    } else if (!this.data.mealMaxnum) {
-      wx.showModal({
-        title: '提示',
-        content: '请输入最大允许数量',
-        showCancel: false
-      })
-    } else if (!this.data.allCuisine) {
-      wx.showModal({
-        title: '提示',
-        content: '请选择套餐菜品',
+        content: '请确认新密码',
         showCancel: false
       })
     } else {
-
-    }
-  },
-  delThisMeal() {
-    let pages = getCurrentPages();
-    let prevPage = pages[pages.length - 2];  //上一个页面
-    let that = this;
-    wx.showModal({
-      title: "确认删除该套餐吗?",
-      success: function (res) {
-        if (res.confirm) {
-          prevPage.data.cuisineListArr.splice(that.data.thisIndex, 1);
-          prevPage.setData({
-            cuisineListArr: prevPage.data.cuisineListArr
-          });
-          wx.showToast({
-            title: '删除套餐成功',
-            success() {
-              wx.navigateBack({
-                delta: 1
-              })
-            }
-          })
-        }
-      }
-    });
-  },
-  joinPicture: function (e) {
-    let that = this;
-    wx.showActionSheet({
-      itemList: ["从相册中选择", "拍照"],
-      itemColor: "#f7982a",
-      success: function (res) {
-        if (!res.cancel) {
-          if (res.tapIndex == 0) {
-            that.chooseWxImage("album");
-          } else if (res.tapIndex == 1) {
-            that.chooseWxImage("camera");
+      if (this.data.newPwd != this.data.confirmNewPwd){
+        wx.showModal({
+          title: '提示',
+          content: '新密码两次输入不一致!',
+          showCancel: false
+        })
+      }else{
+        app.fetch('config/discountPwd', { originalPwd: this.data.originalPwd, newPwd: this.data.newPwd}, "POST").then(res => {
+          if (res.data.code === 0) {
+            wx.showToast({
+              title: '打折密码修改成功！',
+              success: function () {
+              }
+            })
           }
-        }
+        })
       }
-    })
-  },
-  chooseWxImage: function (type) {
-    var that = this;
-    var evalList = this.data.evalList;
-    wx.chooseImage({
-      count: 1,
-      sizeType: ["original", "compressed"],
-      sourceType: [type],
-      success: function (res) {
-        var addImg = res.tempFilePaths;
-        var addLen = addImg.length;
-        that.upLoadImg(addImg);
-      },
-    })
-  },
-  upLoadImg: function (img) {
-    var that = this;
-    this.upload(that, img);
-  },
-  //多张图片上传
-  upload: function (page, path) {
-    var that = this;
-    var curImgList = [];
-    that.setData({
-      src: path[0]
-    })
-    // wx.showToast({
-    //   icon: "loading",
-    //   title: "正在上传"
-    // });
-    // for (var i = 0; i < path.length; i++) {
-    //   wx.showToast({
-    //     icon: "loading",
-    //     title: "正在上传"
-    //   });
-    // wx.uploadFile({
-    //   url: '',//接口处理在下面有写
-    //   filePath: path[i].pic,
-    //   name: 'file',
-    //   header: { "Content-Type": "multipart/form-data" },
-    //   formData: {
-    //     douploadpic: '1'
-    //   },
-    //   success: function (res) {
-    //     curImgList.push(res.data);
-    //     var evalList = that.data.evalList;
-    //     evalList[0].imgList = curImgList;
-    //     that.setData({
-    //       evalList: evalList
-    //     })
-    //     if (res.statusCode != 200) {
-    //       wx.showModal({
-    //         title: '提示',
-    //         content: '上传失败',
-    //         showCancel: false
-    //       })
-    //       return;
-    //     }
-    //     var data = res.data
-    //     page.setData({  //上传成功修改显示头像
-    //       src: path[0]
-    //     })
-    //   },
-    //   fail: function (e) {
-    //     wx.showModal({
-    //       title: '提示',
-    //       content: '上传失败',
-    //       showCancel: false
-    //     })
-    //   },
-    //   complete: function () {
-    //     wx.hideToast();  //隐藏Toast
-    //   }
-    // })
-    // }
-  },
+    }
+  }
 })

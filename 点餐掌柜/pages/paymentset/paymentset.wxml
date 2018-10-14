@@ -25,26 +25,30 @@
 </modal>
 <view class="system-set-wrap pd30">
   <view class="system-list-wrap">
-    <view class="add-cuisineitem-btn-wrap">
-      <view bindtap='modalShow'>
-        <text>新增</text>
+    <navigator hover-class='none' url="../system-silver-payeadd/system-silver-payeadd">
+      <view class="add-cuisineitem-btn-wrap">
+        <view>
+          <text>新增</text>
+        </view>
       </view>
-    </view>
+    </navigator>
     <block wx:for="{{methodArr}}" wx:key="{{name}}">
-      <view class="input-view-item" style="padding:30rpx 0;">
-        <view class="input-label-box">
-          <label>{{item.name}}</label>
-        </view>
-        <view class="payment-btn-wrap">
-          <button slot="footer" class="payment-btn stop-btn" type="primary" hover-class="none" bindtap="stopUse" wx:if="{{item.status}}">停止使用</button>
-          <button slot="footer" class="payment-btn start-btn" type="primary" hover-class="none" bindtap="startUse" wx:else>开始使用</button>
-        </view>
-        <view class="label-right-box">
-          <view class="jumpAddCuisine-a">
-            <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+      <navigator hover-class="none" url="../system-silver-payedit/system-silver-payedit?id={{item.id}}">
+        <view class="input-view-item" style="padding:30rpx 0;">
+          <view class="input-label-box">
+            <label>{{item.name}}</label>
+          </view>
+          <view class="payment-btn-wrap">
+            <!-- <button slot="footer" class="payment-btn stop-btn" type="primary" hover-class="none" bindtap="stopUse" wx:if="{{item.status}}">停止使用</button>
+            <button slot="footer" class="payment-btn start-btn" type="primary" hover-class="none" bindtap="startUse" wx:else>开始使用</button> -->
+          </view>
+          <view class="label-right-box">
+            <view class="jumpAddCuisine-a">
+              <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+            </view>
           </view>
         </view>
-      </view>
+      </navigator>
     </block>
   </view>
 </view>

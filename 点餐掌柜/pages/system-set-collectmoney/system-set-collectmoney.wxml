@@ -1,6 +1,7 @@
 <!--pages/system-set-collectmoney/system-set-collectmoney.wxml-->
 <view class="bgf9-area"></view>
 <view class="addgoods-wrap">
+    <navigator hover-class='none' url="../paymentset/paymentset">
       <view class="input-view-item" style="padding:30rpx 0;">
           <view class="input-label-box">
             <label for="goods-category">其他支付方式</label>
@@ -12,42 +13,41 @@
             </view>
           </view>
       </view>
-
-    <view class="input-view-item" style="padding:30rpx 0;">
+    </navigator>
+    <navigator hover-class='none' url="../system-silver-change/system-silver-change">
+      <view class="input-view-item" style="padding:30rpx 0;">
         <view class="input-label-box">
           <label for="goods-category">零头处理方式</label>
         </view>
         <view class="label-right-box">
-          <view class="all-cuisine ws ell"><text>{{goodsUnitArr[goodsUnitIndex]}}</text></view>
           <view class="jumpAddCuisine-a">
             <image src="../../images/img/to.png" class="arrow-right-icon"></image>
           </view>
         </view>
     </view>
-
-    <view class="input-view-item" style="padding:30rpx 0;">
-        <view class="input-label-box">
-          <label for="goods-category">打折密码</label>
-        </view>
-        <view class="label-right-box">
-          <view class="all-cuisine ws ell"><text>{{goodsUnitArr[goodsUnitIndex]}}</text></view>
-          <view class="jumpAddCuisine-a">
-            <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+    </navigator>
+    <navigator hover-class='none' url="../system-silver-sale/system-silver-sale">
+      <view class="input-view-item" style="padding:30rpx 0;">
+          <view class="input-label-box">
+            <label for="goods-category">打折密码</label>
           </view>
-        </view>
-    </view>
-
-    <view class="input-view-item" style="padding:30rpx 0;">
-        <view class="input-label-box">
-          <label for="goods-category">退款密码</label>
-        </view>
-        <view class="label-right-box">
-          <view class="all-cuisine ws ell"><text>{{goodsUnitArr[goodsUnitIndex]}}</text></view>
-          <view class="jumpAddCuisine-a">
-            <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+          <view class="label-right-box">
+            <view class="jumpAddCuisine-a">
+              <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+            </view>
           </view>
-        </view>
-    </view>
-
-
+      </view>
+    </navigator>
+    <navigator hover-class='none' url="../system-silver-refund/system-silver-refund">
+      <view class="input-view-item" style="padding:30rpx 0;">
+          <view class="input-label-box">
+            <label for="goods-category">退款密码</label>
+          </view>
+          <view class="label-right-box">
+            <view class="jumpAddCuisine-a">
+              <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+            </view>
+          </view>
+      </view>
+    </navigator>
 </view>
