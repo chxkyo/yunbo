@@ -33,7 +33,8 @@ Page({
       endDate: app.util.formatTime(new Date)
     })
     let month = app.util.formatNumber(new Date().getMonth() + 1);
-    getReport(this, 'monthlyReport', '', month, '', '', '');
+    let year = app.util.formatNumber(new Date().getFullYear());
+    getReport(this, 'monthlyReport', year, month, '', '', '');
   },
 
   /**
