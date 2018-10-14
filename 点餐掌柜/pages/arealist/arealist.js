@@ -14,40 +14,18 @@ Page({
     hallIndex:'',
     areaType:'',
     areaInputName:'',
-    delShow:false
+    delShow:false,
+    noscroll:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options.type){
-      this.setData({
-        areaType: options.type
-      })
-      if (options.type == 1){
-        wx.setNavigationBarTitle({
-          title: "包厢管理"
-        })
-        this.setData({
-          boxList: ["包厢一", "包厢二", "包厢三", "包厢四", "包厢五"],
-          areaName: "包厢"
-        })
-      } else if (options.type == 2 ){
-        wx.setNavigationBarTitle({
-          title: "桌号管理"
-        })
-        this.setData({
-          hallList: ["桌号一", "桌号二", "桌号三", "桌号四", "桌号五"],
-          areaName: '大厅'
-        })
-      }else{
-        this.setData({
-          boxList: ["包厢一", "包厢二", "包厢三", "包厢四", "包厢五"],
-          hallList: ["桌号一", "桌号二", "桌号三", "桌号四", "桌号五"]
-        })
-      }
-    }
+    this.setData({
+      boxList: ["包厢一", "包厢二", "包厢三", "包厢四", "包厢五"],
+      hallList: ["桌号一", "桌号二", "桌号三", "桌号四", "桌号五", "桌号一", "桌号二", "桌号三", "桌号四", "桌号五"]
+    })
   },
 
   /**
@@ -101,7 +79,8 @@ Page({
   modalShow(){
     this.setData({
       areaItemName:'',
-      showModal:true
+      showModal:true,
+      noscroll:true
     })
   },
   showBoxModal(e){
@@ -111,7 +90,8 @@ Page({
       delShow:true,
       areaItemName:this.data.boxList[index],
       showModal: true,
-      areaInputName: this.data.boxList[index]
+      areaInputName: this.data.boxList[index],
+      noscroll: true
     })
   },
   showHallModal(e){
@@ -121,7 +101,8 @@ Page({
       delShow: true,
       areaItemName: this.data.hallList[index],
       showModal: true,
-      areaInputName: this.data.hallList[index]
+      areaInputName: this.data.hallList[index],
+      noscroll: true
     })
   },
   getAreaName(e){
@@ -181,13 +162,15 @@ Page({
             that.data.boxList.splice(that.data.boxIndex,1);
             that.setData({
               boxList: that.data.boxList,
-              showModal: false
+              showModal: false,
+              noscroll: false
             })
           } else if (that.data.areaType == 2){
             that.data.hallList.splice(that.data.hallIndex, 1);
             that.setData({
               hallList: that.data.hallList,
-              showModal: false
+              showModal: false,
+              noscroll:false
             })
           }
           wx.showToast({
@@ -196,5 +179,10 @@ Page({
         }
       }
     });
+  },
+  modalClose() {
+    this.setData({
+      noscroll: false
+    })
   }
 })

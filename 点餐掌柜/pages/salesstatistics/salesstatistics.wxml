@@ -1,4 +1,4 @@
-<modal show="{{showModal}}" bindmodalclose="modalClose">
+<modal show="{{showModal}}" bindmodalclose="modalClose" >
   <view slot="modal-title">
     <text>自定义日期</text>
   </view>

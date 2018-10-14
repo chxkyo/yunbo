@@ -6,6 +6,7 @@ Page({
    */
   data: {
     showModal:false,
+    noscroll:false,
     areaListArr: [{ type: 1, name: "包厢" }, { type: 2, name: "大厅" }, { type: 1, name: "包厢" }, { type: 2, name: "大厅" }, { type: 1, name: "包厢" }, { type: 2, name: "大厅" },{ type: 1, name: "包厢" }, { type: 2, name: "大厅" }, { type: 1, name: "包厢" }, { type: 2, name: "大厅" }, { type: 1, name: "包厢" }, { type: 2, name: "大厅" }],
     areaName:''
   },
@@ -67,7 +68,8 @@ Page({
   },
   modalShow(){
     this.setData({
-      showModal:true
+      showModal:true,
+      noscroll:true
     })
   },
   saveArea(){
@@ -88,6 +90,11 @@ Page({
   getAreaName(e){
     this.setData({
       areaName:e.detail.value
+    })
+  },
+  modalClose() {
+    this.setData({
+      noscroll: false
     })
   }
 })

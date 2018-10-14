@@ -1,17 +1,20 @@
 <!--pages/food-classifymng/food-classifymng.wxml-->
 
 <view class="areamanage-wrap pd30">
-  <view class="add-cuisineitem-btn-wrap">
-    <view bindtap='modalShow'>
-      <text>新增</text>
+  <navigator hover-class='none' url="../foodmng-classify-add/foodmng-classify-add">
+    <view class="add-cuisineitem-btn-wrap">
+      <view>
+        <text>新增</text>
+      </view>
     </view>
-  </view>
+  </navigator>
 
   <view class="areamanage-list-wrap">
     <block wx:for="{{areaListArr}}" wx:key="*this">
 
     </block>
   </view>
+  <navigator hover-class='none' url="../foodmng-classify-edit/foodmng-classify-edit">
     <view class="input-view-item" style="padding:30rpx 0;">
         <view class="input-label-box">
           <label for="goods-category">类别名称1</label>
@@ -23,7 +26,8 @@
           </view>
         </view>
     </view>
-
+  </navigator>
+    <navigator hover-class='none' url="../foodmng-classify-edit/foodmng-classify-edit">
     <view class="input-view-item" style="padding:30rpx 0;">
         <view class="input-label-box">
           <label for="goods-category">类别名称2</label>
@@ -35,7 +39,8 @@
           </view>
         </view>
     </view>
-
+  </navigator>
+  <navigator hover-class='none' url="../foodmng-classify-edit/foodmng-classify-edit">
     <view class="input-view-item" style="padding:30rpx 0;">
         <view class="input-label-box">
           <label for="goods-category">类别名称3</label>
@@ -47,5 +52,6 @@
           </view>
         </view>
     </view>
+    </navigator>
 
 </view>

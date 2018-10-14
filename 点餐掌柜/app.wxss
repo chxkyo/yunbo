@@ -49,8 +49,8 @@ form [form-type='submit']::after{
 .open-app image{width: 174rpx;height:78rpx;}
 .open-app button{width: 174rpx;height:78rpx;line-height: 78rpx;border-radius: 39rpx 0 0 39rpx;background-color: #367bfd;color: #fff;font-size:28rpx;text-align: center;}
 .open-app button::after{border: 0 none}
-.confirm-btn{background: -webkit-linear-gradient(left,#8379fb,#1da5fc);background: linear-gradient(to right,#8379fb,#1da5fc);box-shadow: 0 0 5px rgba(0, 0, 0, .2);}
-.del-btn{background: -webkit-linear-gradient(left,#fc2bef,#fb7992);background: linear-gradient(to right,#fc2bef,#fb7992);box-shadow: 0 0 5px rgba(0, 0, 0, .2);}
+.confirm-btn{background: -webkit-linear-gradient(left,#8379fb,#1da5fc);background: linear-gradient(to right,#8379fb,#1da5fc);box-shadow: 0 0 5px rgba(0, 0, 0, .2);width: 100%;}
+.del-btn{background: -webkit-linear-gradient(left,#fc2bef,#fb7992);background: linear-gradient(to right,#fc2bef,#fb7992);box-shadow: 0 0 5px rgba(0, 0, 0, .2);width: 100%;}
 .f1{flex: 1;}.tr{text-align: right;}
 .wx-color{background-color:#21d3a3}.al-color{background-color: #fb8b5d}
 .bank-color{background-color: #fb5db0;}.other-color{background-color: #5f8ffe}
@@ -63,6 +63,7 @@ form [form-type='submit']::after{
 .start-btn{color:#1da5fc !important; }
 .pdt100{padding-bottom: 100rpx !important;}
 .pdt200{padding-bottom: 200rpx !important;}
+.noscroll{height: 100vh;overflow: hidden;}
 /*新增菜品*/
 .input-view-item{display:flex;align-items: center;border-bottom:2rpx solid #f1f1f1;justify-content: space-between;font-size: 32rpx;}
 .photo-item{padding: 30rpx 0rpx;}
@@ -72,7 +73,7 @@ form [form-type='submit']::after{
 .input-view-item{padding: 20rpx 0;}
 .input-view-item picker{display: flex;flex:1;}
 .arrow-right-icon{width: 16rpx;height: 26rpx;}
-.save-btn-wrap{display:flex;width: 80%;margin:80rpx auto 0;}
+.save-btn-wrap{display:flex;width: 80%;margin:80rpx auto 0;flex-direction: column;}
 .all-cuisine{width:300rpx;text-align: right;}
 .addcuisine-wrap,.cuisineitem-wrap,.cuisinelist-outer-wrap,.editcuisine-wrap,.addgoods-wrap,.pd30{padding: 30rpx;}
 /*弹出层共用*/

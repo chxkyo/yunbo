@@ -1,35 +1,60 @@
 <!--pages/addcuisineitem/addcuisineitem.wxml-->
-<view class="bgf9" style='height:20rpx;'></view>
-<modal show="{{showModal}}">
-  <view slot="modal-title"><text>新增套餐菜品</text></view>
+<modal show="{{showModal}}" bindmodalclose="modalClose">
+  <view slot="modal-title">
+    <text>新增套餐菜品</text>
+  </view>
   <view slot="middle-content">
     <picker bindchange="bindCaiPickerChange" value="{{cai_index}}" range="{{cai_category}}">
       <view class="modal-picker-item">
-        <view class="modal-picker-item-des"><text>菜品分类</text></view>
+        <view class="modal-picker-item-des">
+          <text>菜品分类</text>
+        </view>
         <view class="modal-picker-right-box ell">
-          <view class="time-box"><text wx:if="{{choose_cai}}">{{cai_category[cai_index]}}</text></view> 
-          <view class="modal-picker-choose-icon"><image src="../../images/img/to.png" class="modal-picker-choose-icon"></image></view>
+          <view class="time-box">
+            <text wx:if="{{choose_cai}}">{{cai_category[cai_index]}}</text>
+          </view>
+          <view class="modal-picker-choose-icon">
+            <image src="../../images/img/to.png" class="modal-picker-choose-icon"></image>
+          </view>
         </view>
       </view>
     </picker>
     <picker bindchange="bindNamePickerChange" value="{{name_index}}" range="{{name_category}}">
       <view class="modal-picker-item">
-        <view class="modal-picker-item-des"><text>菜品名称</text></view>
+        <view class="modal-picker-item-des">
+          <text>菜品名称</text>
+        </view>
         <view class="modal-picker-right-box ell">
-          <view class="time-box"><text wx:if="{{choose_name}}">{{name_category[name_index]}}</text></view> 
-          <view class="modal-picker-choose-icon"><image src="../../images/img/to.png" class="modal-picker-choose-icon"></image></view>
+          <view class="time-box">
+            <text wx:if="{{choose_name}}">{{name_category[name_index]}}</text>
+          </view>
+          <view class="modal-picker-choose-icon">
+            <image src="../../images/img/to.png" class="modal-picker-choose-icon"></image>
+          </view>
         </view>
       </view>
     </picker>
   </view>
-  <button slot="footer" class="addsuisinmebtn confirm-btn" type="primary" hover-class="none" bindtap="chooseCuisine">保存</button> 
+  <button slot="footer" class="addsuisinmebtn confirm-btn" type="primary" hover-class="none" bindtap="chooseCuisine">保存</button>
 </modal>
-<view class="cuisineitem-wrap pdt100">
-  <view class="add-cuisineitem-btn-wrap"><view bindtap='modalShow'><text>新增</text></view></view>
-  <view class="cuisinelist-wrap">
-    <view class="cuisine-item" wx:for="{{cai_list}}" wx:key="*this">
-      <view class="cuisine-item-name"><text>{{item}}</text></view>
-      <view class="cuisine-item-del"><image src="../../images/img/del.png" data-index="{{index}}" bindtap="delCuisine"></image><text>删除</text></view>
+<view class="{{noscroll?'noscroll':''}}">
+  <view class="bgf9" style='height:20rpx;'></view>
+  <view class="cuisineitem-wrap pdt100">
+    <view class="add-cuisineitem-btn-wrap">
+      <view bindtap='modalShow'>
+        <text>新增</text>
+      </view>
+    </view>
+    <view class="cuisinelist-wrap">
+      <view class="cuisine-item" wx:for="{{cai_list}}" wx:key="*this">
+        <view class="cuisine-item-name">
+          <text>{{item}}</text>
+        </view>
+        <view class="cuisine-item-del">
+          <image src="../../images/img/del.png" data-index="{{index}}" bindtap="delCuisine"></image>
+          <text>删除</text>
+        </view>
+      </view>
     </view>
   </view>
 </view>

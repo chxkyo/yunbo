@@ -1,5 +1,5 @@
 <view class="custom-modal-wrap" wx:if='{{show}}'>
-  <view class="mask"></view>
+  <view class="mask" bindtouchstart="" bindtouchmove="" bindtouchend=""></view>
   <view class="modal-content-wrap">
     <view class="modal-header">
       <slot name="modal-title"></slot>

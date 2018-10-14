@@ -1,2 +1,2 @@
 /* pages/editcuisine/editcuisine.wxss */
-.edit-cuisine-wrap .del-btn{margin-right: 50rpx;}
+.del-btn{margin-top: 40rpx;}

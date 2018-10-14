@@ -1,8 +1,9 @@
 <!--pages/cuisinelist/cuisinelist.wxml-->
 <view class="bgf9" style='height:20rpx;'></view>
 <view class="cuisinelist-outer-wrap">
-  <view class="add-cuisineitem-btn-wrap"><navigator class="add-cuisineitem-btn confirm-btn" hover-class='none' url="../areamanage/areamanage"><text>区域管理</text></navigator></view>
-
+  <navigator hover-class='none' url='../areamanage/areamanage'>
+      <view class="add-cuisineitem-btn-wrap"><text>区域管理</text></view>
+  </navigator>
     <picker class="cuisinelist-wrap" bindchange="bindConnectTypeChange" value="{{connectTypeIndex}}" range="{{connectTypeArr}}">
       <view class="input-view-item" style="padding:30rpx 0;">
           <view class="input-label-box">

@@ -13,7 +13,8 @@ Page({
     choose_name:false,
     name_index:0,
     cai_list:[],
-    allcuisine:''
+    allcuisine:'',
+    noscroll:false
   },
 
   /**
@@ -89,7 +90,8 @@ Page({
   },
   modalShow(){
     this.setData({
-      showModal:true
+      showModal:true,
+      noscroll:true
     })
   },
   chooseCuisine(){
@@ -117,7 +119,8 @@ Page({
         this.data.cai_list.push(this.data.name_category[this.data.name_index])
         this.setData({
           cai_list: this.data.cai_list,
-          showModal: false
+          showModal: false,
+          noscroll: false
         });
         prevPage.setData({
           allCuisine: this.data.cai_list.join("、")
@@ -149,5 +152,10 @@ Page({
         }
       }
     });
+  },
+  modalClose() {
+    this.setData({
+      noscroll: false
+    })
   }
 })

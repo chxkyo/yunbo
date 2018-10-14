@@ -36,35 +36,37 @@
 
 <view class="pdt100">
   <view class="addgoods-wrap">
+      <navigator hover-class='none' url="../foodmng-danpin-edit/foodmng-danpin-edit">
         <view class="input-view-item" style="padding:30rpx 0;">
             <view class="input-label-box">
               <label for="goods-category">爆炒牛肉</label>
             </view>
             <view class="label-right-box">
-              <view class="all-cuisine ws ell"><text>{{goodsCategoryArr[goodsCategoryIndex]}}</text></view>
               <view class="jumpAddCuisine-a">
                 <image src="../../images/img/to.png" class="arrow-right-icon"></image>
               </view>
             </view>
         </view>
-
+      </navigator>
+    <navigator hover-class='none' url="../foodmng-danpin-edit/foodmng-danpin-edit">
       <view class="input-view-item" style="padding:30rpx 0;">
           <view class="input-label-box">
             <label for="goods-category">红烧肉</label>
           </view>
           <view class="label-right-box">
-            <view class="all-cuisine ws ell"><text>{{goodsUnitArr[goodsUnitIndex]}}</text></view>
             <view class="jumpAddCuisine-a">
               <image src="../../images/img/to.png" class="arrow-right-icon"></image>
             </view>
           </view>
       </view>
+    </navigator>
   </view>
-
-    <view class="add-cuisineitem-btn-wrap">
-      <view bindtap='modalShow'>
-        <text>新增</text>
+    <navigator hover-class='none' url="../foodmng-danpin-add/foodmng-danpin-add">
+      <view class="add-cuisineitem-btn-wrap">
+        <view>
+          <text>新增</text>
+        </view>
       </view>
-    </view>
+    </navigator>
 
 </view>
