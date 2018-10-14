@@ -46,7 +46,9 @@ Page({
     this.ecComponent3 = this.selectComponent('#mychart-dom-multi-pie2');
     this.ecComponent4 = this.selectComponent('#mychart-dom-multi-bar2');
     this.ecComponent5 = this.selectComponent('#mychart-dom-multi-pie3');
+    wx.showLoading({ title: '拼命加载中...' });
     app.fetch('data',{deptId:'',shopId:''},'POST').then(res=>{
+      wx.hideLoading();
       if(res.data.code === 0){
         this.setData({
           dailySale: res.data.dailyData.dailySale,
