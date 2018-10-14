@@ -25,7 +25,7 @@
           </view>
       </view>
     </navigator>
-    <navigator  hover-class='none' url="../system-set-collectmoney/system-set-collectmoney">
+    <navigator  hover-class='none' url="../printset/printset">
       <view class="input-view-item" style="padding:30rpx 0;">
           <view class="input-label-box">
             <label for="goods-category">打印设置</label>
