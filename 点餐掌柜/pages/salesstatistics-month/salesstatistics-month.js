@@ -87,7 +87,9 @@ Page({
   }
 })
 function getReport(that, method, year, month, day, startDate, endDate) {
+  wx.showLoading({ title: '拼命加载中...' });
   app.fetch('report/' + method, { year: year, month: month, day: day, startDate: startDate, endDate: endDate }, "POST").then(res => {
+    wx.hideLoading();
     if (res.data.code === 0) {
       that.setData({
         orderCount: res.data.reportData.orderCount,
