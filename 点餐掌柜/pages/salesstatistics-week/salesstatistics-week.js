@@ -94,6 +94,11 @@ function getReport(that, method, year, month, day, startDate, endDate) {
         receipts: res.data.reportData.receipts,
         nonReceipts: res.data.reportData.nonReceipts
       })
+    } else {
+      wx.showToast({
+        title: res.data.msg,
+        icon: 'none'
+      })
     }
   })
 }

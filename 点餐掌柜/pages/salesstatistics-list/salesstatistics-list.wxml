@@ -1,10 +1,10 @@
-<!--pages/wy-system-set/wy-system-set.wxml-->
+<!--pages/salesstatistics-list/salesstatistics-list.wxml-->
 <view class="bgf9-area"></view>
 <view class="addgoods-wrap">
-    <navigator  hover-class='none' url="../classesset/classesset">
+    <navigator  hover-class='none' url="../salesstatistics-day/salesstatistics-day">
       <view class="input-view-item" style="padding:30rpx 0;">
           <view class="input-label-box">
-            <label for="goods-category">班次设置</label>
+            <label for="goods-category">销售日报</label>
           </view>
           <view class="label-right-box">
             <view class="jumpAddCuisine-a">
@@ -13,10 +13,10 @@
           </view>
       </view>
     </navigator>
-    <navigator  hover-class='none' url="../system-set-collectmoney/system-set-collectmoney">
+    <navigator  hover-class='none' url="../salesstatistics-week/salesstatistics-week">
       <view class="input-view-item" style="padding:30rpx 0;">
           <view class="input-label-box">
-            <label for="goods-category">收银设置</label>
+            <label for="goods-category">销售周报</label>
           </view>
           <view class="label-right-box">
             <view class="jumpAddCuisine-a">
@@ -25,10 +25,10 @@
           </view>
       </view>
     </navigator>
-    <navigator  hover-class='none' url="../system-set-collectmoney/system-set-collectmoney">
+    <navigator  hover-class='none' url="../salesstatistics-month/salesstatistics-month">
       <view class="input-view-item" style="padding:30rpx 0;">
           <view class="input-label-box">
-            <label for="goods-category">打印设置</label>
+            <label for="goods-category">销售月报</label>
           </view>
           <view class="label-right-box">
             <view class="jumpAddCuisine-a">
@@ -37,10 +37,10 @@
           </view>
       </view>
     </navigator>
-    <navigator  hover-class='none' url="../system-set-account/system-set-account">
+    <navigator  hover-class='none' url="../salesstatistics-year/salesstatistics-year">
       <view class="input-view-item" style="padding:30rpx 0;">
           <view class="input-label-box">
-            <label for="goods-category">账号设置</label>
+            <label for="goods-category">销售年报</label>
           </view>
           <view class="label-right-box">
             <view class="jumpAddCuisine-a">
@@ -50,3 +50,4 @@
       </view>
     </navigator>
 </view>
+

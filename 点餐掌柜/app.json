@@ -52,7 +52,8 @@
     "pages/salesstatistics-month/salesstatistics-month",
     "pages/salesstatistics-week/salesstatistics-week",
     "pages/salesstatistics-day/salesstatistics-day",
-    "pages/salesstatistics/salesstatistics"
+    "pages/salesstatistics/salesstatistics",
+    "pages/salesstatistics-list/salesstatistics-list"
 
   ],
   "window": {
