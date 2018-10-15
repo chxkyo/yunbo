@@ -1,5 +1,14 @@
-<view class="container-fluid">
-     <text class="title">Demo4</text>
+<view class="container-fluid pd30">
+    <view class="chooseDateWrap">
+      <view class="startTime">
+        <view>开始时间</view>
+        <view class="endTime-header">{{startDate}}</view>
+      </view>
+            <view class="endTime">
+        <view >结束时间</view>
+        <view class="endTime-header">{{endDate}}</view>
+      </view>
+     </view>
     <view class="demo4">
         <calendar 
         weeks-type="cn" 
@@ -11,4 +20,7 @@
         days-color="{{demo4_days_style}}" 
         bindnextMonth="next"   bindprevMonth="prev"   binddateChange="dateChange" binddayClick="dayClick"/>
     </view >
+    <view class="add-cuisineitem-btn-wrap">
+      <view><text>新增</text></view>
+    </view>
 </view>

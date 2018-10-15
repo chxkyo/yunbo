@@ -95,3 +95,5 @@
 .demo4-board {
     color: #000;
 }
+.startTime,.endTime{display: inline-block;width: 50%;text-align: left;font-size: 28rpx;}
+.startTime-header,.endTime-header{font-size: 46rpx;color: #1da5fc;margin-top:20rpx;}
