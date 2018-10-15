@@ -1,0 +1,39 @@
+<!--pages/marketdetail/marketdetail.wxml-->
+<view class='marketdetail-head'>
+  <view class='marketdetail-head-top'>
+    <image src="/images/market-detail1.jpg" />
+  </view>
+  <view class='marketdetail-head-bot'>
+    <view class='marketdetail-head-botLeft'>
+      <image src="/images/follow1.jpg" />
+    </view>
+    <view class='marketdetail-head-botMid'>LOUIS VUITTON</view>
+    <view class='marketdetail-head-botRight' hidden='{{follow}}' bindtap='changeFollow'><text>+</text>关注</view>
+    <view class='marketdetail-head-botRight' hidden='{{!follow}}' bindtap='changeFollow'><image src="/images/follow3.jpg" />已关注</view>
+  </view>
+</view>
+<view class='marketdetail-mid'>
+  <view class='marketdetail-mid-item'>
+    <view class='marketdetail-mid-itemLeft'>
+      <image src="/images/marketdetail-icon1.jpg" />
+    </view>
+    <view class="marketdetail-mid-itemRight">0519-8888888</view>
+  </view>
+  <view class='marketdetail-mid-item'>
+    <view class='marketdetail-mid-itemLeft'>
+      <image src="/images/marketdetail-icon2.jpg" />
+    </view>
+    <view class="marketdetail-mid-itemRight">F1</view>
+  </view>
+</view>
+<view class='marketdetail-foot'>
+  <view class='marketdetail-foot-head'>
+    <image src="/images/coupondetail-icon2.png"/>
+    商户简介
+  </view>
+  <view class='marketdetail-foot-con'>
+  商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介
+  商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介
+  商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介商户简介
+  </view>
+</view>

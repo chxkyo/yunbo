@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "pages/mallactivity/luckyrotate/luckyrotate",
+    "pages/index/index",
+    "pages/entry/entry",
+    "pages/loginbefore/loginbefore",
+    "pages/register/register",
+    "pages/login/login",
+
+    "pages/mallactivity/questionnaire/questionnaire",
+    
+    "pages/mallactivity/activitydetail/activitydetail",
+    "pages/mallactivity/mallactivity/mallactivity",
+    "pages/mallactivity/applysucc/applysucc",
+
+    "pages/pointsmall/address/address",
+    "pages/pointsmall/goodconvert/goodconvert",
+    "pages/pointsmall/gooddetail/gooddetail",
+    "pages/pointsmall/record/record",
+    "pages/pointsmall/pointsmall/pointsmall",
+    "pages/pointsmall/convertsucc/convertsucc",
+
+    
+    "pages/marketguide/marketsearch/marketsearch",
+    "pages/marketguide/marketdetail/marketdetail",
+    "pages/marketguide/marketguide/marketguide",
+
+    "pages/parkpayment/parkpayment",  
+    
+    "pages/coupon/giftcoupon/giftcoupon",
+    "pages/coupon/discountcoupon/discountcoupon",
+    "pages/coupon/fullsubcoupon/fullsubcoupon",
+    "pages/coupon/cashcoupon/cashcoupon",
+    "pages/coupon/coupondetail/coupondetail",
+
+    "pages/usercenter/usercenter/usercenter",
+    "pages/usercenter/mysignin/mysignin",
+    "pages/usercenter/mypoints/mypoints",
+    "pages/usercenter/myfollow/myfollow",
+    "pages/usercenter/mytickets/mytickets",
+    "pages/usercenter/myprofile/myprofile",
+    "pages/usercenter/addselfhelppoints/addselfhelppoints",
+    "pages/usercenter/selfhelppoints/selfhelppoints",
+    "pages/usercenter/mysubscribe/mysubscribe",
+    "pages/usercenter/myaward/myaward",
+    "pages/usercenter/addfeedback/addfeedback",
+    "pages/usercenter/feedback/feedback",
+    "pages/usercenter/subscribedetail/subscribedetail"  
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "O2O",
+    "navigationBarTextStyle": "black"
+  },
+  "plugins": {
+    "calendar": {
+      "version": "1.1.3",
+      "provider": "wx92c68dae5a8bb046"
+    }
+  }
+}

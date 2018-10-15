@@ -10,7 +10,11 @@ Page({
     name: '',
     price: '',
     unit: '',
-    discount: ''
+    discount: '',
+    goodsClassifyList: [],
+    classifyIndex: '',
+    unitArr: [0,1, 10, 50, 100, 200, 500, 1000],
+    unitIndex: ''
   },
 
   /**
@@ -19,17 +23,26 @@ Page({
   onLoad: function (options) {
     if (options.id) {
       this.id = options.id;
-      app.fetch('product/info/' + this.id, { methodName: 'info'}, "POST").then(res => {
-        if (res.data.code === 0) {
-          this.setData({
-            name: res.data.product.name,
-            price: res.data.product.price,
-            unit: res.data.product.unit,
-            discount: res.data.product.discount,
-            productCategoryName: res.data.product.productCategoryName
-          })
-          this.productCategoryId = res.data.product.productCategoryId;
-        }
+      getgoodsClassifyList(this).then(list=>{
+        app.fetch('product/info/' + this.id, { methodName: 'info' }, "POST").then(res => {
+          if (res.data.code === 0) {
+            let classifyIndex = list.findIndex((value,index)=>{
+              return value.id === res.data.product.productCategoryId;
+            })
+            let unitIndex = this.data.unitArr.findIndex((value, index) => {
+              return value === res.data.product.unit;
+            })
+            this.setData({
+              name: res.data.product.name,
+              price: res.data.product.price,
+              unitIndex: unitIndex,
+              discount: res.data.product.discount,
+              classifyIndex: classifyIndex,
+
+            })
+            this.productCategoryId = res.data.product.productCategoryId;
+          }
+        })
       })
     }
     // if(options.productCategoryId){
@@ -105,35 +118,51 @@ Page({
       discount: e.detail.value
     })
   },
+  bindClassifyChange(e) {
+    this.setData({
+      classifyIndex: e.detail.value
+    })
+  },
+  bindUnitChange(e) {
+    this.setData({
+      unitIndex: e.detail.value
+    })
+  },
   saveDanPin() {
     let pages = getCurrentPages();
     let prevPage = pages[pages.length - 2];  //上一个页面
-    if (!this.data.name) {
+    if (this.data.name == '') {
       wx.showModal({
         title: '提示',
-        content: '请上输入单品名称',
+        content: '请输入单品名称',
         showCancel: false
       })
-    } else if (!this.data.price) {
+    } else if (this.data.classifyIndex == '') {
+      wx.showModal({
+        title: '提示',
+        content: '请选择单品所属分类',
+        showCancel: false
+      })
+    } else if (this.data.price == '') {
       wx.showModal({
         title: '提示',
         content: '请输入商品单价',
         showCancel: false
       })
-    } else if (!this.data.unit) {
+    } else if (this.data.unitIndex == '') {
       wx.showModal({
         title: '提示',
         content: '请输入商品单位',
         showCancel: false
       })
-    } else if (!this.data.discount) {
+    } else if (this.data.discount == '') {
       wx.showModal({
         title: '提示',
         content: '请输入商品折扣',
         showCancel: false
       })
     } else {
-      app.fetch('product/update', { id: this.id, productCategoryId: this.productCategoryId,name: this.data.name, discount: this.data.discount, unit: this.data.unit,price:this.data.price }, "POST").then(res => {
+      app.fetch('product/update', { id: this.id, name: this.data.name, productCategoryId: parseInt(this.data.goodsClassifyList[this.data.classifyIndex].id), discount: parseFloat(this.data.discount), price: parseFloat(this.data.price), unit: parseInt(this.data.unitArr[this.data.unitIndex])}, "POST").then(res => {
         if (res.data.code === 0) {
           wx.showToast({
             title: '编辑成功！',
@@ -174,3 +203,13 @@ Page({
     });
   },
 })
+function getgoodsClassifyList(that) {
+  return app.fetch('productCategory/list', {}, "POST").then(res => {
+    if (res.data.code === 0) {
+      that.setData({
+        goodsClassifyList: res.data.productCategoryList
+      })
+      return res.data.productCategoryList;
+    }
+  })
+}

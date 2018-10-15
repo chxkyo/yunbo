@@ -1,0 +1,14 @@
+<view class="container-fluid">
+     <text class="title">Demo4</text>
+    <view class="demo4">
+        <calendar 
+        weeks-type="cn" 
+        cell-size="30" 
+         show-more-days="{{true}}"
+        calendar-style="demo4-calendar" 
+        header-style="demo4-header" 
+        board-style="demo4-board" 
+        days-color="{{demo4_days_style}}" 
+        bindnextMonth="next"   bindprevMonth="prev"   binddateChange="dateChange" binddayClick="dayClick"/>
+    </view >
+</view>

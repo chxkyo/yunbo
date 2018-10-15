@@ -13,7 +13,8 @@ Page({
     limitPrice:0,
     actPrice:'',
     backFeeIndex:0,
-    backFeeArr:["不返款","返款"]
+    backFeeArr:["不返款","返款"],
+    des: ''
   },
 
   /**
@@ -95,6 +96,11 @@ Page({
       actPrice: e.detail.value
     })
   },
+  getDes(e) {
+    this.setData({
+      des: e.detail.value
+    })
+  },
   bindBackFeeChange(e){
     this.setData({
       backFeeIndex: e.detail.value
@@ -122,7 +128,7 @@ Page({
         showCancel: false
       })
     }else {
-      app.fetch('promotion/save', { name: this.data.name, promoteType: parseInt(this.data.freeTypeIndex), promotValue: this.data.freePrice, limitFee: this.data.limitPrice, actFee: this.data.actPrice, backFeeFlag: parseInt(this.data.backFeeIndex) }, "POST").then(res => {
+      app.fetch('promotion/save', { name: this.data.name, promoteType: parseInt(this.data.freeTypeIndex), promoteValue: parseFloat(this.data.freePrice), limitFee: parseFloat(this.data.limitPrice), actFee: parseFloat(this.data.actPrice), backFeeFlag: parseInt(this.data.backFeeIndex) }, "POST").then(res => {
         if (res.data.code === 0) {
           wx.showToast({
             title: '添加其他支付成功！',

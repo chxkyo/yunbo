@@ -1,0 +1,22 @@
+<!--pages/follow/follow.wxml-->
+<view class='follow'>
+  <view class='follow-item'>
+    <view class='follow-item-left'>
+      <image src="/images/follow1.jpg" />
+    </view>
+    <view class='follow-item-mid'>
+      <view class='follow-item-mid-title'>LOUIS VUITTON</view>
+      <view class='follow-item-mid-address'>
+        <image src="/images/follow2.jpg" />
+        F1-SHOP-001
+      </view>
+    </view>
+    <view class="follow-item-right">
+      <image src="/images/follow3.jpg" />
+      已关注
+    </view>
+  </view>
+</view>
+<view class='no-content' hidden='true'>
+  暂无关注的店铺
+</view>

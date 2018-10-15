@@ -1,7 +1,7 @@
 <!--pages/salesstatistics-list/salesstatistics-list.wxml-->
 <view class="bgf9-area"></view>
 <view class="addgoods-wrap">
-    <navigator  hover-class='none' url="../salesstatistics-day/salesstatistics-day">
+    <navigator  hover-class='none' url="../salesstatistics/salesstatistics">
       <view class="input-view-item" style="padding:30rpx 0;">
           <view class="input-label-box">
             <label for="goods-category">销售日报</label>

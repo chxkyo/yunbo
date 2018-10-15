@@ -64,6 +64,7 @@ form [form-type='submit']::after{
 .pdt100{padding-bottom: 100rpx !important;}
 .pdt200{padding-bottom: 200rpx !important;}
 .noscroll{height: 100vh;overflow: hidden;}
+.salesstatistics-time{background-color: #fff;height: 86rpx;line-height:86rpx;text-align: center;font-size: 32rpx;color:#1da5fc }
 /*新增菜品*/
 .input-view-item{display:flex;align-items: center;border-bottom:2rpx solid #f1f1f1;justify-content: space-between;font-size: 32rpx;}
 .photo-item{padding: 30rpx 0rpx;}

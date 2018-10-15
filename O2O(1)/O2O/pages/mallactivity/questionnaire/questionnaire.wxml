@@ -1,0 +1,33 @@
+<!--pages/mallactivity/questionnaire/questionnaire.wxml-->
+<view class='questionnaire'>
+  <view class='questionnaire-item'>
+    <view class='questionnaire-item-head'>1.【单选题】问卷标题问卷标题问卷标题?</view>
+    <view class='questionnaire-item-foot'>
+      <radio-group class="radio-group" bindchange="radioChange">
+        <view class="radio" wx:for="{{items}}">
+          <text>{{item.value}}</text><radio value="{{item.name}}" checked="{{item.checked}}"/>
+        </view>
+      </radio-group>
+    </view>
+  </view>
+  <view class='questionnaire-item'>
+    <view class='questionnaire-item-head'>1.【单选题】问卷标题问卷标题问卷标题?</view>
+    <view class='questionnaire-item-foot'>
+      <radio-group class="radio-group" bindchange="radioChange">
+        <view class="radio" wx:for="{{items}}">
+          <text>{{item.value}}</text><radio value="{{item.name}}" checked="{{item.checked}}"/>
+        </view>
+      </radio-group>
+    </view>
+  </view>
+  <view class='questionnaire-item'>
+    <view class='questionnaire-item-head'>1.【单选题】问卷标题问卷标题问卷标题?</view>
+    <view class='questionnaire-item-foot'>
+      <radio-group class="radio-group" bindchange="radioChange">
+        <view class="radio" wx:for="{{items}}">
+          <text>{{item.value}}</text><radio value="{{item.name}}" checked="{{item.checked}}"/>
+        </view>
+      </radio-group>
+    </view>
+  </view>
+</view>

@@ -93,6 +93,8 @@ Page({
         showModal: true,
         noscroll: true
       })
+    }else{
+      getReport(this, 'dailyReport', '', '', '', this.data.startDate, this.data.endDate);
     }
   },
   bindStartDateChange(e) {
@@ -108,30 +110,29 @@ Page({
     });
   },
   saveDate() {
-    if (!this.data.startDate) {
+    if (!this.data.chooseStartDate) {
       wx.showModal({
         title: '提示',
         content: '请选择开始日期',
         showCancel: false
       })
-    } else if (!this.data.endDate) {
+    } else if (!this.data.chooseEndDate) {
       wx.showModal({
         title: '提示',
         content: '请选择结束日期',
         showCancel: false
       })
     } else {
-      this.setData({
-        customFlag: true,
-        showModal: false,
-        noscroll: false
-      });
+      let month = app.util.formatNumber(new Date().getMonth() + 1);
+      let year = app.util.formatNumber(new Date().getFullYear());
+      getReport(this, 'dailyReport', year, month, this.data.startDate, this.data.startDate, this.data.endDate).then(res=>{
+        this.setData({
+          customFlag: true,
+          showModal: false,
+          noscroll: false
+        });
+      })
     }
-  //   // }else{
-  //   //   wx.navigateTo({
-  //   //     url: '../salesweekstatistics/salesweekstatistics?date='+this.data.startDate+"~"+this.data.endDate,
-  //   //   })
-  // }
 },
 modalClose() {
   this.setData({
@@ -140,7 +141,7 @@ modalClose() {
 }
 })
 function getReport(that,method,year,month,day,startDate,endDate) {
-  app.fetch('report/' + method, { year: year, month: month, day: day, startDate: startDate, endDate: endDate}, "POST").then(res => {
+  return app.fetch('report/' + method, { year: year, month: month, day: day, startDate: startDate, endDate: endDate}, "POST").then(res => {
       if (res.data.code === 0) {
         that.setData({
           orderCount: res.data.reportData.orderCount,
@@ -150,5 +151,6 @@ function getReport(that,method,year,month,day,startDate,endDate) {
           nonReceipts: res.data.reportData.nonReceipts
         })
       }
+      return res;
   })
 }

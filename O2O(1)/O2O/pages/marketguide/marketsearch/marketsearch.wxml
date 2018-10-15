@@ -1,0 +1,8 @@
+<!--pages/marketsearch/marketsearch.wxml-->
+<view class='marketguide-head'>
+  <view class='marketguide-headLeft'>
+    <image src="/images/market-guide-icon1.png" />
+    <input type='text' placeholder='搜索商户名' />
+  </view>
+  <view class='marketsearch-right'>搜索</view>
+</view>

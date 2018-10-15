@@ -1,0 +1,23 @@
+<!--pages/addselfhelppoints/addselfhelppoints.wxml-->
+<view class='points'>
+  <view class='points-head'>填写消费信息</view>
+  <view class='points-items'>
+    <view class='points-item'>
+      <view class='points-itemLeft'>消费日期</view>
+      <input class='points-itemRight' placeholder='请填写消费日期' placeholder-class='grayColor' />
+    </view>
+    <view class='points-item'>
+      <view class='points-itemLeft'>消费门店</view>
+      <input class='points-itemRight' placeholder='请填写消费门店' placeholder-class='grayColor' />
+    </view>
+    <view class='points-item'>
+      <view class='points-itemLeft'>消费金额</view>
+      <input class='points-itemRight' placeholder='请填写消费金额' placeholder-class='grayColor' />
+    </view>
+  </view>
+  <view class='upload-tickets'>上传消费小票</view>
+  <view class='upload-tips'>Tips:小票清晰完整才能顺利通过审核获得积分哦</view>
+  <view class='upload-img'></view>
+  <view class='upload-check'>提交审核</view>
+</view>
+<view class='end-tips'>工作人员会在7个工作日内受理</view>

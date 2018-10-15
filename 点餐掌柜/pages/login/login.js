@@ -37,7 +37,7 @@ Page({
         //   url: '../system-set-collectmoney/system-set-collectmoney',
         // })
         wx.navigateTo({
-          url: '../paymentset/paymentset',
+          url: '../choosedate/choosedate',
         })
       }
     }

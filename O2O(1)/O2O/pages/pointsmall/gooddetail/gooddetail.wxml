@@ -1,0 +1,41 @@
+<!--pages/pointsmall/gooddetail/gooddetail.wxml-->
+<view class='gooddetail-head'>
+  <view class='gooddetail-head-top'>
+    <image src="/images/pointsmall2.jpg" />
+  </view>
+  <view class='gooddetail-head-bot'>
+    <view class='gooddetail-head-botLeft'>
+      <view class='gooddetail-head-botLeft-title'>运动毛巾</view>
+      <view class='gooddetail-head-botLeft-time'>截止日期：2018-09-30</view>
+    </view>
+    <view class='gooddetail-head-botRight'>
+      <view class='gooddetail-head-botRight-price'>参考价：￥500元</view>
+      <view class='gooddetail-head-botRight-num'>3人已购买</view>
+    </view>
+  </view>
+</view>
+<view class='gooddetail-menu'>
+  <view class='gooddetail-menuItem'>
+    <view class='gooddetail-menuItem-top'>粉卡会员</view>
+  </view>
+  <view class='gooddetail-menuItem'>
+    <view class='gooddetail-menuItem-top'>所需积分</view>
+    <view class='gooddetail-menuItem-bot'>2000积分</view>
+  </view>
+  <view class='gooddetail-menuItem'>
+    <view class='gooddetail-menuItem-top'>所需金额</view>
+    <view class='gooddetail-menuItem-bot'>￥0.00</view>
+  </view>
+</view>
+<view class='gooddetail-con-head'>
+  <view class='gooddetail-con-headLeft'>
+    <image src="/images/gooddetail-icon1.png" />
+  </view>
+  <view class='gooddetail-con-headRight'>
+    商品简介
+  </view>
+</view>
+<view class='gooddetail-con'>
+商品简介商品简介商品简介商品简介商品简介商品简介商品简介商品简介商品简介商品简介商品简介商品简介商品简介商品简介商品简介商品简介商品简介商品简介商品简介商品简介
+</view>
+<view class='change'>点击兑换</view>

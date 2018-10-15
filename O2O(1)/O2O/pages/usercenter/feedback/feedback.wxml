@@ -1,0 +1,47 @@
+<!--pages/feedback/feedback.wxml-->
+<view class='feedback-head'>
+  <view class='feedback-head-item {{showIndex == 0 ? "active" : ""}}' bindtap='changeshowIndex' data-index="0">
+    待反馈
+  </view>
+  <view class='feedback-head-item {{showIndex == 1 ? "active" : ""}}' bindtap='changeshowIndex' data-index="1">
+    已反馈
+  </view>
+</view>
+<!--未反馈-->
+<view class='feedback-conBox' hidden='{{showIndex != 0}}'>
+  <view class='feedback-con'>
+    <view class='feedback-con-item'>
+      <view class='feedback-con-item-top'>2018-09-09 12:00:00</view>
+      <view class='feedback-con-item-bot'>反馈内容反馈内容反馈内容反馈内容反馈内容反馈内容反馈内容反馈内容</view>
+    </view>
+    <view class='feedback-con-item'>
+      <view class='feedback-con-item-top'>2018-09-09 12:00:00</view>
+      <view class='feedback-con-item-bot'>反馈内容反馈内容反馈内容反馈内容反馈内容反馈内容反馈内容反馈内容</view>
+    </view>
+  </view>
+  <view class='no-content' hidden='true'>暂无反馈内容</view>
+</view>
+<!--已反馈-->
+<view class='feedback-conBox' hidden='{{showIndex != 1}}'>
+  <view class='feedback-con'>
+    <view class='feedback-con-item'>
+      <view class='feedback-con-item-top'>2018-09-09 12:00:00</view>
+      <view class='feedback-con-item-bot'>反馈内容反馈内容反馈内容反馈内容反馈内容反馈内容反馈内容反馈内容</view>
+    </view>
+    <view class='feedback-con-item'>
+      <view class='feedback-con-item-top'>2018-09-09 12:00:00</view>
+      <view class='feedback-con-item-bot'>反馈内容反馈内容反馈内容反馈内容反馈内容反馈内容反馈内容反馈内容</view>
+    </view>
+    <view class='feedback-con-item'>
+      <view class='feedback-con-item-top'>2018-09-09 12:00:00</view>
+      <view class='feedback-con-item-bot'>反馈内容反馈内容反馈内容反馈内容反馈内容反馈内容反馈内容反馈内容</view>
+    </view>
+    <view class='feedback-con-item'>
+      <view class='feedback-con-item-top'>2018-09-09 12:00:00</view>
+      <view class='feedback-con-item-bot'>反馈内容反馈内容反馈内容反馈内容反馈内容反馈内容反馈内容反馈内容</view>
+    </view>
+  </view>
+  <view class='no-content' hidden='true'>暂无反馈内容</view>
+</view>
+<view class='addFeedback' bindtap='addFeedback'>+</view>
+<view class='feedback-footer'>拨打客服电话</view>

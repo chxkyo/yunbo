@@ -1,0 +1,68 @@
+<!--pages/pointsmall/goodconvert/goodconvert.wxml-->
+<view class='goodconvert-head'>
+  <view class='record'>
+    <view class='record-left'>
+      <image src="/images/pointsmall2.jpg" />
+    </view>
+    <view class='record-mid'>
+      <view class='record-mid-title'>运动毛巾</view>
+      <view class='record-mid-points'>2000积分</view>
+      <view class='record-mid-num'>参考价：￥500元</view>
+    </view>
+    <view class='record-right'>所需金额￥0.00元</view>
+  </view>
+</view>
+<view class='goodconvert-con'>
+  <view class='goodconvert-conItem'>
+    <view class='goodconvert-conItem-left'>有效期</view>
+    <view class='goodconvert-conItem-right'>
+      <picker class='date' mode="date" start="1970-01-01" end="2030-01-01" bindchange="bindDateChange">  
+        <view class="picker">  
+          {{date}}  
+        </view>  
+      </picker> 
+      <picker mode="time" start="00:00" end="23:59" bindchange="bindTimeChange">  
+        <view class="picker">  
+          {{time}}
+        </view>  
+      </picker> 
+    </view>
+  </view>
+  <view class='goodconvert-conItem'>
+    <view class='goodconvert-conItem-left'>剩余数量</view>
+    <view class='goodconvert-conItem-right'>
+      <view class='goodconvert-conItem-right-text'>50</view>
+    </view>
+  </view>
+  <view class='goodconvert-conItem'>
+    <view class='goodconvert-conItem-left'>兑换数量</view>
+    <view class='goodconvert-conItem-right'>
+      <view class='btns'>
+        <view class='sub btn' bindtap='sub'>-</view>
+        <view class='num'>{{num}}</view>
+        <view class='add btn' bindtap='add'>+</view>
+      </view>
+    </view>
+  </view>
+  <view class='goodconvert-conItem'>
+    <view class='goodconvert-conItem-left'>收货方式</view>
+    <view class='goodconvert-conItem-right'>
+      <view class='goodconvert-conItem-right-text'>快递</view>
+    </view>
+  </view>
+  <view class='goodconvert-conItem'>
+    <view class='goodconvert-conItem-left'>收货地址</view>
+    <view class='goodconvert-conItem-right'>
+      <input type="text" placeholder='请输入收货地址' />
+    </view>
+  </view>
+  <view class='goodconvert-conItem'>
+    <view class='goodconvert-conItem-right'>
+      <view class='total'>合计：<text>2000积分</text></view>
+    </view>
+  </view>
+</view>
+<view class='goodconvert-foot'>
+  <view class='goodconvert-footLeft'>当前可用积分：3000</view>
+  <view class='goodconvert-footRight' bindtap='confirmConvert'>确认兑换</view>
+</view>

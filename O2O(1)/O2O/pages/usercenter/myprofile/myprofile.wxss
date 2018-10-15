@@ -1,0 +1,79 @@
+/* pages/myprofile/myprofile.wxss */
+page{
+  background: #f5f5f5;
+}
+.myprofile{
+  width: 100%;
+  padding: 0 25rpx;
+  box-sizing: border-box;
+  background: #fff;
+}
+.myprofile-item{
+  width: 100%;
+  padding: 25rpx 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1rpx solid #eee;
+}
+.myprofile-item:last-child{
+  border-bottom: none;
+}
+.myprofile-itemLeft{
+  font-size: 28rpx;
+}
+.myprofile-itemRight{
+  font-size: 28rpx;
+}
+.myprofile-itemRight input{
+  text-align: right;
+}
+.save{
+  width: 90%;
+  height: 100rpx;
+  margin: 40rpx auto;
+  background: #e71a28;
+  color: #fff;
+  border-radius: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sexPicker{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.arrowRight{
+  width: 12rpx;
+  height: 20rpx;
+  margin-left: 20rpx;
+  transform: translateY(-5rpx);
+}
+.arrowRight image{
+  width: 100%;
+  height: 100%;
+}
+.regionPicker{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.regionPicker-item{
+  padding: 15rpx 20rpx;
+  background: #eee;
+  border-radius: 10rpx;
+  margin-left: 20rpx; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.arrowDown{
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #999;
+  margin-left: 20rpx;
+}

@@ -1,0 +1,75 @@
+<!--pages/coupondetail/coupondetail.wxml-->
+<view class='coupondetail-head {{state == 0 ? "pink":"gray"}}'>
+  <view class='coupondetail-head-top {{state == 0 ? "pink-border red-color":"gray-border gray-color"}}'>
+    <view class='logo'>
+      <image wx:if="{{state==0}}" src="/images/logo.png" />
+      <image wx:if="{{state==1}}" src="/images/logo-gray.png" />
+      <image wx:if="{{state==2}}" src="/images/logo-gray.png" />
+    </view>
+    <view class='qrcode'>
+      <image src="/images/qrcode-sm.png" />
+    </view>
+    <view class='coupondetail-head-top-title'>
+    ￥<text class='couponmoney'>0</text><text class='coupontype'>洗车券</text>
+    </view>
+    <view class='coupondetail-head-top-date'>
+    使用期限：2018-09-28~2018-10-23
+    </view>
+  </view>
+  <view class='coupondetail-head-bot'>
+    <view class='code'>A111ALKSJDLKASJDLAJ</view>
+  </view>
+  <view class='unUseBox' wx:if="{{state==0}}">
+    <view class='unUse'>
+    未使用
+    </view>
+  </view>
+  <view class='usedBox' wx:if="{{state==1}}">
+    <view class='used'>
+    已使用
+    </view>
+  </view>  
+  <view class='usedBox' wx:if="{{state==2}}">
+    <view class='used'>
+    已过期
+    </view>
+  </view> 
+  <view class='circle circle-left'></view>
+  <view class='circle circle-right'></view>
+</view>
+<view class='coupondetail-con1'>
+  <view class='coupondetail-con1-head'>
+    <image src="/images/coupondetail-icon1.png" />
+    使用规则
+  </view>
+  <view class='coupondetail-con1-foot'>
+    优惠券使用规则，优惠券使用规则，优惠券使用规则，优惠券使用规则，优惠券使用规则，优惠券使用规则，优惠券使用规则，优惠券使用规则
+  </view>
+</view>
+<view class='coupondetail-con2'>
+  <view class='coupondetail-con2-head'>
+    <image src="/images/coupondetail-icon2.png" />
+    使用商户
+  </view>
+  <view class='coupondetail-con2-foot'>
+    <view class='coupondetail-con2-foot-item'>● 轻奢类</view>
+    <view class='coupondetail-con2-foot-item'>● 皮具类</view>
+    <view class='coupondetail-con2-foot-item'>● 运动类</view>
+    <view class='coupondetail-con2-foot-item'>● 皮具类</view>
+    <view class='coupondetail-con2-foot-item'>● 运动类</view>
+    <view class='coupondetail-con2-foot-item'>● 皮具类</view>
+    <view class='coupondetail-con2-foot-item'>● 运动类</view>
+  </view>
+</view>
+<view class='coupondetail-con3'>
+  <view class='coupondetail-con3-head'>
+    <image src="/images/coupondetail-icon3.png" />
+    优惠券核销
+  </view>
+  <view class='coupondetail-con3-foot'>
+    <view class='coupondetail-con3-foot-head'>商家账号</view>
+    <input type='text' class='coupondetail-con3-foot-con' />
+  </view>
+</view>
+<view class='check' wx:if="{{state==0}}">核销</view>
+<view class='check-gray' wx:if="{{state!=0}}">核销</view>

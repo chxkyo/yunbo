@@ -1,0 +1,64 @@
+<!--pages/myprofile/myprofile.wxml-->
+<view class='myprofile'>
+  <view class='myprofile-item'>
+    <view class='myprofile-itemLeft'>姓名</view>
+    <view class='myprofile-itemRight'>
+      <input type='text' placeholder='请输入姓名' value='张三' />
+    </view>
+  </view>
+  <view class='myprofile-item'>
+    <view class='myprofile-itemLeft'>性别</view>
+    <view class='myprofile-itemRight sexPicker'>
+      <picker bindchange="bindSexChange" value="{{sexIndex}}" range="{{sexArray}}">
+        <view class="picker">
+          {{sexArray[sexIndex]}}
+        </view>
+      </picker>
+      <view class='arrowRight'>
+        <image src="/images/mytickets-icon1.jpg" />
+      </view>
+    </view>
+  </view>
+  <view class='myprofile-item'>
+    <view class='myprofile-itemLeft'>生日</view>
+    <view class='myprofile-itemRight'>
+      <input type='text' placeholder='请输入生日' value='' />
+    </view>
+  </view>
+  <view class='myprofile-item'>
+    <view class='myprofile-itemLeft'>星座</view>
+    <view class='myprofile-itemRight'>
+      <input type='text' value='摩羯座' />
+    </view>
+  </view>
+  <view class='myprofile-item'>
+    <view class='myprofile-itemLeft'>手机号码</view>
+    <view class='myprofile-itemRight'>
+      <input type='text' value='1888888888' />
+    </view>
+  </view>
+  <view class='myprofile-item'>
+    <view class='myprofile-itemLeft'>邮箱</view>
+    <view class='myprofile-itemRight'>
+      <input type='text' placeholder='请输入邮箱' value='' />
+    </view>
+  </view>
+  <view class='myprofile-item'>
+    <view class='myprofile-itemLeft'>区域</view>
+    <view class='myprofile-itemRight'>
+      <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+        <view class="regionPicker">
+          <view class="regionPicker-item">{{region[0]}}<view class='arrowDown'></view></view>
+          <view class="regionPicker-item">{{region[1]}}<view class='arrowDown'></view></view>
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class='myprofile-item'>
+    <view class='myprofile-itemLeft'>详细地址</view>
+    <view class='myprofile-itemRight'>
+      <input type='text' placeholder='请输入详细地址' value='' />
+    </view>
+  </view>
+</view>
+<view class='save'>保存</view>

@@ -9,30 +9,40 @@
       <input class="weui-input" placeholder="请输入单品名称" placeholder-style='color:#eee;font-size:32rpx;' id="danping-name" type="text" bindinput="getName" value=""/>
     </view>
   </view>
+    <picker bindchange="bindClassifyChange" value="{{classifyIndex}}" range-key="name" range="{{goodsClassifyList}}">
       <view class="input-view-item" style="padding:30rpx 0;">
           <view class="input-label-box">
             <label for="goods-category">所属分类</label>
           </view>
           <view class="label-right-box">
-            <input class="weui-input" placeholder-style='color:#eee;font-size:32rpx;' id="meal-price" type="text"  value="{{productCategoryName}}" disabled='true'/>
+            <view class="all-cuisine ws ell"><text>{{goodsClassifyList[classifyIndex].name}}</text></view>
+            <view class="jumpAddCuisine-a">
+              <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+            </view>
           </view>
       </view>
+    </picker>
   <view class="input-view-item">
     <view class="input-label-box">
       <label for="danping-price">单价</label>
     </view>
     <view class="label-right-box">
-      <input class="weui-input" placeholder="请输入单价" placeholder-style='color:#eee;font-size:32rpx;' id="danping-price" type="digit" bindinput="getPrcie" value=""/>
+      <input class="weui-input" placeholder="请输入单价" placeholder-style='color:#eee;font-size:32rpx;' id="danping-price" type="digit" bindinput="getPrice" value=""/>
     </view>
   </view>
+  <picker bindchange="bindUnitChange" value="{{uintIndex}}" range="{{unitArr}}">
       <view class="input-view-item" style="padding:30rpx 0;">
           <view class="input-label-box">
             <label for="danping-unit">单位</label>
           </view>
           <view class="label-right-box">
-      <input class="weui-input" placeholder="请输入单位" placeholder-style='color:#eee;font-size:32rpx;' id="danping-unit" type="number" bindinput="getUnit" value=""/>
+            <view class="all-cuisine ws ell"><text>{{unitArr[unitIndex]}}</text></view>
+            <view class="jumpAddCuisine-a">
+              <image src="../../images/img/to.png" class="arrow-right-icon"></image>
+            </view>
           </view>
       </view>
+    </picker>
   <view class="input-view-item">
     <view class="input-label-box">
       <label for="danping-discount">折扣</label>

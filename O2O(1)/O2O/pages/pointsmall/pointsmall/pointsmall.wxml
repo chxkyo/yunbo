@@ -1,0 +1,84 @@
+<!--pages/pointsmall/pointsmall/pointsmall.wxml-->
+<view class='pointsmall-head'>
+  <view class='pointsmall-headTop'>
+    <image src="/images/pointsmall1.jpg" />
+  </view>
+  <view class='pointsmall-headBot'>
+    <view class='pointsmall-headBot-item'>
+      <image src="/images/pointsmall-icon1.jpg" /> 
+      <view class='pointsmall-headBot-item-text'>
+        我的积分<text>17</text>
+      </view>
+    </view>
+    <view class='pointsmall-headBot-item'>
+      <image src="/images/pointsmall-icon2.jpg" /> 
+      <view class='pointsmall-headBot-item-text'>
+        兑换记录
+      </view>
+    </view>
+    <view class='pointsmall-headBot-item'>
+      <image src="/images/pointsmall-icon3.jpg" /> 
+      <view class='pointsmall-headBot-item-text'>
+        我能兑换
+      </view>
+    </view>
+  </view>
+</view>
+<view class='pointsmall-mid'>
+  <view class='pointsmall-midLeft'>
+    <view class='pointsmall-midLeft-item {{categoryIndex == 0 ? "active" : ""}}' bindtap='changeCategoryIndex' data-index="0">全部</view>
+    <view class='pointsmall-midLeft-item {{categoryIndex == 1 ? "active" : ""}}' bindtap='changeCategoryIndex' data-index="1">乐高</view>
+    <view class='pointsmall-midLeft-item {{categoryIndex == 2 ? "active" : ""}}' bindtap='changeCategoryIndex' data-index="2">箱包</view>
+    <view class='pointsmall-midLeft-item {{categoryIndex == 3 ? "active" : ""}}' bindtap='changeCategoryIndex' data-index="3">洗护用品</view>
+    <view class='pointsmall-midLeft-item {{categoryIndex == 4 ? "active" : ""}}' bindtap='changeCategoryIndex' data-index="4">日常</view>
+  </view>
+  <view class='pointsmall-midRight' bindtap='changeSortShow'>
+    {{sortList[sortIndex]}}
+    <view class='triangle_down {{sortShow ? "rotate" : ""}}'></view>
+  </view>
+  <view class='sorts' hidden='{{!sortShow}}'>
+    <view class='sort' wx:for="{{sortList}}" wx:key="{{index}}" bindtap='changeSort' data-idx="{{index}}">{{item}}</view>
+  </view>
+</view>
+<view class='pointsmall-foot'>
+  <view class='pointsmall-footItem'>
+    <view class='pointsmall-footItem-top'>
+      <image src="/images/pointsmall2.jpg" />
+    </view>
+    <view class='pointsmall-footItem-bot'>
+      <view class='pointsmall-footItem-bot-title'>运动毛巾礼盒</view>
+      <view class='pointsmall-footItem-bot-points'>2000积分</view>
+      <view class='pointsmall-footItem-bot-time'>截止日期：2018-09-30</view>
+    </view>
+  </view>
+  <view class='pointsmall-footItem'>
+    <view class='pointsmall-footItem-top'>
+      <image src="/images/pointsmall2.jpg" />
+    </view>
+    <view class='pointsmall-footItem-bot'>
+      <view class='pointsmall-footItem-bot-title'>运动毛巾礼盒</view>
+      <view class='pointsmall-footItem-bot-points'>2000积分</view>
+      <view class='pointsmall-footItem-bot-time'>截止日期：2018-09-30</view>
+    </view>
+  </view>
+  <view class='pointsmall-footItem'>
+    <view class='pointsmall-footItem-top'>
+      <image src="/images/pointsmall2.jpg" />
+    </view>
+    <view class='pointsmall-footItem-bot'>
+      <view class='pointsmall-footItem-bot-title'>运动毛巾礼盒</view>
+      <view class='pointsmall-footItem-bot-points'>2000积分</view>
+      <view class='pointsmall-footItem-bot-time'>截止日期：2018-09-30</view>
+    </view>
+  </view>
+  <view class='pointsmall-footItem'>
+    <view class='pointsmall-footItem-top'>
+      <image src="/images/pointsmall2.jpg" />
+    </view>
+    <view class='pointsmall-footItem-bot'>
+      <view class='pointsmall-footItem-bot-title'>运动毛巾礼盒</view>
+      <view class='pointsmall-footItem-bot-points'>2000积分</view>
+      <view class='pointsmall-footItem-bot-time'>截止日期：2018-09-30</view>
+    </view>
+  </view>
+</view>

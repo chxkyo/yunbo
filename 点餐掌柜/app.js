@@ -9,9 +9,9 @@ App({
         wx.removeStorageSync('sessionid')
         wx.removeStorageSync('sessionid_gettime')
       }else{
-        wx.switchTab({
-          url: 'pages/index/index'
-        })
+        // wx.switchTab({
+        //   url: 'pages/index/index'
+        // })
         // wx.navigateTo({
         //   url: 'pages/system-set-account/system-set-account',
         // })
@@ -21,9 +21,9 @@ App({
         // wx.navigateTo({
         //   url: 'pages/system-set-collectmoney/system-set-collectmoney',
         // })
-        // wx.navigateTo({
-        //   url: 'pages/paymentset/paymentset',
-        // })
+        wx.navigateTo({
+          url: 'pages/choosedate/choosedate',
+        })
       }
     }
     // 登录

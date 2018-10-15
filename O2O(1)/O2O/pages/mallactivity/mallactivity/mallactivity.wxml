@@ -1,0 +1,35 @@
+<!--pages/mallactivity/mallactivity/mallactivity.wxml-->
+<view class='mysubscribe'>
+  <view class='mysubscribe-item'>
+    <image src='/images/mysubscribe1.jpg' />
+    <view class='state state1'>
+      <image src="/images/mysubscribe-icon1.png" />
+      <text>已预约</text>
+    </view>
+  </view>
+  <view class='mysubscribe-item'>
+    <image src='/images/mysubscribe1.jpg' />
+    <view class='state state2'>
+      <image src="/images/mysubscribe-icon1.png" />
+      <text>未开始</text>
+    </view>
+  </view>
+  <view class='mysubscribe-item'>
+    <image src='/images/mysubscribe1.jpg' />
+    <view class='state state3'>
+      <image src="/images/mysubscribe-icon1.png" />
+      <text>进行中</text>
+    </view>
+  </view>
+  <view class='mysubscribe-item'>
+    <image src='/images/mysubscribe1.jpg' />
+    <view class='state state4'>
+      <image src="/images/mysubscribe-icon1.png" />
+      <text>已结束</text>
+    </view>
+  </view>
+</view>
+<view class='no-content' hidden='true'>
+暂无预约
+</view>
+

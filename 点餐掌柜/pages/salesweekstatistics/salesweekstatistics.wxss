@@ -1,2 +1,1 @@
 page{background: -webkit-linear-gradient(left,#8379fb,#1da5fc);background: linear-gradient(to right,#8379fb,#1da5fc);}
-.salesstatistics-time{background-color: #fff;height: 86rpx;line-height:86rpx;text-align: center;font-size: 32rpx;color:#1da5fc }

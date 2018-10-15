@@ -1,0 +1,9 @@
+<!--pages/loginbefore/loginbefore.wxml-->
+<view class='loginbefore'>
+  <view class='loginbefore-btn1'>
+    微信绑定的手机号登陆
+  </view>
+  <view class='loginbefore-btn2'>
+    其他手机号登陆
+  </view>
+</view>

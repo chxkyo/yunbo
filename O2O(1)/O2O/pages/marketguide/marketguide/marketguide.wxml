@@ -1,0 +1,46 @@
+<!--pages/marketguide/marketguide.wxml-->
+<view class='marketguide-head'>
+  <view class='marketguide-headLeft'>
+    <image src="/images/market-guide-icon1.png" />
+    <input type='text' placeholder='搜索商户名' />
+  </view>
+  <view class='marketguide-headMid' bindtap='changeFloorsShow'>
+    全部楼层
+    <view class="triangle_down {{floorsShow ? 'rotate' : ''}}"></view>
+  </view>
+  <view class='marketguide-headRight' bindtap='changeCategoryShow'>
+    全部分类
+    <view class="triangle_down {{categoryShow ? 'rotate' : ''}}"></view>
+  </view>
+  <view class='mask mask-floor' hidden='{{!floorsShow}}'>
+    <view class='floors'>
+      <view class='floor'>全部楼层</view>
+      <view class='floor'>一楼</view>
+      <view class='floor'>二楼</view>
+    </view>
+  </view>
+  <view class='mask mask-category' hidden='{{!categoryShow}}'>
+    <view class='floors'>
+      <view class='floor'>全部分类</view>
+      <view class='floor'>轻奢类</view>
+      <view class='floor'>服饰饰品类</view>
+    </view>
+  </view>
+</view>
+<view class='marketguide-con'>
+  <view class='follow'>
+    <view class='follow-item'>
+      <view class='follow-item-left'>
+        <image src="/images/follow1.jpg" />
+      </view>
+      <view class='follow-item-mid'>
+        <view class='follow-item-mid-title'>LOUIS VUITTON</view>
+        <view class='follow-item-mid-address'>
+          <image src="/images/follow2.jpg" />
+          F1-SHOP-001
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+

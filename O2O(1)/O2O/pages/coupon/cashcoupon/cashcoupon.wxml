@@ -1,0 +1,48 @@
+<!--pages/cashcoupon/cashcoupon.wxml-->
+<view class='cashcoupon-head'>
+  <view class='cashcoupon-head-item {{showIndex==0 ? "active" : ""}}' bindtap='changeShowIndex' data-index="0">未使用</view>
+  <view class='cashcoupon-head-item {{showIndex==1 ? "active" : ""}}' bindtap='changeShowIndex' data-index="1">已使用</view>
+  <view class='cashcoupon-head-item {{showIndex==2 ? "active" : ""}}' bindtap='changeShowIndex' data-index="2">已过期</view>
+</view>
+<!--未使用-->
+<view class='cashcoupon-con' hidden='{{showIndex!=0}}'>
+  <view class='cashcoupon-con-item' wx:for="{{unUsedList}}" wx:key="{{index}}" hidden='{{unUsedList.length==0}}'>
+    <view class='cashcoupon-con-itemLeft'>
+      <view class='cashcoupon-con-itemLeft-title'><text>￥</text>20元</view>
+      <view class='cashcoupon-con-itemLeft-type'>代金券</view>
+      <view class='cashcoupon-con-itemLeft-date'>2018.09.11~2018.09.30</view>
+    </view>
+    <view class='cashcoupon-con-itemRight'>立即使用</view>
+    <view class='circle circle-top'></view>
+    <view class='circle circle-bot'></view>
+  </view>
+  <view class='no-content' hidden='{{unUsedList.length!=0}}'>暂无卡券</view>
+</view>
+<!--已使用-->
+<view class='cashcoupon-con' hidden='{{showIndex!=1}}'>
+  <view class='cashcoupon-con-item gray' wx:for="{{usedList}}" wx:key="{{index}}" hidden='{{usedList.length==0}}'>
+    <view class='cashcoupon-con-itemLeft grayBorder'>
+      <view class='cashcoupon-con-itemLeft-title'><text>￥</text>20元</view>
+      <view class='cashcoupon-con-itemLeft-type'>代金券</view>
+      <view class='cashcoupon-con-itemLeft-date'>2018.09.11~2018.09.30</view>
+    </view>
+    <view class='cashcoupon-con-itemRight'>立即使用</view>
+    <view class='circle circle-top'></view>
+    <view class='circle circle-bot'></view>
+  </view>
+  <view class='no-content' hidden='{{usedList.length!=0}}'>暂无卡券</view>
+</view>
+<!--已过期-->
+<view class='cashcoupon-con' hidden='{{showIndex!=2}}'>
+  <view class='cashcoupon-con-item gray' wx:for="{{timeoutList}}" wx:key="{{index}}" hidden='{{timeoutList.length==0}}'>
+    <view class='cashcoupon-con-itemLeft grayBorder'>
+      <view class='cashcoupon-con-itemLeft-title'><text>￥</text>40元</view>
+      <view class='cashcoupon-con-itemLeft-type'>代金券</view>
+      <view class='cashcoupon-con-itemLeft-date'>2018.09.11~2018.09.30</view>
+    </view>
+    <view class='cashcoupon-con-itemRight'>立即使用</view>
+    <view class='circle circle-top'></view>
+    <view class='circle circle-bot'></view>
+  </view>
+  <view class='no-content' hidden='{{timeoutList.length!=0}}'>暂无卡券</view>
+</view>

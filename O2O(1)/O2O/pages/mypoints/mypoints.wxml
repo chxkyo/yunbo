@@ -1,0 +1,56 @@
+<!--pages/mypoints/mypoints.wxml-->
+<view class='mypoints-head'>
+  <view class='mypoints-head-text1'>可用积分</view>
+  <view class='mypoints-head-text2'>139</view>
+</view>
+<view class='mypoints-con'>
+  <view class='mypoints-con-top'>
+    <view class='mypoints-con-top-item {{pointsDetailShow ? "active" : ""}}' bindtap='changePointsDetailShow'>
+      积分明细
+      <view class='active-line' hidden='{{!pointsDetailShow}}'></view>
+    </view>
+    <view class='mypoints-con-top-item {{pointsTasksShow ? "active" : ""}}' bindtap='changePointsTasksShow'>
+      积分任务
+      <view class='active-line' hidden='{{!pointsTasksShow}}'></view>
+    </view>
+  </view>
+  <view class='pointsDetail' hidden='{{!pointsDetailShow}}'>
+    <view class='mypoints-con-mid'>
+      <view class='mypoints-con-mid-head' bindtap='changeTagShow'>
+        <view class='mypoints-con-mid-head-text'>{{defaultTag}}</view>
+        <view class='triangle'></view>
+      </view>
+      <view class='mypoints-con-mid-con' hidden='{{!tagShow}}'>
+        <view class='mypoints-con-mid-con-item' wx:for="{{tagList}}" wx:key="{{index}}" bindtap="changeTag" data-index="{{index}}">
+          {{item.name}}
+        </view>
+      </view>
+    </view>
+    <view class='mypoints-con-foot'>
+      <view class='mypoints-con-foot-item'>
+        <view class='mypoints-con-foot-itemLeft'>
+          <view class='mypoints-con-foot-itemLeft-title'>连续签到一天</view>
+          <view class='mypoints-con-foot-itemLeft-date'>2018-09-19 08:55:33</view>
+        </view>
+        <view class='mypoints-con-foot-itemRight'>
+          +10
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='pointsTasks' hidden='{{!pointsTasksShow}}'>
+    <view class='pointsTasks-item'>
+      <view class='pointsTasks-itemLeft'>
+        <view class='pointsTasks-itemLeft-top'>关注商户</view>
+        <view class='pointsTasks-itemLeft-bot'>
+          <view class='pointsTasks-icon1'></view>
+          积分+3
+        </view>
+      </view>
+      <view class='pointsTasks-itemRight'>
+        去完成
+        <view class='pointsTasks-icon2'></view>
+      </view>
+    </view>
+  </view>
+</view>

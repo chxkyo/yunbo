@@ -81,19 +81,19 @@ Page({
     })
   },
   savePwd() {
-    if (!this.data.originalPwd) {
+    if (this.data.originalPwd === '') {
       wx.showModal({
         title: '提示',
         content: '请输入原密码',
         showCancel: false
       })
-    } else if (!this.data.newPwd) {
+    } else if (this.data.newPwd === '') {
       wx.showModal({
         title: '提示',
         content: '请输入新密码',
         showCancel: false
       })
-    } else if (!this.data.confirmNewPwd) {
+    } else if (this.data.confirmNewPwd === '') {
       wx.showModal({
         title: '提示',
         content: '请确认新密码',

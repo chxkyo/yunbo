@@ -1,0 +1,83 @@
+/* pages/feedback/feedback.wxss */
+page{
+  background: #f5f5f5;
+}
+.no-content{
+  color: #999999;
+  font-size: 30rpx;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.feedback-head{
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.feedback-head-item{
+  height: 96rpx;
+  font-size: 28rpx;
+  line-height: 96rpx;
+  color: #999;
+  box-sizing: border-box;
+}
+.active{
+  color: #000;
+  border-bottom: 4rpx solid #e71a28;
+}
+.feedback-conBox{
+  width: 100%;
+  height: 980rpx;
+  padding-bottom: 30rpx;
+  overflow-y: auto;
+}
+.feedback-con{
+  width: 100%;
+}
+.feedback-con-item{
+  width: 100%;
+  background: #fff;
+  margin-top: 30rpx;
+}
+.feedback-con-item-top{
+  padding: 30rpx;
+  font-size: 26rpx;
+  color: #999;
+  border-bottom: 1rpx solid #eee;
+}
+.feedback-con-item-bot{
+  padding: 30rpx;
+  font-size: 28rpx;
+  color: #000;
+  border-bottom: 1rpx solid #eee;
+}
+.addFeedback{
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 79rpx;
+  text-align: center;
+  background: #e71a28;
+  color: #fff;
+  font-size: 60rpx;
+  border-radius: 100%;
+  position: fixed;
+  top: 70%;
+  right: 30rpx;
+}
+.feedback-footer{
+  width: 100%;
+  height: 100rpx;
+  font-size: 32rpx;
+  color: #fff;
+  background: #e71a28;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+}

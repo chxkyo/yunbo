@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "查询日期选择",
+    "usingComponents": {
+      "calendar": "plugin://calendar/calendar"
+    }
+}

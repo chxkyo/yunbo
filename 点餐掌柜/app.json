@@ -7,10 +7,7 @@
     "pages/paymentset/paymentset",
     "pages/table-area-edit/table-area-edit",
     "pages/table-add/table-add",
-    "pages/printset/printset",
     "pages/classesset/classesset",
-    "pages/systemset/systemset",
-    "pages/addgoods/addgoods",
     "pages/editcuisine/editcuisine",
     "pages/arealist/arealist",
     "pages/areamanage/areamanage",
@@ -36,7 +33,6 @@
     "pages/system-set/system-set",
     "pages/system-set-account/system-set-account",
     "pages/tablemng-addareamng/tablemng-addareamng",
-    "pages/count-form/count-form",
     "pages/foodmng-danpin-add/foodmng-danpin-add",
     "pages/foodmng-classify-add/foodmng-classify-add",
     "pages/foodmng-classify-edit/foodmng-classify-edit",
@@ -53,7 +49,8 @@
     "pages/salesstatistics-week/salesstatistics-week",
     "pages/salesstatistics-day/salesstatistics-day",
     "pages/salesstatistics/salesstatistics",
-    "pages/salesstatistics-list/salesstatistics-list"
+    "pages/salesstatistics-list/salesstatistics-list",
+    "pages/choosedate/choosedate"
 
   ],
   "window": {
@@ -80,5 +77,11 @@
         "text": "我的"
       }
     ]
+  },
+  "plugins": {
+    "calendar": {
+      "version": "1.1.0",
+      "provider": "wx92c68dae5a8bb046"
+    }
   }
 }

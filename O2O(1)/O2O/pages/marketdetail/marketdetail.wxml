@@ -1,0 +1,7 @@
+<!--pages/marketdetail/marketdetail.wxml-->
+<view class='marketdetail-head'>
+  <view class='marketdetail-head-top'>
+    <image src="/images/market-detail1.jpg" />
+  </view>
+  <view class=''></view>
+</view>

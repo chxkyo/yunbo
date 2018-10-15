@@ -1,0 +1,84 @@
+<!--pages/index/index.wxml-->
+<block class="banner">
+  <swiper indicator-dots="{{indicatorDots}}" indicator-color="rgba(255,255,255,0.8)" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{adList}}" wx:key="{{index}}">
+      <swiper-item>
+        <image src="{{baseUrl}}{{item.imgPath}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+</block>
+<view class='menu'>
+  <view class="menu-item width25">
+    <image src="/images/icon1.jpg" />
+    <text>会员权益</text>
+  </view>
+  <navigator class="menu-item width25" url="/pages/usercenter/mytickets/mytickets" hover-class="none">
+    <image src="/images/icon2.jpg" />
+    <text>卡券包</text>
+  </navigator>
+  <navigator class="menu-item width25" url="/pages/parkpayment/parkpayment" hover-class="none">
+    <image src="/images/icon3.jpg" />
+    <text>停车缴费</text>
+  </navigator>
+  <navigator class="menu-item width25" url="/pages/marketguide/marketguide/marketguide" hover-class="none">
+    <image src="/images/icon4.jpg" />
+    <text>商场导览</text>
+  </navigator>
+  <navigator class="menu-item width33" url="/pages/pointsmall/pointsmall/pointsmall" hover-class="none">
+    <image src="/images/icon5.jpg" />
+    <text>积分商城</text>
+  </navigator>
+  <navigator class="menu-item width33" url="/pages/mallactivity/mallactivity/mallactivity" hover-class="none">
+    <image src="/images/icon6.jpg" />
+    <text>商场活动</text>
+  </navigator>
+  <navigator class="menu-item width33" url="/pages/usercenter/usercenter/usercenter" hover-class="none">
+    <image src="/images/icon7.jpg" />
+    <text>会员中心</text>
+  </navigator>
+</view>
+<view class='con1'>
+  <view class='con1-head'>
+    <view class='con1-head-left'>
+      <text>商场活动</text>
+    </view>
+    <navigator class='con1-head-right' url="/pages/mallactivity/mallactivity/mallactivity" hover-class="none">
+      更多<image src='/images/more.png' />
+    </navigator>
+  </view>
+  <view class='con1-foot'>
+    <navigator class='con1-foot-item' wx:for="{{activityList}}" wx:key="{{index}}" url="/pages/mallactivity/activitydetail/activitydetail" hover-class="none">
+      <view class='con1-foot-item-img'>
+        <image mode="aspectFill" src="{{baseUrl}}{{item.faceImgPath}}" />
+      </view>
+      <view class='con1-foot-item-text'>{{item.name}}</view>
+    </navigator>
+  </view>
+</view>
+<view class='con2'>
+  <view class='con2-head'>
+    <view class='con2-head-left'>
+      <text>积分商城</text>
+    </view>
+    <navigator class='con2-head-right' url="/pages/pointsmall/pointsmall/pointsmall" hover-class="none">
+      更多<image src='/images/more.png' />
+    </navigator>
+  </view>
+  <view class='con2-foot'>
+    <view class='con2-foot-item'>
+      <view class='con2-foot-item-img'>
+        <image mode="aspectFill" src="/images/item3.jpg" />
+      </view>
+      <view class='con2-foot-item-title'>运动毛巾礼盒</view>
+      <view class='con2-foot-item-points'>2000积分</view>
+    </view>
+    <view class='con2-foot-item'>
+      <view class='con2-foot-item-img'>
+        <image mode="aspectFill" src="/images/item4.jpg" />
+      </view>
+      <view class='con2-foot-item-title'>南极人纯棉四件套</view>
+      <view class='con2-foot-item-points'>4000积分</view>
+    </view>
+  </view>
+</view>

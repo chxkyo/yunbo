@@ -9,11 +9,9 @@ Page({
     index: 0,
     startDate: '',
     chooseStartDate: false,
-    endDate: '',
     chooseEndDate: false,
     showModal: false,
     nosroll: false,
-    customFlag: false,
     reportData: '',
     orderCount: '',
     income: '',
@@ -21,20 +19,31 @@ Page({
     receipts: [],
     nonReceipts: [],
     startDate: '',
-    endDate: ''
+    endDate: '',
+    showWeekDate:'',
+    noscroll:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let month = app.util.formatNumber(new Date().getMonth() + 1);
+    let year = app.util.formatNumber(new Date().getFullYear());
+    
     this.setData({
-      startDate: app.util.formatTime(new Date),
-      endDate: app.util.formatTime(new Date)
+      startDate: year + month + "01",
+      endDate: year + month + "07",
+      showWeekDate: year + "-" + month + "-" + "01" + "~" + year + "-" + month + "-" + "07"
     })
     getReport(this, 'weeklyReport', '', '', this.data.startDate, '', '');
   },
-
+  modalShow(){
+    this.setData({
+      showModal:true,
+      noscroll:true
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -82,6 +91,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  modalClose() {
+    this.setData({
+      noscroll: false
+    })
   }
 })
 function getReport(that, method, year, month, day, startDate, endDate) {

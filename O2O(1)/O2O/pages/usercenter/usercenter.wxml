@@ -1,0 +1,68 @@
+<!--pages/usercenter/usercenter.wxml-->
+<view class='usercenter-head'>
+  <view class='usercenter-head-left'>
+    <image src="/images/user.jpg" />
+  </view>
+  <view class='usercenter-head-right'>
+    <view class='username'>用户名：Grayve</view>
+    <view class='points'>
+      <text>普卡</text>
+      <text>5积分</text>
+    </view>
+  </view>
+</view>
+<view class='qrcode'>
+  <view class='qrcode-head'>
+    <view class='qrcode-sm' bindtap='showQrcodeLg'>
+      <image src='/images/qrcode-sm.png' />
+    </view>
+    <view class='qrcode-lg' hidden='{{!qrcodeLgShow}}'>
+      <image src="/images/qrcode-lg.jpg" />
+      <view class='close' bindtap='hideQrcodeLg'>
+        <image src="/images/close.jpg" />
+      </view>
+    </view>
+  </view>
+  <view class='qrcode-foot'>
+    卡号：00000006128
+  </view>
+</view>
+<view class='usercenter-menu'>
+  <navigator class='usercenter-menu-item' url="/pages/mysignin/mysignin" hover-class='none'>
+    <image src="/images/usercenter1.jpg" />
+    <text>我的签到</text>
+  </navigator>
+  <navigator class='usercenter-menu-item' url="/pages/mypoints/mypoints" hover-class='none'>
+    <image src="/images/usercenter2.jpg" />
+    <text>我的积分</text>
+  </navigator>
+  <navigator class='usercenter-menu-item' url="/pages/myfollow/myfollow" hover-class='none'>
+    <image src="/images/usercenter3.jpg" />
+    <text>我的关注</text>
+  </navigator>
+  <navigator class='usercenter-menu-item' url="/pages/mytickets/mytickets" hover-class='none'>
+    <image src="/images/usercenter4.jpg" />
+    <text>我的卡券</text>
+  </navigator>
+  <navigator class='usercenter-menu-item' url="/pages/myprofile/myprofile" hover-class='none'>
+    <image src="/images/usercenter5.jpg" />
+    <text>我的资料</text>
+  </navigator>
+  <navigator class='usercenter-menu-item' url="/pages/selfhelppoints/selfhelppoints" hover-class='none'>
+    <image src="/images/usercenter6.jpg" />
+    <text>自助积分</text>
+  </navigator>
+  <navigator class='usercenter-menu-item' url="/pages/mysubscribe/mysubscribe" hover-class='none'>
+    <image src="/images/usercenter7.jpg" />
+    <text>我的预约</text>
+  </navigator>
+  <navigator class='usercenter-menu-item' url="/pages/myaward/myaward" hover-class='none'>
+    <image src="/images/usercenter8.jpg" />
+    <text>我的奖品</text>
+  </navigator>
+  <navigator class='usercenter-menu-item' url="/pages/feedback/feedback" hover-class='none'>
+    <image src="/images/usercenter9.jpg" />
+    <text>意见反馈</text>
+  </navigator>
+</view>
+<view class="usercenter-logout">退出登录</view>

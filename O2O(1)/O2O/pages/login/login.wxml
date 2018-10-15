@@ -1,0 +1,20 @@
+<!--登录页-->
+<view class='register'>
+  <view class='register-head'></view>
+  <view class='register-con'>
+    <view class='register-con-item'>
+      <view class='register-con-item-top'>
+        <input type='number' bindinput='changeTelephone' placeholder='输入手机号码' />
+        <button bindtap='getCode'>{{getCodeText}}</button>
+      </view>
+      <view class='register-con-item-bot' hidden='{{!telErrorShow}}'>*请输入正确的手机号码</view>
+    </view>
+    <view class='register-con-item'>
+      <view class='register-con-item-top'>
+        <input type='number' bindinput='changeCode' placeholder='输入验证码' />
+      </view>
+      <view class='register-con-item-bot' hidden='{{!codeErrorShow}}'>*请输入验证码</view>
+    </view>
+  </view>
+  <button class='register-foot' bindtap='login' style='{{loginAble ? "background:#e73128" : "background:#ccc"}}'>提交</button>
+</view>
