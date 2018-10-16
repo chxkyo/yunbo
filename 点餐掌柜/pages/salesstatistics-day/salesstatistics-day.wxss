@@ -1,3 +1,0 @@
-/* pages/salesstatistics/salesstatistics.wxss */
-page{background: -webkit-linear-gradient(left,#8379fb,#1da5fc);background: linear-gradient(to right,#8379fb,#1da5fc);}
-.noscroll{height: 100vh;overflow: hidden;}

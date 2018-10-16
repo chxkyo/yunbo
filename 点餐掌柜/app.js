@@ -9,11 +9,8 @@ App({
         wx.removeStorageSync('sessionid')
         wx.removeStorageSync('sessionid_gettime')
       }else{
-        // wx.switchTab({
-        //   url: 'pages/index/index'
-        // })
-        wx.navigateTo({
-          url: 'pages/choosedate/choosedate',
+        wx.switchTab({
+          url: 'pages/index/index'
         })
       }
     }

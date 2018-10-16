@@ -27,18 +27,6 @@ Page({
         wx.switchTab({
           url: '../index/index'
         })
-        // wx.navigateTo({
-        //   url: '../system-set-account/system-set-account',
-        // })
-        // wx.navigateTo({
-        //   url: '../goodsmng/goodsmng',
-        // })
-        // wx.navigateTo({
-        //   url: '../system-set-collectmoney/system-set-collectmoney',
-        // })
-        wx.navigateTo({
-          url: '../choosedate/choosedate',
-        })
       }
     }
     

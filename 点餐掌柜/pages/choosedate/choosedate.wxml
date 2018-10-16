@@ -17,10 +17,10 @@
         calendar-style="demo4-calendar" 
         header-style="demo4-header" 
         board-style="demo4-board" 
-        days-color="{{demo4_days_style}}" 
+        days-color="{{demo4_days_style}}" next="{{false}}" prev="{{false}}"
         bindnextMonth="next"   bindprevMonth="prev"   binddateChange="dateChange" binddayClick="dayClick"/>
     </view >
     <view class="add-cuisineitem-btn-wrap">
-      <view><text>新增</text></view>
+      <view bindtap='choosedate'><text>确定</text></view>
     </view>
 </view>

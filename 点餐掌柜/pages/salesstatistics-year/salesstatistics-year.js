@@ -21,21 +21,56 @@ Page({
     receipts: [],
     nonReceipts: [],
     startDate: '',
-    endDate: ''
+    endDate: '',
+    showYear:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      startDate: app.util.formatTime(new Date),
-      endDate: app.util.formatTime(new Date)
-    })
     let year = app.util.formatNumber(new Date().getFullYear());
+    this.setData({
+      showYear: year
+    })
     getReport(this, 'yearlyReport',year, '', '', '', '');
   },
-
+  modalShow() {
+    this.setData({
+      showModal: true,
+      noscroll: true
+    })
+  },
+  modalClose() {
+    this.setData({
+      noscroll: false
+    })
+  },
+  bindYearChange(e) {
+    this.setData({
+      chooseEndDate: true,
+      endDate: e.detail.value
+    })
+  },
+  saveDate(){
+    if (!this.data.chooseEndDate) {
+      wx.showModal({
+        title: '提示',
+        content: '请选择年',
+        showCancel: false
+      })
+    } else {
+      let year = this.data.endDate
+      getReport(this, 'yearlyReport', year, '', '', '', '').then(res => {
+        this.setData({
+          showModal: false,
+          noscroll: false,
+          showYear: this.data.endDate
+        })
+      })
+    }
+  }
+  ,
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -87,7 +122,7 @@ Page({
 })
 function getReport(that, method, year, month, day, startDate, endDate) {
   wx.showLoading({ title: '拼命加载中...' });
-  app.fetch('report/' + method, { year: year, month: month, day: day, startDate: startDate, endDate: endDate }, "POST").then(res => {
+  return app.fetch('report/' + method, { year: year, month: month, day: day, startDate: startDate, endDate: endDate }, "POST").then(res => {
     wx.hideLoading();
     if (res.data.code === 0) {
       that.setData({
@@ -103,5 +138,6 @@ function getReport(that, method, year, month, day, startDate, endDate) {
         icon: 'none'
       })
     }
+    return res;
   })
 }

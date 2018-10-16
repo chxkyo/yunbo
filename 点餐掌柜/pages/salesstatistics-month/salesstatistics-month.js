@@ -21,19 +21,19 @@ Page({
     receipts: [],
     nonReceipts: [],
     startDate: '',
-    endDate: ''
+    endDate: '',
+    showMonth:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      startDate: app.util.formatTime(new Date),
-      endDate: app.util.formatTime(new Date)
-    })
     let month = app.util.formatNumber(new Date().getMonth() + 1);
     let year = app.util.formatNumber(new Date().getFullYear());
+    this.setData({
+      showMonth: year + "-" + month
+    })
     getReport(this, 'monthlyReport', year, month, '', '', '');
   },
 
@@ -84,11 +84,47 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  modalShow(){
+    this.setData({
+      showModal:true,
+      noscroll: true
+    })
+  },
+  modalClose() {
+    this.setData({
+      noscroll: false
+    })
+  },
+  bindMonthChange(e){
+    this.setData({
+      chooseEndDate: true,
+      endDate: e.detail.value
+    })
+  },
+  saveDate(e){
+    if (!this.data.chooseEndDate) {
+        wx.showModal({
+          title: '提示',
+          content: '请选择年月',
+          showCancel: false
+        })
+      }else{
+        let year = this.data.endDate.split("-")[0];
+        let month = this.data.endDate.split("-")[1];
+        getReport(this, 'monthlyReport', year, month, '', '', '').then(res=>{
+          this.setData({
+            showModal: false,
+            noscroll: false,
+            showMonth: this.data.endDate
+          })
+        })
+      }
   }
 })
 function getReport(that, method, year, month, day, startDate, endDate) {
   wx.showLoading({ title: '拼命加载中...' });
-  app.fetch('report/' + method, { year: year, month: month, day: day, startDate: startDate, endDate: endDate }, "POST").then(res => {
+ return app.fetch('report/' + method, { year: year, month: month, day: day, startDate: startDate, endDate: endDate }, "POST").then(res => {
     wx.hideLoading();
     if (res.data.code === 0) {
       that.setData({
@@ -104,5 +140,6 @@ function getReport(that, method, year, month, day, startDate, endDate) {
         icon:'none'
       })
     }
+    return res
   })
 }

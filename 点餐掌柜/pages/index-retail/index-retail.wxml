@@ -30,7 +30,7 @@
     </view>
     <view class="navigator-box-wrap">
       <view class="navigator-item">
-        <navigator hover-class="none" url="../areamanage/areamanage">
+        <navigator hover-class="none" url="../goodsmng/goodsmng">
           <view class="navigator-item-icon-wrap">
             <image src="../../images/img/goodsgl.png"></image>
           </view>
@@ -39,7 +39,7 @@
       </view>
 
       <view class="navigator-item">
-        <navigator hover-class="none" url="../systemset/systemset">
+        <navigator hover-class="none" url="../system-set/system-set">
           <view class="navigator-item-icon-wrap">
             <image src="../../images/img/xtsz.png"></image>
           </view>
@@ -47,7 +47,7 @@
         </navigator>
       </view>
       <view class="navigator-item">
-        <navigator hover-class="none" url="../salesstatistics/salesstatistics">
+        <navigator hover-class="none" url="../salesstatistics-list/salesstatistics-list">
           <view class="navigator-item-icon-wrap">
             <image src="../../images/img/tjbb.png"></image>
           </view>

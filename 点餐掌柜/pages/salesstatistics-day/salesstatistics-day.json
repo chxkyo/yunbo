@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "销售日报",
-  "usingComponents": {
-    "modal": "../../components/modal/modal"
-  }
-}

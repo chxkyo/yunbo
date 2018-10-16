@@ -12,7 +12,6 @@
     "pages/arealist/arealist",
     "pages/areamanage/areamanage",
     "pages/user/user",
-    "pages/cuisinelist/cuisinelist",
     "pages/goodsmng-classifymng/goodsmng-classifymng",
     "pages/goodsmng-danpin-edit/goodsmng-danpin-edit",
     "pages/goodsmng-classify-edit/goodsmng-classify-edit",
@@ -47,7 +46,6 @@
     "pages/salesstatistics-year/salesstatistics-year",
     "pages/salesstatistics-month/salesstatistics-month",
     "pages/salesstatistics-week/salesstatistics-week",
-    "pages/salesstatistics-day/salesstatistics-day",
     "pages/salesstatistics/salesstatistics",
     "pages/salesstatistics-list/salesstatistics-list",
     "pages/choosedate/choosedate"

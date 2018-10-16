@@ -7,26 +7,18 @@ Page({
    */
   data: {
     year: new Date().getFullYear(),      // 年份
-    month: new Date().getMonth() + 1,    // 月份
+    month: app.util.formatNumber(new Date().getMonth() + 1),    // 月份
     day: new Date().getDate(),
     demo4_days_style: [],
     startDate: '',
     endDate: '',
 
   },
-  next: function (event) {//监听点击下个月事件:nextMonth
-    console.log(event.detail);
-  },
-  prev: function (event) {//监听点击上个月事件:prevMonth
-    console.log(event.detail);
-  },
-  dateChange: function (event) {//监听点击日历标题日期选择器事
-    console.log(event.detail);
-  },
   dayClick: function (event) {//监听点击日历具体某一天的事件:dayClick
     let index = this.data.demo4_days_style.findIndex(function(val,index){
       return val.day == event.detail.day;
     });
+    console.log(event);
     if (this.data.demo4_days_style[index].active){
       this.data.demo4_days_style[index].color = '#000';
       this.data.demo4_days_style[index].background = '#fff';
@@ -68,4 +60,29 @@ Page({
       demo4_days_style
     });
   },
+  choosedate(e){
+    let pages = getCurrentPages();
+    let prevPage = pages[pages.length - 2];
+    let index = this.data.demo4_days_style.findIndex(function (val, index) {
+      return val.active;
+    });
+    let endIndex;
+    this.data.demo4_days_style.findIndex(function (val, index) {
+      if (val.active){
+        endIndex = index;
+      }
+    })
+    let startDate = this.data.year +"-"+ this.data.month + "-" +app.util.formatNumber(this.data.demo4_days_style[index].day);
+    let endDate = this.data.year + "-" + this.data.month + "-" + app.util.formatNumber(this.data.demo4_days_style[endIndex].day);
+    this.setData({
+      startDate: startDate,
+      endDate: endDate
+    });
+    prevPage.setData({
+      chooseDate: startDate + "~" + endDate
+    })
+    wx.navigateBack({
+      delta:1
+    })
+  }
 })

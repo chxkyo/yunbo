@@ -9,9 +9,9 @@
           <view class="modal-picker-item-des">
             <text>查询日期</text>
           </view>
-          <view class="modal-picker-right-box ell">
+          <view class="modal-picker-right-box ell" style='width:400rpx;'>
             <view class="time-box">
-              <text wx:if="{{chooseStartDate}}">{{startDate}}</text>
+              <text>{{chooseDate}}</text>
             </view>
             <view class="modal-picker-choose-icon">
               <image src="../../images/img/to.png" class="modal-picker-choose-icon"></image>

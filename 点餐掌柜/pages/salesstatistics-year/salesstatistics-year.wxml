@@ -1,3 +1,27 @@
+<view class="salesstatistics-time" bindtap='modalShow'>{{showYear}}</view>
+<modal show="{{showModal}}" bindmodalclose="modalClose" >
+  <view slot="modal-title">
+    <text>选择日期</text>
+  </view>
+  <view slot="middle-content">
+    <picker value="{{startDate}}" bindchange="bindYearChange" mode="date" fields="year">
+      <view class="modal-picker-item">
+        <view class="modal-picker-item-des">
+          <text>选择年</text>
+        </view>
+        <view class="modal-picker-right-box ell">
+          <view class="time-box">
+            <text wx:if="{{chooseEndDate}}">{{endDate}}</text>
+          </view>
+          <view class="modal-picker-choose-icon">
+            <image src="../../images/img/to.png" class="modal-picker-choose-icon"></image>
+          </view>
+        </view>
+      </view>
+    </picker>
+  </view>
+  <button slot="footer" class="addsuisinmebtn confirm-btn" type="primary" hover-class="none" bindtap="saveDate">查询</button>
+</modal>
 <view class="salesstatistics-wrap {{noscroll?'noscroll':''}}">
   <view class="shuju-wrap pd30">
     <view class="shuju-inner-wrap">

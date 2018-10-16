@@ -21,28 +21,49 @@ Page({
     startDate: '',
     endDate: '',
     showWeekDate:'',
-    noscroll:false
+    noscroll:false,
+    chooseDate:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let month = app.util.formatNumber(new Date().getMonth() + 1);
-    let year = app.util.formatNumber(new Date().getFullYear());
-    
-    this.setData({
-      startDate: year + month + "01",
-      endDate: year + month + "07",
-      showWeekDate: year + "-" + month + "-" + "01" + "~" + year + "-" + month + "-" + "07"
-    })
-    getReport(this, 'weeklyReport', '', '', this.data.startDate, '', '');
+    console.log(options)
+      let month = app.util.formatNumber(new Date().getMonth() + 1);
+      let year = app.util.formatNumber(new Date().getFullYear());
+
+      this.setData({
+        startDate: year + month + "01",
+        endDate: year + month + "07",
+        showWeekDate: year + "-" + month + "-" + "01" + "~" + year + "-" + month + "-" + "07"
+      })
+      getReport(this, 'weeklyReport', '', '', this.data.startDate, '', '');
   },
   modalShow(){
     this.setData({
       showModal:true,
       noscroll:true
     });
+  },
+  saveDate(){
+    let that = this;
+    if(this.data.chooseDate === ''){
+      wx.showModal({
+        title: '提示',
+        content: '请选择查询日期!',
+        showCancel: false
+      })
+    }else{
+      this.data.startDate = this.data.chooseDate.split("~")[0].split("-").join("");
+      getReport(this, 'weeklyReport', '', '', this.data.startDate, '', '').then(res => {
+        this.setData({
+          showModal: false,
+          noscroll: false,
+          showWeekDate: this.data.chooseDate
+        });
+      });
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -100,7 +121,7 @@ Page({
 })
 function getReport(that, method, year, month, day, startDate, endDate) {
   wx.showLoading({ title: '拼命加载中...' });
-  app.fetch('report/' + method, { year: year, month: month, day: day, startDate: startDate, endDate: endDate }, "POST").then(res => {
+  return app.fetch('report/' + method, { year: year, month: month, day: day, startDate: startDate, endDate: endDate }, "POST").then(res => {
     wx.hideLoading();
     if (res.data.code === 0) {
       that.setData({
@@ -116,5 +137,6 @@ function getReport(that, method, year, month, day, startDate, endDate) {
         icon: 'none'
       })
     }
+    return res;
   })
 }
