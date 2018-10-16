@@ -1,4 +1,3 @@
-<view class="salesstatistics-time" bindtap='modalShow'>{{showWeekDate}}</view>
 <modal show="{{showModal}}" bindmodalclose="modalClose" >
   <view slot="modal-title">
     <text>选择日期</text>
@@ -22,89 +21,92 @@
   </view>
   <button slot="footer" class="addsuisinmebtn confirm-btn" type="primary" hover-class="none" bindtap="saveDate">查询</button>
 </modal>
-<view class="salesstatistics-wrap {{noscroll?'noscroll':''}}">
-  <view class="shuju-wrap pd30">
-    <view class="shuju-inner-wrap">
-        <view class="shuju-header">
-          <view><text>商品名称</text></view>
-          <view class="goods-name"><text>匠人牛品</text></view>
-        </view>
-      <view class="print-time-wrap">
-        <view class="print-detail-item">
-          <view><text>开始日期：{{startDate}}</text></view>
-        </view>
-      </view>
-      <view class="print-detail-wrap">
-        <view class="print-detail-item-wrap">
+<view class="{{noscroll?'noscroll':''}}">
+  <view class="salesstatistics-time" bindtap='modalShow'>{{showWeekDate}}</view>
+  <view class="salesstatistics-wrap">
+    <view class="shuju-wrap pd30">
+      <view class="shuju-inner-wrap">
+          <view class="shuju-header">
+            <view><text>商品名称</text></view>
+            <view class="goods-name"><text>匠人牛品</text></view>
+          </view>
+        <view class="print-time-wrap">
           <view class="print-detail-item">
-            <view>
-              <text>订单总数：{{orderCount}}</text>
+            <view><text>开始日期：{{startDate}}</text></view>
+          </view>
+        </view>
+        <view class="print-detail-wrap">
+          <view class="print-detail-item-wrap">
+            <view class="print-detail-item">
+              <view>
+                <text>订单总数：{{orderCount}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="print-detail-item-wrap">
+            <view class="print-detail-item">
+              <view>
+                <text>统计类型</text>
+              </view>
+            </view>
+            <view class="print-detail-item" wx:for="{{categoryList}}" wx:key="{{prodctCategoryId}}">
+              <view>
+                <text>{{item.productCategoryName}}类</text>
+              </view>
+              <view>
+                <text>{{item.amount}}元</text>
+              </view>
+              <view>
+                <text>{{item.rate}}%</text>
+              </view>
+            </view>
+          </view>
+          <view class="print-detail-item-wrap">
+            <view class="print-detail-item">
+              <view>
+                <text>各班次营业账单</text>
+              </view>
+            </view>
+            <view class="print-detail-item" wx:for="{{income.incomeList}}" wx:key="{{id}}">
+              <view>
+                <text>{{item.name}}</text>
+              </view>
+              <view>
+                <text>{{item.amount}}元</text>
+              </view>
             </view>
           </view>
         </view>
-        <view class="print-detail-item-wrap">
+        <view class="print-bottom-wrap">
           <view class="print-detail-item">
-            <view>
-              <text>统计类型</text>
-            </view>
+            <view><text>营业明细</text></view>
           </view>
-          <view class="print-detail-item" wx:for="{{categoryList}}" wx:key="{{prodctCategoryId}}">
-            <view>
-              <text>{{item.productCategoryName}}类</text>
-            </view>
-            <view>
-              <text>{{item.amount}}元</text>
-            </view>
-            <view>
-              <text>{{item.rate}}%</text>
-            </view>
-          </view>
-        </view>
-        <view class="print-detail-item-wrap">
           <view class="print-detail-item">
-            <view>
-              <text>各班次营业账单</text>
-            </view>
+            <view><text>毛收入:{{income.totalAmount}}</text></view>
           </view>
-          <view class="print-detail-item" wx:for="{{income.incomeList}}" wx:key="{{id}}">
-            <view>
-              <text>{{item.name}}</text>
-            </view>
-            <view>
-              <text>{{item.amount}}元</text>
-            </view>
+          <view class="print-detail-item">
+            <view><text>实收:{{income.factAmount}}</text></view>
           </view>
         </view>
-      </view>
-      <view class="print-bottom-wrap">
-        <view class="print-detail-item">
-          <view><text>营业明细</text></view>
+        <view class="print-bottom-wrap">
+          <view class="print-detail-item">
+            <view><text>实收</text></view>
+          </view>
+          <view class="print-detail-item" wx:for="{{receipts}}" wx:key="{{payType}}">
+            <view><text>{{item.payName}}({{item.payCount}}笔)</text></view>
+            <view><text>{{item.amount}}元</text></view>
+            <view><text>{{item.rate}}%</text></view>
+          </view>
         </view>
-        <view class="print-detail-item">
-          <view><text>毛收入:{{income.totalAmount}}</text></view>
-        </view>
-        <view class="print-detail-item">
-          <view><text>实收:{{income.factAmount}}</text></view>
-        </view>
-      </view>
-      <view class="print-bottom-wrap">
-        <view class="print-detail-item">
-          <view><text>实收</text></view>
-        </view>
-        <view class="print-detail-item" wx:for="{{receipts}}" wx:key="{{payType}}">
-          <view><text>{{item.payName}}({{item.payCount}}笔)</text></view>
-          <view><text>{{item.amount}}元</text></view>
-          <view><text>{{item.rate}}%</text></view>
-        </view>
-      </view>
-      <view class="print-bottom-wrap">
-        <view class="print-detail-item">
-          <view><text>非实收</text></view>
-        </view>
-        <view class="print-detail-item" wx:for="{{nonReceipts}}" wx:key="{{payType}}">
-          <view><text>{{item.payName}}({{item.payCount}}笔)</text></view>
-          <view><text>{{item.amount}}元</text></view>
-          <view><text></text></view>
+        <view class="print-bottom-wrap">
+          <view class="print-detail-item">
+            <view><text>非实收</text></view>
+          </view>
+          <view class="print-detail-item" wx:for="{{nonReceipts}}" wx:key="{{payType}}">
+            <view><text>{{item.payName}}({{item.payCount}}笔)</text></view>
+            <view><text>{{item.amount}}元</text></view>
+            <view><text></text></view>
+          </view>
         </view>
       </view>
     </view>

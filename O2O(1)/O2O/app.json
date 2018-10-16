@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/coupon/cashcoupon/cashcoupon",
     "pages/mallactivity/luckyrotate/luckyrotate",
     "pages/index/index",
     "pages/entry/entry",
@@ -30,7 +31,6 @@
     "pages/coupon/giftcoupon/giftcoupon",
     "pages/coupon/discountcoupon/discountcoupon",
     "pages/coupon/fullsubcoupon/fullsubcoupon",
-    "pages/coupon/cashcoupon/cashcoupon",
     "pages/coupon/coupondetail/coupondetail",
 
     "pages/usercenter/usercenter/usercenter",

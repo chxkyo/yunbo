@@ -1,6 +1,6 @@
 <!--pages/follow/follow.wxml-->
 <view class='follow'>
-  <view class='follow-item'>
+  <view class='follow-item' wx:for="followArr" wx:if="{{followArr.length>0}}">
     <view class='follow-item-left'>
       <image src="/images/follow1.jpg" />
     </view>

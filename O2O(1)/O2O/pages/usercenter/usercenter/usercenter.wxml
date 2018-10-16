@@ -1,13 +1,15 @@
 <!--pages/usercenter/usercenter.wxml-->
 <view class='usercenter-head'>
   <view class='usercenter-head-left'>
-    <image src="/images/user.jpg" />
+    <image src="{{headImgPath}}" />
   </view>
   <view class='usercenter-head-right'>
-    <view class='username'>用户名：Grayve</view>
+    <view class='username'>用户名：{{username}}</view>
     <view class='points'>
-      <text>普卡</text>
-      <text>5积分</text>
+      <text wx:if="{{level == 01}}">粉卡</text>
+      <text wx:elif="{{level == 02}}">金卡</text>
+      <text wx:elif="{{level == 03}}">黑卡</text>
+      <text>{{points}}积分</text>
     </view>
   </view>
 </view>
@@ -24,7 +26,7 @@
     </view>
   </view>
   <view class='qrcode-foot'>
-    卡号：00000006128
+    卡号：{{cardCode}}
   </view>
 </view>
 <view class='usercenter-menu'>

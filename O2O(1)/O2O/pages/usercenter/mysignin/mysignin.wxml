@@ -2,7 +2,7 @@
 <view class='mysignin-head'>
   <image src="/images/signin-head.jpg" />
 </view>
-<calendar calendar-style="calendar" board-style="board" weeks-type="cn" show-more-days="true" active-type="rounded" days-color="{{selectDays}}" />
+<calendar calendar-style="calendar" board-style="board" weeks-type="cn" show-more-days="true" active-type="rounded" days-color="{{selectDays}}" bindnextMonth="next" bindprevMonth="prev"/>
 <view class='mysignin-text'>
   <view class='line'></view>
   <view class='text'>连续签到，奖励更多哦</view>

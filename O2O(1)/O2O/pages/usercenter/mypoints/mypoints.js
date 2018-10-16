@@ -1,4 +1,5 @@
 // pages/mypoints/mypoints.js
+const app = getApp()
 Page({
   data: {
     pointsDetailShow: true, //积分明细显示
@@ -9,10 +10,24 @@ Page({
       {'name': '全部'},
       {'name': '选项一'},
       {'name': '选项二'}
-    ]
+    ],
+    rule:{},
+    task:{}
   },
   onLoad: function (options) {
-
+    wx.showLoading({
+      title: '拼命加载中...',
+    })
+    this.userId = "628800148082";
+    app.fetch("snail-portal/user/points/his.htm", { userId: this.userId }).then(res => {
+      wx.hideLoading();
+      if (res.data.success) {
+        this.setData({
+          rule:res.data.data.rule,
+          task: res.data.data.task
+        })
+      }
+    });
   },
   //更改积分明细显示
   changePointsDetailShow(){

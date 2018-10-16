@@ -1,11 +1,7 @@
 //app.js
+const fetch = require('./utils/fetch.js');
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
     // 登录
     wx.login({
       success: res => {
@@ -33,7 +29,9 @@ App({
       }
     })
   },
+  fetch: fetch,
   globalData: {
-    userInfo: null
+    userInfo: null,
+    basrUrl:'https://ceshi.daheiniu.info'
   }
 })
