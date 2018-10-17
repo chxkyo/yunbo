@@ -18,17 +18,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (wx.getStorageSync('sessionid') && wx.getStorageSync('sessionid_gettime')) {
-      //超过24小时自动清除
-      if ((new Date().getTime() - wx.getStorageSync('sessionid_gettime')) > 24 * 60 * 60 * 1000) {
-        wx.removeStorageSync('sessionid');
-        wx.removeStorageSync('sessionid_gettime');
-      } else {
-        wx.switchTab({
-          url: '../index/index'
-        })
-      }
-    }
+    // if (wx.getStorageSync('sessionid') && wx.getStorageSync('sessionid_gettime')) {
+    //   //超过24小时自动清除
+    //   if ((new Date().getTime() - wx.getStorageSync('sessionid_gettime')) > 24 * 60 * 60 * 1000) {
+    //     wx.removeStorageSync('sessionid');
+    //     wx.removeStorageSync('sessionid_gettime');
+    //   } else {
+    //     debugger
+    //     if (app.globalData.shopInfo.cashType){
+    //       wx.switchTab({
+    //         url: '../index/index'
+    //       })
+    //     }else{
+    //       wx.switchTab({
+    //         url: '../index/index'
+    //       })
+    //     }
+    //   }
+    // }
     
   },
 
@@ -115,6 +122,8 @@ Page({
               userErrorTipsShow: false,
               passErrorTipsShow: false
             })
+            app.globalData.userInfo = res.data.userInfo;
+            app.globalData.shopInfo = res.data.shopInfo;
             wx.setStorageSync('sessionid', res.data.JSESSIONID);
             wx.setStorageSync('sessionid_gettime', new Date().getTime());
             wx.showToast({
@@ -122,9 +131,15 @@ Page({
               icon: 'success',
               duration: 2000,
               success() {
-                wx.switchTab({
-                  url: '../index/index'
-                })
+                if (res.data.shopInfo.cashType){
+                  wx.switchTab({
+                    url: '../index/index'
+                  })
+                }else{
+                  wx.navigateTo({
+                    url: '../index-retail/index-retail',
+                  })
+                }
               }
             })
           }else{

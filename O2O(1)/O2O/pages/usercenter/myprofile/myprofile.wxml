@@ -3,7 +3,7 @@
   <view class='myprofile-item'>
     <view class='myprofile-itemLeft'>姓名</view>
     <view class='myprofile-itemRight'>
-      <input type='text' placeholder='请输入姓名' value='张三' />
+      <input type='text' placeholder='请输入姓名' value='{{name}}' bindinput='getName'/>
     </view>
   </view>
   <view class='myprofile-item'>
@@ -22,25 +22,25 @@
   <view class='myprofile-item'>
     <view class='myprofile-itemLeft'>生日</view>
     <view class='myprofile-itemRight'>
-      <input type='text' placeholder='请输入生日' value='' />
+      <input type='text' placeholder='请输入生日' value='{{birthday}}' bindinput='getBirthday'/>
     </view>
   </view>
   <view class='myprofile-item'>
     <view class='myprofile-itemLeft'>星座</view>
     <view class='myprofile-itemRight'>
-      <input type='text' value='摩羯座' />
+      <input type='text' value='{{sign}}' bindinput='getSign'/>
     </view>
   </view>
   <view class='myprofile-item'>
     <view class='myprofile-itemLeft'>手机号码</view>
     <view class='myprofile-itemRight'>
-      <input type='text' value='1888888888' />
+      <input type='number' value='{{mobile}}' bindinput='getMobile'/>
     </view>
   </view>
   <view class='myprofile-item'>
     <view class='myprofile-itemLeft'>邮箱</view>
     <view class='myprofile-itemRight'>
-      <input type='text' placeholder='请输入邮箱' value='' />
+      <input type='text' placeholder='请输入邮箱' value='{{email}}' bindinput='getEmail'/>
     </view>
   </view>
   <view class='myprofile-item'>
@@ -57,8 +57,8 @@
   <view class='myprofile-item'>
     <view class='myprofile-itemLeft'>详细地址</view>
     <view class='myprofile-itemRight'>
-      <input type='text' placeholder='请输入详细地址' value='' />
+      <input type='text' placeholder='请输入详细地址' value='{{addrDetail}}' bindinput='getAddr'/>
     </view>
   </view>
 </view>
-<view class='save'>保存</view>
+<view class='save' bindtap="updateProfile">保存</view>

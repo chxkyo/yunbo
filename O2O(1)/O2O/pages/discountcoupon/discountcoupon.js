@@ -1,4 +1,5 @@
 // pages/discountcoupon/discountcoupon.js
+const app = getApp()
 Page({
   data: {
     showIndex: 0, //第几个分类显示
@@ -40,7 +41,6 @@ Page({
     ]
   },
   onLoad: function (options) {
-
   },
   //更改显示的index
   changeShowIndex(e) {

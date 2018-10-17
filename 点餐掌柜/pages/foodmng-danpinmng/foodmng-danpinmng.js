@@ -14,7 +14,8 @@ Page({
     goodsUnitFlag: false,
     goodsName:'',
     goodsPrice:'',
-    goodsDiscount:''
+    goodsDiscount:'',
+    activeIndex: 0,
   },
 
   /**

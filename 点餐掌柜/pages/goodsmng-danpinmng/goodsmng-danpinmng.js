@@ -168,7 +168,7 @@ function getgoodsClassifyList(that) {
       wx.removeStorageSync('sessionid');
       wx.removeStorageSync('sessionid_gettime');
       wx.switchTab({
-        url: 'pages/index/index'
+        url: '../index/index'
       })
     }
   })

@@ -3,17 +3,17 @@ const util = require('./utils/util.js');
 //app.js
 App({
   onLaunch: function () {
-    if (wx.getStorageSync('sessionid') && wx.getStorageSync('sessionid_gettime')){
-      //超过24小时自动清除
-      if ((new Date().getTime() - wx.getStorageSync('sessionid_gettime')) > 24*60*60*1000 ){
-        wx.removeStorageSync('sessionid')
-        wx.removeStorageSync('sessionid_gettime')
-      }else{
-        wx.switchTab({
-          url: 'pages/index/index'
-        })
-      }
-    }
+    // if (wx.getStorageSync('sessionid') && wx.getStorageSync('sessionid_gettime')){
+    //   //超过24小时自动清除
+    //   if ((new Date().getTime() - wx.getStorageSync('sessionid_gettime')) > 24*60*60*1000 ){
+    //     wx.removeStorageSync('sessionid')
+    //     wx.removeStorageSync('sessionid_gettime')
+    //   }else{
+    //     wx.switchTab({
+    //       url: 'pages/index/index'
+    //     })
+    //   }
+    // }
     // 登录
     wx.login({
       success: res => {
@@ -42,8 +42,9 @@ App({
     })
   },
   globalData: {
-    staticUrl: 'http://122.144.167.216:8080/cashier-admin/miniApp',
-    userInfo: null
+    staticUrl: 'http://tdlbs.daheiniu.info/cashier-admin/miniApp',
+    userInfo: null,
+    shopInfo:null
   },
   fetch: fetch,
   util:util

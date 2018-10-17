@@ -35,11 +35,19 @@ Page({
         lazyLoad: true,
         disableTouch: true
       }
-    }
+    },
+    totalAmount:'',
+    totalCount:'',
+    peopleNumber:'',
+    avgAmount:''
   },
   onLoad: function () {
+    const year = new Date().getFullYear();
+    const month = new Date().getMonth() + 1;
+    const day = new Date().getDate();
     this.setData({
-      today: app.util.formatTime(new Date)
+      today: [year, month, day].map(app.util.formatNumber).join('-'),
+      shopName: app.globalData.shopInfo.name
     })
     this.ecComponent1 = this.selectComponent('#mychart-dom-multi-pie1');
     this.ecComponent2 = this.selectComponent('#mychart-dom-multi-bar1');
@@ -51,6 +59,10 @@ Page({
       wx.hideLoading();
       if(res.data.code === 0){
         this.setData({
+          totalAmount: res.data.totalAmount,
+          totalCount: res.data.totalCount,
+          peopleNumber: res.data.peopleNumber,
+          avgAmount: res.data.avgAmount,
           dailySale: res.data.dailyData.dailySale,
           monthSale: res.data.monthData.monthSale,
           weekSale: res.data.weekData.weekSale,
