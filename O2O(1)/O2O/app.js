@@ -32,6 +32,6 @@ App({
   fetch: fetch,
   globalData: {
     userInfo: null,
-    basrUrl:'https://ceshi.daheiniu.info'
+    basrUrl:'http://pfccp6.natappfree.cc'
   }
 })

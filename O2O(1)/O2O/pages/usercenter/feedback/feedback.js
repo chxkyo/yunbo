@@ -7,7 +7,11 @@ Page({
     toFeedBackList:[]
   },
   onLoad: function (options) {
+    wx.showLoading({
+      title: '拼命加载中...',
+    })
     Promise.all([this.getHasFeedBackList(), this.getToFeedBackList()]).then(results=>{
+      wx.hideLoading();
       this.setData({
         hasFeedBackList:results[0],
         toFeedBackList:results[1]
@@ -38,7 +42,7 @@ Page({
   },
   addFeedback(){
     wx.navigateTo({
-      url: '/pages/addfeedback/addfeedback',
+      url: '../addfeedback/addfeedback',
     })
   }
 })

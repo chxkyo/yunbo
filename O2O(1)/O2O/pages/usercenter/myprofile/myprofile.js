@@ -21,11 +21,15 @@ Page({
     app.fetch("snail-portal/user/userInfo.htm", { userId: this.userId }).then(res => {
       wx.hideLoading();
       if (res.data.success) {
-        if (this.data.region[0].indexOf("省") === -1){
+        if (res.data.data.user.provinceName.indexOf("省") === -1){
           this.data.region[0] = res.data.data.user.provinceName + "省";
+        }else{
+          this.data.region[0] = res.data.data.user.provinceName;
         }
-        if (this.data.region[1].indexOf("市") === -1){
+        if (res.data.data.user.cityName.indexOf("市") === -1){
           this.data.region[1] = res.data.data.user.cityName + "市";
+        }else{
+          this.data.region[1] = res.data.data.user.cityName;
         }
         this.setData({
           name:res.data.data.user.name,
@@ -86,7 +90,7 @@ Page({
       mask:true
     })
     this.userId = "628800148082";
-    app.fetch("snail-portal/user/updateUserInfoAjax.do", { userId: this.userId, name: this.data.name, sex: this.data.sexIndex, birthday: this.data.birthday, sign: this.data.sign, mobile: this.data.mobile, email: this.data.email, addrDetail: this.data.addrDetail, provinceName: this.data.region[0], cityName: this.data.region[1]},"POST").then(res => {
+    app.fetch("snail-portal/user/updateUserInfoAjax.do?userId=" + this.data.userId + "&name=" + this.data.name + "&sex=" + this.data.sexIndex + "&sign=" + this.data.sign + "&mobile=" + this.data.mobile + "&email=" + this.data.email + "&addrDetail=" + this.data.addrDetail + "&provinceName=" + this.data.region[0] + "&cityName=" + this.data.region[1]).then(res => {
       wx.hideLoading();
       if (res.data.success) {
         wx.showToast({

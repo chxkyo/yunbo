@@ -1,9 +1,12 @@
 {
   "pages": [
-    "pages/usercenter/feedback/feedback",
-    "pages/usercenter/mysubscribe/mysubscribe",
-    "pages/usercenter/myprofile/myprofile",
     "pages/usercenter/mypoints/mypoints",
+    "pages/usercenter/myprofile/myprofile",
+    "pages/usercenter/feedback/feedback",
+    "pages/usercenter/addfeedback/addfeedback",
+    "pages/coupon/discountcoupon/discountcoupon",
+    "pages/usercenter/mysubscribe/mysubscribe",
+    "pages/usercenter/myaward/myaward",
     "pages/mallactivity/luckyrotate/luckyrotate",
     "pages/index/index",
     "pages/entry/entry",
@@ -32,20 +35,17 @@
     "pages/parkpayment/parkpayment",  
     
     "pages/coupon/giftcoupon/giftcoupon",
-    "pages/coupon/discountcoupon/discountcoupon",
-    "pages/coupon/fullsubcoupon/fullsubcoupon",
     "pages/coupon/cashcoupon/cashcoupon",
+    "pages/coupon/fullsubcoupon/fullsubcoupon",
     "pages/coupon/coupondetail/coupondetail",
 
     "pages/usercenter/usercenter/usercenter",
     "pages/usercenter/mysignin/mysignin",
-    "pages/usercenter/myfollow/myfollow",
     "pages/usercenter/mytickets/mytickets",
     "pages/usercenter/addselfhelppoints/addselfhelppoints",
     "pages/usercenter/selfhelppoints/selfhelppoints",
-    "pages/usercenter/myaward/myaward",
-    "pages/usercenter/addfeedback/addfeedback",
-    "pages/usercenter/subscribedetail/subscribedetail"  
+    "pages/usercenter/subscribedetail/subscribedetail" ,
+    "pages/usercenter/myfollow/myfollow"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,5 +1,5 @@
 <!--pages/addfeedback/addfeedback.wxml-->
-<textarea placeholder="请提出宝贵的意见和建议" placeholder-style="color:#999;" hidden='{{addFeedBackSuccShow}}'></textarea>
+<textarea placeholder="请提出宝贵的意见和建议" placeholder-style="color:#999;" hidden='{{addFeedBackSuccShow}}' bindinput="getFeedbackContent"></textarea>
 <view class='tips' hidden='{{addFeedBackSuccShow}}'>剩余可输入100字</view>
 <view class='submit' hidden='{{addFeedBackSuccShow}}' bindtap='submit'>提交</view>
 <view class='addFeedBackSucc' hidden='{{!addFeedBackSuccShow}}'>

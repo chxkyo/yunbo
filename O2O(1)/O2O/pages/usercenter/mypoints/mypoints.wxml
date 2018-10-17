@@ -1,7 +1,7 @@
 <!--pages/mypoints/mypoints.wxml-->
 <view class='mypoints-head'>
   <view class='mypoints-head-text1'>可用积分</view>
-  <view class='mypoints-head-text2'>139</view>
+  <view class='mypoints-head-text2'>{{totalPoints}}</view>
 </view>
 <view class='mypoints-con'>
   <view class='mypoints-con-top'>
@@ -26,14 +26,14 @@
         </view>
       </view>
     </view>
-    <view class='mypoints-con-foot'>
-      <view class='mypoints-con-foot-item'>
+    <view class='mypoints-con-foot' wx:if="{{pointsArr.length != 0}}">
+      <view class='mypoints-con-foot-item' wx:for="{{pointsArr}}" wx:key="id">
         <view class='mypoints-con-foot-itemLeft'>
-          <view class='mypoints-con-foot-itemLeft-title'>连续签到一天</view>
-          <view class='mypoints-con-foot-itemLeft-date'>2018-09-19 08:55:33</view>
+          <view class='mypoints-con-foot-itemLeft-title'>{{item.detail}}</view>
+          <view class='mypoints-con-foot-itemLeft-date'>{{item.createTime}}</view>
         </view>
         <view class='mypoints-con-foot-itemRight'>
-          +10
+          +{{item.pointsCount}}
         </view>
       </view>
     </view>
@@ -41,10 +41,57 @@
   <view class='pointsTasks' hidden='{{!pointsTasksShow}}'>
     <view class='pointsTasks-item'>
       <view class='pointsTasks-itemLeft'>
-        <view class='pointsTasks-itemLeft-top'>关注商户</view>
+        <view class='pointsTasks-itemLeft-top'>查看商户详情</view>
         <view class='pointsTasks-itemLeft-bot'>
           <view class='pointsTasks-icon1'></view>
-          积分+3
+          积分+{{rule.viewStore}}
+        </view>
+      </view>
+      <view class='pointsTasks-itemRight' wx:if="{{!task.viewStore}}">
+        去完成
+        <view class='pointsTasks-icon2'></view>
+      </view>
+      <view class='pointsTasks-itemRight' wx:else>
+        已完成
+      </view>
+    </view>
+    <view class='pointsTasks-item'>
+      <view class='pointsTasks-itemLeft'>
+        <view class='pointsTasks-itemLeft-top'>查看活动详情</view>
+        <view class='pointsTasks-itemLeft-bot'>
+          <view class='pointsTasks-icon1'></view>
+          积分+{{rule.viewActivity}}
+        </view>
+      </view>
+      <view class='pointsTasks-itemRight' wx:if="{{!task.viewActivity}}">
+        去完成
+        <view class='pointsTasks-icon2'></view>
+      </view>
+      <view class='pointsTasks-itemRight' wx:else>
+        已完成
+      </view>
+    </view>
+    <view class='pointsTasks-item'>
+      <view class='pointsTasks-itemLeft'>
+        <view class='pointsTasks-itemLeft-top'>完善个人信息</view>
+        <view class='pointsTasks-itemLeft-bot'>
+          <view class='pointsTasks-icon1'></view>
+          积分+{{rule.registerPoints}}
+        </view>
+      </view> 
+      <view class='pointsTasks-itemRight' wx:if="{{!task.registerPoints}}">
+        去完成
+        <view class='pointsTasks-icon2'></view>
+      </view>
+      <view class='pointsTasks-itemRight' wx:else>
+        已完成
+      </view>
+    </view>
+        <view class='pointsTasks-item'>
+      <view class='pointsTasks-itemLeft'>
+        <view class='pointsTasks-itemLeft-top'>问卷调查</view>
+        <view class='pointsTasks-itemLeft-bot'>
+          <view class='pointsTasks-icon1'></view>
         </view>
       </view>
       <view class='pointsTasks-itemRight'>

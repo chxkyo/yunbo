@@ -1,14 +1,14 @@
 <!--pages/follow/follow.wxml-->
-<view class='follow'>
-  <view class='follow-item' wx:for="followArr" wx:if="{{followArr.length>0}}">
+<view class='follow' wx:if="{{followArr.length>0}}">
+  <view class='follow-item' wx:for="{{followArr}}">
     <view class='follow-item-left'>
-      <image src="/images/follow1.jpg" />
+      <image src="{{item.logoImgPath}}" />
     </view>
     <view class='follow-item-mid'>
-      <view class='follow-item-mid-title'>LOUIS VUITTON</view>
+      <view class='follow-item-mid-title'>{{item.storeName}}</view>
       <view class='follow-item-mid-address'>
         <image src="/images/follow2.jpg" />
-        F1-SHOP-001
+        {{item.unitName}}
       </view>
     </view>
     <view class="follow-item-right">
@@ -17,6 +17,6 @@
     </view>
   </view>
 </view>
-<view class='no-content' hidden='true'>
+<view class='no-content' wx:else>
   暂无关注的店铺
 </view>

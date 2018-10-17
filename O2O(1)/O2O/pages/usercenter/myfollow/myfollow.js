@@ -20,6 +20,9 @@ Page({
     app.fetch("snail-portal/user/favoriteStoreList.htm", { userId: this.userId }).then(res => {
       wx.hideLoading();
       if (res.data.success) {
+        res.data.data.list.forEach(function(val,index){
+          val.logoImgPath = app.globalData.basrUrl + val.logoImgPath;
+        })
         this.setData({
           followArr:res.data.data.list
         })

@@ -1,14 +1,29 @@
 // pages/addfeedback/addfeedback.js
+const app = getApp()
 Page({
   data: {
-    addFeedBackSuccShow: false //提交成功弹窗是否显示
+    addFeedBackSuccShow: false, //提交成功弹窗是否显示,
+    content:''
   },
   onLoad: function (options) {
 
   },
-  submit(){
+  getFeedbackContent(e){
     this.setData({
-      addFeedBackSuccShow: true
+      content:e.detail.value
     })
+  },
+  submit(){
+    wx.showLoading({
+      title: '提交反馈中....',
+    })
+    app.fetch("snail-portal/user/addFeed.do?content="+this.data.content, { },"GET").then(res => {
+      wx.hideLoading();
+      if (res.data.success) {
+        this.setData({
+          addFeedBackSuccShow: true
+        })
+      }
+    });
   }
 })
