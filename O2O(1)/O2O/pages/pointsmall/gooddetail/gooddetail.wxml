@@ -20,11 +20,37 @@
   </view>
   <view class='gooddetail-menuItem'>
     <view class='gooddetail-menuItem-top'>所需积分</view>
-    <view class='gooddetail-menuItem-bot'>{{exchangePoint}}积分</view>
+    <view class='gooddetail-menuItem-bot'>{{product.limit00Point}}积分</view>
   </view>
   <view class='gooddetail-menuItem'>
     <view class='gooddetail-menuItem-top'>所需金额</view>
-    <view class='gooddetail-menuItem-bot'>￥0.00</view>
+    <view class='gooddetail-menuItem-bot'>￥{{product.limit00Money}}</view>
+  </view>
+</view>
+<view class='gooddetail-menu'>
+  <view class='gooddetail-menuItem'>
+    <view class='gooddetail-menuItem-top'>金卡会员</view>
+  </view>
+  <view class='gooddetail-menuItem'>
+    <view class='gooddetail-menuItem-top'>所需积分</view>
+    <view class='gooddetail-menuItem-bot'>{{product.limit66Point}}积分</view>
+  </view>
+  <view class='gooddetail-menuItem'>
+    <view class='gooddetail-menuItem-top'>所需金额</view>
+    <view class='gooddetail-menuItem-bot'>￥{{product.limit66Money}}</view>
+  </view>
+</view>
+<view class='gooddetail-menu'>
+  <view class='gooddetail-menuItem'>
+    <view class='gooddetail-menuItem-top'>黑卡会员</view>
+  </view>
+  <view class='gooddetail-menuItem'>
+    <view class='gooddetail-menuItem-top'>所需积分</view>
+    <view class='gooddetail-menuItem-bot'>{{product.limit88Point}}积分</view>
+  </view>
+  <view class='gooddetail-menuItem'>
+    <view class='gooddetail-menuItem-top'>所需金额</view>
+    <view class='gooddetail-menuItem-bot'>￥{{product.limit88Money}}</view>
   </view>
 </view>
 <view class='gooddetail-con-head'>
@@ -38,4 +64,4 @@
 <view class='gooddetail-con'>
   {{productDetail}}
 </view>
-<view class='change' hidden='{{leftCount <= 0}}'>点击兑换</view>
+<view class='change' hidden='{{leftCount <= 0}}' ontap="exhange">点击兑换</view>

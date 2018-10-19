@@ -42,7 +42,7 @@ App({
     })
   },
   globalData: {
-    staticUrl: 'http://tdlbs.daheiniu.info/cashier-admin/miniApp',
+    staticUrl: 'https://tdlbs.daheiniu.info/cashier-admin/miniApp',
     userInfo: null,
     shopInfo:null
   },

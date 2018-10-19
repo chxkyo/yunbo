@@ -31,7 +31,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
       let month = app.util.formatNumber(new Date().getMonth() + 1);
       let year = app.util.formatNumber(new Date().getFullYear());
 

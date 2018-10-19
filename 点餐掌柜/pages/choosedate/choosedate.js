@@ -79,7 +79,9 @@ Page({
       endDate: endDate
     });
     prevPage.setData({
-      chooseDate: startDate + "~" + endDate
+      chooseDate: startDate + "~" + endDate,
+      startDate: startDate.split("-").join(""),
+      endDate: endDate.split("-").join("")
     })
     wx.navigateBack({
       delta:1
