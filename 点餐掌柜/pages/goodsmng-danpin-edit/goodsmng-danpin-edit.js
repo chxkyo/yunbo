@@ -25,6 +25,7 @@ Page({
       this.id = options.id;
       getgoodsClassifyList(this).then(list=>{
         app.fetch('product/info/' + this.id, { methodName: 'info' }, "POST").then(res => {
+          debugger
           if (res.data.code === 0) {
             let classifyIndex = list.findIndex((value,index)=>{
               return value.id === res.data.product.productCategoryId;
@@ -206,6 +207,7 @@ Page({
 function getgoodsClassifyList(that) {
   return app.fetch('productCategory/list', {}, "POST").then(res => {
     if (res.data.code === 0) {
+      debugger
       that.setData({
         goodsClassifyList: res.data.productCategoryList
       })

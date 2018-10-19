@@ -43,8 +43,7 @@ App({
   },
   globalData: {
     staticUrl: 'http://tdlbs.daheiniu.info/cashier-admin/miniApp',
-    userInfo: null,
-    shopInfo:null
+    userInfo: null
   },
   fetch: fetch,
   util:util
