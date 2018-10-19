@@ -22,7 +22,9 @@ Page({
     endDate: '',
     showWeekDate:'',
     noscroll:false,
-    chooseDate:''
+    chooseDate:'',
+    backFee: [],
+    shopName:''
   },
 
   /**
@@ -36,7 +38,8 @@ Page({
       this.setData({
         startDate: year + month + "01",
         endDate: year + month + "07",
-        showWeekDate: year + "-" + month + "-" + "01" + "~" + year + "-" + month + "-" + "07"
+        showWeekDate: year + "-" + month + "-" + "01" + "~" + year + "-" + month + "-" + "07",
+        shopName: app.globalData.shopInfo.name
       })
       getReport(this, 'weeklyReport', '', '', this.data.startDate, '', '');
   },
@@ -129,7 +132,8 @@ function getReport(that, method, year, month, day, startDate, endDate) {
         income: res.data.reportData.inCome,
         categoryList: res.data.reportData.categoryList,
         receipts: res.data.reportData.receipts,
-        nonReceipts: res.data.reportData.nonReceipts
+        nonReceipts: res.data.reportData.nonReceipts,
+        backFee: res.data.reportData.backFee
       })
     } else {
       wx.showToast({

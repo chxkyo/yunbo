@@ -244,14 +244,14 @@ function getData(arr){
 function getBarDate(arr){
   let date = [];
   arr.forEach((value,index)=>{
-    date.push(value.date);
+    date.push(value.dTime);
   })
   return date
 }
 function getBarSale(arr) {
   let sale = [];
   arr.forEach((value, index) => {
-    sale.push(value.daysale);
+    sale.push(value.totalFee);
   })
   return sale;
 }

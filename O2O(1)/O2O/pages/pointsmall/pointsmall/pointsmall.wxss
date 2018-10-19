@@ -62,12 +62,12 @@ page{
   position: relative;
 }
 .pointsmall-midLeft{
-  width: 70%;
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
 }
 .pointsmall-midLeft-item{
+  display: inline-block;
   height: 95rpx;
   line-height: 95rpx;
   font-size: 28rpx;

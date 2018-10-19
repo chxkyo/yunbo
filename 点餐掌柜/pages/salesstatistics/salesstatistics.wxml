@@ -49,8 +49,8 @@
   <view class="shuju-wrap pd30">
     <view class="shuju-inner-wrap">
         <view class="shuju-header">
-          <view><text>商品名称</text></view>
-          <view class="goods-name"><text>匠人牛品</text></view>
+          <view><text>商户名称</text></view>
+          <view class="goods-name"><text>{{shopName}}</text></view>
         </view>
       <view class="print-time-wrap">
         <view class="print-detail-item">
@@ -68,31 +68,42 @@
             </view>
           </view>
         </view>
-        <view class="print-detail-item-wrap">
+        <view class="print-detail-item-wrap" hidden='{{categoryList.length == 0 }}'>
           <view class="print-detail-item">
             <view>
               <text>统计类型</text>
             </view>
           </view>
-          <view class="print-detail-item" wx:for="{{categoryList}}" wx:key="{{prodctCategoryId}}">
+          <view class="print-detail-item" wx:for="{{categoryList}}" wx:key="{{categoryId}}">
             <view>
-              <text>{{item.productCategoryName}}类</text>
+              <text>{{item.categoryName}}</text>
             </view>
             <view>
               <text>{{item.amount}}元</text>
             </view>
             <view>
-              <text>{{item.rate}}%</text>
+              <text>{{item.amountRate}}%</text>
             </view>
           </view>
         </view>
         <view class="print-detail-item-wrap">
           <view class="print-detail-item">
+            <view><text>未结账:{{income.acount.unpay_amount}}</text></view>
+          </view>
+          <view class="print-detail-item">
+            <view><text>毛收入:{{income.acount.total_amount}}</text></view>
+          </view>
+          <view class="print-detail-item">
+            <view><text>实际收入:{{income.acount.fact_amount}}</text></view>
+          </view>
+        </view>
+        <view class="print-detail-item-wrap" hidden='{{income.duty.length == 0}}'>
+          <view class="print-detail-item">
             <view>
               <text>各班次营业账单</text>
             </view>
           </view>
-          <view class="print-detail-item" wx:for="{{income.incomeList}}" wx:key="{{id}}">
+          <view class="print-detail-item" wx:for="{{income.account.duty}}" wx:key="{{id}}">
             <view>
               <text>{{item.name}}</text>
             </view>
@@ -107,13 +118,16 @@
           <view><text>营业明细</text></view>
         </view>
         <view class="print-detail-item">
-          <view><text>毛收入:{{income.totalAmount}}</text></view>
+          <view><text>实收总计:{{income.acount.fact_amount}}</text></view>
         </view>
         <view class="print-detail-item">
-          <view><text>实收:{{income.factAmount}}</text></view>
+          <view><text>实收返款合计:{{backFee[0].backFeeAmount}}</text></view>
+        </view>
+        <view class="print-detail-item">
+          <view><text>实收不返款合计:{{backFee[0].unBackFeeAmount}}</text></view>
         </view>
       </view>
-      <view class="print-bottom-wrap">
+      <view class="print-bottom-wrap" hidden='{{receipts.length == 0}}'>
         <view class="print-detail-item">
           <view><text>实收</text></view>
         </view>
@@ -123,7 +137,7 @@
           <view><text>{{item.rate}}%</text></view>
         </view>
       </view>
-      <view class="print-bottom-wrap">
+      <view class="print-bottom-wrap" hidden='{{nonReceipts.length == 0}}'>
         <view class="print-detail-item">
           <view><text>非实收</text></view>
         </view>

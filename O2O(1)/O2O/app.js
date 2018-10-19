@@ -32,6 +32,7 @@ App({
   fetch: fetch,
   globalData: {
     userInfo: null,
-    basrUrl:'http://pfccp6.natappfree.cc'
+    baseUrl:'https://ceshi.daheiniu.info',
+    unitId:68
   }
 })

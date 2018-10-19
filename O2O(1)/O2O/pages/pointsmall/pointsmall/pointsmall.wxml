@@ -7,7 +7,7 @@
     <view class='pointsmall-headBot-item'>
       <image src="/images/pointsmall-icon1.jpg" /> 
       <view class='pointsmall-headBot-item-text'>
-        我的积分<text>17</text>
+        我的积分<text>{{points}}</text>
       </view>
     </view>
     <view class='pointsmall-headBot-item'>
@@ -25,13 +25,11 @@
   </view>
 </view>
 <view class='pointsmall-mid'>
-  <view class='pointsmall-midLeft'>
-    <view class='pointsmall-midLeft-item {{categoryIndex == 0 ? "active" : ""}}' bindtap='changeCategoryIndex' data-index="0">全部</view>
-    <view class='pointsmall-midLeft-item {{categoryIndex == 1 ? "active" : ""}}' bindtap='changeCategoryIndex' data-index="1">乐高</view>
-    <view class='pointsmall-midLeft-item {{categoryIndex == 2 ? "active" : ""}}' bindtap='changeCategoryIndex' data-index="2">箱包</view>
-    <view class='pointsmall-midLeft-item {{categoryIndex == 3 ? "active" : ""}}' bindtap='changeCategoryIndex' data-index="3">洗护用品</view>
-    <view class='pointsmall-midLeft-item {{categoryIndex == 4 ? "active" : ""}}' bindtap='changeCategoryIndex' data-index="4">日常</view>
-  </view>
+  <scroll-view class="scroll-view_H" scroll-x style="flex:1;">
+    <view class='pointsmall-midLeft' >
+      <view class='pointsmall-midLeft-item {{categoryIndex == index ? "active" : ""}}' bindtap='changeCategoryIndex' data-index="{{index}}" data-id="{{item.id}}" wx:for="{{categoryList}}" wx:key="id">{{item.categoryName}}</view>
+    </view>
+  </scroll-view>
   <view class='pointsmall-midRight' bindtap='changeSortShow'>
     {{sortList[sortIndex]}}
     <view class='triangle_down {{sortShow ? "rotate" : ""}}'></view>
@@ -41,44 +39,17 @@
   </view>
 </view>
 <view class='pointsmall-foot'>
-  <view class='pointsmall-footItem'>
-    <view class='pointsmall-footItem-top'>
-      <image src="/images/pointsmall2.jpg" />
-    </view>
-    <view class='pointsmall-footItem-bot'>
-      <view class='pointsmall-footItem-bot-title'>运动毛巾礼盒</view>
-      <view class='pointsmall-footItem-bot-points'>2000积分</view>
-      <view class='pointsmall-footItem-bot-time'>截止日期：2018-09-30</view>
-    </view>
-  </view>
-  <view class='pointsmall-footItem'>
-    <view class='pointsmall-footItem-top'>
-      <image src="/images/pointsmall2.jpg" />
-    </view>
-    <view class='pointsmall-footItem-bot'>
-      <view class='pointsmall-footItem-bot-title'>运动毛巾礼盒</view>
-      <view class='pointsmall-footItem-bot-points'>2000积分</view>
-      <view class='pointsmall-footItem-bot-time'>截止日期：2018-09-30</view>
-    </view>
-  </view>
-  <view class='pointsmall-footItem'>
-    <view class='pointsmall-footItem-top'>
-      <image src="/images/pointsmall2.jpg" />
-    </view>
-    <view class='pointsmall-footItem-bot'>
-      <view class='pointsmall-footItem-bot-title'>运动毛巾礼盒</view>
-      <view class='pointsmall-footItem-bot-points'>2000积分</view>
-      <view class='pointsmall-footItem-bot-time'>截止日期：2018-09-30</view>
-    </view>
-  </view>
-  <view class='pointsmall-footItem'>
-    <view class='pointsmall-footItem-top'>
-      <image src="/images/pointsmall2.jpg" />
-    </view>
-    <view class='pointsmall-footItem-bot'>
-      <view class='pointsmall-footItem-bot-title'>运动毛巾礼盒</view>
-      <view class='pointsmall-footItem-bot-points'>2000积分</view>
-      <view class='pointsmall-footItem-bot-time'>截止日期：2018-09-30</view>
-    </view>
+
+  <view class='pointsmall-footItem' wx:for="{{list}}" wx:key="id">
+    <navigator url="../gooddetail/gooddetail?id={{item.id}}" hover-class='none'>
+      <view class='pointsmall-footItem-top'>
+        <image src="{{item.productImgPath}}" />
+      </view>
+      <view class='pointsmall-footItem-bot'>
+        <view class='pointsmall-footItem-bot-title'>{{item.productName}}</view>
+        <view class='pointsmall-footItem-bot-points'>{{item.exhangePoint}}积分</view>
+        <view class='pointsmall-footItem-bot-time'>截止日期：{{item.exchangeEndTime}}</view>
+      </view>
+    </navigator>
   </view>
 </view>
