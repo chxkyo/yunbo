@@ -2,7 +2,7 @@
 <view class='follow' wx:if="{{followArr.length>0}}">
   <view class='follow-item' wx:for="{{followArr}}">
     <view class='follow-item-left'>
-      <image src="{{item.logoImgPath}}" />
+      <image src="{{item.photoImgPath}}" />
     </view>
     <view class='follow-item-mid'>
       <view class='follow-item-mid-title'>{{item.storeName}}</view>

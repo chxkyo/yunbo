@@ -8,8 +8,10 @@ Page({
   data: {
     index: 0,
     startDate: '',
-    chooseStartDate: false,
-    chooseEndDate: false,
+    chooseStartDateFlag: false,
+    chooseEndDateFlag: false,
+    chooseStartDate:'',
+    chooseEndDate:'',
     showModal: false,
     nosroll: false,
     reportData: '',
@@ -22,21 +24,23 @@ Page({
     endDate: '',
     showWeekDate:'',
     noscroll:false,
-    chooseDate:''
+    chooseDate:'',
+    backFee: [],
+    shopName:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
       let month = app.util.formatNumber(new Date().getMonth() + 1);
       let year = app.util.formatNumber(new Date().getFullYear());
 
       this.setData({
         startDate: year + month + "01",
         endDate: year + month + "07",
-        showWeekDate: year + "-" + month + "-" + "01" + "~" + year + "-" + month + "-" + "07"
+        showWeekDate: year + "-" + month + "-" + "01" + "~" + year + "-" + month + "-" + "07",
+        shopName: app.globalData.shopInfo.name
       })
       getReport(this, 'weeklyReport', '', '', this.data.startDate, '', '');
   },
@@ -48,22 +52,41 @@ Page({
   },
   saveDate(){
     let that = this;
-    if(this.data.chooseDate === ''){
+    if (!this.data.chooseStartDateFlag){
       wx.showModal({
         title: '提示',
-        content: '请选择查询日期!',
+        content: '请选择开始日期!',
+        showCancel: false
+      })
+    } else if (!this.data.chooseStartDateFlag){
+      wx.showModal({
+        title: '提示',
+        content: '请选择结束日期!',
         showCancel: false
       })
     }else{
-      this.data.startDate = this.data.chooseDate.split("~")[0].split("-").join("");
-      getReport(this, 'weeklyReport', '', '', this.data.startDate, '', '').then(res => {
+      getReport(this, 'weeklyReport', '', '', this.data.chooseStartDate.split("-").join(""),'','').then(res => {
         this.setData({
           showModal: false,
           noscroll: false,
-          showWeekDate: this.data.chooseDate
+          showWeekDate: this.data.chooseStartDate + "~" + this.data.chooseEndDate,
+          startDate: this.data.chooseStartDate.split("-").join(""),
+          endDate: this.data.chooseEndDate.split("-").join(""),
         });
       });
     }
+  },
+  bindStartDateChange(e) {
+    this.setData({
+      chooseStartDateFlag: true,
+      chooseStartDate:e.detail.value
+    });
+  },
+  bindEndDateChange(e) {
+    this.setData({
+      chooseEndDateFlag: true,
+      chooseEndDate:e.detail.value
+    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -129,7 +152,8 @@ function getReport(that, method, year, month, day, startDate, endDate) {
         income: res.data.reportData.inCome,
         categoryList: res.data.reportData.categoryList,
         receipts: res.data.reportData.receipts,
-        nonReceipts: res.data.reportData.nonReceipts
+        nonReceipts: res.data.reportData.nonReceipts,
+        backFee: res.data.reportData.backFee
       })
     } else {
       wx.showToast({

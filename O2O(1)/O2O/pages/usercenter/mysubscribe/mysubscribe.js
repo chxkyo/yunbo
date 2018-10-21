@@ -11,6 +11,12 @@ Page({
     app.fetch("snail-portal/user/myReservation.htm", {}).then(res => {
       wx.hideLoading();
       if (res.data.success) {
+        res.data.data.reservationlist.forEach(function(val,index){
+          val.actImgPath = app.globalData.baseUrl + val.actImgPath;
+        })
+        this.setData({
+          reservationlist: res.data.data.reservationlist
+        })
       }
     });
   }

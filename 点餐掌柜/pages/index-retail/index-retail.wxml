@@ -65,7 +65,7 @@
           <block wx:for="{{dailySaleArr}}" wx:key="{{payName}}">
             <view class="echarts-pay-item">
               <view class="icon-circle {{item.payType == 0 ? 'other-color' : item.payType == 1 ? 'bank-color':item.payType == 2?'wx-color':'al-color' }}"></view>
-              <view class="echarts-pay-per"><text>{{item.typeProportion}}%</text></view>
+              <view class="echarts-pay-per"><text>{{item.rate}}%</text></view>
               <view class="echarts-pay-method"><text>{{item.payName}}支付</text></view>
             </view>
           </block>
@@ -86,7 +86,7 @@
           <block wx:for="{{weekSaleArr}}" wx:key="{{payName}}">
             <view class="echarts-pay-item">
               <view class="icon-circle {{item.payType == 0 ? 'other-color' : item.payType == 1 ? 'bank-color':item.payType == 2?'wx-color':'al-color' }}"></view>
-              <view class="echarts-pay-per"><text>{{item.typeProportion}}%</text></view>
+              <view class="echarts-pay-per"><text>{{item.rate}}%</text></view>
               <view class="echarts-pay-method"><text>{{item.payName}}支付</text></view>
             </view>
           </block>
@@ -107,7 +107,7 @@
           <block wx:for="{{monthSaleArr}}" wx:key="{{payName}}">
             <view class="echarts-pay-item">
               <view class="icon-circle {{item.payType == 0 ? 'other-color' : item.payType == 1 ? 'bank-color':item.payType == 2?'wx-color':'al-color' }}"></view>
-              <view class="echarts-pay-per"><text>{{item.typeProportion}}%</text></view>
+              <view class="echarts-pay-per"><text>{{item.rate}}%</text></view>
               <view class="echarts-pay-method"><text>{{item.payName}}支付</text></view>
             </view>
           </block>

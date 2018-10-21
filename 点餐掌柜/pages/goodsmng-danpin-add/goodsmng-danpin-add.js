@@ -104,7 +104,6 @@ Page({
     })
   },
   saveDanPin() {
-    debugger
     let pages = getCurrentPages();
     let prevPage = pages[pages.length - 2];  //上一个页面
     if (this.data.name == '') {

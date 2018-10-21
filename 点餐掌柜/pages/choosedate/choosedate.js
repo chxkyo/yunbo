@@ -18,7 +18,6 @@ Page({
     let index = this.data.demo4_days_style.findIndex(function(val,index){
       return val.day == event.detail.day;
     });
-    console.log(event);
     if (this.data.demo4_days_style[index].active){
       this.data.demo4_days_style[index].color = '#000';
       this.data.demo4_days_style[index].background = '#fff';
@@ -46,7 +45,7 @@ Page({
     const days_count = new Date(this.data.year, this.data.month, 0).getDate();
     let demo4_days_style = new Array;
     for (let i = 1; i <= days_count; i++) {
-        if(i<=7){
+        if(i==7 || i==1){
           demo4_days_style.push({
             month: 'current', day: i, color: '#fff', background: '#1da5fc',active:true
           });

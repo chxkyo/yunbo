@@ -7,6 +7,12 @@ page{
   padding: 30rpx;
   box-sizing: border-box;
 }
+.mysubscribe-item-a{
+    margin-bottom: 30rpx;
+}
+.mysubscribe-item-a:last-child{
+  margin-bottom: 0;
+}
 .mysubscribe-item{
   width: 100%;
   height: 300rpx;
@@ -15,10 +21,6 @@ page{
   box-sizing: border-box;
   position: relative;
   box-shadow: 0 2rpx 2rpx 2rpx rgba(0,0,0,0.1);
-  margin-bottom: 30rpx;
-}
-.mysubscribe-item:last-child{
-  margin-bottom: 0;
 }
 .mysubscribe-item image{
   width: 100%;

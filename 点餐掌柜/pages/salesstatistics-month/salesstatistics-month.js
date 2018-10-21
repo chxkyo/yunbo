@@ -22,7 +22,9 @@ Page({
     nonReceipts: [],
     startDate: '',
     endDate: '',
-    showMonth:''
+    showMonth:'',
+    backFee: [],
+    shopName:''
   },
 
   /**
@@ -32,7 +34,8 @@ Page({
     let month = app.util.formatNumber(new Date().getMonth() + 1);
     let year = app.util.formatNumber(new Date().getFullYear());
     this.setData({
-      showMonth: year + "-" + month
+      showMonth: year + "-" + month,
+      shopName: app.globalData.shopInfo.name
     })
     getReport(this, 'monthlyReport', year, month, '', '', '');
   },
@@ -132,7 +135,8 @@ function getReport(that, method, year, month, day, startDate, endDate) {
         income: res.data.reportData.inCome,
         categoryList: res.data.reportData.categoryList,
         receipts: res.data.reportData.receipts,
-        nonReceipts: res.data.reportData.nonReceipts
+        nonReceipts: res.data.reportData.nonReceipts,
+        backFee: res.data.reportData.backFee
       })
     }else{
       wx.showToast({

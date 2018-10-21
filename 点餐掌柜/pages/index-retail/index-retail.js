@@ -39,7 +39,8 @@ Page({
     totalAmount: '',
     totalCount: '',
     peopleNumber: '',
-    avgAmount: ''
+    avgAmount: '',
+    shopName:''
   },
   onLoad: function () {
     const year = new Date().getFullYear();
@@ -58,6 +59,15 @@ Page({
     app.fetch('data', { deptId: '', shopId: '' }, 'POST').then(res => {
       wx.hideLoading();
       if (res.data.code === 0) {
+        res.data.dailyData.payTypeList.forEach(function (val, index) {
+          val.rate = parseInt(val.rate * 100);
+        });
+        res.data.weekData.payTypeList.forEach(function (val, index) {
+          val.rate = parseInt(val.rate * 100);
+        });
+        res.data.monthData.payTypeList.forEach(function (val, index) {
+          val.rate = parseInt(val.rate * 100);
+        });
         this.setData({
           totalAmount: res.data.totalAmount,
           totalCount: res.data.totalCount,
@@ -228,7 +238,7 @@ function getColorArr(arr) {
       dailyColorArr.push("#fb5db0");
     } else if (value.payType === 2) {
       dailyColorArr.push("#21d3a3");
-    } else if (value.payType === 3) {
+    } else {
       dailyColorArr.push("#fb8b5d");
     }
   })
@@ -237,21 +247,21 @@ function getColorArr(arr) {
 function getData(arr) {
   let dataArr = [];
   arr.forEach(function (value, index) {
-    dataArr.push({ name: value.payName, value: value.typeProportion });
+    dataArr.push({ name: value.payName, value: value.rate });
   })
   return dataArr;
 }
 function getBarDate(arr) {
   let date = [];
   arr.forEach((value, index) => {
-    date.push(value.date);
+    date.push(value.dTime);
   })
   return date
 }
 function getBarSale(arr) {
   let sale = [];
   arr.forEach((value, index) => {
-    sale.push(value.daysale);
+    sale.push(value.totalFee);
   })
   return sale;
 }

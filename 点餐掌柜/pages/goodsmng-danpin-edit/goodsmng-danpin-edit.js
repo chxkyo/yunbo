@@ -178,12 +178,12 @@ Page({
       })
     }
   },
-  delThisMeal() {
+  delDanPin() {
     let pages = getCurrentPages();
     let prevPage = pages[pages.length - 2];  //上一个页面
     let that = this;
     wx.showModal({
-      title: "确认删除该套餐吗?",
+      title: "确认删除该单品吗?",
       success: function (res) {
         if (res.confirm) {
           app.fetch('product/delete/' + that.id, {methodName:'delete'}, "POST").then(res => {

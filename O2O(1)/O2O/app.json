@@ -1,12 +1,5 @@
 {
   "pages": [
-    "pages/usercenter/mypoints/mypoints",
-    "pages/usercenter/myprofile/myprofile",
-    "pages/usercenter/feedback/feedback",
-    "pages/usercenter/addfeedback/addfeedback",
-    "pages/coupon/discountcoupon/discountcoupon",
-    "pages/usercenter/mysubscribe/mysubscribe",
-    "pages/usercenter/myaward/myaward",
     "pages/mallactivity/luckyrotate/luckyrotate",
     "pages/index/index",
     "pages/entry/entry",
@@ -22,10 +15,10 @@
 
     "pages/pointsmall/address/address",
     "pages/pointsmall/goodconvert/goodconvert",
-    "pages/pointsmall/gooddetail/gooddetail",
+    "pages/pointsmall/convertsucc/convertsucc",
     "pages/pointsmall/record/record",
     "pages/pointsmall/pointsmall/pointsmall",
-    "pages/pointsmall/convertsucc/convertsucc",
+    "pages/pointsmall/gooddetail/gooddetail",
 
     
     "pages/marketguide/marketsearch/marketsearch",
@@ -34,18 +27,25 @@
 
     "pages/parkpayment/parkpayment",  
     
-    "pages/coupon/giftcoupon/giftcoupon",
-    "pages/coupon/cashcoupon/cashcoupon",
-    "pages/coupon/fullsubcoupon/fullsubcoupon",
     "pages/coupon/coupondetail/coupondetail",
+    "pages/coupon/fullsubcoupon/fullsubcoupon",
+    "pages/coupon/discountcoupon/discountcoupon",
+    "pages/coupon/cashcoupon/cashcoupon",
+    "pages/coupon/giftcoupon/giftcoupon",
 
     "pages/usercenter/usercenter/usercenter",
     "pages/usercenter/mysignin/mysignin",
     "pages/usercenter/mytickets/mytickets",
     "pages/usercenter/addselfhelppoints/addselfhelppoints",
-    "pages/usercenter/selfhelppoints/selfhelppoints",
-    "pages/usercenter/subscribedetail/subscribedetail" ,
-    "pages/usercenter/myfollow/myfollow"
+    "pages/usercenter/myfollow/myfollow",
+    "pages/usercenter/mypoints/mypoints",
+    "pages/usercenter/myprofile/myprofile",
+    "pages/usercenter/feedback/feedback",
+    "pages/usercenter/addfeedback/addfeedback" ,
+    "pages/usercenter/mysubscribe/mysubscribe",
+    "pages/usercenter/subscribedetail/subscribedetail",
+    "pages/usercenter/myaward/myaward",
+    "pages/usercenter/selfhelppoints/selfhelppoints"
   ],
   "window": {
     "backgroundTextStyle": "light",

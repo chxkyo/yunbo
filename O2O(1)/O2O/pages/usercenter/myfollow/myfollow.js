@@ -21,7 +21,7 @@ Page({
       wx.hideLoading();
       if (res.data.success) {
         res.data.data.list.forEach(function(val,index){
-          val.logoImgPath = app.globalData.basrUrl + val.logoImgPath;
+          val.photoImgPath = app.globalData.basrUrl + val.photoImgPath;
         })
         this.setData({
           followArr:res.data.data.list

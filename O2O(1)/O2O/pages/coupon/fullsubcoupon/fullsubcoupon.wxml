@@ -8,10 +8,10 @@
 <view class='cashcoupon-con' hidden='{{showIndex!=0}}'>
   <view class='cashcoupon-con-item' wx:for="{{unUsedList}}" wx:key="{{index}}" hidden='{{unUsedList.length==0}}'>
     <view class='cashcoupon-con-itemLeft'>
-      <view class='cashcoupon-con-itemLeft-title'><text>￥</text>20元</view>
-      <view class='cashcoupon-con-itemLeft-type'>满减券</view>
-      <view class='cashcoupon-con-itemLeft-type'>满100元减20元</view>
-      <view class='cashcoupon-con-itemLeft-date'>2018.09.11~2018.09.30</view>
+      <view class='cashcoupon-con-itemLeft-title'><text>￥</text>{{item.couponAmt}}元</view>
+      <view class='cashcoupon-con-itemLeft-type'>{{item.couponName}}</view>
+      <view class='cashcoupon-con-itemLeft-type'>{{item.useRule}}</view>
+      <view class='cashcoupon-con-itemLeft-date'>{{item.useTimeStart}}~{{item.useTimeEnd}}</view>
     </view>
     <view class='cashcoupon-con-itemRight'>立即使用</view>
     <view class='circle circle-top'></view>
@@ -23,10 +23,10 @@
 <view class='cashcoupon-con' hidden='{{showIndex!=1}}'>
   <view class='cashcoupon-con-item gray' wx:for="{{usedList}}" wx:key="{{index}}" hidden='{{usedList.length==0}}'>
     <view class='cashcoupon-con-itemLeft grayBorder'>
-      <view class='cashcoupon-con-itemLeft-title'><text>￥</text>20元</view>
-      <view class='cashcoupon-con-itemLeft-type'>满减券</view>
-      <view class='cashcoupon-con-itemLeft-type'>满100元减20元</view>
-      <view class='cashcoupon-con-itemLeft-date'>2018.09.11~2018.09.30</view>
+      <view class='cashcoupon-con-itemLeft-title'><text>￥</text>{{item.couponAmt}}元</view>
+      <view class='cashcoupon-con-itemLeft-type'>{{item.couponName}}</view>
+      <view class='cashcoupon-con-itemLeft-type'>{{item.useRule}}</view>
+      <view class='cashcoupon-con-itemLeft-date'>{{item.useTimeStart}}~{{item.useTimeEnd}}</view>
     </view>
     <view class='cashcoupon-con-itemRight'>立即使用</view>
     <view class='circle circle-top'></view>
@@ -38,10 +38,10 @@
 <view class='cashcoupon-con' hidden='{{showIndex!=2}}'>
   <view class='cashcoupon-con-item gray' wx:for="{{timeoutList}}" wx:key="{{index}}" hidden='{{timeoutList.length==0}}'>
     <view class='cashcoupon-con-itemLeft grayBorder'>
-      <view class='cashcoupon-con-itemLeft-title'><text>￥</text>40元</view>
-      <view class='cashcoupon-con-itemLeft-type'>满减券</view>
-      <view class='cashcoupon-con-itemLeft-type'>满100元减20元</view>
-      <view class='cashcoupon-con-itemLeft-date'>2018.09.11~2018.09.30</view>
+      <view class='cashcoupon-con-itemLeft-title'><text>￥</text>{{item.couponAmt}}元</view>
+      <view class='cashcoupon-con-itemLeft-type'>{{item.couponName}}</view>
+      <view class='cashcoupon-con-itemLeft-type'>{{item.useRule}}</view>
+      <view class='cashcoupon-con-itemLeft-date'>{{item.useTimeStart}}~{{item.useTimeEnd}}</view>
     </view>
     <view class='cashcoupon-con-itemRight'>立即使用</view>
     <view class='circle circle-top'></view>

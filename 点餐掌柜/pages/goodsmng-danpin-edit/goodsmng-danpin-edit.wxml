@@ -53,6 +53,7 @@
   </view>
 
   <view class="save-btn-wrap">
-    <button class="save-meal-btn confirm-btn f1" type="primary" hover-class="none" bindtap="saveDanPin">保存</button> 
+    <button class="save-meal-btn confirm-btn f1" type="primary" hover-class="none" bindtap="saveDanPin">保存</button>
+    <button class="save-meal-btn del-btn" type="primary" hover-class="none" bindtap='delDanPin' style="margin-top:40rpx;">删除</button> 
    </view>
 </view>

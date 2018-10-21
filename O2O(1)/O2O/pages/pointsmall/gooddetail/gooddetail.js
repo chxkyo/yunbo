@@ -1,18 +1,49 @@
 // pages/pointsmall/gooddetail/gooddetail.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    productName:'',
+    productImgPath:'',
+    productDetail:'',
+    productValue:'',
+    exchangePoint:0,
+    exchangeEndTime:'',
+    exchangeCount:0,
+    leftCount:0,
+    product:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.showLoading({
+      title: '拼命加载中...',
+    })
+    if (options.id){
+      this.id = options.id;
+    }
+    app.fetch("/snail-portal/product/productDetail.htm", { unitId: app.globalData.unitId, id: this.id}).then(res => {
+      wx.hideLoading();
+      if (res.data.success) {
+        wx.hideLoading();
+        this.setData({
+          productName: res.data.data.product.productName,
+          productImgPath: app.globalData.baseUrl + res.data.data.product.productImgPath,
+          productDetail: res.data.data.product.productDetail,
+          productValue: res.data.data.product.productValue,
+          exchangePoint: res.data.data.product.exchangePoint,
+          exchangeEndTime: res.data.data.product.exchangeEndTime,
+          exchangeCount: res.data.data.product.exchangeCount,
+          leftCount: res.data.data.product.leftCount,
+          product: res.data.data.product
+        });
+      }
+    })
   },
 
   /**
@@ -62,5 +93,27 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  exhange(){
+    let that = this;
+    wx.showLoading({
+      title: '兑换中...',
+    })
+    app.fetch("/snail-portal/park/orderConfirm.htm", { productId: this.id }).then(res => {
+      wx.hideLoading();
+      if (res.data.success) {
+        wx.showToast({
+          title: '兑换成功!',
+          success:function(){
+            that.onLoad();
+          }
+        });
+      }else{
+        wx.showToast({
+          title: res.data.message,
+          icon:'none'
+        })
+      }
+    })
   }
 })

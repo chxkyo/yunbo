@@ -6,7 +6,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-    changeHandlerList:[]
+    changeHandlerList:[],
+    changeIndex: 0
+  },
+  bindchange(e) {
+    this.setData({
+      changeIndex: e.detail.value
+    })
+  },
+  saveAccount() {
+    app.fetch('generalHandler', { value: this.data.changeHandlerList[this.data.changeIndex].value }, "POST").then(res => {
+      if (res.data.code === 0) {
+        wx.showToast({
+          title: '设置成功！',
+          success: function () {
+          }
+        })
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none'
+        })
+      }
+    })
   },
 
   /**

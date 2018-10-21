@@ -9,70 +9,28 @@
 </view>
 <!--未反馈-->
 <view class='feedback-conBox' hidden='{{showIndex != 0}}'>
-  <view class='selfhelppoints-con'>
-    <view class='selfhelppoints-item'>
+  <view class='selfhelppoints-con' hidden='{{reviewedList.length == 0}}'>
+    <view class='selfhelppoints-item' wx:for="{{reviewedList}}" wx:key="{{id}}">
       <view class='selfhelppoints-itemLeft'>
-        <view class='selfhelppoints-itemLeft-top'>星巴克乐平嘉里店</view>
-        <view class='selfhelppoints-itemLeft-bot'>2018-09-09 17:21</view>
+        <view class='selfhelppoints-itemLeft-top'>{{item.shopName}}</view>
+        <view class='selfhelppoints-itemLeft-bot'>{{item.consumeTime}}</view>
       </view>
-      <view class='selfhelppoints-itemRight'><text>41</text>元</view>
-    </view>
-    <view class='selfhelppoints-item'>
-      <view class='selfhelppoints-itemLeft'>
-        <view class='selfhelppoints-itemLeft-top'>星巴克乐平嘉里店</view>
-        <view class='selfhelppoints-itemLeft-bot'>2018-09-09 17:21</view>
-      </view>
-      <view class='selfhelppoints-itemRight'><text>41</text>元</view>
-    </view>
-    <view class='selfhelppoints-item'>
-      <view class='selfhelppoints-itemLeft'>
-        <view class='selfhelppoints-itemLeft-top'>星巴克乐平嘉里店</view>
-        <view class='selfhelppoints-itemLeft-bot'>2018-09-09 17:21</view>
-      </view>
-      <view class='selfhelppoints-itemRight'><text>41</text>元</view>
-    </view>
-    <view class='selfhelppoints-item'>
-      <view class='selfhelppoints-itemLeft'>
-        <view class='selfhelppoints-itemLeft-top'>星巴克乐平嘉里店</view>
-        <view class='selfhelppoints-itemLeft-bot'>2018-09-09 17:21</view>
-      </view>
-      <view class='selfhelppoints-itemRight'><text>41</text>元</view>
-    </view>
-    <view class='selfhelppoints-item'>
-      <view class='selfhelppoints-itemLeft'>
-        <view class='selfhelppoints-itemLeft-top'>星巴克乐平嘉里店</view>
-        <view class='selfhelppoints-itemLeft-bot'>2018-09-09 17:21</view>
-      </view>
-      <view class='selfhelppoints-itemRight'><text>41</text>元</view>
-    </view>
-    <view class='selfhelppoints-item'>
-      <view class='selfhelppoints-itemLeft'>
-        <view class='selfhelppoints-itemLeft-top'>星巴克乐平嘉里店</view>
-        <view class='selfhelppoints-itemLeft-bot'>2018-09-09 17:21</view>
-      </view>
-      <view class='selfhelppoints-itemRight'><text>41</text>元</view>
-    </view>
-    <view class='selfhelppoints-item'>
-      <view class='selfhelppoints-itemLeft'>
-        <view class='selfhelppoints-itemLeft-top'>星巴克乐平嘉里店</view>
-        <view class='selfhelppoints-itemLeft-bot'>2018-09-09 17:21</view>
-      </view>
-      <view class='selfhelppoints-itemRight'><text>41</text>元</view>
+      <view class='selfhelppoints-itemRight'><text>{{item.consumeFee}}</text>元</view>
     </view>
   </view>
-  <view class='no-content' hidden='true'>暂无待审核的积分</view>
+  <view class='no-content' hidden='{{reviewedList.length != 0}}'>暂无待审核的积分</view>
 </view>
 <!--已反馈-->
 <view class='feedback-conBox' hidden='{{showIndex != 1}}'>
-  <view class='selfhelppoints-con'>
-    <view class='selfhelppoints-item'>
+  <view class='selfhelppoints-con' hidden='{{unreviewedList.length == 0}}'>
+    <view class='selfhelppoints-item' wx:for="{{unreviewedList}}" wx:key="{{id}}">
       <view class='selfhelppoints-itemLeft'>
-        <view class='selfhelppoints-itemLeft-top'>星巴克乐平嘉里店</view>
-        <view class='selfhelppoints-itemLeft-bot'>2018-09-09 17:21</view>
+        <view class='selfhelppoints-itemLeft-top'>{{item.shopName}}</view>
+        <view class='selfhelppoints-itemLeft-bot'>{{item.consumeTime}}</view>
       </view>
-      <view class='selfhelppoints-itemRight'><text>41</text>元</view>
+      <view class='selfhelppoints-itemRight'><text>{{item.consumeFee}}</text>元</view>
     </view>
   </view>
-  <view class='no-content' hidden='true'>暂无已审核的积分</view>
+  <view class='no-content' hidden='{{unreviewedList.length != 0}}'>暂无已审核的积分</view>
 </view>
 <view class='addFeedback' bindtap='addSelfhelpPoints'>+</view>

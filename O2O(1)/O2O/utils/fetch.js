@@ -1,5 +1,5 @@
 module.exports = function (path, params={},method = "GET") {
-  let api = 'http://pfccp6.natappfree.cc';
+  let api = 'https://ceshi.daheiniu.info';
   return new Promise((resolve, reject) => {
     wx.request({
       url: `${api}/${path}`,

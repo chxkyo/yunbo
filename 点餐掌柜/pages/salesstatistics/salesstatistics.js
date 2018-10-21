@@ -21,7 +21,9 @@ Page({
     receipts:[],
     nonReceipts:[],
     startDate:'',
-    endDate:''
+    endDate:'',
+    backFee:[],
+    shopName:''
   },
 
   /**
@@ -30,7 +32,8 @@ Page({
   onLoad: function(options) {
     this.setData({
       startDate: app.util.formatTime(new Date),
-      endDate: app.util.formatTime(new Date)
+      endDate: app.util.formatTime(new Date),
+      shopName: app.globalData.shopInfo.name
     })
     getReport(this, 'dailyReport', '', '', '', this.data.startDate,this.data.endDate)
   },
@@ -141,14 +144,19 @@ modalClose() {
 }
 })
 function getReport(that,method,year,month,day,startDate,endDate) {
+  wx.showLoading({
+    title: '拼命加载中...',
+  })
   return app.fetch('report/' + method, { year: year, month: month, day: day, startDate: startDate, endDate: endDate}, "POST").then(res => {
+      wx.hideLoading()
       if (res.data.code === 0) {
         that.setData({
           orderCount: res.data.reportData.orderCount,
           income: res.data.reportData.inCome,
           categoryList: res.data.reportData.categoryList,
           receipts: res.data.reportData.receipts,
-          nonReceipts: res.data.reportData.nonReceipts
+          nonReceipts: res.data.reportData.nonReceipts,
+          backFee: res.data.reportData.backFee
         })
       }
       return res;

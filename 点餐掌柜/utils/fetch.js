@@ -1,5 +1,5 @@
 module.exports = function (path, params={},method = "GET") {
-  let api = 'http://tdlbs.daheiniu.info/cashier-admin/miniApp';
+  let api = 'https://tdlbs.daheiniu.info/cashier-admin/miniApp';
   return new Promise((resolve, reject) => {
     wx.request({
       url: `${api}/${path}`,

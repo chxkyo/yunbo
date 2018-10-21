@@ -131,7 +131,7 @@ Page({
               icon: 'success',
               duration: 2000,
               success() {
-                if (!res.data.shopInfo.cashType){
+                if (res.data.shopInfo.cashType){
                   wx.switchTab({
                     url: '../index/index'
                   })
