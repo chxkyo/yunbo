@@ -41,7 +41,7 @@
 <view class='pointsmall-foot'>
 
   <view class='pointsmall-footItem' wx:for="{{list}}" wx:key="id">
-    <navigator url="../gooddetail/gooddetail?id={{item.id}}" hover-class='none'>
+    <navigator url="../goodconvert/goodconvert?id={{item.id}}" hover-class='none'>
       <view class='pointsmall-footItem-top'>
         <image src="{{item.productImgPath}}" />
       </view>

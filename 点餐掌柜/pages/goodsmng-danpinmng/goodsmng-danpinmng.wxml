@@ -1,5 +1,5 @@
 <!--pages/foodmng/foodmng.wxml-->
-<view class="scroll_box">
+<view class="scroll_box" hidden="{{goodsClassifyList.length == 0}}">
   <scroll-view class="scroll-view_x" scroll-x style="width: auto;overflow:hidden;">
     <block wx:for="{{goodsClassifyList}}" wx:key="id">
       <view class="item_list" bindtap='getProductList' data-index="{{index}}" data-id="{{item.id}}">

@@ -1,5 +1,6 @@
 {
   "pages": [
+        "pages/pointsmall/pointsmall/pointsmall",
     "pages/mallactivity/luckyrotate/luckyrotate",
     "pages/index/index",
     "pages/entry/entry",
@@ -17,7 +18,6 @@
     "pages/pointsmall/goodconvert/goodconvert",
     "pages/pointsmall/convertsucc/convertsucc",
     "pages/pointsmall/record/record",
-    "pages/pointsmall/pointsmall/pointsmall",
     "pages/pointsmall/gooddetail/gooddetail",
 
     

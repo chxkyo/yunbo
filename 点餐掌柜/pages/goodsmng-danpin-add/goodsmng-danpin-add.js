@@ -12,7 +12,7 @@ Page({
     unit:'',
     discount:'',
     goodsClassifyList:[],
-    classifyIndex:'',
+    classifyIndex:0,
     unitArr:[0,1,10,50,100,200,500,1000],
     unitIndex:''
 

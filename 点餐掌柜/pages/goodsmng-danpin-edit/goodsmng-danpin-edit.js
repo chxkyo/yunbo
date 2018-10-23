@@ -12,7 +12,7 @@ Page({
     unit: '',
     discount: '',
     goodsClassifyList: [],
-    classifyIndex: '',
+    classifyIndex:0,
     unitArr: [0,1, 10, 50, 100, 200, 500, 1000],
     unitIndex: ''
   },
@@ -25,7 +25,6 @@ Page({
       this.id = options.id;
       getgoodsClassifyList(this).then(list=>{
         app.fetch('product/info/' + this.id, { methodName: 'info' }, "POST").then(res => {
-          debugger
           if (res.data.code === 0) {
             let classifyIndex = list.findIndex((value,index)=>{
               return value.id === res.data.product.productCategoryId;
@@ -120,6 +119,7 @@ Page({
     })
   },
   bindClassifyChange(e) {
+    debugger
     this.setData({
       classifyIndex: e.detail.value
     })
@@ -207,7 +207,6 @@ Page({
 function getgoodsClassifyList(that) {
   return app.fetch('productCategory/list', {}, "POST").then(res => {
     if (res.data.code === 0) {
-      debugger
       that.setData({
         goodsClassifyList: res.data.productCategoryList
       })

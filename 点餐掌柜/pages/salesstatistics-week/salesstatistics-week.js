@@ -58,7 +58,7 @@ Page({
         content: '请选择开始日期!',
         showCancel: false
       })
-    } else if (!this.data.chooseStartDateFlag){
+    } else if (!this.data.chooseEndDateFlag){
       wx.showModal({
         title: '提示',
         content: '请选择结束日期!',

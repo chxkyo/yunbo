@@ -1,4 +1,5 @@
 <!--pages/wy-goodsmng-classifymng/wy-goodsmng-classifymng.wxml-->
+<view class="bgf9" style='height:20rpx;'></view>
 <modal show="{{showModal}}">
   <view slot="modal-title">
     <text>新增商品分类</text>
