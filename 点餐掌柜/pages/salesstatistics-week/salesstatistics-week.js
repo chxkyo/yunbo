@@ -38,7 +38,7 @@ Page({
       this.setData({
         startDate: monday.split("/").join(""),
         endDate: sunday.split("/").join(""),
-        showWeekDate:monday.split("/").join("-")+"~"+sunday.split("/").join("-"),
+        showWeekDate:monday.replace(/\//g,"-")+"~"+sunday.replace(/\//g,"-"),
         shopName: app.globalData.shopInfo.name
       })
       getReport(this, 'weeklyReport', '', '', this.data.startDate, '', '');
