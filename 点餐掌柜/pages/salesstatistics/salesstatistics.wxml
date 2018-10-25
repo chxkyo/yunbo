@@ -117,7 +117,7 @@
                 <text>各班次营业账单</text>
               </view>
             </view>
-            <view class="print-detail-item" wx:for="{{income.account.duty}}" wx:key="{{id}}">
+            <view class="print-detail-item" wx:for="{{income.duty}}" wx:key="{{id}}">
               <view>
                 <text>{{item.name}}</text>
               </view>

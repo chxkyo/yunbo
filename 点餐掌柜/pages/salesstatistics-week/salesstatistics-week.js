@@ -33,16 +33,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      let month = app.util.formatNumber(new Date().getMonth() + 1);
-      let year = app.util.formatNumber(new Date().getFullYear());
+    let {monday,sunday} = this.getWeek();
 
       this.setData({
-        startDate: year + month + "01",
-        endDate: year + month + "07",
-        showWeekDate: year + "-" + month + "-" + "01" + "~" + year + "-" + month + "-" + "07",
+        startDate: monday.split("/").join(""),
+        endDate: sunday.split("/").join(""),
+        showWeekDate:monday.split("/").join("-")+"~"+sunday.split("/").join("-"),
         shopName: app.globalData.shopInfo.name
       })
       getReport(this, 'weeklyReport', '', '', this.data.startDate, '', '');
+  },
+  getWeek(){
+    let now = new Date();
+    let nowTime = now.getTime();
+    let day = now.getDay();
+    let oneDayLong = 24 * 60 * 60 * 1000;
+    let MondayTime = nowTime - (day - 1) * oneDayLong;
+    let SundayTime = nowTime + (7 - day) * oneDayLong;
+    let monday = new Date(MondayTime).toLocaleDateString();
+    let sunday = new Date(SundayTime).toLocaleDateString();
+    return {monday,sunday};
   },
   modalShow(){
     this.setData({
