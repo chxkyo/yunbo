@@ -21,14 +21,29 @@
   </view>
   <view class='myprofile-item'>
     <view class='myprofile-itemLeft'>生日</view>
-    <view class='myprofile-itemRight'>
-      <input type='text' placeholder='请输入生日' value='{{birthday}}' bindinput='getBirthday'/>
+    <view class='myprofile-itemRight sexPicker'>
+      <picker value="{{birthday}}" bindchange="getBirthday" mode="date">
+        <view class="picker">
+          {{birthday}}
+        </view>
+      </picker>
+      <view class='arrowRight'>
+        <image src="/images/mytickets-icon1.jpg" />
+      </view>
     </view>
   </view>
   <view class='myprofile-item'>
     <view class='myprofile-itemLeft'>星座</view>
-    <view class='myprofile-itemRight'>
-      <input type='text' value='{{sign}}' bindinput='getSign'/>
+    <view class='myprofile-itemRight sexPicker'>
+      <!-- <input type='text' value='{{sign}}' bindinput='getSign'/> -->
+        <picker  bindchange="getSign" value="constellationIndex" range="{{constellationArray}}">
+          <view class="picker">
+            {{constellationArray[constellationIndex]}}
+          </view>
+        </picker>
+        <view class='arrowRight'>
+          <image src="/images/mytickets-icon1.jpg" />
+        </view>
     </view>
   </view>
   <view class='myprofile-item'>

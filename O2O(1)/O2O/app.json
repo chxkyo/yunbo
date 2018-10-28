@@ -1,6 +1,8 @@
 {
   "pages": [
-        "pages/pointsmall/pointsmall/pointsmall",
+        "pages/usercenter/myprofile/myprofile",
+    "pages/usercenter/feedback/feedback",
+    "pages/pointsmall/pointsmall/pointsmall",
     "pages/mallactivity/luckyrotate/luckyrotate",
     "pages/index/index",
     "pages/entry/entry",
@@ -39,8 +41,6 @@
     "pages/usercenter/addselfhelppoints/addselfhelppoints",
     "pages/usercenter/myfollow/myfollow",
     "pages/usercenter/mypoints/mypoints",
-    "pages/usercenter/myprofile/myprofile",
-    "pages/usercenter/feedback/feedback",
     "pages/usercenter/addfeedback/addfeedback" ,
     "pages/usercenter/mysubscribe/mysubscribe",
     "pages/usercenter/subscribedetail/subscribedetail",
