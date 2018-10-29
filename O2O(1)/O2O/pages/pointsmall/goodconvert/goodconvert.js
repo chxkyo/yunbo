@@ -4,7 +4,7 @@ Page({
   data: {
     date: '1970-01-01',
     time: '00:00',
-    num: 0,
+    num: 1,
     productName: '',
     productImgPath: '',
     productDetail: '',
@@ -13,7 +13,10 @@ Page({
     exchangeEndTime: '',
     exchangeCount: 0,
     leftCount: 0,
-    product: {}
+    product: {},
+    allPoint:0,
+    cardCodeType:'',
+    points:0
   },
   onLoad: function (options) {
     wx.showLoading({
@@ -22,22 +25,40 @@ Page({
     if (options.id) {
       this.id = options.id;
     }
+    if (options.cardTypeCode){
+      this.setData({
+        cardCodeType: options.cardTypeCode
+      })
+    }
+    if (options.points){
+      this.setData({
+        points: options.points
+      })
+    }
     app.fetch("/snail-portal/product/productDetail.htm", { unitId: app.globalData.unitId, id:this.id }).then(res => {
       wx.hideLoading();
       if (res.data.success) {
         wx.hideLoading();
+        if (this.data.cardCodeType == '01'){
+          this.data.exchangePoint = res.data.data.product.limit00Point;
+        } else if (this.data.cardCodeType == '02'){
+          this.data.exchangePoint = res.data.data.product.limit66Point;
+        }else{
+          this.data.exchangePoint = res.data.data.product.limit88Point;
+        }
+        let allPoint = this.data.exchangePoint * this.data.num;
         this.setData({
           productName: res.data.data.product.productName,
           productImgPath: app.globalData.baseUrl + res.data.data.product.productImgPath,
           productDetail: res.data.data.product.productDetail,
           productValue: res.data.data.product.productValue,
-          exchangePoint: res.data.data.product.exchangePoint,
+          exchangePoint: this.data.exchangePoint,
           exchangeEndTime: res.data.data.product.exchangeEndTime,
-          num: res.data.data.product.exchangeCount,
           leftCount: res.data.data.product.leftCount,
           product: res.data.data.product,
           receiveType: res.data.data.product.receiveType,
-          receiveSelfAddress: res.data.data.product.receiveSelfAddress
+          receiveSelfAddress: res.data.data.product.receiveSelfAddress,
+          allPoint: allPoint
         });
       }
     })
@@ -55,8 +76,10 @@ Page({
     })
   },
   add(){
+    let allPoint = (this.data.num + 1) * this.data.exchangePoint;
     this.setData({
-      num: this.data.num+1
+      num: this.data.num+1,
+      allPoint: allPoint
     })
   },
   sub(){
@@ -69,6 +92,10 @@ Page({
         num: this.data.num - 1
       })
     }
+    let allPoint = this.data.num * this.data.exchangePoint;
+    this.setData({
+      allPoint: allPoint 
+    })
   },
   //确认兑换
   confirmConvert(){

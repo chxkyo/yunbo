@@ -1,5 +1,6 @@
 {
   "pages": [
+        "pages/salesstatistics-year/salesstatistics-year",
     "pages/login/login",
     "pages/index/index",
     "pages/index-retail/index-retail",
@@ -42,7 +43,6 @@
     "pages/goodsmng-danpinmng/goodsmng-danpinmng",
     "pages/foodmng-danpinmng/foodmng-danpinmng",
     "pages/addcuisineitem/addcuisineitem",
-    "pages/salesstatistics-year/salesstatistics-year",
     "pages/salesstatistics-month/salesstatistics-month",
     "pages/salesstatistics-week/salesstatistics-week",
     "pages/salesstatistics/salesstatistics",

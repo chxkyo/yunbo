@@ -60,11 +60,11 @@
   </view>
   <view class='goodconvert-conItem'>
     <view class='goodconvert-conItem-right'>
-      <view class='total'>合计：<text>2000积分</text></view>
+      <view class='total'>合计：<text>{{allPoint}}积分</text></view>
     </view>
   </view>
 </view>
 <view class='goodconvert-foot'>
-  <view class='goodconvert-footLeft'>当前可用积分：3000</view>
+  <view class='goodconvert-footLeft'>当前可用积分：{{points}}</view>
   <view class='goodconvert-footRight' bindtap='confirmConvert' hidden='{{leftCount <= 0}}'>确认兑换</view>
 </view>

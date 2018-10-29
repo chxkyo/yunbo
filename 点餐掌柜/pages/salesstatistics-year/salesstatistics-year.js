@@ -34,7 +34,7 @@ Page({
     let year = app.util.formatNumber(new Date().getFullYear());
     this.setData({
       showYear: year,
-      shopName: app.globalData.shopInfo.name
+      // shopName: app.globalData.shopInfo.name
     })
     getReport(this, 'yearlyReport',year, '', '', '', '');
   },

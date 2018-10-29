@@ -13,7 +13,8 @@ Page({
     ],
     points:0,
     list:[],
-    categoryList:[]
+    categoryList:[],
+    user:{}
   },
   onLoad: function (options) {
     wx.showLoading({
@@ -30,7 +31,8 @@ Page({
           wx.hideLoading();
           this.setData({
             points: res.data.data.user.points,
-            categoryList: res.data.data.categoryList
+            categoryList: res.data.data.categoryList,
+            user:res.data.data.user
           })
         return res.data.data.categoryList
       }

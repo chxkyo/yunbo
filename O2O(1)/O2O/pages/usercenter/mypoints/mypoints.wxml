@@ -39,7 +39,7 @@
     </view>
   </view>
   <view class='pointsTasks' hidden='{{!pointsTasksShow}}'>
-    <view class='pointsTasks-item'>
+    <navigator class='pointsTasks-item' hover-class='none' url="../../marketguide/marketguide/marketguide">
       <view class='pointsTasks-itemLeft'>
         <view class='pointsTasks-itemLeft-top'>查看商户详情</view>
         <view class='pointsTasks-itemLeft-bot'>
@@ -54,8 +54,8 @@
       <view class='pointsTasks-itemRight' wx:else>
         已完成
       </view>
-    </view>
-    <view class='pointsTasks-item'>
+    </navigator>
+    <navigator class='pointsTasks-item' hover-class='none' url="../../mallactivity/mallactivity/mallactivity">
       <view class='pointsTasks-itemLeft'>
         <view class='pointsTasks-itemLeft-top'>查看活动详情</view>
         <view class='pointsTasks-itemLeft-bot'>
@@ -70,8 +70,8 @@
       <view class='pointsTasks-itemRight' wx:else>
         已完成
       </view>
-    </view>
-    <view class='pointsTasks-item'>
+    </navigator>
+    <navigator class='pointsTasks-item' hover-class='none' url="../myprofile/myprofile">
       <view class='pointsTasks-itemLeft'>
         <view class='pointsTasks-itemLeft-top'>完善个人信息</view>
         <view class='pointsTasks-itemLeft-bot'>
@@ -86,7 +86,7 @@
       <view class='pointsTasks-itemRight' wx:else>
         已完成
       </view>
-    </view>
+    </navigator> 
         <view class='pointsTasks-item'>
       <view class='pointsTasks-itemLeft'>
         <view class='pointsTasks-itemLeft-top'>问卷调查</view>
