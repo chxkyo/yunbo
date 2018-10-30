@@ -1,7 +1,7 @@
 {
   "pages": [
+        "pages/pointsmall/pointsmall/pointsmall",
         "pages/usercenter/mypoints/mypoints",
-    "pages/pointsmall/pointsmall/pointsmall",
     "pages/usercenter/myprofile/myprofile",
     "pages/usercenter/feedback/feedback",
     "pages/mallactivity/luckyrotate/luckyrotate",

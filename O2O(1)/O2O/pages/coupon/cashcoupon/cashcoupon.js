@@ -15,9 +15,7 @@ Page({
     wx.showLoading({
       title: '拼命加载中...',
     })
-    this.userId = "628800148082";
-    let unused = app.fetch("snail-portal/user/couponInfoList.htm?couponType=10", {
-      userId: this.userId, useStatus: 0
+    let unused = app.fetch("snail-portal/user/couponInfoList.htm?couponType=10", { useStatus: 0
     }).then(res => {
       wx.hideLoading();
       if (res.data.success) {

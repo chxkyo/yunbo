@@ -8,8 +8,8 @@ Page({
     defaultTag: '全部', //默认选项
     tagList: [
       {'name': '全部','type':2},
-      { 'name': '收入', 'type':1},
-      { 'name': '支出','type': 0}
+      { 'name': '收入', 'type':0},
+      { 'name': '支出','type': 1}
     ],
     rule:{},
     task:{},
@@ -33,11 +33,10 @@ Page({
     wx.showLoading({
       title: '拼命加载中...',
     })
-    this.userId = "628800148082";
-    let task = app.fetch("snail-portal/user/points/his.htm", { userId: this.userId }).then(res => {
+    let task = app.fetch("snail-portal/user/points/his.htm", {}).then(res => {
       return res.data.data;
     });
-    let detail = app.fetch("snail-portal/user/pointsDetail.htm", { userId: this.userId, fromIndex: this.data.fromIndex, type: this.data.tagList[this.data.activeIndex].type,limit:10 }).then(res => {
+    let detail = app.fetch("snail-portal/user/pointsDetail.htm", { fromIndex: this.data.fromIndex, type: this.data.tagList[this.data.activeIndex].type,limit:10 }).then(res => {
       return res.data.data;
 
     });
@@ -82,7 +81,7 @@ Page({
       tagShow: !this.data.tagShow,
       activeIndex: index
     })
-    app.fetch("snail-portal/user/pointsDetail.htm", { userId: this.userId, fromIndex: this.data.fromIndex, type:        this.data.tagList[this.data.activeIndex].type, limit: 10 }).then(res => {
+    app.fetch("snail-portal/user/pointsDetail.htm", {fromIndex: this.data.fromIndex, type:this.data.tagList[this.data.activeIndex].type, limit: 10 }).then(res => {
       wx.hideLoading();
       if(res.data.success){
         this.setData({

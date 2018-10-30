@@ -16,8 +16,7 @@ Page({
     wx.showLoading({
       title: '拼命加载中...',
     })
-    this.userId = "628800148082";
-    app.fetch("snail-portal/user/signRecord.htm", { userId: this.userId }).then(res => {
+    app.fetch("snail-portal/user/signRecord.htm", {}).then(res => {
       this.list = getDate(res.data.data.list);
       wx.hideLoading();
       if (res.data.success) {

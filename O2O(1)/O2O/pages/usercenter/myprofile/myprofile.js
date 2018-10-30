@@ -19,8 +19,7 @@ Page({
     wx.showLoading({
       title: '拼命加载中...',
     })
-    this.userId = "628800148082";
-    app.fetch("snail-portal/user/userInfo.htm", { userId: this.userId }).then(res => {
+    app.fetch("snail-portal/user/userInfo.htm", {}).then(res => {
       wx.hideLoading();
       if (res.data.success) {
         if (res.data.data.user.provinceName.indexOf("省") === -1){

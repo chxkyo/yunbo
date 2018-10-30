@@ -22,11 +22,10 @@ Page({
    */
   onLoad: function (options) {
     if(options.id){
-      this.userId = "628800148082";
       wx.showLoading({
         title: '拼命加载中...',
       })
-      app.fetch("snail-portal/act/actDetail.htm", { userId: this.userId, id: options.id, unitId: app.globalData.unitId }).then(res => {
+      app.fetch("snail-portal/act/actDetail.htm", {id: options.id, unitId: app.globalData.unitId }).then(res => {
         wx.hideLoading();
         if (res.data.success) {
           if (res.data.data.enrollCount){

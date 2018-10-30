@@ -9,11 +9,10 @@ Page({
     level:''
   },
   onLoad: function (options) {
-    this.userId = "628800148082";
     wx.showLoading({
       title: '拼命加载中...',
     })
-    app.fetch("snail-portal/user/userCenter.htm", { userId: this.userId}).then(res=>{
+    app.fetch("snail-portal/user/userCenter.htm", {}).then(res=>{
       console.log(res)
       wx.hideLoading();
       if(res.data.success){

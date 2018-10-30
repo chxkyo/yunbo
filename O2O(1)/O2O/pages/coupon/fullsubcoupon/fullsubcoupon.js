@@ -14,10 +14,7 @@ Page({
     wx.showLoading({
       title: '拼命加载中...',
     })
-    this.userId = "628800148082";
-    let unused = app.fetch("snail-portal/user/couponInfoList.htm?couponType=11", {
-      userId: this.userId, useStatus: 0
-    }).then(res => {
+    let unused = app.fetch("snail-portal/user/couponInfoList.htm?couponType=11", { useStatus: 0}).then(res => {
       wx.hideLoading();
       if (res.data.success) {
         this.data.unUsedList.push(res.data.data);
@@ -27,9 +24,7 @@ Page({
       }
       return res.data.data;
     });
-    let used = app.fetch("snail-portal/user/couponInfoList.htm?couponType=11", {
-      userId: this.userId, useStatus: 1
-    }).then(res => {
+    let used = app.fetch("snail-portal/user/couponInfoList.htm?couponType=11", { useStatus: 1}).then(res => {
       wx.hideLoading();
       if (res.data.success) {
         this.data.usedList.push(res.data.data);
