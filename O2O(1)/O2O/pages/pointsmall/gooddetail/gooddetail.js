@@ -14,7 +14,10 @@ Page({
     exchangeEndTime:'',
     exchangeCount:0,
     leftCount:0,
-    product:{}
+    product:{},
+    cardTypeCode:'',
+    id:'',
+    points:0
   },
 
   /**
@@ -26,6 +29,19 @@ Page({
     })
     if (options.id){
       this.id = options.id;
+      this.setData({
+        id: options.id
+      })
+    }
+    if (options.cardTypeCode){
+      this.setData({
+        cardTypeCode: options.cardTypeCode
+      })
+    }
+    if (options.points){
+      this.setData({
+        points: options.points
+      })
     }
     app.fetch("/snail-portal/product/productDetail.htm", { unitId: app.globalData.unitId, id: this.id}).then(res => {
       wx.hideLoading();
@@ -36,7 +52,6 @@ Page({
           productImgPath: app.globalData.baseUrl + res.data.data.product.productImgPath,
           productDetail: res.data.data.product.productDetail,
           productValue: res.data.data.product.productValue,
-          exchangePoint: res.data.data.product.exchangePoint,
           exchangeEndTime: res.data.data.product.exchangeEndTime,
           exchangeCount: res.data.data.product.exchangeCount,
           leftCount: res.data.data.product.leftCount,

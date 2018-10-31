@@ -1,9 +1,10 @@
 {
   "pages": [
-        "pages/pointsmall/pointsmall/pointsmall",
+            "pages/pointsmall/pointsmall/pointsmall",
         "pages/usercenter/mypoints/mypoints",
-    "pages/usercenter/myprofile/myprofile",
+    "pages/usercenter/selfhelppoints/selfhelppoints",
     "pages/usercenter/feedback/feedback",
+    "pages/usercenter/myprofile/myprofile",
     "pages/mallactivity/luckyrotate/luckyrotate",
     "pages/index/index",
     "pages/entry/entry",
@@ -44,8 +45,7 @@
     "pages/usercenter/addfeedback/addfeedback" ,
     "pages/usercenter/mysubscribe/mysubscribe",
     "pages/usercenter/subscribedetail/subscribedetail",
-    "pages/usercenter/myaward/myaward",
-    "pages/usercenter/selfhelppoints/selfhelppoints"
+    "pages/usercenter/myaward/myaward"
   ],
   "window": {
     "backgroundTextStyle": "light",

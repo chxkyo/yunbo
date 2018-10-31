@@ -30,13 +30,13 @@
       <input class="weui-input" placeholder="请输入单价" placeholder-style='color:#eee;font-size:32rpx;' id="danping-price" type="digit" bindinput="getPrice" value="{{price}}"/>
     </view>
   </view>
-  <picker bindchange="bindUnitChange" value="{{uintIndex}}" range="{{unitArr}}">
+  <picker bindchange="bindUnitChange" value="{{uintIndex}}" range="{{unitArr}}" range-key="value">
       <view class="input-view-item" style="padding:30rpx 0;">
           <view class="input-label-box">
             <label for="danping-unit">单位</label>
           </view>
           <view class="label-right-box">
-            <view class="all-cuisine ws ell"><text>{{unitArr[unitIndex]}}</text></view>
+            <view class="all-cuisine ws ell"><text>{{unitArr[unitIndex].value}}</text></view>
             <view class="jumpAddCuisine-a">
               <image src="../../images/img/to.png" class="arrow-right-icon"></image>
             </view>

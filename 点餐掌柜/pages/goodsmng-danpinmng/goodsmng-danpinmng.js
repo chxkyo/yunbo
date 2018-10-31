@@ -26,7 +26,7 @@ Page({
    */
   onLoad: function (options) {
     getgoodsClassifyList(this).then(res=>{
-      app.fetch('product/list', { productCategoryId:res[0].id }, "POST").then(res => {
+      app.fetch('product/list', { productCategoryId: res[this.data.activeIndex].id }, "POST").then(res => {
         if (res.data.code === 0) {
           this.setData({
             goodsList: res.data.productList

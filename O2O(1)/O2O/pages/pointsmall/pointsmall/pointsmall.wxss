@@ -149,3 +149,6 @@ page{
   text-align: center;
   border-bottom: 1rpx solid #eee;
 }
+swiper{
+  height: 100%;
+}

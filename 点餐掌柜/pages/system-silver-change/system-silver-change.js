@@ -35,7 +35,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    getChangeHandleList(this)
+    let list = getChangeHandleList(this);
+    let getCurrentHandler = app.fetch('getCurrentHandler', {}, "POST").then(res => {
+      return res.data
+    })
+    wx.showLoading({
+      title: '拼命加载中...',
+    })
+    Promise.all([list, getCurrentHandler]).then(results=>{
+      wx.hideLoading();
+      let Index = results[0].changeHandlerList.findIndex(function(val,index){
+        return val.value == results[1].currentHandler
+      });
+      this.setData({
+        changeHandlerList: results[0].changeHandlerList,
+        changeIndex: Index
+      })
+    });
   },
 
   /**
@@ -90,9 +106,10 @@ Page({
 function getChangeHandleList(that) {
   return app.fetch('changeHandleList', {}, "POST").then(res => {
     if (res.data.code === 0) {
-      that.setData({
-        changeHandlerList: res.data.changeHandlerList
-      })
+      // that.setData({
+      //   changeHandlerList: res.data.changeHandlerList
+      // })
+      return res.data;
     }
   })
 }

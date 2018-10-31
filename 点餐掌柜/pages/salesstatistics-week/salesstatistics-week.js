@@ -34,25 +34,22 @@ Page({
    */
   onLoad: function (options) {
     let {monday,sunday} = this.getWeek();
-
-      this.setData({
-        startDate: monday.split("/").join(""),
-        endDate: sunday.split("/").join(""),
-        showWeekDate:monday.replace(/\//g,"-")+"~"+sunday.replace(/\//g,"-"),
-        shopName: app.globalData.shopInfo.name
-      })
-      getReport(this, 'weeklyReport', '', '', this.data.startDate, '', '');
+    this.setData({
+      startDate: app.util.formatTime(new Date(monday)),
+      endDate: app.util.formatTime(new Date(sunday)),
+      showWeekDate: app.util.formatTime(new Date(monday), "-") + "~" + app.util.formatTime(new Date(sunday), "-"),
+      shopName: app.globalData.shopInfo.name
+    })
+    getReport(this, 'weeklyReport', '', '', this.data.startDate, '', '');
   },
-  getWeek(){
-    let now = new Date();
+  getWeek(date = new Date()){
+    let now = date;
     let nowTime = now.getTime();
     let day = now.getDay();
     let oneDayLong = 24 * 60 * 60 * 1000;
-    let MondayTime = nowTime - (day - 1) * oneDayLong;
-    let SundayTime = nowTime + (7 - day) * oneDayLong;
-    let monday = new Date(MondayTime).toLocaleDateString();
-    let sunday = new Date(SundayTime).toLocaleDateString();
-    return {monday,sunday};
+    let monday = nowTime - (day - 1) * oneDayLong;
+    let sunday = nowTime + (7 - day) * oneDayLong;
+    return { monday, sunday};
   },
   modalShow(){
     this.setData({
@@ -65,23 +62,18 @@ Page({
     if (!this.data.chooseStartDateFlag){
       wx.showModal({
         title: '提示',
-        content: '请选择开始日期!',
-        showCancel: false
-      })
-    } else if (!this.data.chooseEndDateFlag){
-      wx.showModal({
-        title: '提示',
-        content: '请选择结束日期!',
+        content: '请选择日期!',
         showCancel: false
       })
     }else{
-      getReport(this, 'weeklyReport', '', '', this.data.chooseStartDate.split("-").join(""),'','').then(res => {
+      let { monday, sunday } = this.getWeek(new Date(this.data.chooseStartDate));
+      getReport(this, 'weeklyReport', '', '', app.util.formatTime(new Date(monday)),'','').then(res => {
         this.setData({
           showModal: false,
           noscroll: false,
-          showWeekDate: this.data.chooseStartDate + "~" + this.data.chooseEndDate,
-          startDate: this.data.chooseStartDate.split("-").join(""),
-          endDate: this.data.chooseEndDate.split("-").join(""),
+          showWeekDate: app.util.formatTime(new Date(monday), "-") + "~" + app.util.formatTime(new Date(sunday), "-"),
+          startDate: app.util.formatTime(new Date(monday)),
+          endDate: app.util.formatTime(new Date(sunday)),
         });
       });
     }

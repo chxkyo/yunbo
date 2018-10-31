@@ -14,7 +14,7 @@
     </view>
   </view>
 </view>
-<view class='gooddetail-menu'>
+<view class='gooddetail-menu' wx:if="{{cardTypeCode == 01}}">
   <view class='gooddetail-menuItem'>
     <view class='gooddetail-menuItem-top'>粉卡会员</view>
   </view>
@@ -27,7 +27,7 @@
     <view class='gooddetail-menuItem-bot'>￥{{product.limit00Money}}</view>
   </view>
 </view>
-<view class='gooddetail-menu'>
+<view class='gooddetail-menu' wx:elif="{{cardTypeCode == 02}}">
   <view class='gooddetail-menuItem'>
     <view class='gooddetail-menuItem-top'>金卡会员</view>
   </view>
@@ -40,7 +40,7 @@
     <view class='gooddetail-menuItem-bot'>￥{{product.limit66Money}}</view>
   </view>
 </view>
-<view class='gooddetail-menu'>
+<view class='gooddetail-menu' wx:else>
   <view class='gooddetail-menuItem'>
     <view class='gooddetail-menuItem-top'>黑卡会员</view>
   </view>
@@ -64,4 +64,4 @@
 <view class='gooddetail-con'>
   {{productDetail}}
 </view>
-<view class='change' hidden='{{leftCount <= 0}}' ontap="exhange">点击兑换</view>
+<navigator hover-class='none' class='change' hidden='{{leftCount <= 0}}' url="/pages/pointsmall/goodconvert/goodconvert?id={{id}}&cardTypeCode={{cardTypeCode}}&points={{points}}">点击兑换</navigator>

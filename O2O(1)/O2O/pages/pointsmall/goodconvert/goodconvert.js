@@ -16,7 +16,8 @@ Page({
     product: {},
     allPoint:0,
     cardCodeType:'',
-    points:0
+    points:0,
+    address:''
   },
   onLoad: function (options) {
     wx.showLoading({
@@ -76,16 +77,25 @@ Page({
     })
   },
   add(){
-    let allPoint = (this.data.num + 1) * this.data.exchangePoint;
+    this.data.num++
+    if (this.data.num>this.data.leftCount){
+      wx.showModal({
+        title: '提示',
+        content: '已超过剩余数量！',
+        showCancel: false
+      })
+      return false
+    }
+    let allPoint = this.data.num * this.data.exchangePoint;
     this.setData({
-      num: this.data.num+1,
+      num: this.data.num,
       allPoint: allPoint
     })
   },
   sub(){
     if(this.data.num <= 1){
       this.setData({
-        num: 0
+        num: 1
       })
     }else{
       this.setData({
@@ -100,26 +110,40 @@ Page({
   //确认兑换
   confirmConvert(){
     let that = this;
-    wx.showLoading({
-      title: '兑换中...',
-    })
-    app.fetch("/snail-portal/park/orderConfirm.htm", { productId: this.id }).then(res => {
-      wx.hideLoading();
-      if (res.data.success) {
-        wx.showToast({
-          title: '兑换成功!',
-          success: function () {
-            wx.redirectTo({
-              url: '/pages/pointsmall/convertsucc/convertsucc',
-            })
-          }
-        });
-      } else {
-        wx.showToast({
-          title: res.data.message,
-          icon: 'none'
-        })
-      }
+    if(this.data.address === ''){
+      wx.showModal({
+        title: '提示',
+        content: '请填写收货地址!',
+        showCancel: false
+      })
+    }else{
+      wx.showLoading({
+        title: '兑换中...',
+      })
+      app.fetch("/snail-portal/park/orderConfirm.htm", { productId: this.id }).then(res => {
+        wx.hideLoading();
+        if (res.data.success) {
+          wx.showToast({
+            title: '兑换成功!',
+            success: function () {
+              wx.redirectTo({
+                url: '/pages/pointsmall/convertsucc/convertsucc',
+              })
+            }
+          });
+        } else {
+          wx.showToast({
+            title: res.data.message,
+            icon: 'none'
+          })
+        }
+      })
+    }
+
+  },
+  getAddress(e){
+    this.setData({
+      address:e.detail.value
     })
   }
 })

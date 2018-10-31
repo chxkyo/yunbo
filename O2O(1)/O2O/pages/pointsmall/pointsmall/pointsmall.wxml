@@ -1,7 +1,13 @@
 <!--pages/pointsmall/pointsmall/pointsmall.wxml-->
 <view class='pointsmall-head'>
   <view class='pointsmall-headTop'>
-    <image src="/images/pointsmall1.jpg" />
+    <swiper indicator-dots="{{indicatorDots}}" indicator-color="rgba(255,255,255,0.8)" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{adList}}" wx:key="{{index}}">
+        <swiper-item>
+          <image src="{{imgBaseUrl}}{{item.imgPath}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
   <view class='pointsmall-headBot'>
     <view class='pointsmall-headBot-item'>
@@ -41,7 +47,7 @@
 <view class='pointsmall-foot'>
 
   <view class='pointsmall-footItem' wx:for="{{list}}" wx:key="id">
-    <navigator url="../goodconvert/goodconvert?id={{item.id}}&cardTypeCode={{user.cardTypeCode}}&points={{user.points}}" hover-class='none'>
+    <navigator url="/pages/pointsmall/gooddetail/gooddetail?id={{item.id}}&cardTypeCode={{user.cardTypeCode}}&points={{user.points}}" hover-class='none'>
       <view class='pointsmall-footItem-top'>
         <image src="{{item.productImgPath}}" />
       </view>

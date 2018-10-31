@@ -31,7 +31,7 @@ Page({
   },
   addSelfhelpPoints(){
     wx.navigateTo({
-      url: '/pages/addselfhelppoints/addselfhelppoints'
+      url: '../addselfhelppoints/addselfhelppoints'
     })
   }
 })

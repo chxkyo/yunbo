@@ -14,7 +14,7 @@ Page({
     goodsClassifyList:[],
     classifyIndex:0,
     unitArr:[0,1,10,50,100,200,500,1000],
-    unitIndex:''
+    unitIndex:0
 
   },
 
@@ -23,6 +23,11 @@ Page({
    */
   onLoad: function (options) {
     getgoodsClassifyList(this);
+    app.fetch('getUnits', {}, "POST").then(res => {
+      this.setData({
+        unitArr: res.data.units
+      });
+    });
   },
 
   /**
@@ -112,22 +117,10 @@ Page({
         content: '请输入单品名称',
         showCancel: false
       })
-    } else if (this.data.classifyIndex == ''){
-      wx.showModal({
-        title: '提示',
-        content: '请选择单品所属分类',
-        showCancel: false
-      })
     }else if (this.data.price == ''){
       wx.showModal({
         title: '提示',
         content: '请输入商品单价',
-        showCancel: false
-      })
-    } else if (this.data.unitIndex == ''){
-      wx.showModal({
-        title: '提示',
-        content: '请输入商品单位',
         showCancel: false
       })
     } else if (this.data.discount == ''){
@@ -137,7 +130,7 @@ Page({
         showCancel: false
       })
     } else {
-      app.fetch('product/save', { name: this.data.name, productCategoryId: parseInt(this.data.goodsClassifyList[this.data.classifyIndex].id), discount: parseFloat(this.data.discount), price: parseFloat(this.data.price), unit: parseInt(this.data.unitArr[this.data.unitIndex])}, "POST").then(res => {
+      app.fetch('product/save', { name: this.data.name, productCategoryId: parseInt(this.data.goodsClassifyList[this.data.classifyIndex].id), discount: parseFloat(this.data.discount), price: parseFloat(this.data.price), unit: parseInt(this.data.unitArr[this.data.unitIndex].code)}, "POST").then(res => {
         if (res.data.code === 0) {
           wx.showToast({
             title: '添加单品成功！',
