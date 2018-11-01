@@ -7,7 +7,7 @@ Page({
    */
   data: {
     showModal: false,
-    methodArr: ["美团50抵100券", "美团10抵20券", "美团10抵50券"]
+    methodArr: []
   },
 
   /**
@@ -67,7 +67,11 @@ Page({
   }
 })
 function getPromotionList(that) {
+  wx.showLoading({
+    title: '加载中...',
+  })
   return app.fetch('promotion/list', {}, "POST").then(res => {
+    wx.hideLoading();
     if (res.data.code === 0) {
       that.setData({
         methodArr: res.data.shopPromotionList

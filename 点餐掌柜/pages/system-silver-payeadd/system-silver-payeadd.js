@@ -14,7 +14,9 @@ Page({
     actPrice:'',
     backFeeIndex:0,
     backFeeArr:["不返款","返款"],
-    des: ''
+    des: '',
+    discount:'',
+    discountMax:''
   },
 
   /**
@@ -99,6 +101,16 @@ Page({
   getDes(e) {
     this.setData({
       des: e.detail.value
+    })
+  },
+  getDiscount(e){
+    this.setData({
+      discount: e.detail.value
+    })
+  },
+  getDiscountMax(e){
+    this.setData({
+      discountMax: e.detail.value
     })
   },
   bindBackFeeChange(e){
