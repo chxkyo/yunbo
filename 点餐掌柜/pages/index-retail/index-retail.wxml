@@ -64,7 +64,7 @@
         <view class="echarts-pay-wrap" hidden='{{dailySaleArr.length == 0}}'>
           <block wx:for="{{dailySaleArr}}" wx:key="{{payName}}">
             <view class="echarts-pay-item">
-              <view class="icon-circle {{item.payType == 0 ? 'other-color' : item.payType == 1 ? 'bank-color':item.payType == 2?'wx-color':'al-color' }}"></view>
+              <view class="icon-circle {{item.payType == 0 ? 'color0' : item.payType == 1 ? 'color1':item.payType == 2?'color2':item.payType == 3?'color3':item.payType == 41?'color41':'color43' }}"></view>
               <view class="echarts-pay-per"><text>{{item.rate}}%</text></view>
               <view class="echarts-pay-method"><text>{{item.payName}}支付</text></view>
             </view>
@@ -85,7 +85,7 @@
         <view class="echarts-pay-wrap" hidden='{{weekSaleArr.length == 0}}'>
           <block wx:for="{{weekSaleArr}}" wx:key="{{payName}}">
             <view class="echarts-pay-item">
-              <view class="icon-circle {{item.payType == 0 ? 'other-color' : item.payType == 1 ? 'bank-color':item.payType == 2?'wx-color':'al-color' }}"></view>
+              <view class="icon-circle {{item.payType == 0 ? 'color0' : item.payType == 1 ? 'color1':item.payType == 2?'color2':item.payType == 3?'color3':item.payType == 41?'color41':'color43' }}"></view>
               <view class="echarts-pay-per"><text>{{item.rate}}%</text></view>
               <view class="echarts-pay-method"><text>{{item.payName}}支付</text></view>
             </view>
@@ -106,7 +106,7 @@
         <view class="echarts-pay-wrap" hidden='{{monthSaleArr.length == 0}}'>
           <block wx:for="{{monthSaleArr}}" wx:key="{{payName}}">
             <view class="echarts-pay-item">
-              <view class="icon-circle {{item.payType == 0 ? 'other-color' : item.payType == 1 ? 'bank-color':item.payType == 2?'wx-color':'al-color' }}"></view>
+              <view class="icon-circle {{item.payType == 0 ? 'color0' : item.payType == 1 ? 'color1':item.payType == 2?'color2':item.payType == 3?'color3':item.payType == 41?'color41':'color43' }}"></view>
               <view class="echarts-pay-per"><text>{{item.rate}}%</text></view>
               <view class="echarts-pay-method"><text>{{item.payName}}支付</text></view>
             </view>

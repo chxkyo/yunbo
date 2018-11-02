@@ -1,48 +1,16 @@
 
-page {
-  width: 100%;
-  min-height: 100%;
-  font-family: -apple-system-font, 'Helvetica Neue', Helvetica, 'Microsoft YaHei', sans-serif;
-}
-.ell{
-  white-space:nowrap;
-  text-overflow:ellipsis;
-  overflow:hidden;
-}
-.left,.right{
-  width: 49%;
-}
-.left{
-  float: left;
-}
-.right{
-  float:right;
-}
+page {width: 100%;min-height: 100%;font-family: -apple-system-font, 'Helvetica Neue', Helvetica, 'Microsoft YaHei', sans-serif;}
+.ell{white-space:nowrap;text-overflow:ellipsis;overflow:hidden;}
+.left,.right{width: 49%;}
+.left{float: left;}
+.right{float:right;}
 .fix { clear:both; zoom:1; }
 .fix:after { display:block; clear:both; height:0; overflow:hidden; visibility:hidden; content:"."; }
 .ws{white-space: nowrap}
-form [form-type='submit']{
-  border:none;
-  text-align:left;
-  padding:0;
-  margin:0;
-  line-height:1.5;
-  color: inherit;
-  background-color: none !important;
-}
+form [form-type='submit']{border:none;text-align:left;padding:0;margin:0;line-height:1.5;color: inheritbackground-color: none !important;}
 form{position: relative}
-form [form-type='submit']::after{
-  border: 0 none;
-}
-.form-coverimg-btn{
-  position: absolute;
-  top:0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0;
-  filter: Alpha(opacity=0);
-}
+form [form-type='submit']::after{border: 0 none;}
+.form-coverimg-btn{position: absolute;top:0;bottom: 0;left: 0;right: 0;opacity: 0;filter: Alpha(opacity=0);}
 .icon{margin-right: 10rpx}
 .time-icon{width: 26rpx;height: 26rpx;}
 .open-app{position: fixed;right: 0;bottom: 200rpx;z-index: 1}
@@ -52,8 +20,8 @@ form [form-type='submit']::after{
 .confirm-btn{background: -webkit-linear-gradient(left,#8379fb,#1da5fc);background: linear-gradient(to right,#8379fb,#1da5fc);box-shadow: 0 0 5px rgba(0, 0, 0, .2);width: 100%;}
 .del-btn{background: -webkit-linear-gradient(left,#fc2bef,#fb7992);background: linear-gradient(to right,#fc2bef,#fb7992);box-shadow: 0 0 5px rgba(0, 0, 0, .2);width: 100%;}
 .f1{flex: 1;}.tr{text-align: right;}
-.wx-color{background-color:#21d3a3}.al-color{background-color: #fb8b5d}
-.bank-color{background-color: #fb5db0;}.other-color{background-color: #5f8ffe}
+.color2{background-color:#21d3a3}.color41{background-color: #fb8b5d}.color43{background-color: #8379fb}
+.color1{background-color: #fb5db0;}.color0{background-color: #5f8ffe}.color3{background-color: #fb7992}
 .bgf9{background-color: #f9f9f9;}
 .weui-input{height:2.58823529em;min-height:2.58823529em;line-height:2.58823529em;text-align:right; }
 .bgf9-area{background-color: #f9f9f9;height:20rpx;}
@@ -96,7 +64,7 @@ form [form-type='submit']::after{
 /*统计报表*/
 .custom-tab{display: flex;align-items: center;background-color: #fff;}
 .custom-tab-item{flex: 1;display: flex;align-items: center;justify-content: center;}
-.custom-tab-subitem{display: inline-block;font-size: 32rpx;line-height: 80rpx;border-bottom: 6rpx solid transparent;color: #9f9f9f;font-weight:bold;}
+.custom-tab-subitem{display: inline-block;font-size: 32rpx;line-height: 80rpx;border-bottom: 6rpx solid transparent;color: #9f9f9f;font-weight:bold;white-space: nowrap}
 .custom-tab-item.active .custom-tab-subitem{position:relative;color: #22a4fc;}
 .custom-tab-item.active .custom-tab-subitem::after{position: absolute;content: '';width: 64rpx;border-bottom:6rpx solid #22a4fc;bottom: -6rpx;left: 0;right: 0;margin: auto;}
 .shuju-wrap{min-height: calc(100vh - 43px)}

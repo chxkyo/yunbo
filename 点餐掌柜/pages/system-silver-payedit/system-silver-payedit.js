@@ -158,6 +158,11 @@ Page({
               })
             }
           })
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
         }
       })
     }

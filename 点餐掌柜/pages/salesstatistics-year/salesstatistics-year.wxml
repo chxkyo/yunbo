@@ -77,15 +77,15 @@
               </view>
             </view>
           </view>
-          <view class="print-detail-item-wrap" hidden='{{income.duty.length == 0}}'>
+          <view class="print-detail-item-wrap" hidden='{{duty.length == 0}}'>
             <view class="print-detail-item">
               <view>
                 <text>各班次营业账单</text>
               </view>
             </view>
-            <view class="print-detail-item" wx:for="{{income.duty}}" wx:key="{{id}}">
+            <view class="print-detail-item" wx:for="{{duty}}" wx:key="{{id}}">
               <view>
-                <text>{{item.name}}</text>
+                <text>{{item.dutyName}}</text>
               </view>
               <view>
                 <text>{{item.amount}}元</text>
@@ -123,10 +123,13 @@
           </view>
           <view class="print-detail-item" wx:for="{{receipts}}" wx:key="{{payType}}">
             <view>
-              <text>{{item.dTime}}</text>
+              <text>{{item.payName}}({{item.payCount}}笔)</text>
             </view>
             <view>
-              <text>{{item.totalFee}}元</text>
+              <text>{{item.payAmount}}元</text>
+            </view>
+            <view>
+              <text>{{item.rate}}%</text>
             </view>
           </view>
         </view>

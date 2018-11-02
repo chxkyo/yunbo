@@ -1,2 +1,4 @@
 /* pages/paymentset/paymentset.wxss */
 .system-list-wrap .label-right-box{width: auto}
+.input-label-box{max-width: 250rpx;}
+.payment-btn-wrap{position: absolute;right: 100rpx;}

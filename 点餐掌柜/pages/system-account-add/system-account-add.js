@@ -105,6 +105,8 @@ Page({
       let discount = this.data.discountFlag ? 1 : 0;
       let refund = this.data.refundFlag ? 1 : 0;
       app.fetch('shopCashier/save', { loginNo: this.data.accountName, password: this.data.accountPassword, discountAuthority: discount, refundAuthority: refund  }, "POST").then(res => {
+        
+        debugger
         if (res.data.code === 0) {
           wx.showToast({
             title: '添加账号成功！',
@@ -114,6 +116,11 @@ Page({
                 delta: 1
               })
             }
+          })
+        }else{
+          wx.showToast({
+            title:res.data.msg,
+            icon:'none'
           })
         }
       })

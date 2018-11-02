@@ -24,7 +24,8 @@ Page({
     endDate: '',
     showMonth:'',
     backFee: [],
-    shopName:''
+    shopName:'',
+    duty:[]
   },
 
   /**
@@ -130,13 +131,20 @@ function getReport(that, method, year, month, day, startDate, endDate) {
  return app.fetch('report/' + method, { year: year, month: month, day: day, startDate: startDate, endDate: endDate }, "POST").then(res => {
     wx.hideLoading();
     if (res.data.code === 0) {
+      res.data.reportData.receipts.forEach(function (val, index) {
+        val.rate = parseInt(val.rate * 100);
+      });
+      res.data.reportData.categoryList.forEach(function (val, index) {
+        val.amountRate = parseInt(val.amountRate * 100);
+      });
       that.setData({
         orderCount: res.data.reportData.orderCount,
         income: res.data.reportData.inCome,
         categoryList: res.data.reportData.categoryList,
         receipts: res.data.reportData.receipts,
         nonReceipts: res.data.reportData.nonReceipts,
-        backFee: res.data.reportData.backFee
+        backFee: res.data.reportData.backFee,
+        duty: res.data.reportData.duty
       })
     }else{
       wx.showToast({

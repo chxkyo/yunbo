@@ -236,10 +236,14 @@ function getColorArr(arr){
       dailyColorArr.push("#5f8ffe");
     } else if (value.payType === 1) {
       dailyColorArr.push("#fb5db0");
-    } else if (value.payType === 2){
+    } else if (value.payType === 2) {
       dailyColorArr.push("#21d3a3");
-    } else{
+    } else if (value.payType === 3) {
+      dailyColorArr.push("#fb7992");
+    } else if (value.payType === 41) {
       dailyColorArr.push("#fb8b5d");
+    } else {
+      dailyColorArr.push("#8379fb");
     }
   })
   return dailyColorArr;
