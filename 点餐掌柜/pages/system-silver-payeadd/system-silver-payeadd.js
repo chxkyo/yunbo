@@ -9,9 +9,9 @@ Page({
     name:'',
     freeTypeIndex:0,
     freeTypeArr:["代金券","打折券"],
-    freePrice:'',
+    freePrice:0,
     limitPrice:0,
-    actPrice:'',
+    actPrice:0,
     backFeeIndex:0,
     backFeeArr:["不返款","返款"],
     des: '',
@@ -88,11 +88,6 @@ Page({
       freePrice: e.detail.value
     })
   },
-  getLimitPrice(e){
-    this.setData({
-      limitPrice: e.detail.value
-    })
-  },
   getActPrice(e) {
     this.setData({
       actPrice: e.detail.value
@@ -105,12 +100,12 @@ Page({
   },
   getDiscount(e){
     this.setData({
-      discount: e.detail.value
+      freePrice: e.detail.value
     })
   },
   getDiscountMax(e){
     this.setData({
-      discountMax: e.detail.value
+      limitPrice: e.detail.value
     })
   },
   bindBackFeeChange(e){
@@ -125,18 +120,6 @@ Page({
       wx.showModal({
         title: '提示',
         content: '请输入优惠名称',
-        showCancel: false
-      })
-    } else if (this.data.freePrice === '') {
-      wx.showModal({
-        title: '提示',
-        content: '请输入折扣金额',
-        showCancel: false
-      })
-    }else if (this.data.actPrice === '') {
-      wx.showModal({
-        title: '提示',
-        content: '请输入实收金额',
         showCancel: false
       })
     }else {

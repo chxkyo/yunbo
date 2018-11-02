@@ -9,9 +9,9 @@ Page({
     name: '',
     freeTypeIndex: 0,
     freeTypeArr: ["代金券", "打折券"],
-    freePrice: '',
+    freePrice: 0,
     limitPrice: 0,
-    actPrice: '',
+    actPrice: 0,
     backFeeIndex: 0,
     backFeeArr: ["不返款", "返款"],
     des:''
@@ -104,14 +104,24 @@ Page({
       freePrice: e.detail.value
     })
   },
-  getLimitPrice(e) {
-    this.setData({
-      limitPrice: e.detail.value
-    })
-  },
   getActPrice(e) {
     this.setData({
       actPrice: e.detail.value
+    })
+  },
+  getDes(e) {
+    this.setData({
+      des: e.detail.value
+    })
+  },
+  getDiscount(e) {
+    this.setData({
+      freePrice: e.detail.value
+    })
+  },
+  getDiscountMax(e) {
+    this.setData({
+      limitPrice: e.detail.value
     })
   },
   bindBackFeeChange(e) {

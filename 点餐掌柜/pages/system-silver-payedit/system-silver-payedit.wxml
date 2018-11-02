@@ -23,15 +23,15 @@
       </view>
     </picker>
 
-  <view class="input-view-item" hidden='{{freeTypeIndex == 0}}'>
+  <view class="input-view-item" hidden='{{freeTypeIndex == 1}}'>
     <view class="input-label-box">
-      <label for="freePrice">折扣金额（元）</label>
+      <label for="freePrice">抵扣金额（元）</label>
     </view>
     <view class="label-right-box">
       <input class="weui-input" placeholder="请输入折扣金额" placeholder-style='color:#eee;font-size:32rpx;' id="freePrice" type="digit" bindinput="getFreePrice" value="{{freePrice}}"/>
     </view>
   </view>
-  <view class="input-view-item" hidden='{{freeTypeIndex == 0}}'>
+  <view class="input-view-item" hidden='{{freeTypeIndex == 1}}'>
     <view class="input-label-box">
       <label for="actPrice">实收金额（元）</label>
     </view>
@@ -39,20 +39,20 @@
       <input class="weui-input" placeholder="请输入实收金额" placeholder-style='color:#eee;font-size:32rpx;' id="actPrice" type="digit" bindinput="getActPrice" value="{{actPrice}}"/>
     </view>
   </view>
-  <view class="input-view-item" hidden='{{freeTypeIndex == 1}}'>
+  <view class="input-view-item" hidden='{{freeTypeIndex == 0}}'>
     <view class="input-label-box">
       <label for="discount">折扣</label>
     </view>
     <view class="label-right-box">
-      <input class="weui-input" placeholder="请输入折扣" placeholder-style='color:#eee;font-size:32rpx;' id="discount" type="digit" bindinput="getDiscount" value=""/>
+      <input class="weui-input" placeholder="请输入折扣" placeholder-style='color:#eee;font-size:32rpx;' id="discount" type="digit" bindinput="getDiscount" value="{{freePrice}}"/>
     </view>
   </view>
-  <view class="input-view-item" hidden='{{freeTypeIndex == 1}}'>
+  <view class="input-view-item" hidden='{{freeTypeIndex == 0}}'>
     <view class="input-label-box">
       <label for="discountMax">折扣金额上限</label>
     </view>
     <view class="label-right-box">
-      <input class="weui-input" placeholder="请输入折扣金额上限" placeholder-style='color:#eee;font-size:32rpx;' id="discountMax" type="digit" bindinput="getDiscountMax" value=""/>
+      <input class="weui-input" placeholder="请输入折扣金额上限" placeholder-style='color:#eee;font-size:32rpx;' id="discountMax" type="digit" bindinput="getDiscountMax" value="{{limitPrice}}"/>
     </view>
   </view>
   <view class="input-view-item">
