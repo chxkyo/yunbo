@@ -20,12 +20,12 @@ Page({
     imgBaseUrl: ''
   },
   onLoad: function (options) {
-    if (!wx.getStorageSync('userId')) {
-      wx.redirectTo({
-        url: '/pages/loginbefore/loginbefore'
-      })
-      return false;
-    }
+    // if (!wx.getStorageSync('userId')) {
+    //   wx.redirectTo({
+    //     url: '/pages/loginbefore/loginbefore'
+    //   })
+    //   return false;
+    // }
     this.setData({
       imgBaseUrl: app.globalData.imgBaseUrl
     })

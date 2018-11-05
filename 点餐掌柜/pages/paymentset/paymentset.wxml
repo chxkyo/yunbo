@@ -32,18 +32,15 @@
         </view>
       </view>
     </navigator>
-    <block wx:for="{{methodArr}}" wx:key="{{name}}">
-      <navigator hover-class="none" url="../system-silver-payedit/system-silver-payedit?id={{item.id}}">
+    <block wx:for="{{methodArr}}" wx:key="{{name}}" wx:if="{{item.delFlag !== -1}}">
+      <navigator hover-class="none" url="../system-silver-payedit/system-silver-payedit?id={{item.id}}&delFlag={{item.delFlag}}">
         <view class="input-view-item" style="padding:30rpx 0;">
           <view class="input-label-box ell">
             <label>{{item.name}}</label>
           </view>
-          <!-- <view class="payment-btn-wrap">
-            <button slot="footer" class="payment-btn stop-btn" type="primary" hover-class="none" bindtap="stopUse" wx:if="{{item.status}}">停止使用</button>
-            <button slot="footer" class="payment-btn start-btn" type="primary" hover-class="none" bindtap="startUse" wx:else>开始使用</button>
-          </view> -->
           <view class="label-right-box">
-            <view class="all-cuisine ws ell"><text>开始使用</text></view>
+            <view class="all-cuisine ws ell" wx:if="{{item.delFlag === 1}}"><text>开始使用</text></view>
+            <view class="all-cuisine ws ell" wx:else><text>停止使用</text></view>
             <view class="jumpAddCuisine-a">
               <image src="../../images/img/to.png" class="arrow-right-icon"></image>
             </view>

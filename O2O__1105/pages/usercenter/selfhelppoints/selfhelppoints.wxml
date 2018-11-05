@@ -28,7 +28,16 @@
         <view class='selfhelppoints-itemLeft-top'>{{item.shopName}}</view>
         <view class='selfhelppoints-itemLeft-bot'>{{item.consumeTime}}</view>
       </view>
-      <view class='selfhelppoints-itemRight'><text>{{item.consumeFee}}</text>元</view>
+      <view class='selfhelppoints-itemRight'>
+        <view class='selfhelppoints-itemLeft-top'>
+          <text>{{item.consumeFee}}</text>元
+        </view>
+        <view class='selfhelppoints-itemLeft-bot'>
+          <text wx:if="{{item.reviewStatus == 0}}">未审核</text>
+          <text wx:elif="{{item.reviewStatus == 1}}">通过</text>
+          <text wx:else="{{item.reviewStatus == 2}}">未通过</text>
+        </view>
+      </view>
     </view>
   </view>
   <view class='no-content' hidden='{{reviewedList.length != 0}}'>暂无待审核的积分</view>

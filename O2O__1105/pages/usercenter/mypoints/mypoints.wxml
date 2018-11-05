@@ -33,7 +33,7 @@
           <view class='mypoints-con-foot-itemLeft-date'>{{item.createTime}}</view>
         </view>
         <view class='mypoints-con-foot-itemRight'>
-          +{{item.pointsCount}}
+          <text wx:if="{{item.type == 1}}">-</text><text wx:if="{{item.type == 0}}">+</text>{{item.pointsCount}}
         </view>
       </view>
     </view>

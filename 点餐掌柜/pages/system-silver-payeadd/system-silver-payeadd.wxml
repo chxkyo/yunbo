@@ -55,14 +55,14 @@
       <input class="weui-input" placeholder="请输入折扣金额上限" placeholder-style='color:#eee;font-size:32rpx;' id="discountMax" type="digit" bindinput="getDiscountMax" value=""/>
     </view>
   </view>
-  <view class="input-view-item">
+  <!-- <view class="input-view-item">
     <view class="input-label-box">
       <label for="des">说明</label>
     </view>
     <view class="label-right-box">
       <input class="weui-input" placeholder-style='color:#eee;font-size:32rpx;' id="des" type="text" bindinput="getDes" value=""/>
     </view>
-  </view>
+  </view> -->
   <view class="save-btn-wrap">
     <button class="save-meal-btn confirm-btn f1" type="primary" hover-class="none" bindtap="savePay">保存</button> 
    </view>

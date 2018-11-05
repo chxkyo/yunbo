@@ -195,5 +195,11 @@ Page({
         wx.hideLoading();
       }
     })
-  }
+  },
+  onShareAppMessage: function () {
+    return {
+      title: '首页',
+      path: '/pages/index/index'
+    }
+  },
 })

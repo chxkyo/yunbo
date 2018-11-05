@@ -81,3 +81,4 @@ page{
   position: fixed;
   bottom: 0;
 }
+.feedback-tips{margin-right:20rpx;font-size:36rpx;}

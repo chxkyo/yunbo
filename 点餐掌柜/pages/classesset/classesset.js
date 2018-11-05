@@ -117,6 +117,11 @@ Page({
           wx.showToast({
             title: '添加成功'
           })
+        }else{
+          wx.showToast({
+            title: res.data.msg,
+            icon:'none'
+          })
         }
       })
     }
@@ -153,7 +158,11 @@ Page({
   }
 })
 function getShopDutyList(that){
+  wx.showLoading({
+    title: '加载中...',
+  })
   app.fetch('shopDutyConfig/list', {}, "POST").then(res => {
+    wx.hideLoading();
     if (res.data.code === 0) {
       that.setData({
         classesArr: res.data.shiftList

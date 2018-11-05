@@ -6,7 +6,7 @@
     <picker value="{{startDate}}" bindchange="bindStartDateChange" mode="date">
       <view class="modal-picker-item">
         <view class="modal-picker-item-des">
-          <text>开始日期</text>
+          <text>请选择日期</text>
         </view>
         <view class="modal-picker-right-box ell">
           <view class="time-box">
@@ -18,7 +18,7 @@
         </view>
       </view>
     </picker>
-    <picker mode="date" bindchange="bindEndDateChange" value="{{endDate}}">
+    <!-- <picker mode="date" bindchange="bindEndDateChange" value="{{endDate}}">
       <view class="modal-picker-item">
         <view class="modal-picker-item-des">
           <text>结束日期</text>
@@ -32,12 +32,12 @@
           </view>
         </view>
       </view>
-    </picker>
+    </picker> -->
   </view>
   <button slot="footer" class="addsuisinmebtn confirm-btn" type="primary" hover-class="none" bindtap="saveDate">保存</button>
 </modal>
 <view class="salesstatistics-wrap {{noscroll?'noscroll':''}}">
-  <view class="custom-tab">
+  <!-- <view class="custom-tab">
     <view class="custom-tab-item {{index == 0?'active':'' }}" data-index="0" bindtap="tabTap">
       <view class="custom-tab-subitem">今日</view>
     </view>
@@ -45,7 +45,8 @@
       <view class="custom-tab-subitem" wx:if="{{customFlag}}">{{cus_startChooseDate}}~{{cus_endChooseDate}}</view>
       <view class="custom-tab-subitem" wx:else>自定义</view>
     </view>
-  </view>
+  </view> -->
+    <view class="salesstatistics-time" bindtap='modalShow'>{{showDate}}</view>
     <view class="shuju-wrap pd30">
       <view class="shuju-inner-wrap">
         <view class="shuju-header">

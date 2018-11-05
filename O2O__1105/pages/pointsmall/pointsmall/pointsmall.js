@@ -16,7 +16,7 @@ Page({
     categoryList: [],
     adList: [],
     user: {},
-    autoplay: true,
+    autoplay: false,
     interval: 3000,
     duration: 500,
     imgBaseUrl: ''

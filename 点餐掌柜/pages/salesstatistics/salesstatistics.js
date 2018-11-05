@@ -28,7 +28,8 @@ Page({
     startChooseDate:'',
     endChooseDate:'',
     cus_startChooseDate: '',
-    cus_endChooseDate: ''
+    cus_endChooseDate: '',
+    showDate:''
   },
 
   /**
@@ -38,7 +39,8 @@ Page({
     this.setData({
       startDate: app.util.formatTime(new Date),
       endDate: app.util.formatTime(new Date),
-      shopName: app.globalData.shopInfo.name
+      shopName: app.globalData.shopInfo.name,
+      showDate: app.util.formatTime(new Date,"-")
     })
     getReport(this, 'dailyReport', '', '', '', this.data.startDate,this.data.endDate)
   },
@@ -102,6 +104,10 @@ Page({
         noscroll: true
       })
     }else{
+      this.setData({
+        startDate: app.util.formatTime(new Date),
+        endDate: app.util.formatTime(new Date)
+      })
       getReport(this, 'dailyReport', '', '', '', this.data.startDate, this.data.endDate);
     }
   },
@@ -121,28 +127,27 @@ Page({
     if (!this.data.chooseStartDate) {
       wx.showModal({
         title: '提示',
-        content: '请选择开始日期',
-        showCancel: false
-      })
-    } else if (!this.data.chooseEndDate) {
-      wx.showModal({
-        title: '提示',
-        content: '请选择结束日期',
+        content: '请选择自定义日期',
         showCancel: false
       })
     } else {
-      getReport(this, 'dailyReport', '', '', '', this.data.startChooseDate.replace(/-/g, ''), this.data.endChooseDate.replace(/-/g, '')).then(res=>{
+      getReport(this, 'dailyReport', '', '', '', this.data.startChooseDate.replace(/-/g, ''), this.data.startChooseDate.replace(/-/g, '')).then(res=>{
         this.setData({
           customFlag: true,
           showModal: false,
           noscroll: false,
           startDate: this.data.startChooseDate.replace(/-/g, ''),
-          endDate: this.data.endChooseDate.replace(/-/g, ''),
-          cus_startChooseDate: this.data.startChooseDate,
-          cus_endChooseDate: this.data.endChooseDate
+          endDate: this.data.startChooseDate.replace(/-/g, ''),
+          showDate: this.data.startChooseDate
         });
       })
     }
+},
+modalShow() {
+  this.setData({
+    showModal: true,
+    noscroll: true
+  });
 },
 modalClose() {
   this.setData({

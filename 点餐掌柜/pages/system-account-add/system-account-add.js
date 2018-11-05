@@ -95,12 +95,6 @@ Page({
         content: '请输入账号名称',
         showCancel: false
       })
-    } else if (!this.data.accountPassword) {
-      wx.showModal({
-        title: '提示',
-        content: '请输入账号密码',
-        showCancel: false
-      })
     }else {
       let discount = this.data.discountFlag ? 1 : 0;
       let refund = this.data.refundFlag ? 1 : 0;
@@ -109,12 +103,14 @@ Page({
           wx.showToast({
             title: '添加账号成功！',
             success: function () {
-              prevPage.onLoad();
-              wx.navigateBack({
-                delta: 1
-              })
             }
           })
+          setTimeout(function () {
+            prevPage.onLoad();
+            wx.navigateBack({
+              delta: 1
+            })
+          }, 1500)
         }else{
           wx.showToast({
             title:res.data.msg,

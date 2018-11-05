@@ -9,14 +9,14 @@
       <input class="weui-input" placeholder="请输入账号名称" placeholder-style='color:#eee;font-size:32rpx;' id="accountName" type="text" bindinput="getAccountName" value="{{accountName}}"/>
     </view>
   </view>
-  <view class="input-view-item">
+  <!-- <view class="input-view-item">
     <view class="input-label-box">
       <label for="accoundPassword">账号密码</label>
     </view>
     <view class="label-right-box">
       <input class="weui-input" placeholder="请输入账号密码" placeholder-style='color:#eee;font-size:32rpx;' id="accoundPassword" type="text" bindinput="getPassWord" value="{{accountPassword}}"/>
     </view>
-  </view>
+  </view> -->
       <view class="input-view-item" style="padding:30rpx 0;">
           <view class="input-label-box">
             <label for="goods-category">打折权限</label>

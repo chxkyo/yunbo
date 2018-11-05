@@ -52,12 +52,15 @@
       <view class='goodconvert-conItem-right-text' wx:else>快递</view>
     </view>
   </view>
-  <view class='goodconvert-conItem'>
-    <view class='goodconvert-conItem-left'>收货地址</view>
-    <view class='goodconvert-conItem-right'>
-      <input type="text" placeholder='请输入收货地址' bindinput='getAddress'/>
+  <navigator url="/pages/pointsmall/address/address" hover-class='none'>
+    <view class='goodconvert-conItem'>
+      <view class='goodconvert-conItem-left'>收货地址</view>
+      <view class='goodconvert-conItem-right'>
+        <!-- <input type="text" placeholder='请输入收货地址' bindinput='getAddress'/> -->
+        <image src="https://ceshi.daheiniu.info/o2o/images/mytickets-icon1.jpg" />
+      </view>
     </view>
-  </view>
+  </navigator>
   <view class='goodconvert-conItem'>
     <view class='goodconvert-conItem-right'>
       <view class='total'>合计：<text>{{allPoint}}积分</text></view>

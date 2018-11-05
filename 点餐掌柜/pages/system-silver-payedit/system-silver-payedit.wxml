@@ -6,10 +6,10 @@
       <label for="name">优惠名称</label>
     </view>
     <view class="label-right-box">
-      <input class="weui-input" placeholder="请输入优惠名称" placeholder-style='color:#eee;font-size:32rpx;' id="name" type="text" bindinput="getName" value="{{name}}"/>
+      <input class="weui-input" placeholder="请输入优惠名称" placeholder-style='color:#eee;font-size:32rpx;' id="name" type="text" bindinput="getName" value="{{name}}" disabled='{{true}}'/>
     </view>
   </view>
-    <picker bindchange="bindFreeTypeChange" value="{{freeTypeIndex}}" range="{{freeTypeArr}}">
+    <!-- <picker bindchange="bindFreeTypeChange" value="{{freeTypeIndex}}" range="{{freeTypeArr}}"> -->
       <view class="input-view-item" style="padding:30rpx 0;">
           <view class="input-label-box">
             <label for="freeType">优惠类型</label>
@@ -21,14 +21,14 @@
             </view>
           </view>
       </view>
-    </picker>
+    <!-- </picker> -->
 
   <view class="input-view-item" hidden='{{freeTypeIndex == 1}}'>
     <view class="input-label-box">
       <label for="freePrice">抵扣金额（元）</label>
     </view>
     <view class="label-right-box">
-      <input class="weui-input" placeholder="请输入折扣金额" placeholder-style='color:#eee;font-size:32rpx;' id="freePrice" type="digit" bindinput="getFreePrice" value="{{freePrice}}"/>
+      <input class="weui-input" placeholder="请输入折扣金额" placeholder-style='color:#eee;font-size:32rpx;' id="freePrice" type="digit" bindinput="getFreePrice" value="{{freePrice}}" disabled='{{true}}'/>
     </view>
   </view>
   <view class="input-view-item" hidden='{{freeTypeIndex == 1}}'>
@@ -36,7 +36,7 @@
       <label for="actPrice">实收金额（元）</label>
     </view>
     <view class="label-right-box">
-      <input class="weui-input" placeholder="请输入实收金额" placeholder-style='color:#eee;font-size:32rpx;' id="actPrice" type="digit" bindinput="getActPrice" value="{{actPrice}}"/>
+      <input class="weui-input" placeholder="请输入实收金额" placeholder-style='color:#eee;font-size:32rpx;' id="actPrice" type="digit" bindinput="getActPrice" value="{{actPrice}}" disabled='{{true}}'/>
     </view>
   </view>
   <view class="input-view-item" hidden='{{freeTypeIndex == 0}}'>
@@ -44,7 +44,7 @@
       <label for="discount">折扣</label>
     </view>
     <view class="label-right-box">
-      <input class="weui-input" placeholder="请输入折扣" placeholder-style='color:#eee;font-size:32rpx;' id="discount" type="digit" bindinput="getDiscount" value="{{freePrice}}"/>
+      <input class="weui-input" placeholder="请输入折扣" placeholder-style='color:#eee;font-size:32rpx;' id="discount" type="digit" bindinput="getDiscount" value="{{freePrice}}" disabled='{{true}}'/>
     </view>
   </view>
   <view class="input-view-item" hidden='{{freeTypeIndex == 0}}'>
@@ -52,20 +52,21 @@
       <label for="discountMax">折扣金额上限</label>
     </view>
     <view class="label-right-box">
-      <input class="weui-input" placeholder="请输入折扣金额上限" placeholder-style='color:#eee;font-size:32rpx;' id="discountMax" type="digit" bindinput="getDiscountMax" value="{{limitPrice}}"/>
+      <input class="weui-input" placeholder="请输入折扣金额上限" placeholder-style='color:#eee;font-size:32rpx;' id="discountMax" type="digit" bindinput="getDiscountMax" value="{{limitPrice}}" disabled='{{true}}'/>
     </view>
   </view>
-  <view class="input-view-item">
+  <!-- <view class="input-view-item">
     <view class="input-label-box">
       <label for="des">说明</label>
     </view>
     <view class="label-right-box">
       <input class="weui-input" placeholder-style='color:#eee;font-size:32rpx;' id="des" type="text" bindinput="getDes" value=""/>
     </view>
-  </view>
+  </view> -->
 
   <view class="save-btn-wrap edit-cuisine-wrap">
-    <button class="save-meal-btn confirm-btn f1" type="primary" hover-class="none" bindtap="savePay">保存</button>
+    <button class="save-meal-btn confirm-btn f1" type="primary" hover-class="none" bindtap="useState" data-flag="{{delFlag}}" wx:if="{{delFlag}}">停止使用</button>
+    <button class="save-meal-btn confirm-btn f1" type="primary" hover-class="none" bindtap="useState" data-flag="{{delFlag}}" wx:else>开始使用</button>
     <button class="save-meal-btn del-btn" type="primary" hover-class="none" bindtap='delPay'>删除</button> 
    </view>
 </view>

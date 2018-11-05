@@ -20,10 +20,16 @@
 <!--已反馈-->
 <view class='feedback-conBox' hidden='{{showIndex != 1}}'>
   <view class='feedback-con' wx:if="{{hasFeedBackList.length != 0}}">
-    <view class='feedback-con-item' wx:for="{{hasFeedBackList}}" wx:key="{{id}}">
-      <view class='feedback-con-item-top'>{{item.createTime}}</view>
-      <view class='feedback-con-item-bot'>{{item.feedContent}}</view>
-    </view>
+    <block wx:for="{{hasFeedBackList}}" wx:key="{{id}}">
+      <view class='feedback-con-item' wx:if="{{item.content}}">
+        <view class='feedback-con-item-top'>{{item.createTime}}</view>
+        <view class='feedback-con-item-bot'>{{item.content}}</view>
+      </view>
+      <view class='feedback-con-item' wx:if="{{item.feedContent}}">
+        <view class='feedback-con-item-top'>管理员回复</view>
+        <view class='feedback-con-item-bot'><text class="feedback-tips"> 回复</text> {{item.feedContent}}</view>
+      </view>
+    </block>
   </view>
   <view class='no-content' wx:else>暂无已反馈内容</view>
 </view>

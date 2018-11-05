@@ -2,9 +2,11 @@
 <view class='pointsmall-head'>
   <swiper class='pointsmall-headTop' indicator-dots="{{indicatorDots}}" indicator-color="rgba(255,255,255,0.8)" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{adList}}" wx:key="{{index}}">
-      <swiper-item>
-        <image src="{{imgBaseUrl}}{{item.imgPath}}" class="slide-image" />
-      </swiper-item>
+      <navigator url="{{item.link}}" hover-class='none'>
+        <swiper-item>
+            <image src="{{imgBaseUrl}}{{item.imgPath}}" class="slide-image" />
+        </swiper-item>
+      </navigator>
     </block>
   </swiper>
   <view class='pointsmall-headBot'>

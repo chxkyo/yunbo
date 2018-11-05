@@ -135,11 +135,18 @@ Page({
           wx.showToast({
             title: '添加单品成功！',
             success: function () {
-              prevPage.onLoad();
-              wx.navigateBack({
-                delta: 1
-              })
             }
+          })
+          setTimeout(function () {
+            prevPage.onLoad();
+            wx.navigateBack({
+              delta: 1
+            })
+          }, 1500);
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
           })
         }
       })

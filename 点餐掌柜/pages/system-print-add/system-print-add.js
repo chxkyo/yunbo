@@ -126,11 +126,14 @@ Page({
           wx.showToast({
             title: '删除套餐成功',
             success() {
-              wx.navigateBack({
-                delta: 1
-              })
             }
           })
+          setTimeout(function () {
+            prevPage.onLoad();
+            wx.navigateBack({
+              delta: 1
+            })
+          }, 1500)
         }
       }
     });

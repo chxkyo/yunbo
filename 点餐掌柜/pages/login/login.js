@@ -112,6 +112,9 @@ Page({
       })
     }else{
       let that = this;
+      wx.showLoading({
+        title: '登录中...',
+      })
       wx.request({
         url: app.globalData.staticUrl + "/login",
         data: { username: this.data.userName, password: this.data.passWord},
@@ -132,11 +135,11 @@ Page({
               duration: 2000,
               success() {
                 if (res.data.shopInfo.cashType){
-                  wx.switchTab({
+                  wx.reLaunch({
                     url: '../index/index'
                   })
                 }else{
-                  wx.navigateTo({
+                  wx.redirectTo({
                     url: '../index-retail/index-retail',
                   })
                 }

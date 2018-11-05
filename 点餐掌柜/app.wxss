@@ -7,7 +7,7 @@ page {width: 100%;min-height: 100%;font-family: -apple-system-font, 'Helvetica N
 .fix { clear:both; zoom:1; }
 .fix:after { display:block; clear:both; height:0; overflow:hidden; visibility:hidden; content:"."; }
 .ws{white-space: nowrap}
-form [form-type='submit']{border:none;text-align:left;padding:0;margin:0;line-height:1.5;color: inheritbackground-color: none !important;}
+form [form-type='submit']{border:none;text-align:left;padding:0;margin:0;line-height:1.5;color: inherit;background-color: none !important;}
 form{position: relative}
 form [form-type='submit']::after{border: 0 none;}
 .form-coverimg-btn{position: absolute;top:0;bottom: 0;left: 0;right: 0;opacity: 0;filter: Alpha(opacity=0);}
@@ -64,7 +64,7 @@ form [form-type='submit']::after{border: 0 none;}
 /*统计报表*/
 .custom-tab{display: flex;align-items: center;background-color: #fff;}
 .custom-tab-item{flex: 1;display: flex;align-items: center;justify-content: center;}
-.custom-tab-subitem{display: inline-block;font-size: 32rpx;line-height: 80rpx;border-bottom: 6rpx solid transparent;color: #9f9f9f;font-weight:bold;white-space: nowrap}
+.custom-tab-subitem{display: inline-block;width:100%;font-size: 32rpx;line-height: 80rpx;border-bottom: 6rpx solid transparent;color: #9f9f9f;font-weight:bold;white-space: nowrap;text-align: center;}
 .custom-tab-item.active .custom-tab-subitem{position:relative;color: #22a4fc;}
 .custom-tab-item.active .custom-tab-subitem::after{position: absolute;content: '';width: 64rpx;border-bottom:6rpx solid #22a4fc;bottom: -6rpx;left: 0;right: 0;margin: auto;}
 .shuju-wrap{min-height: calc(100vh - 43px)}

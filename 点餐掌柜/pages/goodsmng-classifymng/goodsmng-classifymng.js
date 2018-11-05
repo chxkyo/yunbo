@@ -121,7 +121,11 @@ Page({
   }
 })
 function getgoodsClassifyList(that) {
+  wx.showLoading({
+    title: '加载中...',
+  })
   app.fetch('productCategory/list', {}, "POST").then(res => {
+    wx.hideLoading();
     if (res.data.code === 0) {
       that.setData({
         goodsClassifyList: res.data.productCategoryList

@@ -33,11 +33,10 @@ Page({
     wx.showLoading({
       title: '拼命加载中...',
     })
-    this.userId = wx.getStorageSync('userId');
-    let task = app.fetch("snail-portal/user/points/his.htm", { userId: this.userId }).then(res => {
+    let task = app.fetch("snail-portal/user/points/his.htm", {}).then(res => {
       return res.data.data;
     });
-    let detail = app.fetch("snail-portal/user/pointsDetail.htm", { userId: this.userId, fromIndex: this.data.fromIndex, type: this.data.tagList[this.data.activeIndex].type, limit: 10 }).then(res => {
+    let detail = app.fetch("snail-portal/user/pointsDetail.htm", { fromIndex: this.data.fromIndex, type: this.data.tagList[this.data.activeIndex].type, limit: 10 }).then(res => {
       return res.data.data;
 
     });
@@ -78,11 +77,13 @@ Page({
     })
     let index = e.currentTarget.dataset.index;
     this.setData({
-      defaultTag: this.data.tagList[index].name,
+      defaultTag: this.data
+      .tagList[index].name,
       tagShow: !this.data.tagShow,
       activeIndex: index
     })
-    app.fetch("snail-portal/user/pointsDetail.htm", { userId: this.userId, fromIndex: this.data.fromIndex, type: this.data.tagList[this.data.activeIndex].type, limit: 10 }).then(res => {
+    this.data.fromIndex = 0;
+    app.fetch("snail-portal/user/pointsDetail.htm", { fromIndex: this.data.fromIndex, type: this.data.tagList[this.data.activeIndex].type, limit: 10 }).then(res => {
       wx.hideLoading();
       if (res.data.success) {
         this.setData({

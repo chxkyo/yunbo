@@ -109,12 +109,14 @@ Page({
           wx.showToast({
             title: '编辑成功！',
             success:function(){
-              prevPage.onLoad();
-              wx.navigateBack({
-                delta: 1
-              })
             }
           })
+          setTimeout(function(){
+            prevPage.onLoad();
+            wx.navigateBack({
+              delta: 1
+            })
+          },1500);
         }
       })
     }
@@ -132,13 +134,20 @@ Page({
               wx.showToast({
                 title: '删除成功！',
                 success: function () {
-                  prevPage.onLoad();
-                  wx.navigateBack({
-                    delta: 1
-                  })
                 }
               })
+              setTimeout(function () {
+                prevPage.onLoad();
+                wx.navigateBack({
+                  delta: 1
+                })
+              }, 1500);
             }
+          })
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
           })
         }
       }

@@ -14,7 +14,8 @@ Page({
     actPrice: 0,
     backFeeIndex: 0,
     backFeeArr: ["不返款", "返款"],
-    des:''
+    des:'',
+    delFlag:''
   },
 
   /**
@@ -22,11 +23,15 @@ Page({
    */
   onLoad: function (options) {
     if(options.id){
+      wx.showLoading({
+        title: '加载中...',
+      })
       this.id = options.id;
       app.fetch('promotion/info/' + this.id, {
         methodName: 'info',
         id: this.id
       }, "POST").then(res => {
+        wx.hideLoading();
         if (res.data.code === 0) {
           this.setData({
             freeTypeIndex:res.data.shopPromotion.promoteType,
@@ -34,7 +39,8 @@ Page({
             limitPrice: res.data.shopPromotion.limitFee,
             actPrice: res.data.shopPromotion.actFee,
             backFeeIndex: res.data.shopPromotion.backFeeFlag,
-            name: res.data.shopPromotion.name
+            name: res.data.shopPromotion.name,
+            delFlag: res.data.shopPromotion.delFlag
           })
         }
       })
@@ -135,6 +141,7 @@ Page({
     })
   },
   savePay() {
+    debugger
     let pages = getCurrentPages();
     let prevPage = pages[pages.length - 2];  //上一个页面
     if (this.data.name === '') {
@@ -161,13 +168,16 @@ Page({
         if (res.data.code === 0) {
           wx.showToast({
             title: '其他支付编辑成功！',
+            duration:3000,
             success: function () {
-              prevPage.onLoad();
-              wx.navigateBack({
-                delta: 1
-              })
             }
           })
+          setTimeout(function(){
+            prevPage.onLoad();
+            wx.navigateBack({
+              delta: 1
+            })
+          },1500)
         } else {
           wx.showToast({
             title: res.data.msg,
@@ -190,15 +200,47 @@ Page({
               wx.showToast({
                 title: '删除成功！',
                 success: function () {
-                  prevPage.onLoad();
-                  wx.navigateBack({
-                    delta: 1
-                  })
                 }
               })
+              setTimeout(function () {
+                prevPage.onLoad();
+                wx.navigateBack({
+                  delta: 1
+                })
+              }, 1500)
             }
           })
         }
+      }
+    });
+  },
+  useState(e){
+    let pages = getCurrentPages();
+    let prevPage = pages[pages.length - 2];  //上一个页面
+    let delFlag = e.currentTarget.dataset.flag;
+    if (delFlag){
+      delFlag = 0;
+    }else{
+      delFlag = 1;
+    }
+    app.fetch('promotion/isUsing/' + this.id + "/" +delFlag,{},"POST").then(res=>{
+      if(res.data.code === 0){
+        wx.showToast({
+          title: '操作成功！',
+          success: function () {
+          }
+        })
+        setTimeout(function () {
+          prevPage.onLoad();
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 1500)
+      }else{
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none'
+        })
       }
     });
   }

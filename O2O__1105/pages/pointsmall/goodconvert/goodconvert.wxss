@@ -78,6 +78,11 @@ page{
 .goodconvert-conItem-right input{
   text-align: right;
 }
+.goodconvert-conItem-right image{
+  width: 12rpx;
+  height: 20rpx;
+  margin-left: 20rpx;
+}
 .btns{
   display: flex;
   justify-content: flex-end;

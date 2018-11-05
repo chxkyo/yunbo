@@ -93,7 +93,11 @@ Page({
   }
 })
 function getShopCashierList(that) {
+  wx.showLoading({
+    title: '加载中...',
+  })
   return app.fetch('shopCashier/list', {}, "POST").then(res => {
+    wx.hideLoading();
     if (res.data.code === 0) {
       that.setData({
         shopCashierList: res.data.shopCashierList

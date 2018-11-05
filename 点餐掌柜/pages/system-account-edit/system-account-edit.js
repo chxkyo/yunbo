@@ -18,10 +18,14 @@ Page({
   onLoad: function (options) {
     if (options.id) {
       this.id = options.id;
+      wx.showLoading({
+        title: '加载中...',
+      })
       app.fetch('shopCashier/info/' + this.id, {
         methodName: 'info',
         id:this.id
       }, "POST").then(res => {
+        wx.hideLoading();
         if (res.data.code === 0) {
           let refundFlag, discountFlag;
           if (res.data.shopCashier.refundAuthority){
@@ -32,7 +36,6 @@ Page({
           }
           this.setData({
             accountName: res.data.shopCashier.loginNo,
-            accountPassword: res.data.shopCashier.passwd,
             refundFlag: res.data.shopCashier.refundAuthority,
             discountFlag: res.data.shopCashier.discountAuthority
           })
@@ -118,12 +121,6 @@ Page({
         content: '请输入账号名称',
         showCancel: false
       })
-    } else if (!this.data.accountPassword) {
-      wx.showModal({
-        title: '提示',
-        content: '请输入账号密码',
-        showCancel: false
-      })
     } else {
       let discount = this.data.discountFlag ? 1 : 0;
       let refund = this.data.refundFlag ? 1 : 0;
@@ -132,12 +129,14 @@ Page({
           wx.showToast({
             title: '编辑账号成功！',
             success: function () {
-              prevPage.onLoad();
-              wx.navigateBack({
-                delta: 1
-              })
             }
           })
+          setTimeout(function(){
+            prevPage.onLoad();
+            wx.navigateBack({
+              delta: 1
+            })
+          },1500)
         }
         else {
           wx.showToast({
@@ -161,12 +160,14 @@ Page({
               wx.showToast({
                 title: '删除成功！',
                 success: function () {
-                  prevPage.onLoad();
-                  wx.navigateBack({
-                    delta: 1
-                  })
                 }
               })
+              setTimeout(function () {
+                prevPage.onLoad();
+                wx.navigateBack({
+                  delta: 1
+                })
+              }, 1500)
             }
           })
         }
