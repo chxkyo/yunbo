@@ -1,0 +1,103 @@
+<!--pages/mypoints/mypoints.wxml-->
+<view class='mypoints-head'>
+  <view class='mypoints-head-text1'>可用积分</view>
+  <view class='mypoints-head-text2'>{{totalPoints}}</view>
+</view>
+<view class='mypoints-con'>
+  <view class='mypoints-con-top'>
+    <view class='mypoints-con-top-item {{pointsDetailShow ? "active" : ""}}' bindtap='changePointsDetailShow'>
+      积分明细
+      <view class='active-line' hidden='{{!pointsDetailShow}}'></view>
+    </view>
+    <view class='mypoints-con-top-item {{pointsTasksShow ? "active" : ""}}' bindtap='changePointsTasksShow'>
+      积分任务
+      <view class='active-line' hidden='{{!pointsTasksShow}}'></view>
+    </view>
+  </view>
+  <view class='pointsDetail' hidden='{{!pointsDetailShow}}'>
+    <view class='mypoints-con-mid'>
+      <view class='mypoints-con-mid-head' bindtap='changeTagShow'>
+        <view class='mypoints-con-mid-head-text'>{{defaultTag}}</view>
+        <view class='triangle'></view>
+      </view>
+      <view class='mypoints-con-mid-con' hidden='{{!tagShow}}'>
+        <view class='mypoints-con-mid-con-item' wx:for="{{tagList}}" wx:key="{{index}}" bindtap="changeTag" data-index="{{index}}">
+          {{item.name}}
+        </view>
+      </view>
+    </view>
+    <view class='mypoints-con-foot' wx:if="{{pointsArr.length != 0}}">
+      <view class='mypoints-con-foot-item' wx:for="{{pointsArr}}" wx:key="id">
+        <view class='mypoints-con-foot-itemLeft'>
+          <view class='mypoints-con-foot-itemLeft-title'>{{item.detail}}</view>
+          <view class='mypoints-con-foot-itemLeft-date'>{{item.createTime}}</view>
+        </view>
+        <view class='mypoints-con-foot-itemRight'>
+          +{{item.pointsCount}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='pointsTasks' hidden='{{!pointsTasksShow}}'>
+    <navigator class='pointsTasks-item' hover-class='none' url="/pages/marketguide/marketguide/marketguide">
+      <view class='pointsTasks-itemLeft'>
+        <view class='pointsTasks-itemLeft-top'>查看商户详情</view>
+        <view class='pointsTasks-itemLeft-bot'>
+          <view class='pointsTasks-icon1'></view>
+          积分+{{rule.viewStore}}
+        </view>
+      </view>
+      <view class='pointsTasks-itemRight' wx:if="{{!task.viewStore}}">
+        去完成
+        <view class='pointsTasks-icon2'></view>
+      </view>
+      <view class='pointsTasks-itemRight' wx:else>
+        已完成
+      </view>
+    </navigator>
+    <navigator class='pointsTasks-item' hover-class='none' url="/pages/mallactivity/mallactivity/mallactivity">
+      <view class='pointsTasks-itemLeft'>
+        <view class='pointsTasks-itemLeft-top'>查看活动详情</view>
+        <view class='pointsTasks-itemLeft-bot'>
+          <view class='pointsTasks-icon1'></view>
+          积分+{{rule.viewActivity}}
+        </view>
+      </view>
+      <view class='pointsTasks-itemRight' wx:if="{{!task.viewActivity}}">
+        去完成
+        <view class='pointsTasks-icon2'></view>
+      </view>
+      <view class='pointsTasks-itemRight' wx:else>
+        已完成
+      </view>
+    </navigator>
+    <navigator class='pointsTasks-item' hover-class='none' url="/pages/myprofile/myprofile">
+      <view class='pointsTasks-itemLeft'>
+        <view class='pointsTasks-itemLeft-top'>完善个人信息</view>
+        <view class='pointsTasks-itemLeft-bot'>
+          <view class='pointsTasks-icon1'></view>
+          积分+{{rule.registerPoints}}
+        </view>
+      </view> 
+      <view class='pointsTasks-itemRight' wx:if="{{!task.registerPoints}}">
+        去完成
+        <view class='pointsTasks-icon2'></view>
+      </view>
+      <view class='pointsTasks-itemRight' wx:else>
+        已完成
+      </view>
+    </navigator> 
+        <view class='pointsTasks-item'>
+      <view class='pointsTasks-itemLeft'>
+        <view class='pointsTasks-itemLeft-top'>问卷调查</view>
+        <view class='pointsTasks-itemLeft-bot'>
+          <view class='pointsTasks-icon1'></view>
+        </view>
+      </view>
+      <view class='pointsTasks-itemRight'>
+        去完成
+        <view class='pointsTasks-icon2'></view>
+      </view>
+    </view>
+  </view>
+</view>

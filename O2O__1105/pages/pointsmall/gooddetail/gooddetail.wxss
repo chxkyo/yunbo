@@ -1,0 +1,112 @@
+/* pages/pointsmall/gooddetail/gooddetail.wxss */
+page{
+  width: 100%;
+  height: 100vh;
+  background: #f5f5f5;
+}
+.gooddetail-head{
+  background: #fff;
+  border-bottom: 1rpx solid #eee;
+}
+.gooddetail-head-top{
+  width: 100%;
+  height: 500rpx;
+}
+.gooddetail-head-top image{
+  width: 100%;
+  height: 100%;
+}
+.gooddetail-head-bot{
+  padding: 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.gooddetail-head-botLeft-title{
+  font-size: 32rpx;
+  margin-bottom: 30rpx;
+}
+.gooddetail-head-botLeft-time{
+  font-size: 24rpx;
+  color: #999;
+}
+.gooddetail-head-botRight-price{
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 30rpx;
+  text-align: right;
+}
+.gooddetail-head-botRight-num{
+  font-size: 24rpx;
+  color: #999;
+  text-align: right;
+}
+.gooddetail-menu{
+  padding: 30rpx 0;
+  box-sizing: border-box;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gooddetail-menuItem{
+  width: 33.33%;
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-right: 1rpx solid #eee;
+}
+.gooddetail-menuItem:last-child{
+  border-right: none;
+}
+.gooddetail-menuItem-top{
+  font-size: 30rpx;
+}
+.gooddetail-menuItem-bot{
+  font-size: 24rpx;
+  color: #e72427;
+  margin-top: 20rpx;
+}
+.gooddetail-con-head{
+  padding: 50rpx 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gooddetail-con-headLeft{
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 20rpx;
+}
+.gooddetail-con-headLeft image{
+  width: 100%;
+  height: 100%;
+}
+.gooddetail-con-headRight{
+  height: 36rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+.gooddetail-con{
+  padding: 30rpx;
+  background: #fff;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+.change{
+  width: 90%;
+  height: 100rpx;
+  background: #e72427;
+  font-size: 34rpx;
+  color: #fff;
+  line-height: 100rpx;
+  text-align: center;
+  border-radius: 100rpx;
+  margin: 35rpx auto;
+}

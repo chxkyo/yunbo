@@ -1,0 +1,47 @@
+<!--pages/subscribedetail/subscribedetail.wxml-->
+<view class='subscribedetail-head'>
+  <image src="https://ceshi.daheiniu.info/o2o/images/subscribedetail1.jpg" />
+</view>
+<view class='subscribedetail-title'>活动配音</view>
+<view class='subscribedetail-time'>
+  <view class='subscribedetail-time-item'>
+    <view class='subscribedetail-time-itemLeft'>
+      <image src="https://ceshi.daheiniu.info/o2o/images/subscribedetail-icon1.jpg" />
+      <text>有效期</text>
+    </view>
+    <view class='subscribedetail-time-itemRight'>
+      2018-09-13至2018-09-17
+    </view>
+  </view>
+  <view class='subscribedetail-time-item'>
+    <view class='subscribedetail-time-itemLeft'>
+      <image src="https://ceshi.daheiniu.info/o2o/images/subscribedetail-icon1.jpg" />
+      <text>报名有效期</text>
+    </view>
+    <view class='subscribedetail-time-itemRight'>
+      2018-09-13至2018-09-17
+    </view>
+  </view>
+</view>
+<view class='subscribedetail-con'>
+  <view class='subscribedetail-con-head'>
+    <image src="https://ceshi.daheiniu.info/o2o/images/subscribedetail-icon2.jpg" />
+    <text>活动须知</text>
+  </view>
+  <view class='subscribedetail-con-foot'>
+    商户简介文案商户简介文案商户简介文案商户简介文案商户简介文案商户简介文案商户简介文案
+  </view>
+</view>
+<view class='subscribedetail-con'>
+  <view class='subscribedetail-con-head'>
+    <image src="https://ceshi.daheiniu.info/o2o/images/subscribedetail-icon3.jpg" />
+    <text>活动描述</text>
+  </view>
+  <view class='subscribedetail-con-foot'>
+    商户简介文案商户简介文案商户简介文案商户简介文案商户简介文案商户简介文案商户简介文案
+  </view>
+</view>
+<view class='subscribedetail-foot'>
+  <view class='subscribedetail-foot-left'>当前报名人数：30</view>
+  <view class='subscribedetail-foot-right'>已报名</view>
+</view>

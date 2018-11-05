@@ -1,0 +1,2 @@
+<!--pages/mallactivity/questionnaire/questionnaire.wxml-->
+<web-view src="https://ceshi.daheiniu.info/snail-portal/lottery/questionnaire.htm?userId={{userId}}"></web-view>

@@ -1,0 +1,107 @@
+/* pages/giftcoupon/giftcoupon.wxss */
+page{
+  background: #f5f5f5;
+}
+.cashcoupon-head{
+  width: 100%;
+  height: 100rpx;
+  padding-bottom: 4rpx;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.cashcoupon-head-item{
+  height: 100%;
+  font-size: 26rpx;
+  color: #999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.active{
+  color: #333;
+  border-bottom: 4rpx solid #e71a28;
+}
+.no-content{
+  width: 100%;
+  height: 1000rpx;
+  font-size: 30rpx;
+  color: #999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gray{
+  color: #999!important;
+  background: #dcdcdc!important;
+}
+.grayBorder{
+  border-right: 1rpx dashed #b7b7b7!important;
+}
+.cashcoupon-con{
+  width: 100%;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.cashcoupon-con-item{
+  width: 100%;
+  background: #fce5e3;
+  border-radius: 10rpx;
+  color: #e71a28;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+  position: relative;
+}
+.cashcoupon-con-itemLeft{
+  width: 68%;
+  padding: 30rpx;
+  box-sizing: border-box;
+  border-right: 1rpx dashed #fca097;
+}
+.cashcoupon-con-itemLeft-title{
+  font-size: 46rpx;
+  margin-bottom: 10rpx;
+}
+.cashcoupon-con-itemLeft-title image{
+  width: 80rpx;
+  height: 80rpx;
+}
+.cashcoupon-con-itemLeft-title text{
+  font-size: 22rpx;
+}
+.cashcoupon-con-itemLeft-type{
+  font-size: 26rpx;
+  margin-bottom: 10rpx;
+}
+.cashcoupon-con-itemLeft-date{
+  font-size: 18rpx;
+}
+.cashcoupon-con-itemRight{
+  width: 32%;
+  padding: 30rpx;
+  box-sizing: border-box;
+  font-size: 26rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.circle{
+  width: 30rpx;
+  height: 30rpx;
+  background: #f5f5f5;
+  border-radius: 100%;
+  position: absolute;
+}
+.circle-top{
+  top: -15rpx;
+  left: 68%;
+  transform: translateX(-15rpx);
+}
+.circle-bot{
+  bottom: -15rpx;
+  left: 68%;
+  transform: translateX(-15rpx);
+}

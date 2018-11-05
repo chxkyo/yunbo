@@ -1,0 +1,93 @@
+<!--pages/index/index.wxml-->
+<block class="banner">
+  <swiper indicator-dots="{{indicatorDots}}" indicator-color="rgba(255,255,255,0.8)" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{adList}}" wx:key="{{index}}">
+      <swiper-item>
+        <image src="{{imgBaseUrl}}{{item.imgPath}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+</block>
+<view class='menu'>
+  <navigator class="menu-item width25" url="/pages/memberrights/memberrights" hover-class="none">
+    <image src="https://ceshi.daheiniu.info/o2o/images/icon1.jpg" />
+    <text>会员权益</text>
+  </navigator>
+  <navigator class="menu-item width25" url="/pages/usercenter/mytickets/mytickets" hover-class="none">
+    <image src="https://ceshi.daheiniu.info/o2o/images/icon2.jpg" />
+    <text>卡券包</text>
+  </navigator>
+  <navigator class="menu-item width25" url="/pages/parkpayment/parkpayment" hover-class="none">
+    <image src="https://ceshi.daheiniu.info/o2o/images/icon3.jpg" />
+    <text>停车缴费</text>
+  </navigator>
+  <navigator class="menu-item width25" url="/pages/marketguide/marketguide/marketguide" hover-class="none">
+    <image src="https://ceshi.daheiniu.info/o2o/images/icon4.jpg" />
+    <text>商场导览</text>
+  </navigator>
+  <navigator class="menu-item width33" url="/pages/pointsmall/pointsmall/pointsmall" hover-class="none">
+    <image src="https://ceshi.daheiniu.info/o2o/images/icon5.jpg" />
+    <text>积分商城</text>
+  </navigator>
+  <navigator class="menu-item width33" url="/pages/mallactivity/mallactivity/mallactivity" hover-class="none">
+    <image src="https://ceshi.daheiniu.info/o2o/images/icon6.jpg" />
+    <text>商场活动</text>
+  </navigator>
+  <navigator class="menu-item width33" url="/pages/usercenter/usercenter/usercenter" hover-class="none">
+    <image src="https://ceshi.daheiniu.info/o2o/images/icon7.jpg"   />
+    <text>会员中心</text>
+  </navigator>
+</view>
+<view class='con1'>
+  <view class='con1-head'>
+    <view class='con1-head-left'>
+      <text>商场活动</text>
+    </view>
+    <navigator class='con1-head-right' url="/pages/mallactivity/mallactivity/mallactivity" hover-class="none">
+      更多<image src='/images/more.png' />
+    </navigator>
+  </view>
+  <view class='con1-foot'>
+    <view class='con1-foot-item' data-activityid="{{act.id}}" bindtap='linkToDetail'>
+      <view class='con1-foot-item-img'>
+        <image mode="aspectFill" src="{{imgBaseUrl}}{{act.imgPath}}" />
+      </view>
+      <view class='con1-foot-item-text'>{{act.name}}</view>
+    </view>
+  </view>
+</view>
+<view class='con2'>
+  <view class='con2-head'>
+    <view class='con2-head-left'>
+      <text>积分商城</text>
+    </view>
+    <navigator class='con2-head-right' url="/pages/pointsmall/pointsmall/pointsmall" hover-class="none">
+      更多<image src='/images/more.png' />
+    </navigator>
+  </view>
+  <view class='con2-foot'>
+    <navigator url="/pages/pointsmall/gooddetail/gooddetail?id={{item.id}}" hover-class='none' class='con2-foot-item' wx:for="{{productList}}" wx:key="{{index}}">
+      <view class='con2-foot-item-img'>
+        <image mode="aspectFill" src="{{imgBaseUrl}}{{item.productImgPath}}" />
+      </view>
+      <view class='con2-foot-item-title'>{{item.productName}}</view>
+      <view class='con2-foot-item-points'>{{item.limit00Point}}积分</view>
+    </navigator>
+  </view>
+</view>
+<!--弹窗-->
+<view class='mask' hidden='{{showPopupIndex != 1}}' bindtap='hidePopup'>
+  <view class='popup popup1'>
+    <view class='number1'>{{jifen}}</view>
+  </view>
+</view>
+<view class='mask' hidden='{{showPopupIndex != 2}}' bindtap='hidePopup'>
+  <view class='popup popup2'>
+    <view class='number2'>￥{{redAmt}}</view>
+  </view>
+</view>
+<view class='mask' hidden='{{showPopupIndex != 3}}' bindtap='hidePopup'>
+  <view class='popup popup3'>
+    <view class='number3'>{{couponName}}</view>
+  </view>
+</view>

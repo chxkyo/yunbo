@@ -1,0 +1,9 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "我的签到",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "calendar": "plugin://calendar/calendar"
+  }
+}

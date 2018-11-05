@@ -1,0 +1,69 @@
+<!--pages/pointsmall/gooddetail/gooddetail.wxml-->
+<view class='gooddetail-head'>
+  <view class='gooddetail-head-top'>
+    <image src="{{imgBaseUrl}}{{productImgPath}}" />
+  </view>
+  <view class='gooddetail-head-bot'>
+    <view class='gooddetail-head-botLeft'>
+      <view class='gooddetail-head-botLeft-title'>{{productName}}</view>
+      <view class='gooddetail-head-botLeft-time'>截止日期：{{exchangeEndTime}}</view>
+    </view>
+    <view class='gooddetail-head-botRight'>
+      <view class='gooddetail-head-botRight-price'>参考价：￥{{productValue}}元</view>
+      <view class='gooddetail-head-botRight-num'>{{exchangeCount}}人已购买</view>
+    </view>
+  </view>
+</view>
+<view class='gooddetail-menu' wx:if="{{cardTypeCode == 01}}">
+  <view class='gooddetail-menuItem'>
+    <view class='gooddetail-menuItem-top'>粉卡会员</view>
+  </view>
+  <view class='gooddetail-menuItem'>
+    <view class='gooddetail-menuItem-top'>所需积分</view>
+    <view class='gooddetail-menuItem-bot'>{{product.limit00Point}}积分</view>
+  </view>
+  <view class='gooddetail-menuItem'>
+    <view class='gooddetail-menuItem-top'>所需金额</view>
+    <view class='gooddetail-menuItem-bot'>￥{{product.limit00Money}}</view>
+  </view>
+</view>
+<view class='gooddetail-menu' wx:elif="{{cardTypeCode == 02}}">
+  <view class='gooddetail-menuItem'>
+    <view class='gooddetail-menuItem-top'>金卡会员</view>
+  </view>
+  <view class='gooddetail-menuItem'>
+    <view class='gooddetail-menuItem-top'>所需积分</view>
+    <view class='gooddetail-menuItem-bot'>{{product.limit66Point}}积分</view>
+  </view>
+  <view class='gooddetail-menuItem'>
+    <view class='gooddetail-menuItem-top'>所需金额</view>
+    <view class='gooddetail-menuItem-bot'>￥{{product.limit66Money}}</view>
+  </view>
+</view>
+<view class='gooddetail-menu' wx:else>
+  <view class='gooddetail-menuItem'>
+    <view class='gooddetail-menuItem-top'>黑卡会员</view>
+  </view>
+  <view class='gooddetail-menuItem'>
+    <view class='gooddetail-menuItem-top'>所需积分</view>
+    <view class='gooddetail-menuItem-bot'>{{product.limit88Point}}积分</view>
+  </view>
+  <view class='gooddetail-menuItem'>
+    <view class='gooddetail-menuItem-top'>所需金额</view>
+    <view class='gooddetail-menuItem-bot'>￥{{product.limit88Money}}</view>
+  </view>
+</view>
+
+<view class='gooddetail-con-head'>
+  <view class='gooddetail-con-headLeft'>
+    <image src="/images/gooddetail-icon1.png" />
+  </view>
+  <view class='gooddetail-con-headRight'>
+    商品简介
+  </view>
+</view>
+<view class='gooddetail-con'>
+  {{productDetail}}
+</view>
+<view class='change' bindtap='linkToConvert' wx:if="{{leftCount >0}}">点击兑换</view>
+<view class='change' style='background:#999' wx:if="{{leftCount <=0}}">点击兑换</view>

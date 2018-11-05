@@ -1,0 +1,22 @@
+<!--pages/follow/follow.wxml-->
+<view class='follow' wx:if="{{followArr.length>0}}">
+  <view class='follow-item' wx:for="{{followArr}}">
+    <view class='follow-item-left'>
+      <image src="{{imgBaseUrl}}{{item.photoImgPath}}" />
+    </view>
+    <view class='follow-item-mid'>
+      <view class='follow-item-mid-title'>{{item.storeName}}</view>
+      <view class='follow-item-mid-address'>
+        <image src="https://ceshi.daheiniu.info/o2o/images/follow2.jpg" />
+        {{item.unitName}}
+      </view>
+    </view>
+    <view class="follow-item-right">
+      <image src="https://ceshi.daheiniu.info/o2o/images/follow3.jpg" />
+      已关注
+    </view>
+  </view>
+</view>
+<view class='no-content' wx:else>
+  暂无关注的店铺
+</view>

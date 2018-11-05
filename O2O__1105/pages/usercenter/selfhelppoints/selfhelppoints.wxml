@@ -1,0 +1,38 @@
+<!--pages/selfhelppoints/selfhelppoints.wxml-->
+<view class='feedback-head'>
+  <view class='feedback-head-item {{showIndex == 0 ? "active" : ""}}' bindtap='changeshowIndex' data-index="0">
+    待审核
+  </view>
+  <view class='feedback-head-item {{showIndex == 1 ? "active" : ""}}' bindtap='changeshowIndex' data-index="1">
+    已审核
+  </view>
+</view>
+<!--未反馈-->
+<view class='feedback-conBox' hidden='{{showIndex != 0}}'>
+  <view class='selfhelppoints-con' hidden='{{unreviewedList.length == 0}}'>
+    <view class='selfhelppoints-item' wx:for="{{unreviewedList}}" wx:key="{{id}}">
+      <view class='selfhelppoints-itemLeft'>
+        <view class='selfhelppoints-itemLeft-top'>{{item.shopName}}</view>
+        <view class='selfhelppoints-itemLeft-bot'>{{item.consumeTime}}</view>
+      </view>
+      <view class='selfhelppoints-itemRight'><text>{{item.consumeFee}}</text>元</view>
+    </view>
+  </view>
+  <view class='no-content' hidden='{{unreviewedList.length != 0}}'>暂无已审核的积分</view>
+</view>
+<!--已反馈-->
+<view class='feedback-conBox' hidden='{{showIndex != 1}}'>
+  <view class='selfhelppoints-con' hidden='{{reviewedList.length == 0}}'>
+    <view class='selfhelppoints-item' wx:for="{{reviewedList}}" wx:key="{{id}}">
+      <view class='selfhelppoints-itemLeft'>
+        <view class='selfhelppoints-itemLeft-top'>{{item.shopName}}</view>
+        <view class='selfhelppoints-itemLeft-bot'>{{item.consumeTime}}</view>
+      </view>
+      <view class='selfhelppoints-itemRight'><text>{{item.consumeFee}}</text>元</view>
+    </view>
+  </view>
+  <view class='no-content' hidden='{{reviewedList.length != 0}}'>暂无待审核的积分</view>
+</view>
+
+
+<view class='addFeedback' bindtap='addSelfhelpPoints'>+</view>

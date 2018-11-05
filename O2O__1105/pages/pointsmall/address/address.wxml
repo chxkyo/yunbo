@@ -1,0 +1,22 @@
+<!--pages/pointsmall/address/address.wxml-->
+<view class='address-head'>
+  <view class='address-headItem'>
+    <view class='address-headItem-left'>收货人姓名</view>
+    <view class='address-headItem-right'>
+      <input type='text' placeholder='请输入收货人姓名' />
+    </view>
+  </view>
+  <view class='address-headItem'>
+    <view class='address-headItem-left'>手机号码</view>
+    <view class='address-headItem-right'>
+      <input type='text' placeholder='请输入手机号码' />
+    </view>
+  </view>
+  <view class='address-headItem'>
+    <view class='address-headItem-left'>详细地址</view>
+    <view class='address-headItem-right'>
+      <input type='text' placeholder='请输入详细地址' />
+    </view>
+  </view>
+</view>
+<view class='address-foot'>保存地址</view>

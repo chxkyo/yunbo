@@ -1,0 +1,37 @@
+<!--pages/marketdetail/marketdetail.wxml-->
+<view class='marketdetail-head'>
+  <view class='marketdetail-head-top'>
+    <image src="{{imgBaseUrl}}{{store.photoImgPath}}" />
+  </view>
+  <view class='marketdetail-head-bot'>
+    <view class='marketdetail-head-botLeft'>
+      <image src="{{imgBaseUrl}}{{store.logoImgPath}}" />
+    </view>
+    <view class='marketdetail-head-botMid'>{{store.storeName}}</view>
+    <view class='marketdetail-head-botRight' hidden='{{follow}}' bindtap='changeFollow'><text>+</text>关注</view>
+    <view class='marketdetail-head-botRight' hidden='{{!follow}}' bindtap='changeFollow'><image src="https://ceshi.daheiniu.info/o2o/images/follow3.jpg" />已关注</view>
+  </view>
+</view>
+<view class='marketdetail-mid'>
+  <view class='marketdetail-mid-item'>
+    <view class='marketdetail-mid-itemLeft'>
+      <image src="https://ceshi.daheiniu.info/o2o/images/marketdetail-icon1.jpg" />
+    </view>
+    <view class="marketdetail-mid-itemRight">{{unit.phone}}</view>
+  </view>
+  <view class='marketdetail-mid-item'>
+    <view class='marketdetail-mid-itemLeft'>
+      <image src="https://ceshi.daheiniu.info/o2o/images/marketdetail-icon2.jpg" />
+    </view>
+    <view class="marketdetail-mid-itemRight">{{unit.address}}</view>
+  </view>
+</view>
+<view class='marketdetail-foot'>
+  <view class='marketdetail-foot-head'>
+    <image src="https://ceshi.daheiniu.info/o2o/images/coupondetail-icon2.png"/>
+    商户简介
+  </view>
+  <view class='marketdetail-foot-con'>
+    {{store.detail}}
+  </view>
+</view>
