@@ -65,5 +65,6 @@
 <view class='gooddetail-con'>
   {{productDetail}}
 </view>
-<view class='change' bindtap='linkToConvert' wx:if="{{leftCount >0}}">点击兑换</view>
+<navigator url="/pages/pointsmall/goodconvert/goodconvert?id={{id}}&cardCodeType={{cardCodeType}}&points={{points}}" hover-class='none'><view class='change' wx:if="{{leftCount >0}}">点击兑换</view></navigator>
+
 <view class='change' style='background:#999' wx:if="{{leftCount <=0}}">点击兑换</view>

@@ -23,12 +23,12 @@ Page({
   },
   onLoad: function (options) {
     //判断uersId是否存在
-    if (!wx.getStorageSync('userId')) {
-      wx.redirectTo({
-        url: '/pages/loginbefore/loginbefore'
-      })
-      return false;
-    }
+    // if (!wx.getStorageSync('userId')) {
+    //   wx.redirectTo({
+    //     url: '/pages/loginbefore/loginbefore'
+    //   })
+    //   return false;
+    // }
     this.setData({
       imgBaseUrl: app.globalData.imgBaseUrl
     })
@@ -41,7 +41,7 @@ Page({
       this.orderByType = options.orderByType;
       param.orderByType = options.orderByType;
     }
-    app.fetch("/snail-portal/product/productList.htm", param).then(res => {
+    app.fetch("snail-portal/product/productList.htm", param).then(res => {
       if (res.data.success) {
         wx.hideLoading();
         this.setData({
@@ -57,7 +57,7 @@ Page({
       if (this.orderByType) {
         param.orderByType = this.orderByType;
       }
-      app.fetch("/snail-portal/product/productList.htm", param).then(res => {
+      app.fetch("snail-portal/product/productList.htm", param).then(res => {
         wx.hideLoading();
         this.setData({
           list: res.data.data.list
@@ -76,6 +76,9 @@ Page({
     if (this.orderByType) {
       param.orderByType = this.orderByType;
     }
+    wx.showLoading({
+      title: '拼命加载中...',
+    })
     app.fetch("/snail-portal/product/productList.htm", param).then(res => {
       wx.hideLoading();
       this.setData({

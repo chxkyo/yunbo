@@ -22,12 +22,12 @@ Page({
    */
   onLoad: function (options) {
     //判断uersId是否存在
-    if (!wx.getStorageSync('userId')) {
-      wx.redirectTo({
-        url: '/pages/loginbefore/loginbefore'
-      })
-      return false;
-    }
+    // if (!wx.getStorageSync('userId')) {
+    //   wx.redirectTo({
+    //     url: '/pages/loginbefore/loginbefore'
+    //   })
+    //   return false;
+    // }
     this.setData({
       imgBaseUrl: app.globalData.imgBaseUrl
     })
@@ -59,7 +59,6 @@ Page({
           productImgPath: res.data.data.product.productImgPath,
           productDetail: res.data.data.product.productDetail,
           productValue: res.data.data.product.productValue,
-          exchangePoint: res.data.data.product.exchangePoint,
           exchangeEndTime: res.data.data.product.exchangeEndTime,
           exchangeCount: res.data.data.product.exchangeCount,
           leftCount: res.data.data.product.leftCount,

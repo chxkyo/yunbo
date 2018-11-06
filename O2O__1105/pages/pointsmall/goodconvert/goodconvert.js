@@ -122,7 +122,7 @@ Page({
     wx.showLoading({
       title: '兑换中...',
     })
-    app.fetch("/snail-portal/park/createOrder.htm", { productId: this.id, num: this.data.num}).then(res => {
+    app.fetch("snail-portal/product/createOrder.htm", { productId: this.id, num: this.data.num}).then(res => {
       wx.hideLoading();
       if (res.data.success) {
         wx.redirectTo({
