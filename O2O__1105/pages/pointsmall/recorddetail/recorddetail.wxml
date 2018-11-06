@@ -1,0 +1,52 @@
+<!--pages/pointsmall/recorddetail/recorddetail.wxml-->
+<view class="record-detail-wrap">
+    <view class='record'>
+      <view class='record-left'>
+        <image src="{{productImgPath}}" />
+      </view>
+      <view class='record-mid'>
+        <view class='record-mid-title'>{{productName}}</view>
+        <view class='record-mid-points'>{{exchangePoints}}积分</view>
+      </view>
+      <view class='record-right' wx:if="{{item.receiveStatus == 1}}">已发货</view>
+      <view class='record-right' wx:elif="{{item.receiveStatus == 0}}">未发货</view>
+    </view>
+    <view class="record-item-wrap">
+      <view class="record-item">
+        <view class="record-item-left">兑换数量</view>
+        <view class="record-item-right"><view><text>{{exchangeCount}}</text></view></view>
+      </view>
+      <view class="record-item">
+        <view class="record-item-left">配送方式</view>
+        <view class="record-item-right">
+          <view wx:if="{{receiveType == 0}}"><text>实体发货</text></view>
+          <view wx:elif="{{receiveType == 1}}"><text>虚拟发货</text></view>
+          <view wx:elif="{{receiveType == 2}}"><text>用户自提</text></view>
+          <view wx:else="{{receiveType == 3}}"><text>商户核销</text></view>
+        </view>
+      </view>
+      <view class="record-item">
+        <view class="record-item-left">收货地址</view>
+        <view class="record-item-right"><view><text></text></view></view>
+      </view>
+      <view class="record-item">
+        <view class="record-item-left">快递公司</view>
+        <view class="record-item-right"><view><text>{{expressCompany}}</text></view></view>
+      </view>
+      <view class="record-item">
+        <view class="record-item-left">快递单号</view>
+        <view class="record-item-right"><view><text></text>{{expressNo}}</view></view>
+      </view>
+      <view class="record-item">
+        <view class="record-item-left">订单状态</view>
+        <view class="record-item-right">
+          <view wx:if="{{receiveStatus==0}}"><text>未发货</text></view>
+          <view wx:elif="{{receiveStatus==1}}"><text>已发货</text></view>
+          <view wx:elif="{{receiveStatus==2}}"><text>待付款</text></view>
+          <view wx:elif="{{receiveStatus==3}}"><text>退款待审核</text></view>
+          <view wx:elif="{{receiveStatus==4}}"><text>审核通过</text></view>
+          <view wx:elif="{{receiveStatus==5}}"><text>退款成功</text></view>
+        </view>
+      </view>
+    </view>
+</view>

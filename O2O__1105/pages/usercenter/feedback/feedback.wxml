@@ -34,4 +34,4 @@
   <view class='no-content' wx:else>暂无已反馈内容</view>
 </view>
 <view class='addFeedback' bindtap='addFeedback'>+</view>
-<view class='feedback-footer'>拨打客服电话</view>
+<view class='feedback-footer'>拨打客服电话 07986345566</view>

@@ -20,7 +20,7 @@ form [form-type='submit']::after{border: 0 none;}
 .confirm-btn{background: -webkit-linear-gradient(left,#8379fb,#1da5fc);background: linear-gradient(to right,#8379fb,#1da5fc);box-shadow: 0 0 5px rgba(0, 0, 0, .2);width: 100%;}
 .del-btn{background: -webkit-linear-gradient(left,#fc2bef,#fb7992);background: linear-gradient(to right,#fc2bef,#fb7992);box-shadow: 0 0 5px rgba(0, 0, 0, .2);width: 100%;}
 .f1{flex: 1;}.tr{text-align: right;}
-.color2{background-color:#21d3a3}.color41{background-color: #fb8b5d}.color43{background-color: #8379fb}
+.color2{background-color:#21d3a3}.color41{background-color: #fb8b5d}.color43{background-color: yellow}
 .color1{background-color: #fb5db0;}.color0{background-color: #5f8ffe}.color3{background-color: #fb7992}
 .bgf9{background-color: #f9f9f9;}
 .weui-input{height:2.58823529em;min-height:2.58823529em;line-height:2.58823529em;text-align:right; }

@@ -151,10 +151,10 @@ function getReport(that, method, year, month, day, startDate, endDate) {
     wx.hideLoading();
     if (res.data.code === 0) {
       res.data.reportData.receipts.forEach(function (val, index) {
-        val.rate = parseInt(val.rate * 100);
+        val.rate = parseFloat(val.rate * 100).toFixed(2);
       });
       res.data.reportData.categoryList.forEach(function (val, index) {
-        val.amountRate = parseInt(val.amountRate * 100);
+        val.amountRate = parseFloat(val.amountRate * 100).toFixed(2);
       });
       that.setData({
         orderCount: res.data.reportData.orderCount,

@@ -60,13 +60,13 @@ Page({
       wx.hideLoading();
       if(res.data.code === 0){
         res.data.dailyData.payTypeList.forEach(function(val,index){
-          val.rate = parseInt(val.rate*100);
+          val.rate = parseFloat(val.rate*100).toFixed(2);
         });
         res.data.weekData.payTypeList.forEach(function (val, index) {
-          val.rate = parseInt(val.rate * 100);
+          val.rate = parseFloat(val.rate * 100).toFixed(2);
         });
         res.data.monthData.payTypeList.forEach(function (val, index) {
-          val.rate = parseInt(val.rate * 100);
+          val.rate = parseFloat(val.rate * 100).toFixed(2);
         });
         this.setData({
           totalAmount: res.data.totalAmount,
@@ -243,7 +243,7 @@ function getColorArr(arr){
     } else if (value.payType === 41) {
       dailyColorArr.push("#fb8b5d");
     } else {
-      dailyColorArr.push("#8379fb");
+      dailyColorArr.push("yellow");
     }
   })
   return dailyColorArr;
