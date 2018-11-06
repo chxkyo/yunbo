@@ -27,7 +27,7 @@
       </view>
       <view class="record-item">
         <view class="record-item-left">收货地址</view>
-        <view class="record-item-right"><view><text></text></view></view>
+        <view class="record-item-right"><view><text>{{receiveAddress}}</text></view></view>
       </view>
       <view class="record-item">
         <view class="record-item-left">快递公司</view>

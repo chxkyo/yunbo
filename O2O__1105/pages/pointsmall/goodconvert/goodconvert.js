@@ -17,15 +17,16 @@ Page({
     allPoint: 0,
     cardCodeType: '',
     points: 0,
-    imgBaseUrl: ''
+    imgBaseUrl: '',
+    receiveAddress:''
   },
   onLoad: function (options) {
-    // if (!wx.getStorageSync('userId')) {
-    //   wx.redirectTo({
-    //     url: '/pages/loginbefore/loginbefore'
-    //   })
-    //   return false;
-    // }
+    if (!wx.getStorageSync('userId')) {
+      wx.redirectTo({
+        url: '/pages/loginbefore/loginbefore'
+      })
+      return false;
+    }
     this.setData({
       imgBaseUrl: app.globalData.imgBaseUrl
     })
@@ -70,6 +71,13 @@ Page({
           receiveSelfAddress: res.data.data.product.receiveSelfAddress,
           allPoint: allPoint
         });
+      }
+    })
+    app.fetch("snail-portal/user/toChangeAddress.do", {}).then(res => {
+      if (res.data.success) {
+        this.setData({
+          receiveAddress: res.data.data.receiveAddress
+        })
       }
     })
   },

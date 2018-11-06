@@ -56,6 +56,7 @@
     <view class='goodconvert-conItem'>
       <view class='goodconvert-conItem-left'>收货地址</view>
       <view class='goodconvert-conItem-right'>
+        <view>{{receiveAddress}}</view>
         <!-- <input type="text" placeholder='请输入收货地址' bindinput='getAddress'/> -->
         <image src="https://ceshi.daheiniu.info/o2o/images/mytickets-icon1.jpg" />
       </view>

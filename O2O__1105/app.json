@@ -1,11 +1,11 @@
 {
   "pages": [
-        "pages/pointsmall/pointsmall/pointsmall",
-        "pages/pointsmall/goodconvert/goodconvert",
+        "pages/index/index",
+        "pages/pointsmall/record/record",
+    "pages/pointsmall/pointsmall/pointsmall",
+    "pages/pointsmall/goodconvert/goodconvert",
     "pages/pointsmall/address/address",
-    "pages/pointsmall/record/record",
     "pages/usercenter/myprofile/myprofile",
-    "pages/index/index",
     "pages/pointsmall/recorddetail/recorddetail",
     "pages/usercenter/feedback/feedback",
     "pages/usercenter/mypoints/mypoints",

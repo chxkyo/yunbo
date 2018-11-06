@@ -109,12 +109,9 @@ Page({
             success: function () {
             }
           })
-          setTimeout(function () {
-            prevPage.onLoad();
-            wx.navigateBack({
-              delta: 1
-            })
-          }, 1500);
+          prevPage.setData({
+            receiveAddress:this.data.receiveAddress
+          })
         } else {
           wx.showToast({
             title: res.data.msg,
