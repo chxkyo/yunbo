@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/pointsmall/record/record",
-    "pages/pointsmall/goodconvert/goodconvert",
     "pages/pointsmall/recorddetail/recorddetail",
+    "pages/index/index",
+    "pages/pointsmall/goodconvert/goodconvert",
     "pages/usercenter/feedback/feedback",
     "pages/usercenter/mypoints/mypoints",
     "pages/usercenter/selfhelppoints/selfhelppoints",
