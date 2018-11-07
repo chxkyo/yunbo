@@ -13,7 +13,8 @@ Page({
     receiveType:'',
     expressCompany:'',
     expressNo:'',
-    receiveStatus:''
+    receiveStatus:'',
+    receiveAddress:''
   },
 
   /**

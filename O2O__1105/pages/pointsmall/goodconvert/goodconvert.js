@@ -17,15 +17,16 @@ Page({
     allPoint: 0,
     cardCodeType: '',
     points: 0,
-    imgBaseUrl: ''
+    imgBaseUrl: '',
+    receiveAddress:''
   },
   onLoad: function (options) {
-    // if (!wx.getStorageSync('userId')) {
-    //   wx.redirectTo({
-    //     url: '/pages/loginbefore/loginbefore'
-    //   })
-    //   return false;
-    // }
+    if (!wx.getStorageSync('userId')) {
+      wx.redirectTo({
+        url: '/pages/loginbefore/loginbefore'
+      })
+      return false;
+    }
     this.setData({
       imgBaseUrl: app.globalData.imgBaseUrl
     })
@@ -72,6 +73,21 @@ Page({
         });
       }
     })
+    app.fetch("snail-portal/user/toChangeAddress.do", {}).then(res => {
+      if (res.data.success) {
+        this.setData({
+          receiveAddress: res.data.data.receiveAddress
+        })
+      }
+    })
+    app.fetch("snail-portal/user/userCenter.htm", {}).then(res => {
+      if (res.data.success) {
+        this.setData({
+          cardCodeType: res.data.data.user.cardTypeCode,
+          points: res.data.data.user.points
+        })
+      }
+    });
   },
   //  点击时间组件确定事件  
   bindTimeChange: function (e) {
@@ -122,7 +138,7 @@ Page({
     wx.showLoading({
       title: '兑换中...',
     })
-    app.fetch("/snail-portal/park/createOrder.htm", { productId: this.id, num: this.data.num}).then(res => {
+    app.fetch("snail-portal/product/createOrder.htm", { productId: this.id, num: this.data.num}).then(res => {
       wx.hideLoading();
       if (res.data.success) {
         wx.redirectTo({

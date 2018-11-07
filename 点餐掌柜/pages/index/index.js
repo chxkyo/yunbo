@@ -223,7 +223,7 @@ function getBarOption(date,saleArr) {
         itemStyle: {                 //---图形形状
           color: '#3e9cfe'
         },
-        data: saleArr
+        data: saleArr,
       }
     ]
   };

@@ -30,7 +30,7 @@ Page({
         if(res.code){
           //加载首页信息
           wx.request({
-            url: app.globalData.domain+'snail-portal/index.htm',
+            url: app.globalData.domain+'/index.htm',
             data: {
               code: res.code
             },
@@ -118,7 +118,7 @@ Page({
     let userId = wx.getStorageSync('userId');
     let unitId = wx.getStorageSync('unitId');
     wx.request({
-      url: app.globalData.domain + 'snail-portal/act/actDetail.htm',
+      url: app.globalData.domain + '/act/actDetail.htm',
       method: "GET",
       data: {
         id: activityId,
@@ -156,7 +156,7 @@ Page({
   showRedPacket() { //显示红包
     let userId = wx.getStorageSync('userId');
     wx.request({
-      url: app.globalData.domain + 'snail-portal/redPacket/showRedPacket.do',
+      url: app.globalData.domain + '/redPacket/showRedPacket.do',
       data: {
         userId: userId,
         form_id: this.data.formId

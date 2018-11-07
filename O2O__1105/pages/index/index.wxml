@@ -10,31 +10,31 @@
 </block>
 <view class='menu'>
   <navigator class="menu-item width25" url="/pages/memberrights/memberrights" hover-class="none">
-    <image src="https://ceshi.daheiniu.info/o2o/images/icon1.jpg" />
+    <image src="../../images/icon1.jpg" />
     <text>会员权益</text>
   </navigator>
   <navigator class="menu-item width25" url="/pages/usercenter/mytickets/mytickets" hover-class="none">
-    <image src="https://ceshi.daheiniu.info/o2o/images/icon2.jpg" />
+    <image src="../../images/icon2.jpg" />
     <text>卡券包</text>
   </navigator>
   <navigator class="menu-item width25" url="/pages/parkpayment/parkpayment" hover-class="none">
-    <image src="https://ceshi.daheiniu.info/o2o/images/icon3.jpg" />
+    <image src="../../images/icon3.jpg" />
     <text>停车缴费</text>
   </navigator>
   <navigator class="menu-item width25" url="/pages/marketguide/marketguide/marketguide" hover-class="none">
-    <image src="https://ceshi.daheiniu.info/o2o/images/icon4.jpg" />
+    <image src="../../images/icon4.jpg" />
     <text>商场导览</text>
   </navigator>
   <navigator class="menu-item width33" url="/pages/pointsmall/pointsmall/pointsmall" hover-class="none">
-    <image src="https://ceshi.daheiniu.info/o2o/images/icon5.jpg" />
+    <image src="../../images/icon5.jpg" />
     <text>积分商城</text>
   </navigator>
   <navigator class="menu-item width33" url="/pages/mallactivity/mallactivity/mallactivity" hover-class="none">
-    <image src="https://ceshi.daheiniu.info/o2o/images/icon6.jpg" />
+    <image src="../../images/icon6.jpg" />
     <text>商场活动</text>
   </navigator>
   <navigator class="menu-item width33" url="/pages/usercenter/usercenter/usercenter" hover-class="none">
-    <image src="https://ceshi.daheiniu.info/o2o/images/icon7.jpg"   />
+    <image src="../../images/icon7.jpg"   />
     <text>会员中心</text>
   </navigator>
 </view>

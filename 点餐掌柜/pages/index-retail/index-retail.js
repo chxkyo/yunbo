@@ -94,10 +94,11 @@ Page({
             width: width,
             height: height
           });
-          chart.setOption(getBarOption(getBarDate(res.data.weekData.weekDetail), getBarSale(res.data.weekData.weekDetail)));
+          chart.setOption(getBarOption(getBarDate(res.data.weekData.weekDetail), getBarSale(res.data.weekData.weekDetail), getBarSaleMax(res.data.weekData.weekDetail)));
           this.week_bar_chart = chart;
           return chart;
         });
+        console.log(getBarSaleMax(res.data.weekData.weekDetail));
         this.ecComponent3.init((canvas, width, height) => {
           const chart = echarts.init(canvas, null, {
             width: width,
@@ -112,7 +113,7 @@ Page({
             width: width,
             height: height
           });
-          chart.setOption(getBarOption(getBarDate(res.data.monthData.monthDetail), getBarSale(res.data.monthData.monthDetail)));
+          chart.setOption(getBarOption(getBarDate(res.data.monthData.monthDetail), getBarSale(res.data.monthData.monthDetail), getBarSaleMax(res.data.monthData.monthDetail)));
           this.month_bar_chart = chart;
           return chart;
         });
@@ -152,8 +153,9 @@ function getDayOption(colorArr, data) {
       trigger: 'item',
       formatter: "{b} : {d}%",
       textStyle: {
-        color: "red"
-      }
+        color: "#fff"
+      },
+      position:'bottom'
     },
     series: [{
       label: {
@@ -177,7 +179,7 @@ function getDayOption(colorArr, data) {
   };
   return option;
 }
-function getBarOption(date, saleArr) {
+function getBarOption(date, saleArr,saleMaxArr) {
   var option = {
     //--------------   提示框 -----------------
     tooltip: {
@@ -207,6 +209,7 @@ function getBarOption(date, saleArr) {
         rotate: 0,                   //---旋转角度   
         margin: 5,                  //---刻度标签与轴线之间的距离
         color: '#b3b3b3',
+        // interval:0
       },
       data: date,//内容
     },
@@ -218,12 +221,35 @@ function getBarOption(date, saleArr) {
     //------------ 内容数据  -----------------
     series: [
       {
+        type: 'bar',
+        itemStyle: {
+          normal: {
+            color: '#eee'
+          }
+        },
+        silent: true,
+        barMaxWidth: 20,
+        barGap: '-100%', // Make series be overlap
+        data: saleMaxArr
+      },
+      {
         name: '销量',             //---系列名称
         type: 'bar',                //---类型
         itemStyle: {                 //---图形形状
-          color: '#3e9cfe'
+          color: new echarts.graphic.LinearGradient(
+            0, 0, 0, 1, [{
+              offset: 0,
+              color: '#1da5fc'
+            },
+            {
+              offset: 1,
+              color: '#8379fb'
+            }
+            ]
+          )
         },
-        data: saleArr
+        data: saleArr,
+        barMaxWidth: 20
       }
     ]
   };
@@ -266,6 +292,17 @@ function getBarSale(arr) {
   let sale = [];
   arr.forEach((value, index) => {
     sale.push(value.totalFee);
+  })
+  return sale;
+}
+function getBarSaleMax(arr) {
+  let sale = [];
+  arr.forEach((value, index) => {
+    sale.push(value.totalFee);
+  })
+  let maxSale = Math.max(...sale);
+  sale.forEach((value, index) => {
+    sale[index] = maxSale + 10000;
   })
   return sale;
 }

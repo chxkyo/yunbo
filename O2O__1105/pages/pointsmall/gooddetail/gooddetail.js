@@ -59,7 +59,6 @@ Page({
           productImgPath: res.data.data.product.productImgPath,
           productDetail: res.data.data.product.productDetail,
           productValue: res.data.data.product.productValue,
-          exchangePoint: res.data.data.product.exchangePoint,
           exchangeEndTime: res.data.data.product.exchangeEndTime,
           exchangeCount: res.data.data.product.exchangeCount,
           leftCount: res.data.data.product.leftCount,
