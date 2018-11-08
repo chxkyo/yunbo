@@ -12,12 +12,12 @@ Page({
   },
   onLoad: function (options) {
     //判断uersId是否存在
-    // if (!wx.getStorageSync('userId')) {
-    //   wx.redirectTo({
-    //     url: '/pages/loginbefore/loginbefore'
-    //   })
-    //   return false;
-    // }
+    if (!wx.getStorageSync('userId')) {
+      wx.redirectTo({
+        url: '/pages/loginbefore/loginbefore'
+      })
+      return false;
+    }
     this.setData({
       imgBaseUrl: app.globalData.imgBaseUrl
     })

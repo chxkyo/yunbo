@@ -7,7 +7,7 @@
       </button>
     </button>
   </form>
- <!-- <navigator url="/pages/login/login" hover-class='none' class='loginbefore-btn2'>
+ <navigator url="/pages/login/login" hover-class='none' class='loginbefore-btn2'>
     其他手机号登陆
-  </navigator> -->
+  </navigator>
 </view>

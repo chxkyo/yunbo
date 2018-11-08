@@ -59,7 +59,7 @@ Page({
                 this.showRedPacket();
               }
 
-            this.getWxUser(res);
+            // this.getWxUser(res);
             },
             fail: (err) => {
               wx.hideLoading();
@@ -202,4 +202,39 @@ Page({
       path: '/pages/index/index'
     }
   },
+  onGotUserInfo(e){
+    if (e.detail.userInfo){
+      var userInfo = e.detail.userInfo;
+      var nickName = userInfo.nickName;
+      //性别 1:男 2 女
+      var gender = userInfo.gender;
+      var headerImg = userInfo.avatarUrl;
+
+      app.globalData.nickName = nickName;
+      app.globalData.headerImg = headerImg;
+
+      if (gender == 1) {
+        app.globalData.userSex = 2;
+      } else {
+        app.globalData.userSex = 1;
+      }
+      wx.navigateTo({
+        url: '/pages/usercenter/usercenter/usercenter',
+      })
+    }else{
+      wx.showModal({
+        title: '用户未授权',
+        content: '如需正常使用小程序，请点确认授权。',
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/usercenter/usercenter/usercenter',
+            })
+          }
+        }
+      })
+    }
+
+  }
 })

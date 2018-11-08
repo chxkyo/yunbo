@@ -87,7 +87,7 @@
         已完成
       </view>
     </navigator> 
-        <view class='pointsTasks-item'>
+    <navigator class='pointsTasks-item' hover-class='none' url="/pages/mallactivity/questionnaire/questionnaire">
       <view class='pointsTasks-itemLeft'>
         <view class='pointsTasks-itemLeft-top'>问卷调查</view>
         <view class='pointsTasks-itemLeft-bot'>
@@ -98,6 +98,6 @@
         去完成
         <view class='pointsTasks-icon2'></view>
       </view>
-    </view>
+    </navigator>
   </view>
 </view>

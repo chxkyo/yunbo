@@ -6,12 +6,19 @@ Page({
     actList: []  //活动状态： 0: 待发布 1: 已发布 2: 已取消 3: 已过期
   },
   onLoad: function (options) {
+    //判断uersId是否存在
+    if (!wx.getStorageSync('userId')) {
+      wx.redirectTo({
+        url: '/pages/loginbefore/loginbefore'
+      })
+      return false;
+    }
     this.setData({
       imgBaseUrl: app.globalData.imgBaseUrl
     })
     this.showLoading();
     wx.request({
-      url: app.globalData.domain + 'snail-portal/find.htm',
+      url: app.globalData.domain + '/find.htm',
       method: "GET",
       success: (res) => {
         this.hideLoading();
@@ -34,7 +41,7 @@ Page({
     let unitId = wx.getStorageSync('unitId');
 
     wx.request({
-      url: app.globalData.domain + 'snail-portal/act/actDetail.htm',
+      url: app.globalData.domain + '/act/actDetail.htm',
       method: "GET",
       data: {
         id: activityId,

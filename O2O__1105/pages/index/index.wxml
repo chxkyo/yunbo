@@ -33,10 +33,13 @@
     <image src="../../images/icon6.jpg" />
     <text>商场活动</text>
   </navigator>
-  <navigator class="menu-item width33" url="/pages/usercenter/usercenter/usercenter" hover-class="none">
+  <button class="menu-item width33 menu-item-btn" hover-class='none' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">
     <image src="../../images/icon7.jpg"   />
     <text>会员中心</text>
-  </navigator>
+  </button>
+  <!-- <navigator class="menu-item width33" url="/pages/usercenter/usercenter/usercenter" hover-class="none">
+
+  </navigator> -->
 </view>
 <view class='con1'>
   <view class='con1-head'>

@@ -35,6 +35,14 @@ swiper{
   flex-direction: column;
   margin-bottom: 40rpx;
 }
+.menu-item-btn{
+  padding: 0;
+  background-color: #fff;
+  line-height: normal;
+}
+.menu-item-btn::after{
+  border:none;
+}
 .menu-item image{
   width: 80rpx;
   height: 80rpx;

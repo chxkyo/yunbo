@@ -3,11 +3,12 @@ const app = getApp();
 Page({
   data: {
     activityId: null,
-    userId: wx.getStorageSync('userId')
+    userId: wx.getStorageSync('userId'),
+    domain: ''
   },
   onLoad: function (options) {
     this.setData({
-      activityId: options.activityId
+      domain: app.globalData.domain
     })
     //判断uersId是否存在
     if (!wx.getStorageSync('userId')) {
