@@ -1,0 +1,2 @@
+<!--pages/mallactivity/luckyrotate/luckyrotate.wxml-->
+<web-view src="{{url}}?id={{id}}&userId={{userId}}"></web-view>

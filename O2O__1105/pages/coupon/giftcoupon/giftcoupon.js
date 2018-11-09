@@ -20,7 +20,7 @@ Page({
       title: '拼命加载中...',
     })
     this.userId = wx.getStorageSync('userId');
-    let unused = app.fetch("snail-portal/user/couponInfoList.htm?couponType=13", { userId: this.userId,useStatus:0
+    let unused = app.fetch("user/couponInfoList.htm?couponType=13", { userId: this.userId,useStatus:0
     }).then(res => {
       wx.hideLoading();
       if (res.data.success) {
@@ -31,7 +31,7 @@ Page({
       }
       return res.data.data;
     });
-    let used = app.fetch("snail-portal/user/couponInfoList.htm?couponType=13", {
+    let used = app.fetch("user/couponInfoList.htm?couponType=13", {
       userId: this.userId, useStatus:1 
     }).then(res => {
       wx.hideLoading();
@@ -43,7 +43,7 @@ Page({
       }
       return res.data.data;
     });
-    let timeout =  app.fetch("snail-portal/user/couponInfoList.htm?couponType=13", {
+    let timeout =  app.fetch("user/couponInfoList.htm?couponType=13", {
       userId: this.userId, useStatus: 2
     }).then(res => {
       wx.hideLoading();

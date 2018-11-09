@@ -13,9 +13,9 @@ Page({
   bindViewTap: function () {
   },
   onLoad: function () {
-    if (app.globalData.userInfo) {
+    if (app.globalData.userWXInfo) {
       this.setData({
-        userInfo: app.globalData.userInfo,
+        userInfo: app.globalData.userWXInfo,
         hasUserInfo: true
       })
     } else if (this.data.canIUse) {

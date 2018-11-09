@@ -1,0 +1,16 @@
+<!--pages/myaward/myaward.wxml-->
+<view class='myaward' wx:if="{{lotteryResultList.length != 0}}" >
+  <view class='myaward-item' wx:for="{{lotteryResultList}}" wx:key="id">
+    <view class='myaward-itemLeft'>
+      <view class='myaward-itemLeft-title'>{{item.drawName}}</view>
+      <view class='myaward-itemLeft-type'>{{item.itemName}}</view>
+      <view class='myaward-itemLeft-date'></view>
+    </view>
+    <view class='myaward-itemRight'>立即使用</view>
+    <view class='circle circle-top'></view>
+    <view class='circle circle-bot'></view>
+  </view>
+</view>
+<view class='no-content' wx:else>
+  暂无奖品
+</view>

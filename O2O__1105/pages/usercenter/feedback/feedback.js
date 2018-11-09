@@ -25,7 +25,7 @@ Page({
     })
   },
   getHasFeedBackList() {
-    return app.fetch("snail-portal/user/listFeed.do", { status: 1 }).then(res => {
+    return app.fetch("user/listFeed.do", { status: 1 }).then(res => {
       wx.hideLoading();
       if (res.data.success) {
         return res.data.data.feedList
@@ -33,7 +33,7 @@ Page({
     });
   },
   getToFeedBackList() {
-    return app.fetch("snail-portal/user/listFeed.do", { status: 0 }).then(res => {
+    return app.fetch("user/listFeed.do", { status: 0 }).then(res => {
       wx.hideLoading();
       if (res.data.success) {
         return res.data.data.feedList

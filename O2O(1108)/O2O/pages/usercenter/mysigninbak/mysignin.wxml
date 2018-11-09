@@ -1,0 +1,23 @@
+<!--pages/mysignin/mysignin.wxml-->
+<view class='mysignin-head'>
+  <image src="https://ceshi.daheiniu.info/o2o/images/signin-head.jpg" />
+</view>
+<calendar calendar-style="calendar" board-style="board" weeks-type="cn" show-more-days="true" active-type="rounded" days-color="{{selectDays}}" />
+<view class='mysignin-text'>
+  <view class='line'></view>
+  <view class='text'>连续签到，奖励更多哦</view>
+  <view class='line'></view>
+</view>
+<view class='mysignin-btn' bindtap='changeCoverShow'>点我签到</view>
+<!--弹窗-->
+<view class='cover' hidden='{{!coverShow}}' bindtap='changeCoverShow'>
+  <view class='success'>
+    <view class='success-left'>
+      <image src="https://ceshi.daheiniu.info/o2o/images/signin-success.jpg" />
+    </view>
+    <view class='success-right'>
+      <text>+20</text>
+      积分
+    </view>
+  </view>
+</view>

@@ -40,9 +40,15 @@ Page({
     totalCount: '',
     peopleNumber: '',
     avgAmount: '',
-    shopName:''
+    shopName: '',
+    colorArr: [],
+    dailyColorArr: [],
+    weekColorArr: [],
+    monthColorArr: []
+
   },
   onLoad: function () {
+    let that = this;
     const year = new Date().getFullYear();
     const month = new Date().getMonth() + 1;
     const day = new Date().getDate();
@@ -56,84 +62,99 @@ Page({
     this.ecComponent4 = this.selectComponent('#mychart-dom-multi-bar2');
     this.ecComponent5 = this.selectComponent('#mychart-dom-multi-pie3');
     wx.showLoading({ title: '拼命加载中...' });
-    app.fetch('data', { deptId: '', shopId: '' }, 'POST').then(res => {
-      wx.hideLoading();
-      if (res.data.code === 0) {
-        res.data.dailyData.payTypeList.forEach(function (val, index) {
-          val.rate = parseFloat(val.rate * 100).toFixed(2);
-        });
-        res.data.weekData.payTypeList.forEach(function (val, index) {
-          val.rate = parseFloat(val.rate * 100).toFixed(2);
-        });
-        res.data.monthData.payTypeList.forEach(function (val, index) {
-          val.rate = parseFloat(val.rate * 100).toFixed(2);
-        });
-        this.setData({
-          totalAmount: res.data.totalAmount,
-          totalCount: res.data.totalCount,
-          peopleNumber: res.data.peopleNumber,
-          avgAmount: res.data.avgAmount,
-          dailySale: res.data.dailyData.dailySale,
-          monthSale: res.data.monthData.monthSale,
-          weekSale: res.data.weekData.weekSale,
-          dailySaleArr: res.data.dailyData.payTypeList,
-          weekSaleArr: res.data.weekData.payTypeList,
-          monthSaleArr: res.data.monthData.payTypeList
-        })
-        this.ecComponent1.init((canvas, width, height) => {
-          const chart = echarts.init(canvas, null, {
-            width: width,
-            height: height
+    app.fetch('getPayment', {}, 'POST').then(res => {
+      this.setData({
+        colorArr: res.data.payment
+      })
+      app.fetch('data', { deptId: '', shopId: '' }, 'POST').then(res => {
+        wx.hideLoading();
+        if (res.data.code === 0) {
+          res.data.dailyData.payTypeList.forEach(function (val, index) {
+            val.rate = parseFloat(val.rate * 100).toFixed(2);
           });
-          chart.setOption(getDayOption(getColorArr(res.data.dailyData.payTypeList), getData(res.data.dailyData.payTypeList)));
-          this.daily_pie_chart = chart;
-          return chart;
-        });
-        this.ecComponent2.init((canvas, width, height) => {
-          const chart = echarts.init(canvas, null, {
-            width: width,
-            height: height
+          res.data.weekData.payTypeList.forEach(function (val, index) {
+            val.rate = parseFloat(val.rate * 100).toFixed(2);
           });
-          chart.setOption(getBarOption(getBarDate(res.data.weekData.weekDetail), getBarSale(res.data.weekData.weekDetail), getBarSaleMax(res.data.weekData.weekDetail)));
-          this.week_bar_chart = chart;
-          return chart;
-        });
-        console.log(getBarSaleMax(res.data.weekData.weekDetail));
-        this.ecComponent3.init((canvas, width, height) => {
-          const chart = echarts.init(canvas, null, {
-            width: width,
-            height: height
+          res.data.monthData.payTypeList.forEach(function (val, index) {
+            val.rate = parseFloat(val.rate * 100).toFixed(2);
           });
-          chart.setOption(getDayOption(getColorArr(res.data.weekData.payTypeList), getData(res.data.weekData.payTypeList)));
-          this.week_pie_chart = chart;
-          return chart;
-        });
-        this.ecComponent4.init((canvas, width, height) => {
-          const chart = echarts.init(canvas, null, {
-            width: width,
-            height: height
+          this.setData({
+            totalAmount: res.data.totalAmount,
+            totalCount: res.data.totalCount,
+            peopleNumber: res.data.peopleNumber,
+            avgAmount: res.data.avgAmount,
+            dailySale: res.data.dailyData.dailySale,
+            monthSale: res.data.monthData.monthSale,
+            weekSale: res.data.weekData.weekSale,
+            dailySaleArr: res.data.dailyData.payTypeList,
+            weekSaleArr: res.data.weekData.payTypeList,
+            monthSaleArr: res.data.monthData.payTypeList
+          })
+          this.setData({
+            dailyColorArr: getColorArr(res.data.dailyData.payTypeList, that.data.colorArr)
+          })
+          this.ecComponent1.init((canvas, width, height) => {
+            const chart = echarts.init(canvas, null, {
+              width: width,
+              height: height
+            });
+            chart.setOption(getDayOption(that.data.dailyColorArr, getData(res.data.dailyData.payTypeList)));
+            this.daily_pie_chart = chart;
+            return chart;
           });
-          chart.setOption(getBarOption(getBarDate(res.data.monthData.monthDetail), getBarSale(res.data.monthData.monthDetail), getBarSaleMax(res.data.monthData.monthDetail)));
-          this.month_bar_chart = chart;
-          return chart;
-        });
-        this.ecComponent5.init((canvas, width, height) => {
-          const chart = echarts.init(canvas, null, {
-            width: width,
-            height: height
+
+          this.ecComponent2.init((canvas, width, height) => {
+            const chart = echarts.init(canvas, null, {
+              width: width,
+              height: height
+            });
+            chart.setOption(getBarOption(getBarDate(res.data.weekData.weekDetail), getBarSale(res.data.weekData.weekDetail), getBarSaleMax(res.data.weekData.weekDetail)));
+            this.week_bar_chart = chart;
+            return chart;
           });
-          chart.setOption(getDayOption(getColorArr(res.data.monthData.payTypeList), getData(res.data.monthData.payTypeList)));
-          this.week_pie_chart = chart;
-          return chart;
-        });
-      } else if (res.data.code === 2) {
-        wx.removeStorageSync('sessionid');
-        wx.removeStorageSync('sessionid_gettime');
-        wx.switchTab({
-          url: '../index/index'
-        })
-      }
+          this.setData({
+            weekColorArr: getColorArr(res.data.weekData.payTypeList, that.data.colorArr)
+          })
+          this.ecComponent3.init((canvas, width, height) => {
+            const chart = echarts.init(canvas, null, {
+              width: width,
+              height: height
+            });
+            chart.setOption(getDayOption(that.data.weekColorArr, getData(res.data.weekData.payTypeList)));
+            this.week_pie_chart = chart;
+            return chart;
+          });
+          this.ecComponent4.init((canvas, width, height) => {
+            const chart = echarts.init(canvas, null, {
+              width: width,
+              height: height
+            });
+            chart.setOption(getBarOption(getBarDate(res.data.monthData.monthDetail), getBarSale(res.data.monthData.monthDetail), getBarSaleMax(res.data.monthData.monthDetail)));
+            this.month_bar_chart = chart;
+            return chart;
+          });
+          this.setData({
+            monthColorArr: getColorArr(res.data.monthData.payTypeList, that.data.colorArr)
+          })
+          this.ecComponent5.init((canvas, width, height) => {
+            const chart = echarts.init(canvas, null, {
+              width: width,
+              height: height
+            });
+            chart.setOption(getDayOption(that.data.monthColorArr, getData(res.data.monthData.payTypeList)));
+            this.week_pie_chart = chart;
+            return chart;
+          });
+        } else if (res.data.code === 2) {
+          wx.removeStorageSync('sessionid');
+          wx.removeStorageSync('sessionid_gettime');
+          wx.switchTab({
+            url: '../index/index'
+          })
+        }
+      })
     })
+
   },
   getUserInfo: function (e) {
     console.log(e)
@@ -153,9 +174,8 @@ function getDayOption(colorArr, data) {
       trigger: 'item',
       formatter: "{b} : {d}%",
       textStyle: {
-        color: "#fff"
-      },
-      position:'bottom'
+        color: "red"
+      }
     },
     series: [{
       label: {
@@ -179,7 +199,7 @@ function getDayOption(colorArr, data) {
   };
   return option;
 }
-function getBarOption(date, saleArr,saleMaxArr) {
+function getBarOption(date, saleArr, saleMaxArr) {
   var option = {
     //--------------   提示框 -----------------
     tooltip: {
@@ -209,7 +229,6 @@ function getBarOption(date, saleArr,saleMaxArr) {
         rotate: 0,                   //---旋转角度   
         margin: 5,                  //---刻度标签与轴线之间的距离
         color: '#b3b3b3',
-        // interval:0
       },
       data: date,//内容
     },
@@ -255,21 +274,15 @@ function getBarOption(date, saleArr,saleMaxArr) {
   };
   return option;
 }
-function getColorArr(arr) {
+function getColorArr(arr, colorArr) {
   let dailyColorArr = [];
   arr.forEach(function (value, index) {
-    if (value.payType === 0) {
-      dailyColorArr.push("#5f8ffe");
-    } else if (value.payType === 1) {
-      dailyColorArr.push("#fb5db0");
-    } else if (value.payType === 2) {
-      dailyColorArr.push("#21d3a3");
-    } else if (value.payType === 3) {
-      dailyColorArr.push("#fb7992");
-    }else if (value.payType === 41){
-      dailyColorArr.push("#fb8b5d");
-    }else{
-      dailyColorArr.push("yellow");
+    let colorIndex;
+    colorIndex = colorArr.findIndex(function (colorValue, colorIndex) {
+      return colorValue.code == value.payType
+    })
+    if (colorIndex !== -1) {
+      dailyColorArr.push('#' + colorArr[colorIndex].staticsColor);
     }
   })
   return dailyColorArr;

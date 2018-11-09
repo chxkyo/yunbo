@@ -1,0 +1,3 @@
+<!--pages/memberrights/memberrights.wxml-->
+<web-view src="{{moreNote}}" wx:if="{{typeFlag == 0}}"></web-view>
+<image wx:if="{{typeFlag == 1}}" mode="widthFix" src="{{imgBaseUrl}}{{imgUrl}}" />

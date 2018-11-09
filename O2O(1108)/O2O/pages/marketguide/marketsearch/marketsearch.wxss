@@ -1,0 +1,132 @@
+/* pages/marketsearch/marketsearch.wxss */
+page{
+  width: 100%;
+  height: 100vh;
+  background: #f5f5f5;
+}
+.triangle_down{
+  width:0;
+  height:0;
+  border-width:5px 5px 0;
+  border-style:solid;
+  border-color:#afaca6 transparent transparent;
+  margin-left: 10rpx;
+  transition: all .3s;
+}
+.rotate{
+  transform: rotate(180deg);
+}
+.marketguide-head{
+  width: 100%;
+  height: 100rpx;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.marketguide-headLeft{
+  width: 500rpx;
+  height: 60rpx;
+  padding: 0 30rpx;
+  background: #eee;
+  border-radius: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.marketguide-headLeft image{
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 20rpx;
+}
+.marketguide-headLeft input{
+  font-size: 24rpx;
+  flex: 1;
+}
+.marketsearch-right{
+  width: 100rpx;
+  height: 60rpx;
+  background: #e71a28;
+  color: #fff;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  line-height: 60rpx;
+  text-align: center;
+}
+
+.marketguide-con{
+  width: 100%;
+  height: 1100rpx;
+  overflow-y: auto;
+}
+.follow{
+  width: 100%;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.follow-item{
+  width: 100%;
+  padding: 30rpx;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 20rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.follow-item-left{
+  margin-right: 50rpx;
+}
+.follow-item-left image{
+  width: 110rpx;
+  height: 110rpx;
+}
+.follow-item-mid{
+  flex: 1;
+}
+.follow-item-mid-title{
+  font-size: 30rpx;
+  color: #000;
+  margin-bottom: 60rpx;
+}
+.follow-item-mid-address{
+  font-size: 26rpx;
+  color: #cccccc;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.follow-item-mid-address image{
+  width: 16rpx;
+  height: 20rpx;
+  margin-right: 20rpx;
+}
+.mask{
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  position: fixed;
+  top: 100rpx;
+  left: 0;
+}
+.floors{
+  width: 100%;
+  background: #fff;
+  border-top: 1rpx solid #f5f5f5;
+}
+.floor{
+  font-size: 30rpx;
+  padding: 30rpx 0;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #f5f5f5;
+  text-align: center
+}
+.no-content{
+  font-size: 35rpx;
+  text-align: center;
+  padding: 100rpx 0;
+}

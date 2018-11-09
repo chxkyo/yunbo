@@ -22,19 +22,18 @@ Page({
       title: '拼命加载中...',
     })
     this.userId = wx.getStorageSync('userId');
-    let unused = app.fetch("snail-portal/user/couponInfoList.htm?couponType=10", {
+    let unused = app.fetch("user/couponInfoList.htm?couponType=10", {
       userId: this.userId, useStatus: 0
     }).then(res => {
       wx.hideLoading();
-      if (res.data.success) {
-        // this.data.unUsedList.push(res.data.data);
+      if (res.data.success) { 
         this.setData({
           unUsedList: res.data.data.list
         });
       }
       return res.data.data;
     });
-    let used = app.fetch("snail-portal/user/couponInfoList.htm?couponType=10", {
+    let used = app.fetch("user/couponInfoList.htm?couponType=10", {
       userId: this.userId, useStatus: 1
     }).then(res => {
       wx.hideLoading();
@@ -46,7 +45,7 @@ Page({
       }
       return res.data.data;
     });
-    let timeout = app.fetch("snail-portal/user/couponInfoList.htm?couponType=10", {
+    let timeout = app.fetch("user/couponInfoList.htm?couponType=10", {
       userId: this.userId, useStatus: 2
     }).then(res => {
       wx.hideLoading();

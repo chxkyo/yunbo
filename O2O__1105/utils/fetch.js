@@ -1,9 +1,9 @@
 module.exports = function (path, params={},method = "GET") {
-  let api = 'https://ceshi.daheiniu.info';
+  let api = 'https://ceshi.daheiniu.info/snail-portal';
   return new Promise((resolve, reject) => {
     wx.request({
       url: `${api}/${path}`,
-      data: Object.assign({ userId: 628800149403}, params),
+      data: Object.assign({ userId: wx.getStorageSync('userId')}, params),
       header: { 'Content-Type':'application/json;charset=UTF-8'},
       method:`${method}`,
       success: resolve,

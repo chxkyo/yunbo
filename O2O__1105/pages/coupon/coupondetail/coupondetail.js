@@ -15,6 +15,7 @@ Page({
     useTimeStart: '', //使用开始时间
     useTimeEnd: '', //使用结束时间
     loginId: '',  //输入的商家账号
+    couponAmt:''
   },
   onLoad: function (options) {
     let id = options.id;
@@ -22,7 +23,7 @@ Page({
       id: options.id
     })
     wx.request({
-      url: app.globalData.domain+'snail-portal/user/couponInfoDetail.htm',
+      url: app.globalData.domain+'/user/couponInfoDetail.htm',
       data: {
         id: this.data.id
       },
@@ -38,7 +39,8 @@ Page({
             useTimeStart: res.data.data.coupon.useTimeStart,
             useTimeEnd: res.data.data.coupon.useTimeEnd,
             couponRate: res.data.data.couponCate.couponRate,
-            couponUseRate: res.data.data.couponCate.couponUseRate
+            couponUseRate: res.data.data.couponCate.couponUseRate,
+            couponAmt: res.data.data.couponCate.couponAmt
           })
         }
       }
@@ -67,7 +69,7 @@ Page({
       })
     }else{
       wx.request({
-        url: app.globalData.domain + 'snail-portal/user/useCoupon.htm',
+        url: app.globalData.domain + '/user/useCoupon.htm',
         data: {
           id: this.data.id,
           loginId: this.data.loginId

@@ -1,0 +1,49 @@
+<!--pages/mallactivity/mallactivity/mallactivity.wxml-->
+<view class='mysubscribe' hidden='{{actList.length === 0}}'>
+  <block wx:for="{{actList}}" wx:key="{{index}}">
+    <view class='mysubscribe-item' wx:if="{{item.actStatus == 11}}">
+      <image src="{{imgBaseUrl}}{{item.imgPath}}" />
+      <view class='state state1'>
+        <image src="https://ceshi.daheiniu.info/o2o/images/mysubscribe-icon1.png" />
+        <text>未开始</text>
+      </view>
+      <form class="mysubscribe-item-form" data-type="{{item.type}}" data-activityid="{{item.id}}" bindsubmit='linkToDetail' report-submit='true'>
+        <button form-type="submit" type="default" size="mini"></button>
+      </form>
+    </view>
+    <view class='mysubscribe-item' wx:if="{{item.actStatus == 12}}">
+      <image src="{{imgBaseUrl}}{{item.imgPath}}" />
+      <view class='state state2'>
+        <image src="https://ceshi.daheiniu.info/o2o/images/mysubscribe-icon1.png" />
+        <text>进行中</text>
+      </view>
+      <form class="mysubscribe-item-form" data-type="{{item.type}}" data-activityid="{{item.id}}" bindsubmit='linkToDetail' report-submit='true'>
+        <button form-type="submit" type="default" size="mini"></button>
+      </form>
+    </view>
+    <view class='mysubscribe-item' wx:if="{{item.actStatus == 33}}">
+      <image src="{{imgBaseUrl}}{{item.imgPath}}" />
+      <view class='state state3'>
+        <image src="https://ceshi.daheiniu.info/o2o/images/mysubscribe-icon1.png" />
+        <text>已预约</text>
+      </view>
+      <form class="mysubscribe-item-form" data-type="{{item.type}}" data-activityid="{{item.id}}" bindsubmit='linkToDetail' report-submit='true'>
+        <button form-type="submit" type="default" size="mini"></button>
+      </form>
+    </view>
+    <view class='mysubscribe-item' wx:if="{{item.actStatus == 3 || item.actStatus == 22}}">
+      <image src="{{imgBaseUrl}}{{item.imgPath}}" />
+      <view class='state state4'>
+        <image src="https://ceshi.daheiniu.info/o2o/images/mysubscribe-icon1.png" />
+        <text>已结束</text>
+      </view>
+      <form class="mysubscribe-item-form" data-type="{{item.type}}" data-activityid="{{item.id}}" bindsubmit='linkToDetail' report-submit='true'>
+        <button form-type="submit" type="default" size="mini"></button>
+      </form>
+    </view>
+  </block>
+</view>
+<view class='no-content' hidden='{{actList.length !== 0}}'>  
+       暂无商场活动
+</view>
+

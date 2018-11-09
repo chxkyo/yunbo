@@ -1,6 +1,5 @@
 {
   "pages": [
-        "pages/mallactivity/mallactivity/mallactivity",
     "pages/index/index",
     "pages/usercenter/mypoints/mypoints",
     "pages/pointsmall/pointsmall/pointsmall",
@@ -16,7 +15,8 @@
     "pages/login/login",
     "pages/mallactivity/questionnaire/questionnaire",
     "pages/mallactivity/activitydetail/activitydetail",
-    "pages/mallactivity/luckyrotate/luckyrotate",
+    "pages/mallactivity/mallactivity/mallactivity",
+     "pages/mallactivity/luckyrotate/luckyrotate",
     "pages/mallactivity/applysucc/applysucc",
     "pages/pointsmall/gooddetail/gooddetail",
     "pages/pointsmall/convertsucc/convertsucc",

@@ -11,7 +11,7 @@
     </view>
     <!--代金券-->
     <view class='coupondetail-head-top-title' wx:if="{{couponType==10}}">
-    ￥<text class='couponmoney'>{{couponRate}}</text><text class='coupontype'>{{couponName}}</text>
+    ￥<text class='couponmoney'>{{couponAmt}}</text><text class='coupontype'>{{couponName}}</text>
     </view>
     <!--折扣券-->
     <view class='coupondetail-head-top-title' wx:if="{{couponType==12}}">
