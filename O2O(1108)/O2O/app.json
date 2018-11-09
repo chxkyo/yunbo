@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/usercenter/usercenter/usercenter",    
     "pages/index/index",
     "pages/usercenter/mysignin/mysignin",
     "pages/coupon/coupondetail/coupondetail",
@@ -31,7 +32,6 @@
     "pages/coupon/giftcoupon/giftcoupon",
     "pages/coupon/discountcoupon/discountcoupon",
     "pages/coupon/fullsubcoupon/fullsubcoupon",
-    "pages/usercenter/usercenter/usercenter",
     "pages/usercenter/myfollow/myfollow",
     "pages/usercenter/addselfhelppoints/addselfhelppoints",
     "pages/usercenter/mysubscribe/mysubscribe",
