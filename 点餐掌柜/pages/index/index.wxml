@@ -77,6 +77,12 @@
               <view class="echarts-pay-method"><text>{{item.payName}}支付</text></view>
             </view>
           </block>
+            <view class="echarts-pay-item">
+            </view>
+            <view class="echarts-pay-item">
+            </view>
+            <view class="echarts-pay-item">
+            </view>
         </view>
       </view> 
     </view>
@@ -98,6 +104,12 @@
               <view class="echarts-pay-method"><text>{{item.payName}}支付</text></view>
             </view>
           </block>
+            <view class="echarts-pay-item">
+            </view>
+            <view class="echarts-pay-item">
+            </view>
+            <view class="echarts-pay-item">
+            </view>
         </view>
       </view> 
     </view>
@@ -119,6 +131,12 @@
               <view class="echarts-pay-method"><text>{{item.payName}}支付</text></view>
             </view>
           </block>
+            <view class="echarts-pay-item">
+            </view>
+            <view class="echarts-pay-item">
+            </view>
+            <view class="echarts-pay-item">
+            </view>
         </view>
       </view> 
     </view>

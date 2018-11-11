@@ -19,7 +19,7 @@
 .echarts-title-icon{width: 28rpx;height: 28rpx;vertical-align: -2rpx;margin-right: 10rpx;}
 .echarts-title{font-size: 32rpx;font-weight: 700}
 .echarts-turnover{position:relative;margin-top: 40rpx;font-size: 62rpx;color: #3f96fd;text-align: center;z-index: 99999}
-.echarts-pay-wrap{display: flex;justify-content: space-between}
-.echarts-pay-item{position:relative;padding-left:30rpx;font-size: 12px;color: #b9b9b9;}
+.echarts-pay-wrap{display: flex;width: 100%;flex-wrap: wrap;justify-content: space-between}
+.echarts-pay-item{width:28%;position:relative;padding-left:30rpx;font-size: 12px;color: #b9b9b9;   box-sizing: border-box;}
 .echarts-pay-per{font-size: 32rpx;color:#333;font-weight: 700}
 .icon-circle{position: absolute;left:0;bottom:20rpx;width: 14rpx;height: 14rpx;border-radius: 50%;}

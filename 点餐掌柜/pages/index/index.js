@@ -16,14 +16,17 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     dayopendata:{
-      lazyLoad: true 
+      lazyLoad: true,
+      disableTouch: true 
     },
     weekopendata:{
       pie:{
-        lazyLoad: true 
+        lazyLoad: true,
+        disableTouch: true 
       },
       bar:{
-        lazyLoad: true 
+        lazyLoad: true,
+        disableTouch: true 
       }
     },
     monthopendata:{
@@ -174,8 +177,9 @@ function getDayOption(colorArr,data){
       trigger: 'item',
       formatter: "{b} : {d}%",
       textStyle:{
-        color:"red"
-      }
+        color:"#fff"
+      },
+      position:"bottom"
     },
     series: [{
       label: {

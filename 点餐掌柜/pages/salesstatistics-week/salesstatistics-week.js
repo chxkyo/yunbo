@@ -47,6 +47,9 @@ Page({
     let now = date;
     let nowTime = now.getTime();
     let day = now.getDay();
+    if(day === 0){
+      day = 7;
+    }
     let oneDayLong = 24 * 60 * 60 * 1000;
     let monday = nowTime - (day - 1) * oneDayLong;
     let sunday = nowTime + (7 - day) * oneDayLong;
