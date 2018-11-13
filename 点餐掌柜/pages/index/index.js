@@ -251,7 +251,7 @@ function getBarOption(date, saleArr, saleMaxArr) {
           }
         },
         silent: true,
-        barMaxWidth: 20,
+        barWidth: 20,
         barGap: '-100%', // Make series be overlap
         data: saleMaxArr
       },
@@ -272,7 +272,8 @@ function getBarOption(date, saleArr, saleMaxArr) {
           )
         },
         data: saleArr,
-        barMaxWidth: 20
+        barWidth: 20,
+        barMinHeight: 10
       }
     ]
   };

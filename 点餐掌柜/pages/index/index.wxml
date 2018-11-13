@@ -93,7 +93,7 @@
         <view class="echarts-wrap" hidden='{{weekSaleArr.length == 0}}'>
           <ec-canvas id="mychart-dom-multi-bar1" canvas-id="mychart-weekopendata-bar1" ec="{{ weekopendata.bar }}"></ec-canvas>
         </view>
-        <view class="echarts-wrap" hidden='{{weekSaleArr.length == 0}}'>
+        <view class="echarts-wrap" hidden='{{weekSaleArr.length == 0}}' style="margin-top:-40px">
           <ec-canvas id="mychart-dom-multi-pie2" canvas-id="mychart-weekopendata-pie2" ec="{{ weekopendata.pie }}"></ec-canvas>
         </view>
         <view class="echarts-pay-wrap" hidden='{{weekSaleArr.length == 0}}'>
@@ -120,7 +120,7 @@
         <view class="echarts-wrap" hidden='{{monthSaleArr.length == 0}}'>
           <ec-canvas id="mychart-dom-multi-bar2" canvas-id="mychart-monthopendata-bar2" ec="{{ monthopendata.bar }}"></ec-canvas>
         </view>
-        <view class="echarts-wrap" hidden='{{monthSaleArr.length == 0}}'>
+        <view class="echarts-wrap" hidden='{{monthSaleArr.length == 0}}' style="margin-top:-40px">
           <ec-canvas id="mychart-dom-multi-pie3" canvas-id="mychart-monthopendata-pie3" ec="{{ monthopendata.pie }}"></ec-canvas>
         </view>
         <view class="echarts-pay-wrap" hidden='{{monthSaleArr.length == 0}}'>

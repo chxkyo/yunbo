@@ -27,7 +27,8 @@ Page({
     chooseDate:'',
     backFee: [],
     shopName:'',
-    duty: []
+    duty: [],
+    refund:{}
   },
 
   /**
@@ -166,7 +167,8 @@ function getReport(that, method, year, month, day, startDate, endDate) {
         receipts: res.data.reportData.receipts,
         nonReceipts: res.data.reportData.nonReceipts,
         backFee: res.data.reportData.backFee,
-        duty: res.data.reportData.duty
+        duty: res.data.reportData.duty,
+        refund: res.data.reportData.refund
       })
     } else {
       wx.showToast({

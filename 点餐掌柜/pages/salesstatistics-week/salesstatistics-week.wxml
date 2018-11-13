@@ -87,23 +87,6 @@
               </view>
             </view>
           </view>
-          <view class="print-detail-item-wrap">
-            <view class="print-detail-item">
-              <view>
-                <text>未结账:{{income.account.unpay_amount}}</text>
-              </view>
-            </view>
-            <view class="print-detail-item">
-              <view>
-                <text>毛收入:{{income.account.total_amount}}</text>
-              </view>
-            </view>
-            <view class="print-detail-item">
-              <view>
-                <text>实际收入:{{income.account.fact_amount}}</text>
-              </view>
-            </view>
-          </view>
           <view class="print-detail-item-wrap" hidden='{{duty.length == 0}}'>
             <view class="print-detail-item">
               <view>
@@ -127,18 +110,57 @@
             </view>
           </view>
           <view class="print-detail-item">
+              <view>
+                <text>未结账:{{income.account.unpay_amount}}</text>
+              </view>
+          </view>
+          <view class="print-detail-item">
             <view>
-              <text>实收总计:{{income.account.fact_amount}}</text>
+              <text>毛收入:{{income.account.total_amount}}</text>
+            </view>
+          </view>
+          <view class="print-detail-item">
+            <view>
+              <text>实际收入:{{income.account.fact_amount}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="print-bottom-wrap">
+          <view class="print-detail-item">
+            <view>
+              <text>返款统计</text>
+            </view>
+          </view>
+          <view class="print-detail-item">
+            <view>
+              <text>总金额:{{backFee[0].totalAmount}}</text>
             </view>
           </view>
           <view class="print-detail-item" hidden='{{backFee.length == 0}}'>
             <view>
-              <text>实收返款合计:{{backFee[0].backFeeAmount}}</text>
+              <text>返款金额:{{backFee[0].backFeeAmount}}</text>
             </view>
           </view>
           <view class="print-detail-item"  hidden='{{backFee.length == 0}}'>
             <view>
-              <text>实收不返款合计:{{backFee[0].unBackFeeAmount}}</text>
+              <text>未返款金额:{{backFee[0].unBackFeeAmount}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="print-bottom-wrap">
+          <view class="print-detail-item">
+            <view>
+              <text>退款统计</text>
+            </view>
+          </view>
+          <view class="print-detail-item">
+            <view>
+              <text>退款金额:{{refund.refundAmount}}</text>
+            </view>
+          </view>
+          <view class="print-detail-item" hidden='{{backFee.length == 0}}'>
+            <view>
+              <text>商品退款金额:{{refund.refundProductAmount}}</text>
             </view>
           </view>
         </view>

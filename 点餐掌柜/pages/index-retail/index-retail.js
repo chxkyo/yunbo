@@ -251,9 +251,9 @@ function getBarOption(date, saleArr, saleMaxArr) {
           }
         },
         silent: true,
-        barMaxWidth: 20,
         barGap: '-100%', // Make series be overlap
-        data: saleMaxArr
+        data: saleMaxArr,
+        barWidth: 20
       },
       {
         name: '销量',             //---系列名称
@@ -272,7 +272,8 @@ function getBarOption(date, saleArr, saleMaxArr) {
           )
         },
         data: saleArr,
-        barMaxWidth: 20
+        barWidth: 20,
+        barMinHeight:10
       }
     ]
   };

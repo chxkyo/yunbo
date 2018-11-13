@@ -33,7 +33,7 @@
   </view>
 </view>
 <view class='usercenter-menu'> 
-  <form class='usercenter-menu-item' bindsubmit='linkToMySign' report-submit='true'>
+  <form class='usercenter-menu-item' bindsubmit='linkToMySign' report-submit='{{true}}'>
     <view class='usercenter-menu-item-view'>   
       <image src="https://ceshi.daheiniu.info/o2o/images/usercenter1.jpg" />
       <text>我的签到</text>  
