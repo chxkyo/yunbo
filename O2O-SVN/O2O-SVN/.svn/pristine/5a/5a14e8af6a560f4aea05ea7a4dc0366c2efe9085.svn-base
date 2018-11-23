@@ -1,0 +1,39 @@
+<!--pages/mytickets/mytickets.wxml-->
+<view class='mytickets'>
+  <navigator class='mytickets-item' url="/pages/coupon/cashcoupon/cashcoupon" hover-class='none'>
+    <view class='mytickets-itemLeft'>
+      <image src='{{iconBaseUrl}}/mytickets1.jpg' />
+    </view>
+    <view class='mytickets-itemRight'>
+      代金券
+      <image src="{{iconBaseUrl}}/mytickets-icon1.jpg" />
+    </view>
+  </navigator>
+  <navigator class='mytickets-item' url="/pages/coupon/fullsubcoupon/fullsubcoupon" hover-class='none'>
+    <view class='mytickets-itemLeft'>
+      <image src='{{iconBaseUrl}}/mytickets2.jpg' />
+    </view>
+    <view class='mytickets-itemRight'>
+      满减券
+      <image src="{{iconBaseUrl}}/mytickets-icon1.jpg" />
+    </view>
+  </navigator>
+  <navigator class='mytickets-item' url="/pages/coupon/discountcoupon/discountcoupon" hover-class='none'>
+    <view class='mytickets-itemLeft'>
+      <image src='{{iconBaseUrl}}/mytickets3.jpg' />
+    </view>
+    <view class='mytickets-itemRight'>
+      折扣券
+      <image src="{{iconBaseUrl}}/mytickets-icon1.jpg" />
+    </view>
+  </navigator>
+  <navigator class='mytickets-item' url="/pages/coupon/giftcoupon/giftcoupon" hover-class='none'>
+    <view class='mytickets-itemLeft'>
+      <image src='{{iconBaseUrl}}/mytickets4.jpg' />
+    </view>
+    <view class='mytickets-itemRight'>
+      礼品券
+      <image src="{{iconBaseUrl}}/mytickets-icon1.jpg" />
+    </view>
+  </navigator>
+</view>

@@ -1,0 +1,9 @@
+<!--pages/mallactivity/applysucc/applysucc.wxml-->
+<view class='convertsucc'>
+  <view class='convertsucc-head'>
+    <image src="{{iconBaseUrl}}/addFeedBackSucc.png" />
+    <view class='convertsucc-head-title'>报名成功</view>
+    <view class='convertsucc-head-text'>你可以在 会员中心-我的预约 中查看</view>
+  </view>
+  <navigator class='convertsucc-foot' url='/pages/index/index' hover-class='none'>返回首页</navigator>
+</view>

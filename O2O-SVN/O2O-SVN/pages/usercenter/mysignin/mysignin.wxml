@@ -1,0 +1,2 @@
+<!--pages/mysignin/mysignin.wxml-->
+<web-view src="{{domain}}/user/signRecord.htm?userId={{userId}}&form_id={{formid}}"></web-view>

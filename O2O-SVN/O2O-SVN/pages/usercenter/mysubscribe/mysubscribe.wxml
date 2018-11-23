@@ -1,0 +1,15 @@
+<!--pages/mysubscribe/mysubscribe.wxml-->
+<view class='mysubscribe'>
+  <block wx:for="{{reservationlist}}" wx:key="id">
+    <view class='mysubscribe-item' data-activityid="{{item.actId}}" bindtap='linkToDetail'>
+      <image src='{{item.actImgPath}}' />
+      <view class='state'>
+        <image src="{{iconBaseUrl}}/mysubscribe-icon1.png" />
+        <text>已预约</text>
+      </view>
+    </view>
+  </block>
+</view>
+<view class='no-content' hidden='{{reservationlist.length != 0}}'>
+暂无预约
+</view>

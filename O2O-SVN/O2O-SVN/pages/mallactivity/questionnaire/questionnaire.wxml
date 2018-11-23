@@ -1,0 +1,2 @@
+<!--pages/mallactivity/questionnaire/questionnaire.wxml-->
+<web-view src="{{domain}}/lottery/questionnaire.htm?userId={{userId}}"></web-view>

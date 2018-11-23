@@ -1,0 +1,88 @@
+<!--pages/coupondetail/coupondetail.wxml-->
+<view class='coupondetail-head {{useStatus == 0 ? "pink":"gray"}}'>
+  <view class='coupondetail-head-top {{useStatus == 0 ? "pink-border red-color":"gray-border gray-color"}}'>
+    <view class='logo'>
+      <image wx:if="{{useStatus==0}}" src="{{iconBaseUrl}}/logo.png" />
+      <image wx:if="{{useStatus==1}}" src="{{iconBaseUrl}}/logo-gray.png" />
+      <image wx:if="{{useStatus==2}}" src="{{iconBaseUrl}}/logo-gray.png" />
+    </view>
+    <view class='qrcode'>
+      <image bindtap='showQrcodeLg' src="{{iconBaseUrl}}/qrcode-sm.png" />
+    </view>
+    <!--代金券-->
+    <view class='coupondetail-head-top-title' wx:if="{{couponType==10}}">
+    ￥<text class='couponmoney'>{{couponAmt}}</text><text class='coupontype'>{{couponName}}</text>
+    </view>
+    <!--折扣券-->
+    <view class='coupondetail-head-top-title' wx:if="{{couponType==12}}">
+      {{couponRate}}<text class='couponmoney'>折</text><text class='coupontype'>{{couponName}}</text>
+    </view>
+    <!--满减券-->
+    <view class='coupondetail-head-top-title' wx:if="{{couponType==11}}">
+    ￥<text class='couponmoney'>{{couponUseRate}}</text><text class='coupontype'>{{couponName}}</text>
+    </view>
+    <!--礼品券-->
+    <view class='coupondetail-head-top-title' wx:if="{{couponType==13}}">
+      <text class='coupontype'>{{couponName}}</text>
+    </view>
+    <view class='coupondetail-head-top-date'>
+    使用期限：{{useTimeStart}}~{{useTimeEnd}}
+    </view>
+  </view>
+  <view class='coupondetail-head-bot'>
+    <view class='code'>{{couponNo}}</view>
+  </view>
+  <view class='unUseBox' wx:if="{{useStatus==0}}">
+    <view class='unUse'>
+    未使用
+    </view>
+  </view>
+  <view class='usedBox' wx:if="{{useStatus==1}}">
+    <view class='used'>
+    已使用
+    </view>
+  </view>  
+  <view class='usedBox' wx:if="{{useStatus==2}}">
+    <view class='used'>
+    已过期
+    </view>
+  </view> 
+  <view class='circle circle-left'></view>
+  <view class='circle circle-right'></view>
+  <view class='qrcode-lg' hidden='{{!qrcodeLgShow}}'>
+    <image src="{{iconBaseUrl}}/qrcode-lg.jpg" />
+    <view class='close' bindtap='hideQrcodeLg'>
+      <image src="{{iconBaseUrl}}/close.jpg" />
+    </view>
+  </view>
+</view>
+<view class='coupondetail-con1'>
+  <view class='coupondetail-con1-head'>
+    <image src="{{iconBaseUrl}}/coupondetail-icon1.png" />
+    使用规则
+  </view>
+  <view class='coupondetail-con1-foot'>
+    {{useRule}}
+  </view>
+</view>
+<view class='coupondetail-con2'>
+  <view class='coupondetail-con2-head'>
+    <image src="{{iconBaseUrl}}/coupondetail-icon2.png" />
+    使用商户
+  </view>
+  <view class='coupondetail-con2-foot'>
+    <view class='coupondetail-con2-foot-item' wx:for="{{storeList}}" wx:key="{{index}}">● {{item.storeName}}</view>
+  </view>
+</view>
+<view class='coupondetail-con3'>
+  <view class='coupondetail-con3-head'>
+    <image src="{{iconBaseUrl}}/coupondetail-icon3.png" />
+    优惠券核销
+  </view>
+  <view class='coupondetail-con3-foot'>
+    <view class='coupondetail-con3-foot-head'>商家账号</view>
+    <input type='text' class='coupondetail-con3-foot-con' value='{{loginId}}' bindinput='changeLoginId' />
+  </view>
+</view>
+<view class='check' wx:if="{{useStatus==0}}" bindtap='check'>核销</view>
+<view class='check-gray' wx:if="{{useStatus!=0}}" bindtap='check'>核销</view>

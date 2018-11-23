@@ -1,0 +1,48 @@
+<!--pages/marketguide/marketguide.wxml-->
+<view class='marketguide-head'>
+  <view class='marketguide-headLeft'>
+    <image src="{{iconBaseUrl}}/market-guide-icon1.png" />
+    <input type='text' placeholder='搜索商户名' bindfocus="linkToSearch" />
+  </view>
+  <view class='marketguide-headMid' bindtap='changeFloorShow'>
+    {{floorText}}
+    <view class="triangle_down {{floorShow ? 'rotate' : ''}}"></view>
+  </view>
+  <view class='marketguide-headRight' bindtap='changeCategoryShow'>
+    {{categoryText}}
+    <view class="triangle_down {{categoryShow ? 'rotate' : ''}}"></view>
+  </view>
+  <view class='mask mask-floor' hidden='{{!floorShow}}'>
+    <view class='floors'>
+      <view class='floor' data-floorId='' bindtap='changeFloor' data-idx="all">全部楼层</view>
+      <view class='floor' wx:for="{{floorList}}" wx:key="{{index}}" data-floorid='{{item.id}}' data-idx="{{index}}" bindtap='changeFloor'>{{item.floor}}楼</view>
+    </view>
+  </view>
+  <scroll-view scroll-y style="max-height: 1120rpx;" class='mask mask-category' hidden='{{!categoryShow}}'>
+    <view class='floors'>
+      <view class='floor' data-categoryId='' bindtap='changeCategory' data-idx="all">全部分类</view>
+      <view class='floor' wx:for="{{categoryList}}" wx:key="{{index}}" data-categoryid='{{item.id}}' data-idx="{{index}}"  bindtap='changeCategory'>{{item.name}}</view>
+    </view>
+  </scroll-view>
+</view>
+<view class='marketguide-con'>
+  <view class='follow' hidden='{{shopList.length == 0}}'>
+    <view class='follow-item' wx:for="{{shopList}}" wx:key="{{index}}">
+      <view class='follow-item-left'>
+        <image src="{{imgBaseUrl}}{{item.logoImgPath}}" />
+      </view>
+      <view class='follow-item-mid'>
+        <view class='follow-item-mid-title'>{{item.storeName}}</view>
+        <view class='follow-item-mid-address'>
+          <image src="{{iconBaseUrl}}/follow2.jpg" />
+          F{{item.floor}}
+        </view>
+      </view>
+      <form class="follow-item-form" data-storeid="{{item.id}}" bindsubmit='linkToDetail' report-submit='true'>
+        <button form-type="submit" type="default" size="mini"></button>
+      </form>
+    </view>
+  </view>
+  <view class='no-content' hidden='{{shopList.length != 0}}'>暂无商户</view>
+</view>
+

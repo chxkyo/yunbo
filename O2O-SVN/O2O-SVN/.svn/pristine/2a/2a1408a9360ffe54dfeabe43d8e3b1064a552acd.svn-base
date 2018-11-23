@@ -1,0 +1,94 @@
+/* pages/mysignin/mysignin.wxss */
+page{
+  background: #f5f5f5;
+}
+.mysignin-head{
+  width: 100%;
+  margin-bottom: 10rpx;
+}
+.mysignin-head image{
+  width: 100%;
+  height: 340rpx;
+}
+.calendar{
+  background: #fff;
+  padding-top: 25rpx;
+}
+.board{
+  font-size: 30rpx;
+  color: #000;
+}
+.mysignin-text{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40rpx 0;
+}
+.line{
+  width: 100rpx;
+  height: 0;
+  border-bottom: 1rpx solid #d2d0d0;
+}
+.text{
+  font-size: 22rpx;
+  color: #b7b6b6;
+  margin: 0 20rpx;
+}
+.mysignin-btn{
+  width: 95%;
+  margin: 0 auto;
+  height: 100rpx;
+  background: #e73127;
+  color: #fff;
+  font-size: 32rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100rpx;
+}
+
+.cover{
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.success{
+  width: 630rpx;
+  height: 265rpx;
+  padding: 10rpx 20rpx;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 10rpx;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: centere;
+}
+.success-left{
+  width: 334rpx;
+  height: 252rpx;
+  margin-right: 60rpx;
+}
+.success-left image{
+  width: 100%;
+  height: 100%;
+}
+.success-right{
+  font-size: 26rpx;
+  line-height: 265rpx;
+  color: #999;
+}
+.success-right text{
+  font-size: 34rpx;
+  color: #e73127;
+  font-weight: bold;
+}

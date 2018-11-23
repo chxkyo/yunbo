@@ -1,0 +1,9 @@
+<!--pages/pointsmall/convertsucc/convertsucc.wxml-->
+<view class='convertsucc'>
+  <view class='convertsucc-head'>
+    <image src="{{iconBaseUrl}}/addFeedBackSucc.png" />
+    <view class='convertsucc-head-title'>兑换成功</view>
+    <view class='convertsucc-head-text'>工作人员会第一时间邮寄您的商品，请耐心等候</view>
+  </view>
+  <navigator class='convertsucc-foot' url='/pages/index/index' hover-class='none'>返回首页</navigator>
+</view>

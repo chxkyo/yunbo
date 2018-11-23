@@ -1,0 +1,13 @@
+<!--pages/loginbefore/loginbefore.wxml-->
+<view class='loginbefore'>
+  <form bindsubmit='getFormId' report-submit='true'>
+    <button form-type="submit" type="default" size="mini">
+      <button class='loginbefore-btn1' open-type="getPhoneNumber"  bindgetphonenumber="getPhoneNumber">
+      微信绑定的手机号登陆     
+      </button>
+    </button>
+  </form>
+ <navigator url="/pages/login/login" hover-class='none' class='loginbefore-btn2'>
+    其他手机号登陆
+  </navigator>
+</view>

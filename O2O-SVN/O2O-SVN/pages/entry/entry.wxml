@@ -1,0 +1,11 @@
+<!--入口页面-->
+<view class='entry'>
+  <view class='entry-head'>
+    <view class='entry-head-text'>乐平嘉里购物中心</view>
+    <view>欢迎您!</view>
+  </view>
+  <view class='entry-foot'>
+    <navigator class='login entry-foot-item' url='/pages/loginbefore/loginbefore'>会员登录</navigator>
+    <navigator class='register entry-foot-item' url='/pages/register/register?openid={{openid}}'>会员注册</navigator>
+  </view>
+</view>

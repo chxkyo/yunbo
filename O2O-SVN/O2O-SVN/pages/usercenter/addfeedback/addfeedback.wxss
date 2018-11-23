@@ -1,0 +1,28 @@
+/* pages/addfeedback/addfeedback.wxss */
+page{
+  background: #f5f5f5;
+}
+textarea{
+  width: 100%;
+  height: 420rpx;
+  padding: 30rpx;
+  background: #fff;
+  font-size: 30rpx;
+  box-sizing: border-box;
+}
+.tips{
+  font-size: 30rpx;
+  padding: 30rpx;
+  text-align: right;
+}
+.submit{
+  width: 90%;
+  height: 100rpx;
+  border-radius: 100rpx;
+  margin: 0 auto;
+  background: #e71a28;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

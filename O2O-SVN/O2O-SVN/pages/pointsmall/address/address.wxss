@@ -1,0 +1,41 @@
+/* pages/pointsmall/address/address.wxss */
+page{
+  width: 100%;
+  height: 100vh;
+  background: #f5f5f5;
+}
+.address-head{
+  width: 100%;
+  background: #fff;
+}
+.address-headItem{
+  width: 100%;
+  padding: 30rpx;
+  box-sizing: border-box;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.address-headItem-left{
+  width: 30%;
+}
+.address-headItem-right{
+  flex: 1;
+}
+.address-headItem-right input{
+  text-align: right;
+}
+.address-foot{
+  width: 90%;
+  height: 100rpx;
+  background: #e73128;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 100rpx;
+  margin: 40rpx auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

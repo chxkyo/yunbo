@@ -1,5 +1,6 @@
 {
   "pages": [
+        "pages/pointsmall/pointsmall/pointsmall",
     "pages/usercenter/usercenter/usercenter",    
     "pages/index/index",
     "pages/usercenter/mysignin/mysignin",
@@ -8,7 +9,6 @@
     "pages/coupon/cashcoupon/cashcoupon",
     "pages/usercenter/feedback/feedback",
     "pages/usercenter/mypoints/mypoints",
-    "pages/pointsmall/pointsmall/pointsmall",
     "pages/pointsmall/record/record",
     "pages/pointsmall/goodconvert/goodconvert",
     "pages/pointsmall/address/address",

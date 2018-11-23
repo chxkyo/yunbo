@@ -1,0 +1,48 @@
+<!--pages/mallactivity/activitydetail/activitydetail.wxml-->
+<view class='subscribedetail-head'>
+  <image src="{{imgBaseUrl}}{{activityDetail.imgPath}}" />
+</view>
+<view class='subscribedetail-title'>{{activityDetail.name}}</view>
+<view class='subscribedetail-time'>
+  <view class='subscribedetail-time-item'>
+    <view class='subscribedetail-time-itemLeft'>
+      <image src="{{iconBaseUrl}}/subscribedetail-icon1.jpg" />
+      <text>有效期</text>
+    </view>
+    <view class='subscribedetail-time-itemRight'>
+      {{actTimeStart}} 至 {{actTimeEnd}}
+    </view>
+  </view>
+  <view class='subscribedetail-time-item'>
+    <view class='subscribedetail-time-itemLeft'>
+      <image src="{{iconBaseUrl}}/subscribedetail-icon1.jpg" />
+      <text>报名有效期</text>
+    </view>
+    <view class='subscribedetail-time-itemRight'>
+      {{enrollTimeStart}} 至 {{enrollTimeEnd}}
+    </view>
+  </view>
+</view>
+<view class='subscribedetail-con'>
+  <view class='subscribedetail-con-head'>
+    <image src="{{iconBaseUrl}}/subscribedetail-icon2.jpg" />
+    <text>活动须知</text>
+  </view>
+  <view class='subscribedetail-con-foot'>
+    {{activityDetail.actNote}}
+  </view>
+</view>
+<view class='subscribedetail-con'>
+  <view class='subscribedetail-con-head'>
+    <image src="{{iconBaseUrl}}/subscribedetail-icon3.jpg" />
+    <text>活动描述</text>
+  </view>
+  <view class='subscribedetail-con-foot'>
+    {{activityDetail.actDetail}}
+  </view>
+</view>
+<view class='subscribedetail-foot'>
+  <view class='subscribedetail-foot-left'>当前报名人数：{{enrollCount}}</view>
+  <view class='subscribedetail-foot-right gray' hidden="{{btnAble}}">已报名</view>
+  <view class='subscribedetail-foot-right' bindtap='apply' hidden="{{!btnAble}}">报名</view>
+</view>

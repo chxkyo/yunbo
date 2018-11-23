@@ -1,0 +1,12 @@
+<!--登录页-->
+<view class='register'>
+  <view class='register-head'></view>
+  <view class='register-con'>
+    <view class='register-con-item'>
+      <view class='register-con-item-top'>
+        <input type='number' value='{{telephone}}' disabled />
+      </view>
+    </view>
+  </view>
+  <button class='register-foot' bindtap='login' style='{{loginAble ? "background:#e73128" : "background:#ccc"}}'>提交</button>
+</view>

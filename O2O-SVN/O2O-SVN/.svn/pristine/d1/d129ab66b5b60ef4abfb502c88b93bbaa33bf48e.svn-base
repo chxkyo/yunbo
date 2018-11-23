@@ -1,0 +1,85 @@
+/* pages/selfhelppoints/selfhelppoints.wxss */
+page{
+  background: #f5f5f5;
+}
+.no-content{
+  color: #999999;
+  font-size: 30rpx;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.feedback-head{
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.feedback-head-item{
+  height: 96rpx;
+  font-size: 28rpx;
+  line-height: 96rpx;
+  color: #999;
+  box-sizing: border-box;
+}
+.active{
+  color: #000;
+  border-bottom: 4rpx solid #e71a28;
+}
+.feedback-conBox{
+  width: 100%;
+  height: 1070rpx;
+  padding-bottom: 30rpx;
+  overflow-y: auto;
+}
+.selfhelppoints-con{
+  width: 100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.addFeedback{
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 79rpx;
+  text-align: center;
+  background: #e71a28;
+  color: #fff;
+  font-size: 60rpx;
+  border-radius: 100%;
+  position: fixed;
+  top: 70%;
+  right: 30rpx;
+}
+.selfhelppoints-item{
+  padding: 30rpx;
+  box-sizing: border-box;
+  background: #fff;
+  margin-top: 30rpx;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.selfhelppoints-itemLeft-top{
+  font-size: 32rpx;
+  color: #000;
+  margin-bottom: 40rpx;
+}
+.selfhelppoints-itemLeft-bot{
+  font-size: 24rpx;
+  color: #999;
+}
+.selfhelppoints-itemRight{
+  font-size: 24rpx;
+  color: #000;
+}
+.selfhelppoints-itemRight text{
+  font-size: 32rpx;
+  color: #e71a28;
+  margin-right: 10rpx;
+  font-weight: bold;
+}

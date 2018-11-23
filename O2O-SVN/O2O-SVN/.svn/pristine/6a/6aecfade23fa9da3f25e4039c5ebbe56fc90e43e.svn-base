@@ -1,0 +1,31 @@
+<!--pages/addselfhelppoints/addselfhelppoints.wxml-->
+<view class='points'>
+  <view class='points-head'>填写消费信息</view>
+  <view class='points-items'>
+    <view class='points-item'>
+      <view class='points-itemLeft'>消费日期</view>
+      <view class="section points-itemRight">
+        <picker mode="date" value="{{date}}" start="1970-01-01" end="2030-12-12" bindchange="bindDateChange">
+          <view class="picker">
+            {{date}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='points-item'>
+      <view class='points-itemLeft'>消费门店</view>
+      <input class='points-itemRight' placeholder='请填写消费门店' placeholder-class='grayColor' bindinput='changeShopName' value="{{shopName}}" />
+    </view>
+    <view class='points-item'>
+      <view class='points-itemLeft'>消费金额</view>
+      <input class='points-itemRight' type="number" maxlength='10' placeholder='请填写消费金额' placeholder-class='grayColor' bindinput='changeFee' value="{{fee}}" />
+    </view>
+  </view>
+  <view class='upload-tickets' bindtap='uploadTicket'>上传消费小票</view>
+  <view class='upload-tips'>Tips:小票清晰完整才能顺利通过审核获得积分哦</view>
+  <view class='upload-img'>
+    <image hidden="{{imgUrl == ''}}" src="{{imgBaseUrl}}{{imgUrl}}" />
+  </view>
+  <view class='upload-check' bindtap='submit'>提交审核</view>
+</view>
+<view class='end-tips'>工作人员会在7个工作日内受理</view>

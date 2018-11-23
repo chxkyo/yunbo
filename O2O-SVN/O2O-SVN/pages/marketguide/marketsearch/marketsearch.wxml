@@ -1,0 +1,25 @@
+<!--pages/marketsearch/marketsearch.wxml-->
+<view class='marketguide-head'>
+  <view class='marketguide-headLeft'>
+    <image src="{{iconBaseUrl}}/market-guide-icon1.png" />
+    <input type='text' placeholder='搜索商户名' bindinput='changeStoreName' />
+  </view>
+  <view class='marketsearch-right' bindtap='search'>搜索</view>
+</view>
+<view class='marketguide-con'>
+  <view class='follow' hidden='{{shopList.length == 0}}'>
+    <navigator class='follow-item' url='/pages/marketguide/marketdetail/marketdetail?storeId={{item.id}}' hover-class='none' wx:for="{{shopList}}" wx:key="{{index}}">
+      <view class='follow-item-left'>
+        <image src="{{imgBaseUrl}}{{item.logoImgPath}}" />
+      </view>
+      <view class='follow-item-mid'>
+        <view class='follow-item-mid-title'>{{item.storeName}}</view>
+        <view class='follow-item-mid-address'>
+          <image src="{{iconBaseUrl}}/follow2.jpg" />
+          F1-SHOP-001
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view class='no-content' hidden='{{shopList.length != 0}}'>暂无商户</view>
+</view>

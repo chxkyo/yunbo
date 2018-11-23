@@ -1,0 +1,7 @@
+<!--pages/usercenter/addfeedbacksucc/addfeedbacksucc.wxml-->
+<view class='addFeedBackSucc'>
+  <image src="{{iconBaseUrl}}/addFeedBackSucc.png" />
+  <view class='addFeedBackSucc-text1'>反馈成功</view>
+  <view class='addFeedBackSucc-text2'>工作人员会在第一时间审核您的反馈内容</view>
+  <navigator class='convertsucc-foot' url='/pages/usercenter/feedback/feedback' hover-class='none'>返回</navigator>
+</view>

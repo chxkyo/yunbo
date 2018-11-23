@@ -98,7 +98,7 @@
             </view>
           </view>
         </view>
-        <view class="print-bottom-wrap">
+        <view class="print-bottom-wrap" wx:if="{{backFee.length>0}}">
           <view class="print-detail-item">
             <view>
               <text>返款统计</text>
@@ -109,18 +109,18 @@
               <text>总金额:{{backFee[0].totalAmount}}</text>
             </view>
           </view>
-          <view class="print-detail-item" hidden='{{backFee.length == 0}}'>
+          <view class="print-detail-item">
             <view>
               <text>返款金额:{{backFee[0].backFeeAmount}}</text>
             </view>
           </view>
-          <view class="print-detail-item"  hidden='{{backFee.length == 0}}'>
+          <view class="print-detail-item">
             <view>
               <text>未返款金额:{{backFee[0].unBackFeeAmount}}</text>
             </view>
           </view>
         </view>
-        <view class="print-bottom-wrap">
+        <view class="print-bottom-wrap" >
           <view class="print-detail-item">
             <view>
               <text>退款统计</text>
@@ -131,7 +131,7 @@
               <text>退款金额:{{refund.refundAmount}}</text>
             </view>
           </view>
-          <view class="print-detail-item" hidden='{{backFee.length == 0}}'>
+          <view class="print-detail-item">
             <view>
               <text>商品退款金额:{{refund.refundProductAmount}}</text>
             </view>

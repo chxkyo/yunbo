@@ -46,33 +46,42 @@ Page({
         points: options.points
       })
     }
-    app.fetch("product/productDetail.htm", { unitId: wx.getStorageSync('unitId'), id: this.id }).then(res => {
-      wx.hideLoading();
+    app.fetch("user/userCenter.htm", {}).then(res => {
       if (res.data.success) {
-        wx.hideLoading();
-        if (this.data.cardCodeType == '01') {
-          this.data.exchangePoint = res.data.data.product.limit00Point;
-        } else if (this.data.cardCodeType == '02') {
-          this.data.exchangePoint = res.data.data.product.limit66Point;
-        } else {
-          this.data.exchangePoint = res.data.data.product.limit88Point;
-        }
-        let allPoint = this.data.exchangePoint * this.data.num;
         this.setData({
-          productName: res.data.data.product.productName,
-          productImgPath: res.data.data.product.productImgPath,
-          productDetail: res.data.data.product.productDetail,
-          productValue: res.data.data.product.productValue,
-          exchangePoint: this.data.exchangePoint,
-          exchangeEndTime: res.data.data.product.exchangeEndTime,
-          leftCount: res.data.data.product.leftCount,
-          product: res.data.data.product,
-          receiveType: res.data.data.product.receiveType,
-          receiveSelfAddress: res.data.data.product.receiveSelfAddress,
-          allPoint: allPoint
-        });
+          cardCodeType: res.data.data.user.cardTypeCode,
+          points: res.data.data.user.points
+        })
+        app.fetch("product/productDetail.htm", { unitId: wx.getStorageSync('unitId'), id: this.id }).then(res => {
+          wx.hideLoading();
+          if (res.data.success) {
+            wx.hideLoading();
+            if (this.data.cardCodeType == '01') {
+              this.data.exchangePoint = res.data.data.product.limit00Point;
+            } else if (this.data.cardCodeType == '02') {
+              this.data.exchangePoint = res.data.data.product.limit66Point;
+            } else {
+              this.data.exchangePoint = res.data.data.product.limit88Point;
+            }
+            let allPoint = this.data.exchangePoint * this.data.num;
+            this.setData({
+              productName: res.data.data.product.productName,
+              productImgPath: res.data.data.product.productImgPath,
+              productDetail: res.data.data.product.productDetail,
+              productValue: res.data.data.product.productValue,
+              exchangePoint: this.data.exchangePoint,
+              exchangeEndTime: res.data.data.product.exchangeEndTime,
+              leftCount: res.data.data.product.leftCount,
+              product: res.data.data.product,
+              receiveType: res.data.data.product.receiveType,
+              receiveSelfAddress: res.data.data.product.receiveSelfAddress,
+              allPoint: allPoint
+            });
+          }
+        })
       }
-    })
+    });
+
     app.fetch("user/toChangeAddress.do", {}).then(res => {
       if (res.data.success) {
         this.setData({
@@ -80,14 +89,6 @@ Page({
         })
       }
     })
-    app.fetch("user/userCenter.htm", {}).then(res => {
-      if (res.data.success) {
-        this.setData({
-          cardCodeType: res.data.data.user.cardTypeCode,
-          points: res.data.data.user.points
-        })
-      }
-    });
   },
   //  点击时间组件确定事件  
   bindTimeChange: function (e) {

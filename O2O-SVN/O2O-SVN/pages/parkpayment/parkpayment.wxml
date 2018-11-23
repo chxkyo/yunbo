@@ -1,0 +1,35 @@
+<!--pages/parkpayment/parkpayment.wxml-->
+<view class='park-head'>
+  <picker class='park-head-left' bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker">
+      {{array[index]}}
+      <view class='triangle_down'></view>
+    </view>
+  </picker>
+  <input class='park-head-mid' type='text' bindinput='changeSelectBtnAble' value='{{plateNumber}}' />
+  <view class='park-head-right {{selectBtnAble ? "redBg" : ""}}' bindtap='query'>查询</view>
+</view>
+<view class='park-mid' hidden='{{!resultShow}}'>
+  <view class='park-mid-head'>详情</view>
+  <view class='park-mid-item'>
+    <view class='park-mid-itemLeft'>车牌号</view>
+    <view class='park-mid-itemRight'>A8KA50</view>
+  </view>
+  <view class='park-mid-item'>
+    <view class='park-mid-itemLeft'>开始停车时间</view>
+    <view class='park-mid-itemRight'>2017年4月13号 09:52:00</view>
+  </view>
+  <view class='park-mid-item'>
+    <view class='park-mid-itemLeft'>停车时长</view>
+    <view class='park-mid-itemRight'>2小时16分钟</view>
+  </view>
+  <view class='park-mid-item'>
+    <view class='park-mid-itemLeft'>停车费用</view>
+    <view class='park-mid-itemRight redColor'>17.00元</view>
+  </view>
+</view>
+<view class='park-foot' hidden='{{!resultShow}}'>确认支付￥17.00</view>
+<view class='tips' hidden='{{!tipsShow}}'>
+  <image src="{{iconBaseUrl}}/park_icon_tips.png" />
+  {{tipsText}}
+</view>

@@ -1,0 +1,50 @@
+<!--pages/mallactivity/luckyrotate/luckyrotate.wxml-->
+<view class='luckyrotate-head'>
+  <view class='luckyrotate-headItem'>
+    <image src="/images/luckyrotate-icon1.png" />
+    <view class='luckyrotate-headItem-tel'>189****9510 抽中</view>
+    <view class='luckyrotate-headItem-award'>钢笔</view>
+  </view>
+</view>
+<view class='luckyrotate-con'>
+  <view class='luckyrotate-con-top'>
+    <image src="/images/luckyrotate1.jpg" />
+  </view>
+  <!-- <view class='luckyrotate-con-mid'>
+    <image src="/images/luckyrotate2.jpg" />
+  </view> -->
+  <view class="plate-wrap-box">
+    <view class="plate-border" animation="{{ aniData }}">
+      <!-- 转盘以及文字 -->
+      <view class="plate-wrap">
+        <view class="plate-box" wx:for="{{ lottery }}" wx:key="" style="top:-{{ (lottery.length - 6)<=2?(36+4*(lottery.length - 6)):50 }}rpx;transform-origin: 50% {{ (lottery.length - 6) <=2?(256+4*(lottery.length - 6)):270 }}rpx;border-top: {{ (lottery.length - 6) <=2?(256+4*(lottery.length - 6)):270 }}rpx solid #{{ index % 2==0?'fe7576':'fe6869' }};transform:translate(-50%,0) rotate({{ 360 / lottery.length * ( index )}}deg);border-left: {{ 440 / lottery.length * 2 }}rpx solid transparent;border-right: {{ 440 / lottery.length * 2 }}rpx solid transparent;">
+          <text class="text-box" style="color:#fff;transform:translate(-50%,0);">{{ item }}</text>
+        </view>
+      </view>
+      <!-- 边框的小灯泡 -->
+      <view class="plate-wrap plate-light">
+        <view class="plate-box" wx:for="{{ lottery }}" wx:key="" style="top:-{{ (lottery.length - 6)<=2?(44+4*(lottery.length - 6)):60 }}rpx; transform-origin: 50% {{ (lottery.length - 6) <=2?(294+4*(lottery.length - 6)):310 }}rpx;border-top: {{ (lottery.length - 6) <=2?(294+4*(lottery.length - 6)):310 }}rpx solid transparent;transform:translate(-50%,0) rotate({{ 360 / lottery.length * ( index )}}deg);border-left: {{ 500 / lottery.length * 2 }}rpx solid transparent;border-right: {{ 500 / lottery.length * 2 }}rpx solid transparent;">
+          <view class="bulb"></view>
+        </view>
+      </view>
+    </view>
+    <view class="plate-btn-wrap" bindtap="startRollTap">
+      <view class="plate-btn-box">
+        <view class="plate-inner-btn">
+          <text>GO</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='luckyrotate-con-bot'>
+    我的奖品
+  </view>
+</view>
+<view class='mask' hidden='{{!tipsShow}}'>
+  <view class='tips'>
+    <view class='tips-head'>恭喜您!</view>
+    <view class='tips-award'>您抽中 <text>钢笔</text></view>
+    <view class='tips-text'>您可以至 会员中心-我的奖品 查看</view>
+    <view class='close'>X</view>
+  </view>
+</view>

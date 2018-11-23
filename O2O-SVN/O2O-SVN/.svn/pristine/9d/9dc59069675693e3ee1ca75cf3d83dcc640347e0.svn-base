@@ -1,0 +1,20 @@
+<!--pages/pointsmall/record/record.wxml-->
+<view hidden="{{list.length == 0}}">
+  <block wx:for="{{list}}" wx:key="{{index}}">
+    <navigator hover-class='none' url="/pages/pointsmall/recorddetail/recorddetail?productImgPath={{item.productImgPath}}&productName={{item.productName}}&exchangePoints={{item.exchangePoints}}&exchangeCount={{item.exchangeCount}}&receiveType={{item.receiveType}}&expressCompany={{item.expressCompany}}&expressNo={{item.expressNo}}&receiveStatus={{item.receiveStatus}}&receiveAddress={{item.receiveAddress}}">
+      <view class='record'>
+        <view class='record-left'>
+          <image src="{{item.productImgPath}}" />
+        </view>
+        <view class='record-mid'>
+          <view class='record-mid-title'>{{item.productName}}</view>
+          <view class='record-mid-points'>{{item.exchangePoints}}积分</view>
+          <view class='record-mid-num'>数量：{{item.exchangeCount}}</view>
+        </view>
+        <view class='record-right' wx:if="{{item.receiveStatus == 1}}">已发货</view>
+        <view class='record-right' wx:elif="{{item.receiveStatus == 0}}">未发货</view>
+      </view>
+    </navigator>
+  </block>
+</view>
+<view class='no-content' hidden='{{list.length != 0}}'>暂无兑换记录</view>
