@@ -1,5 +1,5 @@
 <template>
-	<div class="player-olympic" :class="{'player-olympic-sm-screen': !fullScreen}" ref="playerTemp">
+	<div class="player-olympic player-olympic-sm-screen"  ref="playerTemp">
 	</div>
 </template>
 
@@ -22,7 +22,7 @@
 			}
 		},
 		mounted: function() {
-			this.createDemoPlayer(this.videoList[0].source, this.videoList[0].CoverURL);
+			this.createDemoPlayer('http://218.92.216.69/live/c46894839.m3u8', this.videoList[0].CoverURL);
 			this.playingVideo = videoList[0];
 			this.videoLoading = false;
 		},
@@ -49,7 +49,7 @@
 					autoplay: true,
 					language: "en-us",
 					source: source,
-					isLive: false,
+					isLive: true,
 					cover: cover,
 					language: 'zh-cn',
 					components: [{
@@ -117,7 +117,6 @@
 <style lang="scss">
    	.player-olympic {
         background: #fff;
-        margin-top: 62px;
         position: relative;
         background-color: #373d41;
         .prism-progress-cursor {
@@ -217,5 +216,4 @@
             }
         }
     }
-	.prism-player .prism-setting-list .prism-setting-item .setting-content .setting-title{float: left;}
 </style>

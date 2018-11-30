@@ -4,50 +4,50 @@ const app = getApp()
 
 Page({
   data: {
-    today:'',
-    dailySale:0,
-    monthSale:0,
-    weekSale:0,
-    dailySaleArr:[],
+    today: '',
+    dailySale: 0,
+    monthSale: 0,
+    weekSale: 0,
+    dailySaleArr: [],
     monthSaleArr: [],
     weekSaleArr: [],
-    hasLogined:false,
+    hasLogined: false,
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    dayopendata:{
+    dayopendata: {
       lazyLoad: true,
-      disableTouch: true 
+      disableTouch: true
     },
-    weekopendata:{
-      pie:{
-        lazyLoad: true,
-        disableTouch: true 
-      },
-      bar:{
-        lazyLoad: true,
-        disableTouch: true 
-      }
-    },
-    monthopendata:{
+    weekopendata: {
       pie: {
         lazyLoad: true,
-        disableTouch:true
+        disableTouch: true
       },
       bar: {
         lazyLoad: true,
         disableTouch: true
       }
     },
-    totalAmount:'',
-    totalCount:'',
-    peopleNumber:'',
-    avgAmount:'',
-    shopName:'',
-    colorArr:[],
-    dailyColorArr:[],
-    weekColorArr:[],
-    monthColorArr:[]
+    monthopendata: {
+      pie: {
+        lazyLoad: true,
+        disableTouch: true
+      },
+      bar: {
+        lazyLoad: true,
+        disableTouch: true
+      }
+    },
+    totalAmount: '',
+    totalCount: '',
+    peopleNumber: '',
+    avgAmount: '',
+    shopName: '',
+    colorArr: [],
+    dailyColorArr: [],
+    weekColorArr: [],
+    monthColorArr: []
 
   },
   onLoad: function () {
@@ -65,9 +65,9 @@ Page({
     this.ecComponent4 = this.selectComponent('#mychart-dom-multi-bar2');
     this.ecComponent5 = this.selectComponent('#mychart-dom-multi-pie3');
     wx.showLoading({ title: '拼命加载中...' });
-    app.fetch('getPayment', {}, 'POST').then(res=>{
+    app.fetch('getPayment', {}, 'POST').then(res => {
       this.setData({
-        colorArr:res.data.payment
+        colorArr: res.data.payment
       })
       app.fetch('data', { deptId: '', shopId: '' }, 'POST').then(res => {
         wx.hideLoading();
@@ -82,13 +82,13 @@ Page({
             val.rate = parseFloat(val.rate * 100).toFixed(2);
           });
           this.setData({
-            totalAmount: res.data.totalAmount,
-            totalCount: res.data.totalCount,
-            peopleNumber: res.data.peopleNumber,
-            avgAmount: res.data.avgAmount,
-            dailySale: res.data.dailyData.dailySale,
-            monthSale: res.data.monthData.monthSale,
-            weekSale: res.data.weekData.weekSale,
+            totalAmount: app.util.spli(String(res.data.totalAmount)),
+            totalCount: app.util.spli(String(res.data.totalCount)),
+            peopleNumber: app.util.spli(String(res.data.peopleNumber)),
+            avgAmount: app.util.spli(String(res.data.avgAmount)),
+            dailySale: app.util.spli(String(res.data.dailyData.dailySale)),
+            monthSale: app.util.spli(String(res.data.monthData.monthSale)),
+            weekSale: app.util.spli(String(res.data.weekData.weekSale)),
             dailySaleArr: res.data.dailyData.payTypeList,
             weekSaleArr: res.data.weekData.payTypeList,
             monthSaleArr: res.data.monthData.payTypeList
@@ -111,7 +111,7 @@ Page({
               width: width,
               height: height
             });
-            chart.setOption(getBarOption(getBarDate(res.data.weekData.weekDetail), getBarSale(res.data.weekData.weekDetail), getBarSaleMax(res.data.weekData.weekDetail)));
+            chart.setOption(getBarOption(getBarDate(res.data.weekData.weekDetail), getBarSale(res.data.weekData.weekDetail), getBarSaleMax(res.data.weekData.weekDetail), 20));
             this.week_bar_chart = chart;
             return chart;
           });
@@ -132,7 +132,7 @@ Page({
               width: width,
               height: height
             });
-            chart.setOption(getBarOption(getBarDate(res.data.monthData.monthDetail), getBarSale(res.data.monthData.monthDetail), getBarSaleMax(res.data.monthData.monthDetail)));
+            chart.setOption(getBarOption(getBarDate(res.data.monthData.monthDetail), getBarSale(res.data.monthData.monthDetail), getBarSaleMax(res.data.monthData.monthDetail), 10));
             this.month_bar_chart = chart;
             return chart;
           });
@@ -159,7 +159,7 @@ Page({
     })
 
   },
-  getUserInfo: function(e) {
+  getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
@@ -168,18 +168,18 @@ Page({
     })
   }
 })
-function getDayOption(colorArr,data){
+function getDayOption(colorArr, data) {
   var option = {
     backgroundColor: "#ffffff",
     color: colorArr,
-    tooltip : {
-      show: true,  
+    tooltip: {
+      show: true,
       trigger: 'item',
       formatter: "{b} : {d}%",
-      textStyle:{
-        color:"#fff"
+      textStyle: {
+        color: "#fff"
       },
-      position:"bottom"
+      position: 'bottom'
     },
     series: [{
       label: {
@@ -190,7 +190,7 @@ function getDayOption(colorArr,data){
       type: 'pie',
       center: ['50%', '50%'],
       radius: ["35%", "50%"],
-      
+
       data: data,
       itemStyle: {
         emphasis: {
@@ -203,13 +203,13 @@ function getDayOption(colorArr,data){
   };
   return option;
 }
-function getBarOption(date, saleArr, saleMaxArr) {
+function getBarOption(date, saleArr, saleMaxArr, barWidth) {
   var option = {
     //--------------   提示框 -----------------
     tooltip: {
       show: true,                  //---是否显示提示框,默认为true
       trigger: 'item',             //---数据项图形触发
-      position:"top",
+      position: "top",
       padding: 5,
       textStyle: {                 //---提示框内容样式
         color: "#fff",
@@ -221,8 +221,8 @@ function getBarOption(date, saleArr, saleMaxArr) {
       position: 'bottom',          //---x轴位置
       offset: 0,                   //---x轴相对于默认位置的偏移
       type: 'category',            //---轴类型，默认'category'             //---坐标轴名称与轴线之间的距离
-      axisLine:{
-        show:false
+      axisLine: {
+        show: false
       },
       axisTick: {
         show: false
@@ -232,7 +232,7 @@ function getBarOption(date, saleArr, saleMaxArr) {
         inside: false,               //---是否朝内
         rotate: 0,                   //---旋转角度   
         margin: 5,                  //---刻度标签与轴线之间的距离
-        color:'#b3b3b3',
+        color: '#b3b3b3',
       },
       data: date,//内容
     },
@@ -251,9 +251,9 @@ function getBarOption(date, saleArr, saleMaxArr) {
           }
         },
         silent: true,
-        barWidth: 20,
         barGap: '-100%', // Make series be overlap
-        data: saleMaxArr
+        data: saleMaxArr,
+        barWidth: barWidth
       },
       {
         name: '销量',             //---系列名称
@@ -272,36 +272,36 @@ function getBarOption(date, saleArr, saleMaxArr) {
           )
         },
         data: saleArr,
-        barWidth: 20,
+        barWidth: barWidth,
         barMinHeight: 10
       }
     ]
   };
   return option;
 }
-function getColorArr(arr,colorArr){
-  let dailyColorArr = []; 
+function getColorArr(arr, colorArr) {
+  let dailyColorArr = [];
   arr.forEach(function (value, index) {
     let colorIndex;
     colorIndex = colorArr.findIndex(function (colorValue, colorIndex) {
       return colorValue.code == value.payType
     })
-    if (colorIndex !== -1){
+    if (colorIndex !== -1) {
       dailyColorArr.push('#' + colorArr[colorIndex].staticsColor);
     }
   })
   return dailyColorArr;
 }
-function getData(arr){
+function getData(arr) {
   let dataArr = [];
-  arr.forEach(function(value,index){
-    dataArr.push({ name: value.payName, value:value.rate});
+  arr.forEach(function (value, index) {
+    dataArr.push({ name: value.payName, value: value.rate });
   })
   return dataArr;
 }
-function getBarDate(arr){
+function getBarDate(arr) {
   let date = [];
-  arr.forEach((value,index)=>{
+  arr.forEach((value, index) => {
     date.push(value.dTime);
   })
   return date

@@ -12,19 +12,19 @@
     </view>
     <view class="today-info-wrap">
       <view class="today-item confirm-btn">
-        <view class="today-item-num"><text>{{totalAmount}}</text></view>
+        <view class="today-item-num el"><text>{{totalAmount}}</text></view>
         <view><text>今日销售额</text></view>
       </view>
       <view class="today-item confirm-btn">
-        <view class="today-item-num"><text>{{totalCount}}</text></view>
+        <view class="today-item-num el"><text>{{totalCount}}</text></view>
         <view><text>交易笔数</text></view>
       </view>
       <view class="today-item confirm-btn">
-        <view class="today-item-num"><text>{{peopleNumber}}</text></view>
+        <view class="today-item-num el"><text>{{peopleNumber}}</text></view>
         <view><text>到店人数</text></view>
       </view>
       <view class="today-item confirm-btn">
-        <view class="today-item-num"><text>{{avgAmount}}</text></view>
+        <view class="today-item-num el"><text>{{avgAmount}}</text></view>
         <view><text>客单价</text></view>
       </view>
     </view>

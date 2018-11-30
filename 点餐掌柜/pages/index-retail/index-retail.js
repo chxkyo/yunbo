@@ -82,13 +82,13 @@ Page({
             val.rate = parseFloat(val.rate * 100).toFixed(2);
           });
           this.setData({
-            totalAmount: res.data.totalAmount,
-            totalCount: res.data.totalCount,
-            peopleNumber: res.data.peopleNumber,
-            avgAmount: res.data.avgAmount,
-            dailySale: res.data.dailyData.dailySale,
-            monthSale: res.data.monthData.monthSale,
-            weekSale: res.data.weekData.weekSale,
+            totalAmount: app.util.spli(String(res.data.totalAmount)),
+            totalCount: app.util.spli(String(res.data.totalCount)),
+            peopleNumber: app.util.spli(String(res.data.peopleNumber)),
+            avgAmount: app.util.spli(String(res.data.avgAmount)),
+            dailySale: app.util.spli(String(res.data.dailyData.dailySale)),
+            monthSale: app.util.spli(String(res.data.monthData.monthSale)),
+            weekSale: app.util.spli(String(res.data.weekData.weekSale)),
             dailySaleArr: res.data.dailyData.payTypeList,
             weekSaleArr: res.data.weekData.payTypeList,
             monthSaleArr: res.data.monthData.payTypeList
@@ -111,7 +111,7 @@ Page({
               width: width,
               height: height
             });
-            chart.setOption(getBarOption(getBarDate(res.data.weekData.weekDetail), getBarSale(res.data.weekData.weekDetail), getBarSaleMax(res.data.weekData.weekDetail)));
+            chart.setOption(getBarOption(getBarDate(res.data.weekData.weekDetail), getBarSale(res.data.weekData.weekDetail), getBarSaleMax(res.data.weekData.weekDetail),20));
             this.week_bar_chart = chart;
             return chart;
           });
@@ -132,7 +132,7 @@ Page({
               width: width,
               height: height
             });
-            chart.setOption(getBarOption(getBarDate(res.data.monthData.monthDetail), getBarSale(res.data.monthData.monthDetail), getBarSaleMax(res.data.monthData.monthDetail)));
+            chart.setOption(getBarOption(getBarDate(res.data.monthData.monthDetail), getBarSale(res.data.monthData.monthDetail), getBarSaleMax(res.data.monthData.monthDetail),10));
             this.month_bar_chart = chart;
             return chart;
           });
@@ -203,7 +203,7 @@ function getDayOption(colorArr, data) {
   };
   return option;
 }
-function getBarOption(date, saleArr, saleMaxArr) {
+function getBarOption(date, saleArr, saleMaxArr,barWidth) {
   var option = {
     //--------------   提示框 -----------------
     tooltip: {
@@ -253,7 +253,7 @@ function getBarOption(date, saleArr, saleMaxArr) {
         silent: true,
         barGap: '-100%', // Make series be overlap
         data: saleMaxArr,
-        barWidth: 20
+        barWidth: barWidth
       },
       {
         name: '销量',             //---系列名称
@@ -272,7 +272,7 @@ function getBarOption(date, saleArr, saleMaxArr) {
           )
         },
         data: saleArr,
-        barWidth: 20,
+        barWidth: barWidth,
         barMinHeight:10
       }
     ]
